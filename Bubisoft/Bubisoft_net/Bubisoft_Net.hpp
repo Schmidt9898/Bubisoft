@@ -1,7 +1,6 @@
 #ifndef BUBISOFT_NET_HPP_INCLUDED
 #define BUBISOFT_NET_HPP_INCLUDED
 
-
 #define SDL_MAIN_HANDLED
 
 #include <SDL.h>
@@ -14,18 +13,18 @@
 //#include "Bubi_package.h"
 class BUBISOFT_NET
 {
-///init lefut main elˆtt.
+///init lefut main el√∂tt.
 
   public:BUBISOFT_NET();
 /*
     static void initial()
     {
-        SDL_Init(SDL_INIT_EVERYTHING);///ha haszn·lsz sdl-t akkor ezt a sort szedd ki.
+        SDL_Init(SDL_INIT_EVERYTHING);///ha haszn√°lsz sdl-t akkor ezt a sort szedd ki.
         SDLNet_Init();
     }
 
     friend struct init_0_0_1;
-///belsı valtozÛk
+///bels√µ valtoz√≥k
 protected:
 
 IPaddress ip;
