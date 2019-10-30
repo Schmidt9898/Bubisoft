@@ -1,0 +1,8 @@
+other linker options : -lmingw32 -lSDL2main -lSDL2 -lSDL2_net   <--Kövesd a sorrendet
+Be kell includeolni :
+
+#define SDL_MAIN_HANDLED  <-- ez a sor nélkün nem működik
+
+#include <SDL.h>
+#include <SDL_net.h> 
+
