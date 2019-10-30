@@ -1,7 +1,9 @@
 #ifndef BUBISOFT_NET_HPP_INCLUDED
 #define BUBISOFT_NET_HPP_INCLUDED
 
+
 #define SDL_MAIN_HANDLED
+
 #include <SDL.h>
 #include <SDL_net.h>
 

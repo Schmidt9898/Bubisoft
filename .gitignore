@@ -5,3 +5,10 @@ Bubisoft_net/SDL2_net.dll
 Bubisoft_net/Bubisoft_net.depend
 Bubisoft_net/Bubisoft_net.layout
 *.o
+<<<<<<< Updated upstream
+=======
+*.cbp
+*.depend
+*.depend
+>>>>>>> Stashed changes
+*.depend
