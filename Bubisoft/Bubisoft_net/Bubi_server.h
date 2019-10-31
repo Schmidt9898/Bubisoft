@@ -12,33 +12,50 @@
 
 class Bubi_Server
 {
+    Bubi_Factory factory;
+
     IPaddress tcp_ip;
     IPaddress udp_ip;
-    TCPsocket tcp_socket;
-    UDPsocket udp_socket;
+    TCPsocket tcp_server;
+    UDPsocket udp_server;
     std::list<TCPsocket> clients;
 
-    std::thread sender;
-    std::thread receiver;
-    std::thread searcher;
+     int package_size=1024;
+
+    std::thread* sender;
+    std::thread* receiver;
+    std::thread* Accepter;
+    std::thread* Broadcaster;
 
 
+    std::mutex OUT_buff_M;
+    std::mutex IN_buff_M;
 
+    std::vector<std::vector<Bubi_package>> OUT_buffer;
+    std::vector<std::vector<Bubi_package>> IN_buffer;
 
+    void Broadcasting_loop(){};///TODO
+    void Accepting_TCP_loop();
+    void Send_Buffer();///TODO
+    void Read_Buffer();///TODO
+
+    void Sender_loop();///TODO
+    void Reader_loop();///TODO
 
 private:
-    void udp_broadcast(){};
+    void udp_broadcast(){};///TODO
 
- ~Bubi_Server();
+    ~Bubi_Server();
 public :
+
     Bubi_Server(int tcp_port,int udp_port);
-    bool Open_Server()
-    {
+    bool Open_Server();
+    /*{
 
         ///start broadcast
         ///start threds
         return true;
-    }
+    }*/
 
 };
 
