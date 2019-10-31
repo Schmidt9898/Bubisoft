@@ -35,9 +35,9 @@ class Bubi_Client
 
     Bubi_Client(TCPsocket & ready_socket);
     ~Bubi_Client();
-    void Server_searching();
-    void Connect();
-    void CleanUp();
+    void Server_searching(){};
+    void Connect(){};
+    void CleanUp(){};
     void Send_Buffer();
     void Read_Buffer();
 public :

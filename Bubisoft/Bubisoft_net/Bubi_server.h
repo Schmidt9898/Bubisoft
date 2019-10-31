@@ -7,6 +7,7 @@
 #include <thread>
 #include <mutex>
 #include <vector>
+#include <list>
 #include "Bubi_package.h"
 
 class Bubi_Server
@@ -15,7 +16,7 @@ class Bubi_Server
     IPaddress udp_ip;
     TCPsocket tcp_socket;
     UDPsocket udp_socket;
-    SDLNet_SocketSet clients;
+    std::list<TCPsocket> clients;
 
     std::thread sender;
     std::thread receiver;
@@ -26,31 +27,11 @@ class Bubi_Server
 
 
 private:
-    void udp_broadcast()
-    {
+    void udp_broadcast(){};
 
-
-    }
-
-
-
-
-
-    ~Bubi_Server(){
-    ///Legyen vége a szálaknak.
-    sender.join();
-    receiver.join();
-    searcher.join();
-
-    }
-
+ ~Bubi_Server();
 public :
-    Bubi_Server(int tcp_port,int udp_port)
-    {
-        clients=SDLNet_AllocSocketSet(3);
-        SDLNet_ResolveHost(&tcp_ip,NULL,tcp_port);
-        SDLNet_ResolveHost(&udp_ip,NULL,udp_port);
-    }
+    Bubi_Server(int tcp_port,int udp_port);
     bool Open_Server()
     {
 
