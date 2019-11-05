@@ -8,10 +8,12 @@
 #include <thread>
 #include <mutex>
 #include <vector>
+#include <condition_variable>
 class Bubi_Client
 {
    // char Bubi_ID=0;/// 1 byte
     bool connected=false;
+    bool run=true;
 
     Bubi_Factory factory;
 
@@ -29,6 +31,9 @@ class Bubi_Client
     std::mutex OUT_buff_M;
     std::mutex IN_buff_M;
 
+    std::condition_variable OUT_buff_C;
+    std::condition_variable IN_buff_C;
+
     std::vector<std::vector<Bubi_package>> OUT_buffer;
     std::vector<std::vector<Bubi_package>> IN_buffer;
 
@@ -38,8 +43,10 @@ class Bubi_Client
     void Server_searching(){};
     void Connect(){};
     void CleanUp(){};
-    void Send_Buffer();
-    void Read_Buffer();
+    void Send_package(Bubi_package * tomb,unsigned int size_);
+    //void Read_Buffer();
+    void Sender_loop();
+    void Reader_loop();
 public :
 
     Bubi_Client() {};
