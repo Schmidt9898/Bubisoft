@@ -8,7 +8,7 @@
 
 struct Bubi_package
 {
-    char flag=0;
+    char flag=0;///if √°tfed√©st lehet≈ëv√© teszi
     char pickup_flag=0;/// 2*1 byte but actually 4 byte
     float pos_x=0,    /// 4 byte
           pos_y=0;    /// 4 byte
@@ -72,8 +72,8 @@ struct Bubi_name_package
 
 
 ///std::memcpy(hova, honnan, mennyit);
-///A vector array byte jai lem·solÛdnak egy ugyan akkora mÈret˚ bufferba amit
-///elıre kell megadni Ès alloc·lni
+///A vector array byte jai lem√°sol√≥dnak egy ugyan akkora m√©ret√ª bufferba amit
+///el√µre kell megadni √©s alloc√°lni
 ///vectort referencia szerint kell megadni
 
 struct Bubi_Factory{
