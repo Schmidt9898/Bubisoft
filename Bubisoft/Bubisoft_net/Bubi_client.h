@@ -11,7 +11,7 @@
 #include <condition_variable>
 class Bubi_Client
 {
-   // char Bubi_ID=0;/// 1 byte
+    uint32_t Bubi_ID=0;/// 4 byte a packageből
     bool connected=false;
     bool run=true;
 
@@ -53,7 +53,8 @@ public :
 
     Bubi_Client(char * _ip,int _port);
 
-
+    unsigned int Get_ID();
+    bool IsConected();
 
     void Start_matchmaking() throw (Cant_cast_ip_exception);
 

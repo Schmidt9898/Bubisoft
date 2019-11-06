@@ -8,19 +8,25 @@
 #include <mutex>
 #include <vector>
 #include <list>
+#include <condition_variable>
 #include "Bubi_package.h"
 
 class Bubi_Server
 {
+
+
     Bubi_Factory factory;
 
     IPaddress tcp_ip;
     IPaddress udp_ip;
     TCPsocket tcp_server;
     UDPsocket udp_server;
+
     std::list<TCPsocket> clients;
 
-     int package_size=1024;
+    int package_size=1024;
+
+    bool run=true;
 
     std::thread* sender;
     std::thread* receiver;
@@ -28,21 +34,25 @@ class Bubi_Server
     std::thread* Broadcaster;
 
 
+
+
     std::mutex OUT_buff_M;
     std::mutex IN_buff_M;
+
+    std::condition_variable OUT_buff_C;
+    std::condition_variable IN_buff_C;
 
     std::vector<std::vector<Bubi_package>> OUT_buffer;
     std::vector<std::vector<Bubi_package>> IN_buffer;
 
     void Broadcasting_loop(){};///TODO
     void Accepting_TCP_loop();
-    void Send_Buffer();///TODO
-    void Read_Buffer();///TODO
+    void Send_package(Bubi_package * tomb,unsigned int size_);
+    //void Read_Buffer();///TODO
 
-    void Sender_loop();///TODO
-    void Reader_loop();///TODO
+    void Sender_loop();
+    void Reader_loop();
 
-private:
     void udp_broadcast(){};///TODO
 
     ~Bubi_Server();
@@ -50,12 +60,10 @@ public :
 
     Bubi_Server(int tcp_port,int udp_port);
     bool Open_Server();
-    /*{
 
-        ///start broadcast
-        ///start threds
-        return true;
-    }*/
+    void Push_Bubivector(std::vector<Bubi_package> &vec);
+    std::vector<Bubi_package>* Pop_Bubivector();
+
 
 };
 

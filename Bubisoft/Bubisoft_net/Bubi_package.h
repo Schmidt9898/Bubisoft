@@ -15,7 +15,7 @@ struct Bubi_package
     float mom_x=0,    /// 4 byte
           mom_y=0;    /// 4 byte
     int32_t p_size=0; /// 4 byte
-    unsigned int p_id=0;/// 4 byte
+    uint32_t p_id=0;/// 4 byte
 //char pickup_flag; ///1 byte but 4 byte
 
     Bubi_package(char _flag,char _pickup_flag,///TODO bool[]
@@ -24,7 +24,7 @@ struct Bubi_package
                  float _mom_x,
                  float _mom_y,
                  int32_t _p_size,
-                 unsigned int _p_id
+                 uint32_t _p_id
 
                 ):flag(_flag),pos_x(_pos_x),pos_y(_pos_y),
         mom_x(_mom_x),mom_y(_mom_y),
@@ -59,9 +59,9 @@ struct Bubi_name_package
 {
         char flag=0;
         char name[23]={' '};
-        unsigned int p_id=0;
+        uint32_t p_id=0;
 
-        Bubi_name_package(char _flag,unsigned int _p_id,std::string _name)
+        Bubi_name_package(char _flag,uint32_t _p_id,std::string _name)
         :flag(_flag),p_id(_p_id){
             if(_name.size()<23)
          memcpy(name, &_name, _name.size());
