@@ -25,9 +25,6 @@ Bubi_Client::~Bubi_Client()
     searcher->join();
 }
 
-
-
-
 Bubi_Client::Bubi_Client(char * _ip,int _port)
 {
     int code;
@@ -55,7 +52,12 @@ void Bubi_Client::Start_matchmaking() throw (Cant_cast_ip_exception)
     }
     connected=true;
 
-    ///get and set my unique id for the thread
+    ///get unique id from con server port
+    IPaddress *remote_ip;
+
+    remote_ip=SDLNet_TCP_GetPeerAddress(tcp_socket);
+    Bubi_ID=(uint32_t)remote_ip->port;
+    //get and set my unique id for the thread
     /*
     char id_data[4];
     int data_size;
@@ -87,10 +89,11 @@ void Bubi_Client::Sender_loop()
             char* buff_to_send= new char[OUT_buffer[0].size()];
             int buff_size=factory.Make_buffer_from_vector(
                               OUT_buffer[0],buff_to_send);
-            OUT_buffer.erase(OUT_buffer.begin());
+
             int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,buff_size);
 
             ///delete temp buff
+            OUT_buffer.erase(OUT_buffer.begin());
             delete buff_to_send;
 
 
@@ -107,24 +110,18 @@ void Bubi_Client::Sender_loop()
 
 }
 
-
-
-
-
-
-
-
 void Bubi_Client::Send_package(Bubi_package * tomb,unsigned int size_)
 {
-    OUT_buff_M.lock();
+
     char* buff_to_send= new char[size_];
     memcpy(buff_to_send, tomb, size_);
+    OUT_buff_M.lock();
     int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,size_);
 
     OUT_buff_M.unlock();
 
 
-    if(error<size_)
+    if(error<(int)size_)
     {
         throw new Lost_connection_exception(SDLNet_GetError());
     }
@@ -158,8 +155,6 @@ void Bubi_Client::Reader_loop()
 
 }
 
-
-
 void Bubi_Client::Push_Bubivector(std::vector<Bubi_package> &vec)
 {
     OUT_buff_M.lock();
@@ -173,16 +168,16 @@ void Bubi_Client::Push_Bubivector(std::vector<Bubi_package> &vec)
 
 std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
 {
-    std::vector<Bubi_package> retu;
+    std::vector<Bubi_package> *retu= new std::vector<Bubi_package>() ;
     std::unique_lock<std::mutex> key(IN_buff_M);///lock
     while(true)
     {
         if(IN_buffer.size()>0)
         {
 
-            for(int i=0; i<IN_buffer.size(); i++)
+            for(unsigned int i=0; i<IN_buffer.size(); i++)
             {
-                retu.insert(retu.end(),IN_buffer[i].begin(),IN_buffer[i].end());
+                retu->insert(retu->end(),IN_buffer[i].begin(),IN_buffer[i].end());
             }
             IN_buffer.clear();
             break;
@@ -208,13 +203,19 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
     }
     key.unlock();
     //IN_buff_M.unlock();
-    return &retu;
+    return retu;
 
 
 
 }
 
-
+uint32_t Bubi_Client::Get_ID(){
+return Bubi_ID;
+}
+bool Bubi_Client::IsConected()
+{
+    return connected;
+}
 
 
 
