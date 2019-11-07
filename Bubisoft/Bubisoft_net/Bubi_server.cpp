@@ -2,10 +2,14 @@
 
  Bubi_Server::~Bubi_Server(){
     ///Legyen vége a szálaknak.
-    sender->join();
-    receiver->join();
+    Sender->join();
+
     Accepter->join();
     Broadcaster->join();
+    for (std::thread* reader : Readers){
+        reader->join();
+    }
+    std::cout<<"server closed"<<std::endl;
 ///TODO bővíteni
     }
 
@@ -35,8 +39,8 @@ Broadcaster= new std::thread(Bubi_server::Broadcasting_loop,this);
 
 Accepter =  new std::thread(Bubi_Server::Accepting_TCP_loop,this);
 
-sender= new std::thread(Bubi_Server::Sender_loop,this);
-receiver=new std::thread(Bubi_Server::Reader_loop,this);
+Sender= new std::thread(Bubi_Server::Sender_loop,this);
+//receiver=new std::thread(Bubi_Server::Reader_loop,this);
 
 
  return true;
@@ -49,10 +53,13 @@ TCPsocket client;
 while(true){
 
     client = SDLNet_TCP_Accept(tcp_server);
-    if(!client)
+    if(client)
     {
         //levéd
-        clients.push_back(client);
+        std::cout<<"new client"<<std::endl;
+        clients.push_back(&client);
+        Readers.push_back(new std::thread(Bubi_Server::Reader_loop,this,&client));
+
         client=NULL;
         //felold
 
@@ -76,43 +83,61 @@ void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
     char* buff_to_send= new char[size_];
     memcpy(buff_to_send, tomb, size_);
     OUT_buff_M.lock();
+
+     for (TCPsocket* client : clients) {
+        int error=SDLNet_TCP_Send(*client,buff_to_send,size_);
+    if(error<(int)size_)///nem megfelelő
+    { ///TODO hibakezelés
+     //   throw new Lost_connection_exception(SDLNet_GetError());
+     std::cout<<"hiba a sockettel"<<std::endl;
+    }
+
+    }
     //int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,size_);
-    ///todo
+
     OUT_buff_M.unlock();
 
 
-/*    if(error<(int)size_)
-    {
-        throw new Lost_connection_exception(SDLNet_GetError());
-    }*/
+/*    */
 
     delete tomb;
     delete buff_to_send;
 
 }
 
-void Bubi_Server::Reader_loop()
+void Bubi_Server::Reader_loop(TCPsocket *client)
 {
+    std::cout<<"reader started"<<std::endl;
     int bytesize=0;
     char * buff=nullptr;
     while(run)
     {
+        //std::cout<<"reader loop"<<std::endl;
         buff=new char[package_size];
-        ///TODO
-       /* bytesize = SDLNet_TCP_Recv(tcp_socket,buff,package_size);
-        if(bytesize<0)
+
+
+        bytesize = SDLNet_TCP_Recv(*client,buff,package_size);
+        std::cout<<"csomag erkezett"<<std::endl;
+        if(bytesize<0)///nem megfelelő
         {
-            throw new Lost_connection_exception(SDLNet_GetError());
+            ///TODO hibakezelés
+            //   throw new Lost_connection_exception(SDLNet_GetError());
+            std::cout<<"hiba a sockettel olvasa's"<<std::endl;
+            break;
         }
-        */
+
         std::vector<Bubi_package> vec=factory.Make_vector_from_buffer(buff,bytesize);
+        std::cout<<"e "<<bytesize<<std::endl;
+//std::cout<<"beerkezett toltes"<<std::endl;
         IN_buff_M.lock();
         IN_buffer.push_back(vec);
         ///notify
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
+        std::cout<<"server olvasott"<<std::endl;
 
     }
+    clients.remove(client);
 }
 
 
@@ -127,7 +152,22 @@ void Bubi_Server::Sender_loop()
             char* buff_to_send= new char[OUT_buffer[0].size()];
             int buff_size=factory.Make_buffer_from_vector(
                               OUT_buffer[0],buff_to_send);
-            ///TODO
+
+            for (TCPsocket* client : clients)
+            {
+                int error=SDLNet_TCP_Send(*client,buff_to_send,buff_size);
+                if(error<(int)buff_size)///nem megfelelő
+                {
+                     ///TODO hibakezelés
+                    //   throw new Lost_connection_exception(SDLNet_GetError());
+                    std::cout<<"hiba a sockettel 2"<<std::endl;
+                }
+
+            }
+
+
+
+
            // int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,buff_size);
 
             ///delete temp buff
@@ -196,10 +236,14 @@ std::vector<Bubi_package>* Bubi_Server::Pop_Bubivector()
     }
     key.unlock();
     //IN_buff_M.unlock();
+    //std::cout<<retu->size()<<std::endl;
     return retu;
 
 
 
 }
 
+void Bubi_Server::Close_Server(){
+run=false;
+}
 

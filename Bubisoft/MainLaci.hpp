@@ -11,15 +11,35 @@ void MainLaci()
 
     cout << "Hello Laci!" << endl;
 
+    {
+
+
   //  SDL_Init(SDL_INIT_EVERYTHING); ///ez a 2 sor kell
     //SDLNet_Init();
-/*
+
     IPaddress cim;
     TCPsocket socket;
 
     SDLNet_ResolveHost(&cim , NULL, 12345);
     socket=SDLNet_TCP_Open(&cim);
     TCPsocket client;
+
+
+vector<Bubi_package> vec;
+Bubi_package package;
+for(int i=0;i<10;i++){
+    vec.push_back(package);
+}
+//Bubi_Server server(12345,0);
+//server.Open_Server();
+char * a=new char('s');
+Bubi_Client client2(a,12345);
+client2.Start_matchmaking();
+
+client2.Push_Bubivector(vec);
+
+
+
 do
 {
     client = SDLNet_TCP_Accept(socket);
@@ -28,12 +48,19 @@ do
 cout<<"csatlakozva"<<endl;
 int bytesize;
 unsigned int gotnumber;
-char data[4];
+char data[28];
+
+//server.Push_Bubivector(vec);
+
+
+
+
+
     while(true)
     {
-        bytesize = SDLNet_TCP_Recv(client,&data,4);
+        bytesize = SDLNet_TCP_Recv(client,&data,28);
         //if(bytesize>0)
-        std::memcpy(&gotnumber, data, 4);
+        std::memcpy(&gotnumber, data, 28);
         cout<<data<<" - "<<sizeof(data);
         cout<<" ["<<gotnumber<<"] the number";
         cout<<" "<<bytesize<<endl;
@@ -53,7 +80,7 @@ char data[4];
         //SDLNet_TCP_Send(client,msg,8);
 
     }
-*/
+
 /*
 
     cout << "whats next? 1: server 2:client" << endl;
@@ -85,6 +112,7 @@ try{
 }
 */
 //Bubi_package package;
+/*
 cout<<sizeof(Bubi_package)<<endl;
 Bubi_package p;
 cout<<sizeof(Bubi_name_package)<<endl;
@@ -98,12 +126,39 @@ cout<<p.ToString()<<endl;
 //bool t[8];
 //cout<<sizeof(t) <<endl;
 
+*/
 
 
 
 
+}
+
+/*
+
+try{
+vector<Bubi_package> vec;
+Bubi_package package;
+for(int i=0;i<10;i++){
+    vec.push_back(package);
+}
+Bubi_Server server(12345,0);
+server.Open_Server();
+char * a=new char('s');
+Bubi_Client client(a,12345);
+client.Start_matchmaking();
+
+client.Push_Bubivector(vec);
+server.Push_Bubivector(vec);
 
 
+ vector<Bubi_package>* vec2 = client.Pop_Bubivector();
+
+ server.Close_Server();
+ cout<<vec2->size()<<endl;
+ for(Bubi_package p : *vec2){
+
+    cout<<p.ToString()<<endl;
+ }
 
 
     SDLNet_Quit();
@@ -111,6 +166,10 @@ cout<<p.ToString()<<endl;
 
 
 cout<<"the end Laci"<<endl;
+}catch(std::exception e){
+    cout<<"hhhhhh"<<endl;
+}
+*/
 
 }
 

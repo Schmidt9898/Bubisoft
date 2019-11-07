@@ -29,45 +29,48 @@ struct Bubi_package
                 ):flag(_flag),pos_x(_pos_x),pos_y(_pos_y),
         mom_x(_mom_x),mom_y(_mom_y),
         p_size(_p_size),p_id(_p_id),pickup_flag(_pickup_flag) {}
+
     Bubi_package() {};
+
     std::string ToString()
     {
-    std::string value="";
- std::cout<<pos_x<<std::endl;
-    value+=std::to_string(flag);
-    value+=" : ";
-    value+=std::to_string(pickup_flag);
-    value+=" : ";
-    value+=std::to_string(pos_x);
-    value+=" : ";
-    value+=std::to_string(pos_y);
-    value+=" : ";
-    value+=std::to_string(mom_x);
-    value+=" : ";
-    value+=std::to_string(mom_y);
-    value+=" : ";
-    value+=std::to_string(p_size);
-    value+=" : ";
-    value+=std::to_string(p_id);
-  //  std::cout<<value<<std::endl;
-    return value;
+        std::string value="";
+        std::cout<<pos_x<<std::endl;
+        value+=std::to_string(flag);
+        value+=" : ";
+        value+=std::to_string(pickup_flag);
+        value+=" : ";
+        value+=std::to_string(pos_x);
+        value+=" : ";
+        value+=std::to_string(pos_y);
+        value+=" : ";
+        value+=std::to_string(mom_x);
+        value+=" : ";
+        value+=std::to_string(mom_y);
+        value+=" : ";
+        value+=std::to_string(p_size);
+        value+=" : ";
+        value+=std::to_string(p_id);
+        //  std::cout<<value<<std::endl;
+        return value;
 
     }
 
 };
 struct Bubi_name_package
 {
-        char flag=0;
-        char name[23]={' '};
-        uint32_t p_id=0;
+    char flag=0;
+    char name[23]= {' '};
+    uint32_t p_id=0;
 
-        Bubi_name_package(char _flag,uint32_t _p_id,std::string _name)
-        :flag(_flag),p_id(_p_id){
-            if(_name.size()<23)
-         memcpy(name, &_name, _name.size());
-         else
+    Bubi_name_package(char _flag,uint32_t _p_id,std::string _name)
+        :flag(_flag),p_id(_p_id)
+    {
+        if(_name.size()<23)
+            memcpy(name, &_name, _name.size());
+        else
             memcpy(name, &_name, 23);
-        }
+    }
 };
 
 
@@ -76,8 +79,9 @@ struct Bubi_name_package
 ///elõre kell megadni és allocálni
 ///vectort referencia szerint kell megadni
 
-struct Bubi_Factory{
-    public :
+struct Bubi_Factory
+{
+public :
     int Make_buffer_from_vector(std::vector<Bubi_package> & vec,char *buff)
     {
 

@@ -27,17 +27,17 @@ Bubi_Client::~Bubi_Client()
 
 Bubi_Client::Bubi_Client(char * _ip,int _port)
 {
-    int code;
+  /*  int code;
     code=SDLNet_ResolveHost(&tcp_ip,_ip,_port);
     if(code!=0)
     {
         ///TODO cleanup
         throw new Cant_cast_ip_exception(SDLNet_GetError());
     }
-
+*/
 };
 
-void Bubi_Client::Start_matchmaking() throw (Cant_cast_ip_exception)
+void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
 {
     ///broadcast for server ip...
     //TODO
@@ -48,7 +48,7 @@ void Bubi_Client::Start_matchmaking() throw (Cant_cast_ip_exception)
     //for(int i = 0;i<5;i++) // késöbbre
     if(!tcp_socket)/// socket null
     {
-        throw new Cant_connect_exception(SDLNet_GetError());
+        //throw new Cant_connect_exception(SDLNet_GetError());
     }
     connected=true;
 
@@ -57,6 +57,7 @@ void Bubi_Client::Start_matchmaking() throw (Cant_cast_ip_exception)
 
     remote_ip=SDLNet_TCP_GetPeerAddress(tcp_socket);
     Bubi_ID=(uint32_t)remote_ip->port;
+    std::cout<<" port"<<Bubi_ID <<std::endl;
     //get and set my unique id for the thread
     /*
     char id_data[4];
@@ -86,6 +87,7 @@ void Bubi_Client::Sender_loop()
         std::unique_lock<std::mutex> key(OUT_buff_M);///lock
         while(OUT_buffer.size()>0)
         {
+            std::cout<<"client kuldes iras"<<std::endl;
             char* buff_to_send= new char[OUT_buffer[0].size()];
             int buff_size=factory.Make_buffer_from_vector(
                               OUT_buffer[0],buff_to_send);
@@ -101,9 +103,11 @@ void Bubi_Client::Sender_loop()
             if(error<buff_size)
             {
                 key.unlock();
-                throw new Lost_connection_exception(SDLNet_GetError());
+                std::cout<<"client kuldes iras hiba   !!!!"<<std::endl;
+                //throw new Lost_connection_exception(SDLNet_GetError());
             }
         }
+        std::cout<<"client iras varas"<<std::endl;
         OUT_buff_C.wait(key);
         key.unlock();///gondold át még egyszer.
     }
@@ -123,7 +127,8 @@ void Bubi_Client::Send_package(Bubi_package * tomb,unsigned int size_)
 
     if(error<(int)size_)
     {
-        throw new Lost_connection_exception(SDLNet_GetError());
+        //throw new Lost_connection_exception(SDLNet_GetError());
+         std::cout<<"hiba a client sockettel iras"<<std::endl;
     }
 
     delete tomb;
@@ -141,7 +146,7 @@ void Bubi_Client::Reader_loop()
         bytesize = SDLNet_TCP_Recv(tcp_socket,buff,package_size);
         if(bytesize<0)
         {
-            throw new Lost_connection_exception(SDLNet_GetError());
+//            throw new Lost_connection_exception(SDLNet_GetError());
         }
         std::vector<Bubi_package> vec=factory.Make_vector_from_buffer(buff,bytesize);
         IN_buff_M.lock();
@@ -157,6 +162,8 @@ void Bubi_Client::Reader_loop()
 
 void Bubi_Client::Push_Bubivector(std::vector<Bubi_package> &vec)
 {
+
+     std::cout<<"client pushed"<<std::endl;
     OUT_buff_M.lock();
     OUT_buffer.push_back(vec);
     /// notify
@@ -215,6 +222,10 @@ return Bubi_ID;
 bool Bubi_Client::IsConected()
 {
     return connected;
+}
+
+void Bubi_Client::Close_Client(){
+run=false;
 }
 
 
