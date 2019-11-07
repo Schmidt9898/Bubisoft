@@ -107,7 +107,7 @@ void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
 }
 
 void Bubi_Server::Reader_loop(TCPsocket client)
-{
+{///hibás
     std::cout<<"reader started"<<std::endl;
     int bytesize=0;
     char * buff=nullptr;
