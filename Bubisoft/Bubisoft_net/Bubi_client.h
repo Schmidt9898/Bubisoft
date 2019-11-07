@@ -23,7 +23,7 @@ class Bubi_Client
     TCPsocket tcp_socket;
     UDPsocket udp_socket;
 
-    int package_size=28;
+    uint16_t package_size=28;
 
     std::thread* sender;
     std::thread* receiver;
@@ -35,8 +35,8 @@ class Bubi_Client
     std::condition_variable OUT_buff_C;
     std::condition_variable IN_buff_C;
 
-    std::vector<std::vector<Bubi_package>> OUT_buffer;
-    std::vector<std::vector<Bubi_package>> IN_buffer;
+    std::vector<std::vector<Bubi_package>*> OUT_buffer;
+    std::vector<std::vector<Bubi_package>*> IN_buffer;
 
 
     Bubi_Client(TCPsocket & ready_socket);
@@ -62,7 +62,7 @@ public :
     void Start_matchmaking();// throw (Cant_cast_ip_exception);
     void Close_Client();
 
-    void Push_Bubivector(std::vector<Bubi_package> &vec);
+    void Push_Bubivector(std::vector<Bubi_package> *vec);
     std::vector<Bubi_package>* Pop_Bubivector();
 
 

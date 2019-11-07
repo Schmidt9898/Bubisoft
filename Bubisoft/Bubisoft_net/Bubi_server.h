@@ -24,7 +24,7 @@ class Bubi_Server
     TCPsocket tcp_server;
     UDPsocket udp_server;
 
-    std::list<TCPsocket*> clients;
+    std::list<TCPsocket> clients;
     std::vector<std::thread*> Readers;
 
     int package_size=28;
@@ -47,8 +47,8 @@ class Bubi_Server
     std::condition_variable OUT_buff_C;
     std::condition_variable IN_buff_C;
 
-    std::vector<std::vector<Bubi_package>> OUT_buffer;
-    std::vector<std::vector<Bubi_package>> IN_buffer;
+    std::vector<std::vector<Bubi_package>*> OUT_buffer;
+    std::vector<std::vector<Bubi_package>*> IN_buffer;
 
     void Broadcasting_loop(){};///TODO
     void Accepting_TCP_loop();
@@ -57,7 +57,7 @@ class Bubi_Server
 
     void Sender_loop();
     //void Reader_loop();
-    void Reader_loop(TCPsocket *client);
+    void Reader_loop(TCPsocket client);
 
     void udp_broadcast(){};///TODO
 
@@ -69,7 +69,7 @@ public :
     bool Open_Server();
     void Close_Server();
 
-    void Push_Bubivector(std::vector<Bubi_package> &vec);
+    void Push_Bubivector(std::vector<Bubi_package> *vec);
     std::vector<Bubi_package>* Pop_Bubivector();
 
 

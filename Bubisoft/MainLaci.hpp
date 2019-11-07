@@ -16,7 +16,7 @@ void MainLaci()
 
   //  SDL_Init(SDL_INIT_EVERYTHING); ///ez a 2 sor kell
     //SDLNet_Init();
-
+/*
     IPaddress cim;
     TCPsocket socket;
 
@@ -80,7 +80,7 @@ char data[28];
         //SDLNet_TCP_Send(client,msg,8);
 
     }
-
+*/
 /*
 
     cout << "whats next? 1: server 2:client" << endl;
@@ -133,7 +133,7 @@ cout<<p.ToString()<<endl;
 
 }
 
-/*
+
 
 try{
 vector<Bubi_package> vec;
@@ -147,14 +147,14 @@ char * a=new char('s');
 Bubi_Client client(a,12345);
 client.Start_matchmaking();
 
-client.Push_Bubivector(vec);
-server.Push_Bubivector(vec);
+client.Push_Bubivector(&vec);
+//server.Push_Bubivector(&vec);
+ //cout<<"chapter"<<endl;
 
-
- vector<Bubi_package>* vec2 = client.Pop_Bubivector();
-
- server.Close_Server();
- cout<<vec2->size()<<endl;
+ vector<Bubi_package>* vec2 = server.Pop_Bubivector();
+ cout<<"chapter"<<endl;
+ //server.Close_Server();
+ cout<<vec2->size()<<" merete"<<endl;
  for(Bubi_package p : *vec2){
 
     cout<<p.ToString()<<endl;
@@ -169,7 +169,6 @@ cout<<"the end Laci"<<endl;
 }catch(std::exception e){
     cout<<"hhhhhh"<<endl;
 }
-*/
 
 }
 

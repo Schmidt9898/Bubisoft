@@ -82,21 +82,25 @@ struct Bubi_name_package
 struct Bubi_Factory
 {
 public :
-    int Make_buffer_from_vector(std::vector<Bubi_package> & vec,char *buff)
+    int Make_buffer_from_vector(std::vector<Bubi_package> * vec,char *buff)
     {
+        std::cout<<vec->size();
 
-        int size_of_buffer = vec.size() * sizeof(Bubi_package);
+        uint16_t size_of_buffer = vec->size();// * sizeof(Bubi_package);
 
-        memcpy(buff, &vec[0], size_of_buffer);
+        memcpy(buff, &vec[0] , size_of_buffer);
 
         return size_of_buffer;
     }
 
-    std::vector<Bubi_package> Make_vector_from_buffer(char* buff,int b_size)
+    std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
     {
-        std::vector<Bubi_package> vec;
-        vec.resize(b_size);
-        memcpy(&vec[0],buff, b_size);
+        uint16_t p_size=b_size/sizeof(Bubi_package);
+        Bubi_package p[p_size];
+
+        memcpy(p,buff, b_size);
+        std::vector<Bubi_package> *vec = new std::vector<Bubi_package>(p,p+p_size);
+
         delete buff;
         return vec;
     }
