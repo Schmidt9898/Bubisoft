@@ -91,10 +91,12 @@ void Bubi_Client::Sender_loop()
         while(OUT_buffer.size()>0)
         {
             std::cout<<"client kuldes iras"<<std::endl;
-            char* buff_to_send= new char[OUT_buffer[0]->size()];
+            //int s=OUT_buffer[0]->size()*sizeof(Bubi_package);
+          //  std::cout<<"sss"<<s<<std::endl;
+            char* buff_to_send= new char[OUT_buffer[0]->size()*sizeof(Bubi_package)];
             int buff_size=factory.Make_buffer_from_vector(
                               OUT_buffer[0],buff_to_send);
-
+               std::cout<<"iras:"<<buff_to_send<<" size:"<<buff_size<<std::endl;
             int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,buff_size);
 
             ///delete temp buff
@@ -119,8 +121,8 @@ void Bubi_Client::Sender_loop()
 
 void Bubi_Client::Send_package(Bubi_package * tomb,unsigned int size_)
 {
-
-    char* buff_to_send= new char[size_];
+///javít maybe
+    char* buff_to_send= new char[size_*sizeof(Bubi_package)];
     memcpy(buff_to_send, tomb, size_);
     OUT_buff_M.lock();
     int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,size_);
@@ -146,17 +148,24 @@ void Bubi_Client::Reader_loop()
     char * buff=nullptr;
     while(connected && run)
     {
-          std::cout<<"looooooooooooooooooooooooop"<<std::endl;
+          std::cout<<"reader looooooooooooooooooooooooop"<<std::endl;
         buff=new char[package_size];
+        //std::cout<<std::string(buff)<<std::endl;
         bytesize = SDLNet_TCP_Recv(tcp_socket,buff,package_size);
         if(bytesize<0)
         {
 //            throw new Lost_connection_exception(SDLNet_GetError());
         }
+
+
+        std::cout<<"buff::"<<std::string(buff) <<std::endl;
+
+
         std::vector<Bubi_package> *vec=factory.Make_vector_from_buffer(buff,bytesize);
-  std::cout<<"looooooooooooooooooooooooop"<<std::endl;
+        std::cout<<"client csomag erkezett"<<std::endl;
+
         IN_buff_M.lock();
-  std::cout<<"chapter locked  sad"<<std::endl;
+        //std::cout<<"chapter locked  sad"<<std::endl;
         IN_buffer.push_back(vec);
         ///notify
         IN_buff_C.notify_all();
@@ -182,7 +191,7 @@ void Bubi_Client::Push_Bubivector(std::vector<Bubi_package> *vec)
 
 std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
 {
-     std::cout<<"chapter pop"<<std::endl;
+     std::cout<<"client pop"<<std::endl;
     std::vector<Bubi_package> *retu= new std::vector<Bubi_package>() ;
 
     std::unique_lock<std::mutex> key(IN_buff_M);///lock
@@ -190,7 +199,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
     {
         if(IN_buffer.size()>0)
         {
-std::cout<<"chapter pop loop"<<std::endl;
+std::cout<<"client pop loop"<<std::endl;
             for(unsigned int i=0; i<IN_buffer.size(); i++)
             {
                 retu->insert(retu->end(),IN_buffer[i]->begin(),IN_buffer[i]->end());

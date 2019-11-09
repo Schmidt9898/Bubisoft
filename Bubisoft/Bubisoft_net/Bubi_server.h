@@ -27,7 +27,7 @@ class Bubi_Server
     std::list<TCPsocket> clients;
     std::vector<std::thread*> Readers;
 
-    int package_size=28;
+    int package_size=1024;
 
     std::atomic_bool run{true};
      //bool run=true;
@@ -74,5 +74,16 @@ public :
 
 
 };
+
+
+class Client{
+
+
+
+
+};
+
+
+
 
 #endif // BUBI_SERVER_H_INCLUDED

@@ -41,8 +41,6 @@ Accepter =  new std::thread(Bubi_Server::Accepting_TCP_loop,this);
 
 //Sender= new std::thread(Bubi_Server::Sender_loop,this);
 
-//receiver=new std::thread(Bubi_Server::Reader_loop,this);
-
 
  return true;
 }
@@ -81,7 +79,7 @@ while(true){
 void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
 {
 
-    char* buff_to_send= new char[size_];
+    char* buff_to_send= new char[size_*sizeof(Bubi_package)];
     memcpy(buff_to_send, tomb, size_);
     OUT_buff_M.lock();
 
@@ -115,10 +113,11 @@ void Bubi_Server::Reader_loop(TCPsocket client)
     {
         //std::cout<<"reader loop"<<std::endl;
         buff=new char[package_size];
-
-
+//buff="asdassdas";
+       // std::cout<<"ez:"<<std::string(buff)<<"::"<<std::endl;
         bytesize = SDLNet_TCP_Recv(client,buff,package_size);
-        std::cout<<"csomag erkezett"<<std::endl;
+       // std::cout<<"csomag erkezett:" <<bytesize<<std::endl;
+         //std::cout<<"ez:"<<std::string(buff)<<"::"<<std::endl;
         if(bytesize<0)///nem megfelelő
         {
             ///TODO hibakezelés
@@ -128,14 +127,14 @@ void Bubi_Server::Reader_loop(TCPsocket client)
         }
 
         std::vector<Bubi_package> *vec=factory.Make_vector_from_buffer(buff,bytesize);
-        std::cout<<"e "<<bytesize<<std::endl;
+      //  std::cout<<"e "<<bytesize<<std::endl;
 //std::cout<<"beerkezett toltes"<<std::endl;
         IN_buff_M.lock();
         IN_buffer.push_back(vec);
         ///notify
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
-        std::cout<<"server olvasott"<<std::endl;
+      //  std::cout<<"server olvasott"<<std::endl;
 
     }
     clients.remove(client);
@@ -150,7 +149,7 @@ void Bubi_Server::Sender_loop()
         std::unique_lock<std::mutex> key(OUT_buff_M);///lock
         while(OUT_buffer.size()>0)
         {
-            char* buff_to_send= new char[OUT_buffer[0]->size()];
+            char* buff_to_send= new char[OUT_buffer[0]->size()*sizeof(Bubi_package)];
             int buff_size=factory.Make_buffer_from_vector(
                               OUT_buffer[0],buff_to_send);
 
@@ -236,6 +235,7 @@ std::vector<Bubi_package>* Bubi_Server::Pop_Bubivector()
 
     }
     key.unlock();
+
     //IN_buff_M.unlock();
     //std::cout<<retu->size()<<std::endl;
     return retu;
