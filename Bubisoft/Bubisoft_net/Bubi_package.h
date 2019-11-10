@@ -8,13 +8,13 @@
 
 struct Bubi_package
 {
-    unsigned char flag='a';///if átfedést lehetővé teszi
-    unsigned char pickup_flag='b';/// 2*1 byte but actually 4 byte
+    unsigned char flag='10';///if átfedést lehetővé teszi
+    unsigned char pickup_flag='01';/// 2*1 byte but actually 4 byte
     unsigned char space=255;
     unsigned char space0=255;
-    float pos_x=0,    /// 4 byte
-          pos_y=0;    /// 4 byte
-    float mom_x=0,    /// 4 byte
+    float pos_x=4,    /// 4 byte
+          pos_y=4;    /// 4 byte
+    float mom_x=4,    /// 4 byte
           mom_y=0;    /// 4 byte
     int32_t p_size=0; /// 4 byte
     uint32_t p_id=0;/// 4 byte
@@ -108,11 +108,11 @@ public :
 
 
 
-      std::cout<<"masik::"<<std::endl;
+   /*   std::cout<<"masik::"<<std::endl;
         for(int i=0;i<size;i++){
         std::printf("%02x ", buff[i]);
         }
-        std::cout<<std::endl;
+        std::cout<<std::endl;*/
 
         size_t a_size=size/sizeof(Bubi_package);
        // Bubi_package* p = new Bubi_package[a_size];
@@ -136,41 +136,68 @@ public :
 
 
 
-    int Make_buffer_from_vector(std::vector<Bubi_package> * vec,char *buff)
-    {
-        //std::cout<<vec->size();
+    //int Make_buffer_from_vector(std::vector<Bubi_package> * vec,char *buff)
+    ///{///hibás ne használd soha   ez jobb tomb=(char*)&vec[0];
+/*        //std::cout<<vec->size();
 
         uint16_t size_of_buffer = vec->size()*sizeof(Bubi_package);// * sizeof(Bubi_package);
 
         memcpy(buff, &vec[0] , size_of_buffer);
- std::cout<<"buff make::"<<std::endl;
+ /*std::cout<<"buff make::"<<std::endl;
         for(int i=0;i<size_of_buffer;i++){
         std::printf("%02x ", buff[i]);
-        }
-
-        return size_of_buffer;
-    }
+        }*/
+/*
+        return size_of_buffer;*/
+   /// }
 
     std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
     {
+
+      /*  std::cout<<std::endl;
+   for(int i=0;i<28;i++){
+        std::printf("%02x ", buff[i]);
+        }*/
         //std::cout<<"az:"<<std::string(buff)<<"::"<<std::endl;
         //std::cout<<"buff:"<<buff<<" size:"<<b_size<<std::endl;
-        uint16_t p_size=b_size/sizeof(Bubi_package);
-        Bubi_package* p = new Bubi_package[p_size];
-        //std::cout<<"p:"<<p<<" size:"<<p_size<<std::endl;
 
-        memcpy(p,buff, b_size);
+      // Bubi_package* p=(Bubi_package*)buff;
+
+if(b_size==-1)
+{
+    std::cout<<"a kurva éleetbe"<<std::endl;
+    return new std::vector<Bubi_package>();
+
+}
+
+
+        size_t p_size=b_size/sizeof(Bubi_package);
+       //Bubi_package* p = new Bubi_package[p_size];
+        Bubi_package* p = (Bubi_package*)malloc(p_size);
+     // std::cout<<"p :  "<<p<<" buff:"<<buff<<std::endl;
+       // std::cout<<"p [0] hibásnak kell lennie|| "<<p[0].ToString()<<" size:"<<p_size<<std::endl;
+
+       // memcpy(p,buff, b_size);
         std::vector<Bubi_package> *vec = new std::vector<Bubi_package>(p,p+p_size);
 
-        std::cout<<"make::"<<std::endl;
-          for(int i=0;i<b_size;i++){
+        /*vec->resize(p_size);
+
+        for(unsigned int i=0;i<p_size;i++){
+
+            (*vec)[i]=p[i];
+        }*/
+
+
+       // std::cout<<"vector vissza|| "<<(*vec)[0].ToString()<<std::endl;
+        //std::cout<<"make::"<<std::endl;
+        /*  for(int i=0;i<b_size;i++){
         std::printf("%02x ", buff[i]);
-        }
+        }*/
 
 
 
 
-        delete buff;
+        //delete buff;
         return vec;
     }
 

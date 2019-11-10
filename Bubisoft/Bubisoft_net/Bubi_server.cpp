@@ -39,7 +39,7 @@ Broadcaster= new std::thread(Bubi_server::Broadcasting_loop,this);
 
 Accepter =  new std::thread(Bubi_Server::Accepting_TCP_loop,this);
 
-//Sender= new std::thread(Bubi_Server::Sender_loop,this);
+Sender= new std::thread(Bubi_Server::Sender_loop,this);
 
 
  return true;
@@ -78,7 +78,7 @@ while(true){
 
 void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
 {
-
+/*
     char* buff_to_send= new char[size_*sizeof(Bubi_package)];
     memcpy(buff_to_send, tomb, size_);
     OUT_buff_M.lock();
@@ -97,22 +97,22 @@ void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
     OUT_buff_M.unlock();
 
 
-/*    */
+
 
     delete tomb;
-    delete buff_to_send;
+    delete buff_to_send;*/
 
 }
 
 void Bubi_Server::Reader_loop(TCPsocket client)
 {///hibás
     std::cout<<"reader started"<<std::endl;
-    int bytesize=0;
+    size_t bytesize=0;
     char * buff=nullptr;
     while(run)
     {
         //std::cout<<"reader loop"<<std::endl;
-        buff=new char[package_size];
+        buff=(char*) malloc(package_size) ;
 //buff="asdassdas";
        // std::cout<<"ez:"<<std::string(buff)<<"::"<<std::endl;
         bytesize = SDLNet_TCP_Recv(client,buff,package_size);
@@ -149,9 +149,20 @@ void Bubi_Server::Sender_loop()
         std::unique_lock<std::mutex> key(OUT_buff_M);///lock
         while(OUT_buffer.size()>0)
         {
+             char* buff_to_send = (char*) &(*(OUT_buffer[0]))[0];
+            size_t buff_size=OUT_buffer[0]->size()*sizeof(Bubi_package);
+
+
+            Bubi_package* p=(Bubi_package*)buff_to_send;
+           //  std::cout<<"naaaaaaaasssssssizeeee--|| "<<buff_size<<std::endl;
+          //  std::cout<<"naaaaaaaappppppppppppp--|| "<<p->ToString()<<std::endl;
+           //  std::cout<<"naaaaaaaaaaaaaaaaaaaaa--|| "<< &(*(OUT_buffer[0]))[0] <<std::endl;
+
+            /*
             char* buff_to_send= new char[OUT_buffer[0]->size()*sizeof(Bubi_package)];
             int buff_size=factory.Make_buffer_from_vector(
                               OUT_buffer[0],buff_to_send);
+                              */
 
             for (TCPsocket client : clients)
             {
@@ -190,6 +201,11 @@ void Bubi_Server::Sender_loop()
 
 void Bubi_Server::Push_Bubivector(std::vector<Bubi_package> *vec)
 {
+    //Bubi_package* p=(Bubi_package*)buff_to_send;
+   // std::cout<<"pusssssssss--|| "<< (*vec)[0].ToString() <<std::endl;
+   // std::cout<<"pusssssssss--|| "<<&(*vec)[0]<<std::endl;
+
+
     OUT_buff_M.lock();
     OUT_buffer.push_back(vec);
     /// notify
