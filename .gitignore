@@ -6,3 +6,4 @@
 *.o
 *.cbp
 
+*.save-failed

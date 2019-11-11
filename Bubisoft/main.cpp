@@ -18,6 +18,8 @@ int main()
         cout << "Hello!" << endl;
        // MainLaci();
               cout << "Bye!" << endl;
+              string c;
+              cin>>c;
 
     return 0;
 }
