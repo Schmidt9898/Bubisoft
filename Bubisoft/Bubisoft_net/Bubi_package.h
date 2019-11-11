@@ -8,8 +8,8 @@
 
 struct Bubi_package
 {
-    unsigned char flag='10';///if átfedést lehetővé teszi
-    unsigned char pickup_flag='01';/// 2*1 byte but actually 4 byte
+    unsigned char flag='a';///if átfedést lehetővé teszi
+    unsigned char pickup_flag='b';/// 2*1 byte but actually 4 byte
     unsigned char space=255;
     unsigned char space0=255;
     float pos_x=4,    /// 4 byte
@@ -177,7 +177,7 @@ if(b_size==-1)
      // std::cout<<"p :  "<<p<<" buff:"<<buff<<std::endl;
        // std::cout<<"p [0] hibásnak kell lennie|| "<<p[0].ToString()<<" size:"<<p_size<<std::endl;
 
-       // memcpy(p,buff, b_size);
+        memcpy(p,buff, b_size);
         std::vector<Bubi_package> *vec = new std::vector<Bubi_package>(p,p+p_size);
 
         /*vec->resize(p_size);

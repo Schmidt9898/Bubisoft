@@ -107,7 +107,7 @@ void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
 void Bubi_Server::Reader_loop(TCPsocket client)
 {///hibás
     std::cout<<"reader started"<<std::endl;
-    size_t bytesize=0;
+    int32_t bytesize=0;
     char * buff=nullptr;
     while(run)
     {
@@ -118,7 +118,7 @@ void Bubi_Server::Reader_loop(TCPsocket client)
         bytesize = SDLNet_TCP_Recv(client,buff,package_size);
        // std::cout<<"csomag erkezett:" <<bytesize<<std::endl;
          //std::cout<<"ez:"<<std::string(buff)<<"::"<<std::endl;
-        if(bytesize<0)///nem megfelelő
+        if(bytesize<0)///zsír
         {
             ///TODO hibakezelés
             //   throw new Lost_connection_exception(SDLNet_GetError());
@@ -127,6 +127,7 @@ void Bubi_Server::Reader_loop(TCPsocket client)
         }
 
         std::vector<Bubi_package> *vec=factory.Make_vector_from_buffer(buff,bytesize);
+        delete buff;
       //  std::cout<<"e "<<bytesize<<std::endl;
 //std::cout<<"beerkezett toltes"<<std::endl;
         IN_buff_M.lock();

@@ -155,20 +155,37 @@ void Bubi_Client::Send_package(Bubi_package * tomb,unsigned int size_)
 void Bubi_Client::Reader_loop()
 {
       std::cout<<"chapter reader client"<<std::endl;
-    size_t bytesize=0;
+    int32_t bytesize=0;
     char * buff=nullptr;
     while(connected && run)
     {
           //std::cout<<"reader looooooooooooooooooooooooop"<<std::endl;
         buff= (char*) malloc(package_size);
+
+
         //std::cout<<std::string(buff)<<std::endl;
         bytesize = SDLNet_TCP_Recv(tcp_socket,buff,package_size);
+        std::cout<<"csomag merete|->"<<bytesize<<"<-"<<std::endl;
+
+
         if(bytesize<0)
         {
 //            throw new Lost_connection_exception(SDLNet_GetError());
+       // std::cout<<"meg a 2 "<<bytesize<<std::endl;
             connected=false;
             break;
         }
+
+
+
+        for(int i=0;i<28;i++){
+        std::printf("%02x ", buff[i]);
+        }
+        std::cout<<std::endl;
+
+
+
+       // std::cout<<"meg a mivan "<<bytesize<<std::endl;
 
            // Bubi_package* p=(Bubi_package*)buff;
         //std::cout<<"erkezesnel--|| "<<p->ToString() <<std::endl;
@@ -176,6 +193,7 @@ void Bubi_Client::Reader_loop()
 
         std::vector<Bubi_package> *vec=factory.Make_vector_from_buffer(buff,bytesize);
         std::cout<<"client csomag erkezett"<<std::endl;
+        delete buff;
 
         IN_buff_M.lock();
         //std::cout<<"chapter locked  sad"<<std::endl;
@@ -184,6 +202,10 @@ void Bubi_Client::Reader_loop()
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
 
+    }
+    if(buff!=nullptr)
+    {
+        delete buff;///maybe
     }
 std::cout<<"client olvaso hiba"<<std::endl;
 
