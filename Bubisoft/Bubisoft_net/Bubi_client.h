@@ -23,7 +23,7 @@ class Bubi_Client
     TCPsocket tcp_socket;
     UDPsocket udp_socket;
 
-    uint16_t package_size=1024;
+    uint16_t package_size=sizeof(Bubi_package)*1;
 
     std::thread* sender;
     std::thread* receiver;

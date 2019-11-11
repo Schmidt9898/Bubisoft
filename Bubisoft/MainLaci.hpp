@@ -171,7 +171,7 @@ try{
 vector<Bubi_package> vec;
 Bubi_package package;
 cout<<"asd:"<<package.ToString()<<endl;
-for(int i=0;i<1;i++){
+for(int i=0;i<10;i++){
     vec.push_back(package);
 
 }
@@ -213,14 +213,19 @@ this_thread::sleep_for(chrono::milliseconds(1000));
 server.Push_Bubivector(&vec);
  //cout<<"chapter"<<endl;
 
- vector<Bubi_package>* vec2 = client.Pop_Bubivector();
- cout<<"-----------------"<<endl;
  //server.Close_Server();
  //cout<<vec2->size()<<" merete"<<endl;
- for(Bubi_package p : *vec2){
+ //this_thread::sleep_for(chrono::milliseconds(500));
+ while(true){
 
+ vector<Bubi_package>* vec2 = client.Pop_Bubivector();
+ cout<<"----->"<<vec2->size()<<"<-----"<<endl;
+int j=1;
+ for(Bubi_package p : *vec2){
+ cout<<j++;
     cout<<p.ToString()<<endl;
  }
+}
 
     SDLNet_Quit();
     SDL_Quit();

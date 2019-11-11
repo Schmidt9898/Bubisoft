@@ -151,7 +151,7 @@ public :
         return size_of_buffer;*/
    /// }
 
-    std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
+   /* std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
     {
 
       /*  std::cout<<std::endl;
@@ -162,10 +162,10 @@ public :
         //std::cout<<"buff:"<<buff<<" size:"<<b_size<<std::endl;
 
       // Bubi_package* p=(Bubi_package*)buff;
-
-if(b_size==-1)
+/*
+if(b_size<=0)
 {
-    std::cout<<"a kurva éleetbe"<<std::endl;
+    std::cout<<"uresseg"<<std::endl;
     return new std::vector<Bubi_package>();
 
 }
@@ -178,8 +178,13 @@ if(b_size==-1)
        // std::cout<<"p [0] hibásnak kell lennie|| "<<p[0].ToString()<<" size:"<<p_size<<std::endl;
 
         memcpy(p,buff, b_size);
-        std::vector<Bubi_package> *vec = new std::vector<Bubi_package>(p,p+p_size);
-
+        std::vector<Bubi_package> *vec = nullptr;
+        if(p_size==1){
+        vec = new std::vector<Bubi_package>(0);
+        vec->push_back(*p);
+        }else{
+        vec = new std::vector<Bubi_package>(p,p+p_size);
+        }
         /*vec->resize(p_size);
 
         for(unsigned int i=0;i<p_size;i++){
@@ -196,10 +201,9 @@ if(b_size==-1)
 
 
 
-
         //delete buff;
-        return vec;
-    }
+  //      return vec;
+   // }*/
 
 };
 #endif // BUBI_PACKAGE_H_INCLUDED

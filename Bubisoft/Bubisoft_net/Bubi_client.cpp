@@ -20,6 +20,9 @@ Bubi_Client::Bubi_Client(TCPsocket & ready_socket)
 
 Bubi_Client::~Bubi_Client()
 {
+    run=false;
+    SDLNet_TCP_Close(tcp_socket);
+
     sender->join();
     receiver->join();
     searcher->join();
@@ -168,6 +171,7 @@ void Bubi_Client::Reader_loop()
         std::cout<<"csomag merete|->"<<bytesize<<"<-"<<std::endl;
 
 
+
         if(bytesize<0)
         {
 //            throw new Lost_connection_exception(SDLNet_GetError());
@@ -178,12 +182,12 @@ void Bubi_Client::Reader_loop()
 
 
 
-        for(int i=0;i<28;i++){
+       /* for(int i=0;i<28;i++){
         std::printf("%02x ", buff[i]);
         }
         std::cout<<std::endl;
 
-
+*/
 
        // std::cout<<"meg a mivan "<<bytesize<<std::endl;
 
@@ -201,6 +205,7 @@ void Bubi_Client::Reader_loop()
         ///notify
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     }
     if(buff!=nullptr)
