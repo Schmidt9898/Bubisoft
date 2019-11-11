@@ -45,7 +45,7 @@ void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
     ///broadcast for server ip...
     //TODO
     int code;
-    code=SDLNet_ResolveHost(&tcp_ip,"192.168.137.1",12345);
+    code=SDLNet_ResolveHost(&tcp_ip,"localhost",12345);
     ///connect to server...
     tcp_socket=SDLNet_TCP_Open(&tcp_ip);
     //for(int i = 0;i<5;i++) // késöbbre
@@ -64,17 +64,8 @@ void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
     remote_ip=SDLNet_TCP_GetPeerAddress(tcp_socket);
     Bubi_ID=(uint32_t)remote_ip->port;
     std::cout<<" port"<<Bubi_ID <<std::endl;
-    //get and set my unique id for the thread
-    /*
-    char id_data[4];
-    int data_size;
-    do{
-        data_size+=SDLNet_TCP_Recv(tcp_socket,&id_data,4);
-    }
-    while(data_size<4);
 
-    std::memcpy(&Bubi_ID, id_data, 4);
-    */
+
     ///start 2 thread writing and reading
 
     sender = new std::thread(Bubi_Client::Sender_loop,this);
@@ -182,30 +173,18 @@ void Bubi_Client::Reader_loop()
 
 
 
-       /* for(int i=0;i<28;i++){
-        std::printf("%02x ", buff[i]);
-        }
-        std::cout<<std::endl;
-
-*/
-
-       // std::cout<<"meg a mivan "<<bytesize<<std::endl;
-
-           // Bubi_package* p=(Bubi_package*)buff;
-        //std::cout<<"erkezesnel--|| "<<p->ToString() <<std::endl;
-
 
         std::vector<Bubi_package> *vec=factory.Make_vector_from_buffer(buff,bytesize);
         std::cout<<"client csomag erkezett"<<std::endl;
         delete buff;
 
         IN_buff_M.lock();
-        //std::cout<<"chapter locked  sad"<<std::endl;
+
         IN_buffer.push_back(vec);
         ///notify
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
 
     }
     if(buff!=nullptr)
@@ -239,7 +218,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
     {
         if(IN_buffer.size()>0)
         {
-//std::cout<<"client pop loop"<<std::endl;
+
             for(unsigned int i=0; i<IN_buffer.size(); i++)
             {
                 retu->insert(retu->end(),IN_buffer[i]->begin(),IN_buffer[i]->end());
@@ -250,14 +229,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
         }
         else
         {
-            /*
-            if(IN_buffer.size()>0)
-            {
-                retu.insert(retu.end(),IN_buffer[0].begin(),IN_buffer[i].end());
 
-            }
-            else{
-                    */
             ///nincs benne semmi, akkor várunk
             ///wait for package
             IN_buff_C.wait(key);
@@ -267,7 +239,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
 
     }
     key.unlock();
-    //IN_buff_M.unlock();
+
     return retu;
 
 

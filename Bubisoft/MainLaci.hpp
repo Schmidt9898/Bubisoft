@@ -171,7 +171,7 @@ try{
 vector<Bubi_package> vec;
 Bubi_package package;
 cout<<"asd:"<<package.ToString()<<endl;
-for(int i=0;i<10;i++){
+for(int i=0;i<195;i++){
     vec.push_back(package);
 
 }
