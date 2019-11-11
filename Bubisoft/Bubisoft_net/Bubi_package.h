@@ -151,7 +151,7 @@ public :
         return size_of_buffer;*/
    /// }
 
-   /* std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
+   std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
     {
 
       /*  std::cout<<std::endl;
@@ -162,7 +162,7 @@ public :
         //std::cout<<"buff:"<<buff<<" size:"<<b_size<<std::endl;
 
       // Bubi_package* p=(Bubi_package*)buff;
-/*
+
 if(b_size<=0)
 {
     std::cout<<"uresseg"<<std::endl;
@@ -173,18 +173,21 @@ if(b_size<=0)
 
         size_t p_size=b_size/sizeof(Bubi_package);
        //Bubi_package* p = new Bubi_package[p_size];
-        Bubi_package* p = (Bubi_package*)malloc(p_size);
+       std::vector<Bubi_package> *vec = new std::vector<Bubi_package>();
+       vec->resize(p_size);
+
+        //Bubi_package* p = (Bubi_package*)malloc(p_size);
      // std::cout<<"p :  "<<p<<" buff:"<<buff<<std::endl;
        // std::cout<<"p [0] hibásnak kell lennie|| "<<p[0].ToString()<<" size:"<<p_size<<std::endl;
 
-        memcpy(p,buff, b_size);
-        std::vector<Bubi_package> *vec = nullptr;
+        memcpy(vec->data(),buff, b_size);
+       /* std::vector<Bubi_package> *vec = nullptr;
         if(p_size==1){
-        vec = new std::vector<Bubi_package>(0);
+
         vec->push_back(*p);
         }else{
         vec = new std::vector<Bubi_package>(p,p+p_size);
-        }
+        }*/
         /*vec->resize(p_size);
 
         for(unsigned int i=0;i<p_size;i++){
@@ -202,8 +205,8 @@ if(b_size<=0)
 
 
         //delete buff;
-  //      return vec;
-   // }*/
+        return vec;
+    }
 
 };
 #endif // BUBI_PACKAGE_H_INCLUDED

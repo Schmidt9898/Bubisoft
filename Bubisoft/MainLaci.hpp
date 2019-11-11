@@ -215,7 +215,7 @@ server.Push_Bubivector(&vec);
 
  //server.Close_Server();
  //cout<<vec2->size()<<" merete"<<endl;
- //this_thread::sleep_for(chrono::milliseconds(500));
+ this_thread::sleep_for(chrono::milliseconds(500));
  while(true){
 
  vector<Bubi_package>* vec2 = client.Pop_Bubivector();
