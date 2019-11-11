@@ -10,6 +10,8 @@
 #include <list>
 #include <condition_variable>
 #include "Bubi_package.h"
+#include <atomic>
+
 
 class Bubi_Server
 {
@@ -23,13 +25,16 @@ class Bubi_Server
     UDPsocket udp_server;
 
     std::list<TCPsocket> clients;
+    std::vector<std::thread*> Readers;
 
     int package_size=1024;
 
-    bool run=true;
+    std::atomic_bool run{true};
+     //bool run=true;
 
-    std::thread* sender;
-    std::thread* receiver;
+
+    std::thread* Sender;
+    //std::thread* receiver;
     std::thread* Accepter;
     std::thread* Broadcaster;
 
@@ -42,8 +47,8 @@ class Bubi_Server
     std::condition_variable OUT_buff_C;
     std::condition_variable IN_buff_C;
 
-    std::vector<std::vector<Bubi_package>> OUT_buffer;
-    std::vector<std::vector<Bubi_package>> IN_buffer;
+    std::vector<std::vector<Bubi_package>*> OUT_buffer;
+    std::vector<std::vector<Bubi_package>*> IN_buffer;
 
     void Broadcasting_loop(){};///TODO
     void Accepting_TCP_loop();
@@ -51,20 +56,34 @@ class Bubi_Server
     //void Read_Buffer();///TODO
 
     void Sender_loop();
-    void Reader_loop();
+    //void Reader_loop();
+    void Reader_loop(TCPsocket client);
 
     void udp_broadcast(){};///TODO
 
-    ~Bubi_Server();
+
 public :
 
+    ~Bubi_Server();
     Bubi_Server(int tcp_port,int udp_port);
     bool Open_Server();
+    void Close_Server();
 
-    void Push_Bubivector(std::vector<Bubi_package> &vec);
+    void Push_Bubivector(std::vector<Bubi_package> *vec);
     std::vector<Bubi_package>* Pop_Bubivector();
 
 
 };
+
+
+class Client{
+
+
+
+
+};
+
+
+
 
 #endif // BUBI_SERVER_H_INCLUDED
