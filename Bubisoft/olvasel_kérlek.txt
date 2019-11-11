@@ -13,4 +13,8 @@ github teszt kérlek használj branch et a neveddel.
 pull request test
 
 ide írd a neved ha már megértetted hogy működik...
+
+Dani
+
 valamicsodaság
+
