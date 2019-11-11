@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "Bubisoft_Net.hpp"
-#include "MainLaci.hpp"
+//#include "MainLaci.hpp"
 
 //#include "Bubi_package.h"
 /*
@@ -16,7 +16,7 @@ int main()
 {
 
         cout << "Hello!" << endl;
-        MainLaci();
+       // MainLaci();
               cout << "Bye!" << endl;
               string c;
               cin>>c;
