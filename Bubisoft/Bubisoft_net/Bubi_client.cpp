@@ -45,7 +45,7 @@ void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
     ///broadcast for server ip...
     //TODO
     int code;
-    code=SDLNet_ResolveHost(&tcp_ip,"localhost",12345);
+    code=SDLNet_ResolveHost(&tcp_ip,"192.168.137.1",12345);
     ///connect to server...
     tcp_socket=SDLNet_TCP_Open(&tcp_ip);
     //for(int i = 0;i<5;i++) // késöbbre
@@ -205,7 +205,7 @@ void Bubi_Client::Reader_loop()
         ///notify
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        //std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     }
     if(buff!=nullptr)
