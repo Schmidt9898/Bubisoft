@@ -7,6 +7,9 @@ using namespace std;
 
 void MainClient() {
     cout << "mainClient" << endl << endl;
+    /*cout << "Give server address: ";
+    string ip;
+    cin >> ip;*/
 
         {
         Bubi_Factory F;
