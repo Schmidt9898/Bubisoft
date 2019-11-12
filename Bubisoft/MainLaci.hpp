@@ -171,7 +171,7 @@ try{
 vector<Bubi_package> vec;
 Bubi_package package;
 cout<<"asd:"<<package.ToString()<<endl;
-for(int i=0;i<10;i++){
+for(int i=0;i<195;i++){
     vec.push_back(package);
 
 }
@@ -215,7 +215,7 @@ server.Push_Bubivector(&vec);
 
  //server.Close_Server();
  //cout<<vec2->size()<<" merete"<<endl;
- //this_thread::sleep_for(chrono::milliseconds(500));
+ this_thread::sleep_for(chrono::milliseconds(500));
  while(true){
 
  vector<Bubi_package>* vec2 = client.Pop_Bubivector();
