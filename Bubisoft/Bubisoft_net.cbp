@@ -32,14 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++14" />
 			<Add option="-fexceptions" />
-			<Add directory="V:/halado_cpp/SDLlib/SDL2-2.0.10/i686-w64-mingw32/include/SDL2" />
-			<Add directory="V:/halado_cpp/SDLlib/SDL2_net-2.0.1/i686-w64-mingw32/include/SDL2" />
+			<Add directory="C:/Lacika/programok/Haladó_c++/SDL2-2.0.10/i686-w64-mingw32/include/SDL2" />
+			<Add directory="C:/Lacika/programok/Haladó_c++/SDL2_net-2.0.1/i686-w64-mingw32/include/SDL2" />
 			<Add directory="Bubisoft_net" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net" />
-			<Add directory="V:/halado_cpp/SDLlib/SDL2-2.0.10/i686-w64-mingw32/lib" />
-			<Add directory="V:/halado_cpp/SDLlib/SDL2_net-2.0.1/i686-w64-mingw32/lib" />
+			<Add directory="C:/Lacika/programok/Haladó_c++/SDL2-2.0.10/i686-w64-mingw32/lib" />
+			<Add directory="C:/Lacika/programok/Haladó_c++/SDL2_net-2.0.1/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="Bubisoft_net/Bubi_client.cpp" />
 		<Unit filename="Bubisoft_net/Bubi_client.h" />
@@ -52,8 +52,6 @@
 		<Unit filename="Bubisoft_net/include.h" />
 		<Unit filename="MainLaci.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="mainClient.h" />
-		<Unit filename="mainServer.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
