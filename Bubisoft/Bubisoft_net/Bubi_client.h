@@ -44,19 +44,21 @@ class Bubi_Client
     void Server_searching(){};
     void Connect(){};
     void CleanUp(){};
-    void Send_package(Bubi_package * tomb,unsigned int size_);
+   // void Send_package(Bubi_package * tomb,unsigned int size_);
 
 
     void Sender_loop();
     void Reader_loop();
 public :
 
-    Bubi_Client() {};
-
+    Bubi_Client();
     Bubi_Client(char * _ip,int _port);
-~Bubi_Client();
+    Bubi_Client(char * _ip,int _port,size_t burst_size);
+
+    ~Bubi_Client();
     unsigned int Get_ID();
     bool IsConected();
+    void Set_burst_size(size_t size);
 
     void Start_matchmaking();// throw (Cant_cast_ip_exception);
     void Close_Client();
