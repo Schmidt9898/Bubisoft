@@ -14,12 +14,44 @@ Bubi_Server::~Bubi_Server()
     std::cout<<"server closed"<<std::endl;
 ///TODO bővíteni
 }
-
-Bubi_Server::Bubi_Server(int tcp_port,int udp_port)
+Bubi_Server::Bubi_Server(int tcp_port)
 {
 
+    int code=
     SDLNet_ResolveHost(&tcp_ip,NULL,tcp_port);
+
+     if(code<0)
+        throw new Cant_cast_ip_exception(SDLNet_GetError());
+
+}
+
+
+
+Bubi_Server::Bubi_Server(int tcp_port,size_t burst_size)
+{
+
+    int code=
+    SDLNet_ResolveHost(&tcp_ip,NULL,tcp_port);
+
+    package_size=burst_size;
+
+     if(code<0)
+        throw new Cant_cast_ip_exception(SDLNet_GetError());
+
+}
+
+
+
+Bubi_Server::Bubi_Server(int tcp_port,int udp_port,size_t burst_size)
+{
+    int code=
     SDLNet_ResolveHost(&udp_ip,NULL,udp_port);
+
+    code+=
+    SDLNet_ResolveHost(&tcp_ip,NULL,tcp_port);
+
+    if(code<0)
+        throw new Cant_cast_ip_exception(SDLNet_GetError());
 
 }
 
@@ -60,7 +92,7 @@ void Bubi_Server::Accepting_TCP_loop()
         if(client)
         {
             //levéd még tesztelni és maybe levédeni
-            std::cout<<"new client"<<std::endl;
+
             clients.push_back(client);
             Readers.push_back(new std::thread(Bubi_Server::Reader_loop,this,client));
 
@@ -80,10 +112,10 @@ void Bubi_Server::Accepting_TCP_loop()
 
 }
 
-
+/*
 void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
 {
-    /*
+
         char* buff_to_send= new char[size_*sizeof(Bubi_package)];
         memcpy(buff_to_send, tomb, size_);
         OUT_buff_M.lock();
@@ -105,14 +137,13 @@ void Bubi_Server::Send_package(Bubi_package * tomb,unsigned int size_)
 
 
         delete tomb;
-        delete buff_to_send;*/
+        delete buff_to_send;
 
-}
+}*/
 
 void Bubi_Server::Reader_loop(TCPsocket client)
 {
-    ///hibás
-    std::cout<<"reader started"<<std::endl;
+
     int32_t bytesize=0;
     char * buff=nullptr;
     while(run)
@@ -126,7 +157,7 @@ void Bubi_Server::Reader_loop(TCPsocket client)
         {
             ///TODO hibakezelés
             //   throw new Lost_connection_exception(SDLNet_GetError());
-            std::cout<<"hiba a sockettel olvasa's"<<std::endl;
+            std::cout<<"hiba a server sockettel olvasa's"<<std::endl;
             break;
         }
 
@@ -140,6 +171,10 @@ void Bubi_Server::Reader_loop(TCPsocket client)
         IN_buff_M.unlock();
 
 
+    }
+     if(buff!=nullptr)
+    {
+        delete buff;///maybe
     }
     clients.remove(client);
 }
@@ -167,7 +202,7 @@ void Bubi_Server::Sender_loop()
                 {
                     ///TODO hibakezelés
                     //   throw new Lost_connection_exception(SDLNet_GetError());
-                    std::cout<<"hiba a sockettel 2"<<std::endl;
+                    std::cout<<"hiba a server sockettel 2"<<std::endl;
                 }
 
             }
@@ -204,6 +239,7 @@ void Bubi_Server::Push_Bubivector(std::vector<Bubi_package> *vec)
 
 std::vector<Bubi_package>* Bubi_Server::Pop_Bubivector()
 {
+    // std::cout<<"server pop"<<std::endl;
     std::vector<Bubi_package> *retu= new std::vector<Bubi_package>() ;
     std::unique_lock<std::mutex> key(IN_buff_M);///lock
     while(true)

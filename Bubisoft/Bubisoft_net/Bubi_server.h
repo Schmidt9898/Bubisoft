@@ -52,7 +52,7 @@ class Bubi_Server
 
     void Broadcasting_loop() {}; ///TODO
     void Accepting_TCP_loop();
-    void Send_package(Bubi_package * tomb,unsigned int size_);
+    //void Send_package(Bubi_package * tomb,unsigned int size_);
     //void Read_Buffer();///TODO
 
     void Sender_loop();
@@ -65,7 +65,9 @@ class Bubi_Server
 public :
 
     ~Bubi_Server();
-    Bubi_Server(int tcp_port,int udp_port);
+     Bubi_Server(int tcp_port);
+    Bubi_Server(int tcp_port,size_t burst_size);
+    Bubi_Server(int tcp_port,int udp_port,size_t burst_size);
     bool Open_Server();
     void Close_Server();
 
