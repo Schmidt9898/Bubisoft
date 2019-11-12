@@ -1,21 +1,10 @@
 #include "Bubi_client.h"
-/*
-Bubi_Client::Bubi_Client(char * _ip,int _port)
-    {
-        int code;
-        code=SDLNet_ResolveHost(&ip,_ip,_port);
-        if(code!=0)
-        {
-            throw new Cant_cast_ip_exception(SDLNet_GetError());
-        }
-        //delete this;
-    };*/
 
 
 
-Bubi_Client::Bubi_Client(TCPsocket & ready_socket)
+Bubi_Client::Bubi_Client()
 {
-    tcp_socket = ready_socket;
+std::cout<<"ne hasznalj meg."<<std::endl;
 }
 
 Bubi_Client::~Bubi_Client()
@@ -30,30 +19,47 @@ Bubi_Client::~Bubi_Client()
 
 Bubi_Client::Bubi_Client(char * _ip,int _port)
 {
-  /*  int code;
+    int code;
     code=SDLNet_ResolveHost(&tcp_ip,_ip,_port);
     if(code!=0)
     {
-        ///TODO cleanup
+
         throw new Cant_cast_ip_exception(SDLNet_GetError());
     }
-*/
+
 };
+
+Bubi_Client::Bubi_Client(char * _ip,int _port,size_t burst_size)
+{
+    package_size=burst_size;
+    int code;
+    code=SDLNet_ResolveHost(&tcp_ip,_ip,_port);
+    if(code!=0)
+    {
+        throw new Cant_cast_ip_exception(SDLNet_GetError());
+    }
+
+};
+
+
+
+
 
 void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
 {
     ///broadcast for server ip...
     //TODO
-    int code;
-    code=SDLNet_ResolveHost(&tcp_ip,"192.168.137.1",12345);
+   // int code;
+  //  code=SDLNet_ResolveHost(&tcp_ip,"localhost",12345);
     ///connect to server...
     tcp_socket=SDLNet_TCP_Open(&tcp_ip);
-    //for(int i = 0;i<5;i++) // késöbbre
+
     if(!tcp_socket)/// socket null
     {
-        //throw new Cant_connect_exception(SDLNet_GetError());
-        ///TODO
-        return;
+        connected=false;
+        throw new Cant_connect_exception(SDLNet_GetError());
+
+
 
     }
     connected=true;
@@ -64,25 +70,13 @@ void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
     remote_ip=SDLNet_TCP_GetPeerAddress(tcp_socket);
     Bubi_ID=(uint32_t)remote_ip->port;
     std::cout<<" port"<<Bubi_ID <<std::endl;
-    //get and set my unique id for the thread
-    /*
-    char id_data[4];
-    int data_size;
-    do{
-        data_size+=SDLNet_TCP_Recv(tcp_socket,&id_data,4);
-    }
-    while(data_size<4);
 
-    std::memcpy(&Bubi_ID, id_data, 4);
-    */
+
     ///start 2 thread writing and reading
 
     sender = new std::thread(Bubi_Client::Sender_loop,this);
     receiver = new std::thread(Bubi_Client::Reader_loop,this);
 
-
-
-    /// exception handeling  //sory whaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat?
 }
 
 void Bubi_Client::Sender_loop()
@@ -93,9 +87,7 @@ void Bubi_Client::Sender_loop()
         std::unique_lock<std::mutex> key(OUT_buff_M);///lock
         while(OUT_buffer.size()>0)
         {
-            std::cout<<"client kuldes iras"<<std::endl;
-            //int s=OUT_buffer[0]->size()*sizeof(Bubi_package);
-          //  std::cout<<"sss"<<s<<std::endl;
+
             ///char* buff_to_send= new char[OUT_buffer[0]->size()*sizeof(Bubi_package)];  ezt valami elképesztően fáradtan írtam
 
 
@@ -106,8 +98,6 @@ void Bubi_Client::Sender_loop()
 
             ///factory.Make_buffer_from_vector(OUT_buffer[0],buff_to_send);
 
-
-               std::cout<<"iras:"<<buff_to_send<<" size:"<<buff_size<<std::endl;
             int error=SDLNet_TCP_Send(tcp_socket,buff_to_send,buff_size);
 
             ///delete temp buff
@@ -119,21 +109,21 @@ void Bubi_Client::Sender_loop()
             if(error<buff_size)
             {
                 key.unlock();
-                std::cout<<"client kuldes iras hiba   !!!!"<<std::endl;
+
                 //throw new Lost_connection_exception(SDLNet_GetError());
             }
         }
-        std::cout<<"client iras varas"<<std::endl;
+
         OUT_buff_C.wait(key);
         key.unlock();///gondold át még egyszer.
     }
 
 }
-
+/*
 void Bubi_Client::Send_package(Bubi_package * tomb,unsigned int size_)
 {
 ///javít maybe
-/*
+
     char* buff_to_send= new char[size_*sizeof(Bubi_package)];
     memcpy(buff_to_send, tomb, size_);
 
@@ -151,61 +141,40 @@ void Bubi_Client::Send_package(Bubi_package * tomb,unsigned int size_)
     }
 
     delete tomb;
-    delete buff_to_send;*/
+    delete buff_to_send;
 
-}
+}*/
 
 void Bubi_Client::Reader_loop()
 {
-      std::cout<<"chapter reader client"<<std::endl;
     int32_t bytesize=0;
     char * buff=nullptr;
     while(connected && run)
     {
-          //std::cout<<"reader looooooooooooooooooooooooop"<<std::endl;
         buff= (char*) malloc(package_size);
 
-
-        //std::cout<<std::string(buff)<<std::endl;
         bytesize = SDLNet_TCP_Recv(tcp_socket,buff,package_size);
-        std::cout<<"csomag merete|->"<<bytesize<<"<-"<<std::endl;
-
 
 
         if(bytesize<0)
         {
 //            throw new Lost_connection_exception(SDLNet_GetError());
-       // std::cout<<"meg a 2 "<<bytesize<<std::endl;
+
             connected=false;
             break;
         }
 
-
-
-       /* for(int i=0;i<28;i++){
-        std::printf("%02x ", buff[i]);
-        }
-        std::cout<<std::endl;
-
-*/
-
-       // std::cout<<"meg a mivan "<<bytesize<<std::endl;
-
-           // Bubi_package* p=(Bubi_package*)buff;
-        //std::cout<<"erkezesnel--|| "<<p->ToString() <<std::endl;
-
-
         std::vector<Bubi_package> *vec=factory.Make_vector_from_buffer(buff,bytesize);
-        std::cout<<"client csomag erkezett"<<std::endl;
+
         delete buff;
 
         IN_buff_M.lock();
-        //std::cout<<"chapter locked  sad"<<std::endl;
+
         IN_buffer.push_back(vec);
         ///notify
         IN_buff_C.notify_all();
         IN_buff_M.unlock();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
 
     }
     if(buff!=nullptr)
@@ -231,7 +200,7 @@ void Bubi_Client::Push_Bubivector(std::vector<Bubi_package> *vec)
 
 std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
 {
-     std::cout<<"client pop"<<std::endl;
+
     std::vector<Bubi_package> *retu= new std::vector<Bubi_package>() ;
 
     std::unique_lock<std::mutex> key(IN_buff_M);///lock
@@ -239,7 +208,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
     {
         if(IN_buffer.size()>0)
         {
-//std::cout<<"client pop loop"<<std::endl;
+
             for(unsigned int i=0; i<IN_buffer.size(); i++)
             {
                 retu->insert(retu->end(),IN_buffer[i]->begin(),IN_buffer[i]->end());
@@ -250,14 +219,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
         }
         else
         {
-            /*
-            if(IN_buffer.size()>0)
-            {
-                retu.insert(retu.end(),IN_buffer[0].begin(),IN_buffer[i].end());
 
-            }
-            else{
-                    */
             ///nincs benne semmi, akkor várunk
             ///wait for package
             IN_buff_C.wait(key);
@@ -267,7 +229,7 @@ std::vector<Bubi_package>* Bubi_Client::Pop_Bubivector()
 
     }
     key.unlock();
-    //IN_buff_M.unlock();
+
     return retu;
 
 
@@ -284,6 +246,10 @@ bool Bubi_Client::IsConected()
 
 void Bubi_Client::Close_Client(){
 run=false;
+}
+
+void Bubi_Client::Set_burst_size(size_t size){
+package_size=size;
 }
 
 

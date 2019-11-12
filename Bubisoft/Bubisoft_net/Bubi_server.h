@@ -27,10 +27,10 @@ class Bubi_Server
     std::list<TCPsocket> clients;
     std::vector<std::thread*> Readers;
 
-    int package_size=sizeof(Bubi_package)*1;
+    int package_size=sizeof(Bubi_package)*50;
 
     std::atomic_bool run{true};
-     //bool run=true;
+    //bool run=true;
 
 
     std::thread* Sender;
@@ -50,22 +50,24 @@ class Bubi_Server
     std::vector<std::vector<Bubi_package>*> OUT_buffer;
     std::vector<std::vector<Bubi_package>*> IN_buffer;
 
-    void Broadcasting_loop(){};///TODO
+    void Broadcasting_loop() {}; ///TODO
     void Accepting_TCP_loop();
-    void Send_package(Bubi_package * tomb,unsigned int size_);
+    //void Send_package(Bubi_package * tomb,unsigned int size_);
     //void Read_Buffer();///TODO
 
     void Sender_loop();
     //void Reader_loop();
     void Reader_loop(TCPsocket client);
 
-    void udp_broadcast(){};///TODO
+    void udp_broadcast() {}; ///TODO
 
 
 public :
 
     ~Bubi_Server();
-    Bubi_Server(int tcp_port,int udp_port);
+     Bubi_Server(int tcp_port);
+    Bubi_Server(int tcp_port,size_t burst_size);
+    Bubi_Server(int tcp_port,int udp_port,size_t burst_size);
     bool Open_Server();
     void Close_Server();
 
@@ -76,12 +78,6 @@ public :
 };
 
 
-class Client{
-
-
-
-
-};
 
 
 

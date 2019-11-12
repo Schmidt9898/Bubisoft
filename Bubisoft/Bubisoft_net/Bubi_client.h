@@ -12,7 +12,7 @@
 #include <atomic>
 class Bubi_Client
 {
-    uint32_t Bubi_ID=0;/// 4 byte a packageből
+    uint32_t Bubi_ID=0;
      std::atomic_bool connected{false};
      std::atomic_bool run{true};
 
@@ -23,7 +23,7 @@ class Bubi_Client
     TCPsocket tcp_socket;
     UDPsocket udp_socket;
 
-    uint16_t package_size=sizeof(Bubi_package)*1;
+    uint16_t package_size=sizeof(Bubi_package)*50;
 
     std::thread* sender;
     std::thread* receiver;
@@ -44,20 +44,21 @@ class Bubi_Client
     void Server_searching(){};
     void Connect(){};
     void CleanUp(){};
-    void Send_package(Bubi_package * tomb,unsigned int size_);
+   // void Send_package(Bubi_package * tomb,unsigned int size_);
 
-   //void Send_to_client(TCPsocket &tcp_socket,Bubi_package * tomb,unsigned int size_);
-    //void Read_Buffer();
+
     void Sender_loop();
     void Reader_loop();
 public :
 
-    Bubi_Client() {};
-
+    Bubi_Client();
     Bubi_Client(char * _ip,int _port);
-~Bubi_Client();
+    Bubi_Client(char * _ip,int _port,size_t burst_size);
+
+    ~Bubi_Client();
     unsigned int Get_ID();
     bool IsConected();
+    void Set_burst_size(size_t size);
 
     void Start_matchmaking();// throw (Cant_cast_ip_exception);
     void Close_Client();
