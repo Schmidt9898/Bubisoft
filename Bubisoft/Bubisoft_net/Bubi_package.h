@@ -151,18 +151,18 @@ public :
         return size_of_buffer;*/
    /// }
 
-   /* std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
+    std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
     {
 
-      /*  std::cout<<std::endl;
+        std::cout<<std::endl;
    for(int i=0;i<28;i++){
         std::printf("%02x ", buff[i]);
-        }*/
+        }
         //std::cout<<"az:"<<std::string(buff)<<"::"<<std::endl;
         //std::cout<<"buff:"<<buff<<" size:"<<b_size<<std::endl;
 
       // Bubi_package* p=(Bubi_package*)buff;
-/*
+
 if(b_size<=0)
 {
     std::cout<<"uresseg"<<std::endl;
@@ -185,25 +185,25 @@ if(b_size<=0)
         }else{
         vec = new std::vector<Bubi_package>(p,p+p_size);
         }
-        /*vec->resize(p_size);
+        vec->resize(p_size);
 
         for(unsigned int i=0;i<p_size;i++){
 
             (*vec)[i]=p[i];
-        }*/
+        }
 
 
        // std::cout<<"vector vissza|| "<<(*vec)[0].ToString()<<std::endl;
         //std::cout<<"make::"<<std::endl;
-        /*  for(int i=0;i<b_size;i++){
+          for(int i=0;i<b_size;i++){
         std::printf("%02x ", buff[i]);
-        }*/
+        }
 
 
 
-        //delete buff;
-  //      return vec;
-   // }*/
+        delete buff;
+        return vec;
+    }
 
 };
 #endif // BUBI_PACKAGE_H_INCLUDED
