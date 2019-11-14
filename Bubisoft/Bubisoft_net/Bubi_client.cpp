@@ -17,7 +17,7 @@ Bubi_Client::~Bubi_Client()
     searcher->join();
 }
 
-Bubi_Client::Bubi_Client(char * _ip,int _port)
+Bubi_Client::Bubi_Client(const char * _ip,int _port)
 {
     int code;
     code=SDLNet_ResolveHost(&tcp_ip,_ip,_port);
@@ -29,7 +29,7 @@ Bubi_Client::Bubi_Client(char * _ip,int _port)
 
 };
 
-Bubi_Client::Bubi_Client(char * _ip,int _port,size_t burst_size)
+Bubi_Client::Bubi_Client(const char * _ip,int _port,size_t burst_size)
 {
     package_size=burst_size;
     int code;
