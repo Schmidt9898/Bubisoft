@@ -52,8 +52,8 @@ class Bubi_Client
 public :
 
     Bubi_Client();
-    Bubi_Client(char * _ip,int _port);
-    Bubi_Client(char * _ip,int _port,size_t burst_size);
+    Bubi_Client(const char * _ip,int _port);
+    Bubi_Client(const char * _ip,int _port,size_t burst_size);
 
     ~Bubi_Client();
     unsigned int Get_ID();

@@ -7,9 +7,9 @@ using namespace std;
 
 void MainClient() {
     cout << "mainClient" << endl << endl;
-    /*cout << "Give server address: ";
+    cout << "Give server address: ";
     string ip;
-    cin >> ip;*/
+    cin >> ip;
 
         {
         Bubi_Factory F;
@@ -24,8 +24,8 @@ void MainClient() {
 
         //Bubi_Server server(12345,0);
         //server.Open_Server();
-        char * a=new char('s');
-        Bubi_Client client(a,12345);
+        //char * a=new char('s');
+        Bubi_Client client(ip.c_str(),12345);
         client.Start_matchmaking();
 
         this_thread::sleep_for(chrono::milliseconds(1000));
