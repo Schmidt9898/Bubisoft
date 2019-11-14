@@ -65,13 +65,19 @@ class Bubi_Server
 public :
 
     ~Bubi_Server();
+    ///Csak létrehozza a szervert ,+ paraméterezni lehet
      Bubi_Server(int tcp_port);
     Bubi_Server(int tcp_port,size_t burst_size);
     Bubi_Server(int tcp_port,int udp_port,size_t burst_size);
+    /**Elindítja szervert, a küldést és a fogadást
+    true ha sikeresen elindul false ha nem
+    */
     bool Open_Server();
+    ///Vége a szervernek.
     void Close_Server();
-
+    ///kiveszi az összes beérkezett csomagot a bufferbõl, felszabadítani nem fogja
     void Push_Bubivector(std::vector<Bubi_package> *vec);
+    ///beteszi a küldõ bufferbe a vectort és azt majd elküldi az összes kliensnek, a vectort majd a küldõ felszabadítja
     std::vector<Bubi_package>* Pop_Bubivector();
 
 

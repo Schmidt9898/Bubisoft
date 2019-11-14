@@ -8,8 +8,10 @@
 
 struct Bubi_package
 {
+
+    ///pls don't change
     unsigned char flag='a';///if átfedést lehetővé teszi
-    unsigned char pickup_flag='b';/// 2*1 byte but actually 4 byte
+    unsigned char pickup_flag='b';/// 4*1 byte but actually 4 byte
     unsigned char space0=255;
     unsigned char space1=255;
     float pos_x=4,    /// 4 byte
@@ -75,12 +77,6 @@ struct Bubi_name_package
     }
 };
 
-
-///std::memcpy(hova, honnan, mennyit);
-///A vector array byte jai lemásolódnak egy ugyan akkora méretû bufferba amit
-///elõre kell megadni és allocálni
-///vectort referencia szerint kell megadni
-
 enum Flag :char
 {
     notset=0,
@@ -95,7 +91,7 @@ enum Flag :char
 struct Bubi_Factory
 {
 public :
-
+///kiolvassa a stringet ha ez tényleg egy név package
     std::string get_name(Bubi_package &p)
     {
         if(p.flag=Flag::name)
@@ -106,6 +102,7 @@ public :
         memcpy(name,&p+1,23);
         return std::string(name);
     }
+    ///bármien package-bő név packaget csinál
     void set_name(Bubi_package &p,std::string name)
     {
 
@@ -116,7 +113,6 @@ public :
 
 
     }
-
 
     std::vector<Bubi_package> * Make_vector_from_buffer(char* buff,int b_size)
     {

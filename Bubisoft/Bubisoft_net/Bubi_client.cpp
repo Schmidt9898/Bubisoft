@@ -45,7 +45,7 @@ Bubi_Client::Bubi_Client(const char * _ip,int _port,size_t burst_size)
 
 
 
-void Bubi_Client::Start_matchmaking()// throw (Cant_cast_ip_exception)
+void Bubi_Client::Start_matchmaking()
 {
     ///broadcast for server ip...
     //TODO
