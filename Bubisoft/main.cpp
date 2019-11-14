@@ -27,9 +27,6 @@ int main()
         case 's' : MainServer(); break;
         case 'c' : MainClient(); break;
     }
-    cout << endl << "Waiting for character..." << endl;
-    string c;
-    cin>>c;
 
     return 0;
 }
