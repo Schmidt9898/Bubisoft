@@ -3,12 +3,14 @@
 #include <thread>
 #include <iostream>
 
+//4#include <limits>
+
 using namespace std;
 
 void MainServer::start_net() {
 
     Bubi_Factory F;
-    cout << "test" << endl;
+   // cout << numeric_limits<float>::max() << endl << "test" << endl;
 
     try{
         vector<Bubi_package> vec;
@@ -51,12 +53,22 @@ void MainServer::start_net() {
 
 }
 
+bool MainServer::check_ready() {
+
+    for(map<uint32_t,client>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        if(it->second.ready==false) return false;
+    }
+
+    return true;
+}
+
+void MainServer::start_game() {
+}
+
 MainServer::MainServer() {
     cout << "mainServer" << endl << endl;
 
     thread t1(MainServer::start_net,this);
     t1.join();
-
-
 
 }
