@@ -58,11 +58,25 @@ bool MainServer::check_ready() {
     for(map<uint32_t,client>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second.ready==false) return false;
     }
-
     return true;
 }
 
 void MainServer::start_game() {
+
+    while (clients.size()<2) {}
+
+    while (!check_ready()) {}
+
+    while (!end_game) {
+        get_values();
+        calculate();
+        send_values();
+        if(!check_end()) {
+            end_game=true;
+            send_end();
+        }
+    }
+
 }
 
 MainServer::MainServer() {

@@ -15,12 +15,21 @@ class MainServer
         bool ready;
     };
 
+    bool end_game=false;
+
     map<uint32_t,client> clients;
 
     void start_net();
 
     bool check_ready();
     void start_game();
+
+    void get_values();
+    void calculate();
+    void send_values();
+
+    bool check_end();
+    void send_end();
 
     public: MainServer();
 
