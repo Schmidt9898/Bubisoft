@@ -44,8 +44,10 @@ class Bubi_Server
     std::mutex OUT_buff_M;
     std::mutex IN_buff_M;
 
+
     std::condition_variable OUT_buff_C;
     std::condition_variable IN_buff_C;
+
 
     std::vector<std::vector<Bubi_package>*> OUT_buffer;
     std::vector<std::vector<Bubi_package>*> IN_buffer;
@@ -63,6 +65,9 @@ class Bubi_Server
 
 
 public :
+
+    std::mutex Clients_M;
+    std::condition_variable Clients_C;
 
     ~Bubi_Server();
     ///Csak létrehozza a szervert ,+ paraméterezni lehet
