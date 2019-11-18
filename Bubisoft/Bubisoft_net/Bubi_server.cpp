@@ -91,13 +91,18 @@ void Bubi_Server::Accepting_TCP_loop()
         client = SDLNet_TCP_Accept(tcp_server);
         if(client)
         {
-            //levéd még tesztelni és maybe levédeni
+            ///levéd
+            Clients_M.lock();
 
             clients.push_back(client);
             Readers.push_back(new std::thread(Bubi_Server::Reader_loop,this,client));
+            ///notify
+            Clients_C.notify_all();
 
+
+            ///felold
+            Clients_M.unlock();
             client=NULL;
-            //felold
 
         }
         else
