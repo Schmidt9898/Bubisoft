@@ -63,7 +63,13 @@ bool MainServer::check_ready() {
 
 void MainServer::start_game() {
 
-    while (clients.size()<2) {}
+    while (clients.size()<2) {
+
+        unique_lock<std::mutex> lk(server.Clients_M);
+        server.Clients_C.wait(lk);
+        lk.unlock();
+
+    }
 
     while (!check_ready()) {}
 
