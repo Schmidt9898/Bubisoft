@@ -107,7 +107,19 @@ void MainServer::conn_client() {
     cout << "conn_client" << endl << endl;
 
     while(!game) {
-
+        reader = server->Pop_Bubivector();
+        for( Bubi_package p : *reader) {
+                if(p.flag==Flag::player) {
+                    client c;
+                    c.mom_x = p.mom_x;
+                    c.mom_y = p.mom_y;
+                    c.pos_x = p.pos_x;
+                    c.pos_y = p.pos_y;
+                    c.p_size = p.p_size;
+                    c.ready = false;
+                    clients.insert(p.p_id,c)
+                }
+        }
     }
 
 }

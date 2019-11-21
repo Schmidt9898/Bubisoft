@@ -21,6 +21,8 @@ class MainServer
     bool end_game = false;
     bool game = false;
 
+    vector<Bubi_package>* reader;
+
     map<uint32_t,client> clients;
 
     void start_net();
