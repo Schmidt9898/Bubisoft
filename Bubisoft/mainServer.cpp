@@ -9,7 +9,7 @@ using namespace std;
 
 void MainServer::start_net() {
 
-    Bubi_Factory F;
+    //Bubi_Factory F;
    // cout << numeric_limits<float>::max() << endl << "test" << endl;
 
     try{
@@ -20,22 +20,22 @@ void MainServer::start_net() {
             vec.push_back(package);
         }
 
-        Bubi_Server server(12345,0);
-        server.Open_Server();
-        char * a=new char('s');
+        //Bubi_Server server(12345,0);
+        server->Open_Server();
+        //char * a=new char('s');
         //Bubi_Client client(a,12345);
         //client.Start_matchmaking();
 
         this_thread::sleep_for(chrono::milliseconds(1000));
         //client.Push_Bubivector(&vec);
-        server.Push_Bubivector(&vec);
+        server->Push_Bubivector(&vec);
         //cout<<"chapter"<<endl;
 
-        //server.Close_Server();
+        //server->Close_Server();
         //cout<<vec2->size()<<" merete"<<endl;
         //this_thread::sleep_for(chrono::milliseconds(500));
         while(true){
-            vector<Bubi_package>* vec2 = server.Pop_Bubivector();
+            vector<Bubi_package>* vec2 = server->Pop_Bubivector();
             cout<<"----->"<<vec2->size()<<"<-----"<<endl;
             int j=1;
             for(Bubi_package p : *vec2){
@@ -65,13 +65,16 @@ void MainServer::start_game() {
 
     while (clients.size()<2) {
 
-        unique_lock<std::mutex> lk(server.Clients_M);
-        server.Clients_C.wait(lk);
+        cout << "client_check" << endl << endl;
+        unique_lock<std::mutex> lk(server->Clients_M);
+        server->Clients_C.wait(lk);
         lk.unlock();
 
     }
 
     while (!check_ready()) {}
+
+    game = true;
 
     while (!end_game) {
         get_values();
@@ -82,13 +85,44 @@ void MainServer::start_game() {
             send_end();
         }
     }
+}
+
+void MainServer::get_values() {
+}
+
+void MainServer::calculate() {
+}
+
+void MainServer::send_values() {
+}
+
+bool MainServer::check_end() {
+}
+
+void MainServer::send_end() {
+}
+
+void MainServer::conn_client() {
+
+    cout << "conn_client" << endl << endl;
+
+    while(!game) {
+
+    }
 
 }
 
 MainServer::MainServer() {
     cout << "mainServer" << endl << endl;
 
+    server = new Bubi_Server(12345);
+
     thread t1(MainServer::start_net,this);
-    t1.join();
+    //t1.join();
+
+    while(true) {
+        thread t2(MainServer::conn_client,this);
+        start_game();
+    }
 
 }

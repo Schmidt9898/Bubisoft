@@ -3,11 +3,14 @@
 
 #include <map>
 #include <stdint.h>
+#include <Bubisoft_Net.hpp>
 
 using namespace std;
 
 class MainServer
 {
+    Bubi_Server *server = nullptr;
+
     struct client {
         float pos_x, pos_y;
         float mom_x, mom_y;
@@ -15,11 +18,13 @@ class MainServer
         bool ready;
     };
 
-    bool end_game=false;
+    bool end_game = false;
+    bool game = false;
 
     map<uint32_t,client> clients;
 
     void start_net();
+    void conn_client();
 
     bool check_ready();
     void start_game();
