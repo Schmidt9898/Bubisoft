@@ -1,4 +1,4 @@
-﻿other linker options : -lmingw32 -lSDL2main -lSDL2 -lSDL2_net   <--Kövesd a sorrendet
+﻿other linker options : -lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer  <--Kövesd a sorrendet
 Be kell includeolni :
 
 #define SDL_MAIN_HANDLED  <-- ez a sor nélkün nem működik (de működik ha bubinetet beincludeolod)
