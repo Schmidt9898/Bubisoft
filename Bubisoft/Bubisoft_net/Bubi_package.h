@@ -82,7 +82,9 @@ enum Flag :char
     notset=0,
     player=1,
     pickup=2,
-    name=3
+    name=3,
+    ready=4,
+    not_ready=5
 };
 
 
