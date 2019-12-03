@@ -1,7 +1,7 @@
-#include <mainClient.h>
+#include "mainClient.h"
 #include <iostream>
 #include <thread>
-#include <Bubisoft_Net.hpp>
+#include "Bubisoft_Net.hpp"
 
 void MainClient::start_net(string ip) {
 

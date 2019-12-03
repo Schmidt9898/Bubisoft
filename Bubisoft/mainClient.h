@@ -2,6 +2,7 @@
 #define MAINCLIENT_H_INCLUDED
 
 #include <string>
+#include "Bubisoft_Net.hpp"
 
 using namespace std;
 

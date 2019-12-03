@@ -1,8 +1,9 @@
 #include <iostream>
 
 #include "Bubisoft_Net.hpp"
-#include "mainClient.h"
-#include "mainServer.h"
+#include "Bubi_Sound.h"
+//#include "mainClient.h"
+//#include "mainServer.h"
 //#include "MainLaci.hpp"
 
 //#include "Bubi_package.h"
@@ -22,11 +23,11 @@ int main()
      // MainLaci();
     cout << "Server(s) or Client(c): ";
     cin >> tipus;
-
+/*
     switch(tipus) {
         case 's' : MainServer(); break;
         case 'c' : MainClient(); break;
     }
-
+*/
     return 0;
 }
