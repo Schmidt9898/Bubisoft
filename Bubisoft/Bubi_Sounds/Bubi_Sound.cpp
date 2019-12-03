@@ -3,6 +3,7 @@
 
 
 Bubi_Sound::Bubi_Sound(){
+
         if(SDL_Init(SDL_INIT_AUDIO)==-1)
         {
             printf("SDL_Init: %s\n", SDL_GetError());
@@ -46,13 +47,14 @@ Bubi_Sound::~Bubi_Sound()
 
   bool Bubi_Sound::Load_sounds(std::string filename)
     {
+
         /// sounds feltöltése
         std::string path_head="Bubi_Sounds/";
         std::ifstream file;
         file.open(filename);
         if(!file.good())
         {
-            std::cout<<"File can't be openned."<<std::endl;
+            std::cout<<"File can't be openned.:"<<filename<<std::endl;
             return false;
         }
         std::string line;

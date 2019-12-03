@@ -4,10 +4,11 @@
 class Drawable
 {
 protected:
+    const uint32_t id;
     float x, y;
     int32_t r;
 public:
-    Drawable(float pos_x,float pos_y,int32_t size):x(pos_x),y(pos_y),r(size) {}
+    Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size):id(id_),x(pos_x),y(pos_y),r(size) {}
 
 
     virtual ~Drawable();
@@ -40,7 +41,7 @@ class PickUp : public Drawable
     unsigned char type;
 
 public :
-    PickUp(float pos_x,float pos_y,int32_t size,unsigned char flag):Drawable(pos_x,pos_y,size),type(flag) {}
+    PickUp(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char flag):Drawable(id_,pos_x,pos_y,size),type(flag) {}
 
 
     void InteractionWith(Drawable& it);
@@ -53,9 +54,7 @@ class Player : Drawable
 {
     unsigned char pickup;
 public :
-    Player(float pos_x,float pos_y,int32_t size,unsigned char pickup_):Drawable(pos_x,pos_y,size),pickup(pickup_) {}
-
-
+    Player(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size),pickup(pickup_) {}
 
     void InteractionWith(Drawable& it);
     void Draw() {};

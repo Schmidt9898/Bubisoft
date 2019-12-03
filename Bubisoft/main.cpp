@@ -37,10 +37,9 @@ string ip;
     cout << "Give server port: ";
     cin >> port;
 MainClient Main( (ip=="0")? "localhost" : ip ,(port==0)?12345:port);   ///init
-Main.Start();
+Main.Loop();
 
-
-
+   cin >> ip;
 
     return 0;
 }
