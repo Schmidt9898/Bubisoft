@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Bubisoft" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Bubisoft_net" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Bubisoft_net" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++14" />
+			<Add option="-fexceptions" />
+			<Add directory="sdl/include/SDL2" />
+			<Add directory="Bubisoft_net" />
+			<Add directory="Bubisoft_net/net/include/SDL2" />
+			<Add directory="Bubi_Sounds/mixer/include/SDL2" />
+		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer" />
+			<Add directory="sdl/lib" />
+			<Add directory="Bubisoft_net/net/lib" />
+			<Add directory="Bubi_Sounds/mixer/lib" />
+		</Linker>
+		<Unit filename="Bubi_Sounds/Bubi_Sound.cpp" />
+		<Unit filename="Bubi_Sounds/Bubi_Sound.h" />
+		<Unit filename="Bubi_Sounds/sound_list.txt" />
+		<Unit filename="Bubisoft_net/Bubi_client.cpp" />
+		<Unit filename="Bubisoft_net/Bubi_client.h" />
+		<Unit filename="Bubisoft_net/Bubi_exceptions.h" />
+		<Unit filename="Bubisoft_net/Bubi_package.h" />
+		<Unit filename="Bubisoft_net/Bubi_server.cpp" />
+		<Unit filename="Bubisoft_net/Bubi_server.h" />
+		<Unit filename="Bubisoft_net/Bubisoft_Net.cpp" />
+		<Unit filename="Bubisoft_net/Bubisoft_Net.hpp" />
+		<Unit filename="Bubisoft_net/include.h" />
+		<Unit filename="MainLaci.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="mainClient.cpp" />
+		<Unit filename="mainClient.h" />
+		<Unit filename="mainServer.cpp" />
+		<Unit filename="mainServer.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

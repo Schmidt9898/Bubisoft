@@ -1,9 +1,7 @@
-
-*.dll
 *.exe
 *.depend
 *.layout
 *.o
-*.cbp
+
 
 *.save-failed
