@@ -8,9 +8,13 @@ using namespace std;
 
 class MainClient {
 
-    void start_net(string ip);
+    Bubi_Client echo;
 
-    public: MainClient();
+
+
+    public:
+        MainClient(string ip,int port);
+        void Start();
 
 };
 

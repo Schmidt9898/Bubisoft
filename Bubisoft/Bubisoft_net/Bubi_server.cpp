@@ -195,8 +195,6 @@ void Bubi_Server::Sender_loop()
         {
             char* buff_to_send = (char*) &(*(OUT_buffer[0]))[0];
             size_t buff_size=OUT_buffer[0]->size()*sizeof(Bubi_package);
-
-
             Bubi_package* p=(Bubi_package*)buff_to_send;
 
 

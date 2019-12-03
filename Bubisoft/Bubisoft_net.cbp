@@ -36,6 +36,7 @@
 			<Add directory="Bubisoft_net" />
 			<Add directory="Bubisoft_net/net/include/SDL2" />
 			<Add directory="Bubi_Sounds/mixer/include/SDL2" />
+			<Add directory="Bubi_Sounds" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer" />

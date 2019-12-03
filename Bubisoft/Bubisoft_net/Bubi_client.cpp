@@ -252,5 +252,18 @@ void Bubi_Client::Set_burst_size(size_t size){
 package_size=size;
 }
 
+void Bubi_Client::setIPort(const char* _ip,int _port)
+{
+    int code;
+    code=SDLNet_ResolveHost(&tcp_ip,_ip,_port);
+    if(code!=0)
+    {
+
+        //throw new Cant_cast_ip_exception(SDLNet_GetError());
+        std::cout<<"wrong ip"<<std::endl;
+    }
+
+}
+
 
 
