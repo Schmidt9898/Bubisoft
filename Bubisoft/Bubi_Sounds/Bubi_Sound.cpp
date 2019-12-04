@@ -190,11 +190,19 @@ void Bubi_Sound::Bubibip(std::string bip)
 
 
 
- void  Bubi_Sound::Bubi_change_atmos(Atmos atmos)
+ void  Bubi_Sound::Bubi_change_atmos(std::string music)
  {
     Mix_Paused(-1);
     Mix_FadeOutMusic(1000);
 
+    std::map<std::string,Mix_Music*>::iterator it;
+    it = musics.find(music);
+    if (it == musics.end())
+        return;
+    Mix_FadeInMusic(it->second,-1,500);
+    //Mix_PlayMusic(it->second,-1);
+
+/*
     switch(atmos)
     {
     case menu:
@@ -236,6 +244,7 @@ void Bubi_Sound::Bubibip(std::string bip)
     default:
         break;
     }
+    */
 
 }
 

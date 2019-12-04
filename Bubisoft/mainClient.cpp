@@ -28,12 +28,13 @@ while(scene!=close_game)
 
 }
    cout << "exit game.." << endl;
+
 }
 
 
 Scene MainClient::Setup() {///load here everithing
 cout << "Setup.." << endl;
-        Sound.Load_sounds("Bubi_Sounds/sound_list.txt");
+        atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
         ///load graf
 
         return menu_scene;
@@ -45,7 +46,7 @@ cout << "Setup.." << endl;
 Scene MainClient::Menu() {
 cout << "Menu.." << endl;
 
-Sound.Bubi_change_atmos(menu);
+atmos.Bubi_change_atmos("menu");
 /*
 
         while(true){
@@ -62,7 +63,7 @@ Scene MainClient::Game() {
 cout << "Game.." << endl;
 
 
-Sound.Bubi_change_atmos(game);
+atmos.Bubi_change_atmos("game2");
 
 
 /*
@@ -80,7 +81,7 @@ return load_scene;
 
 Scene MainClient::Load() {
 cout << "Load.." << endl;
-Sound.Bubi_change_atmos(loading);
+atmos.Bubi_change_atmos("game1");
 /*
         while(true){
           ///true main

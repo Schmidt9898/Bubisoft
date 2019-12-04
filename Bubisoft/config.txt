@@ -1,0 +1,6 @@
+serv:localhost
+port:12345
+user:yourname
+mvol:50
+svol:50
+masv:50

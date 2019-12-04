@@ -14,7 +14,7 @@ enum Scene {setup_scene,menu_scene,game_scene,load_scene,close_game};
 class MainClient {
 
     Bubi_Factory F;
-    Bubi_Sound Sound;
+    Bubi_Sound atmos;
 
 
     Bubi_Client echo;

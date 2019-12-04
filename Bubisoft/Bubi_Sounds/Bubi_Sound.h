@@ -9,11 +9,7 @@
 #include <algorithm>
 #include <iostream>
 
-enum Atmos {
-menu,
-loading,
-game,
-};
+
 
 class Bubi_Sound
 {
@@ -41,7 +37,7 @@ public:
     void Bubibip(std::string bip);
     /// háttér zenéje és lejátszása függ a atmoszférátol és a jelenetől
     ///lehetséges jelenetekért lásd az enumokat lejjebb
-    void Bubi_change_atmos(Atmos atmos);
+    void Bubi_change_atmos(std::string atmos);
     ///128 a max
     void Volume(int vol);
     void Volume_atmos(int vol);
