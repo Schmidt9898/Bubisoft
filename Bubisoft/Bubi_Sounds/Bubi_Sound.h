@@ -43,6 +43,9 @@ public:
     void Volume_atmos(int vol);
     void Volume_bip(int vol);
 
+    void Unload();
+    void Stop();
+
 
 
 

@@ -248,3 +248,35 @@ void Bubi_Sound::Bubibip(std::string bip)
 
 }
 
+
+
+void Bubi_Sound::Unload()
+{
+
+            for (std::map<std::string,Mix_Music*>::iterator it = musics.begin(); it != musics.end(); ++it)
+        {
+
+            Mix_FreeMusic(it->second);
+            // cout<<it->first<<" free"<<endl;
+        }
+         for (std::map<std::string,Mix_Chunk*>::iterator it = sounds.begin(); it != sounds.end(); ++it)
+        {
+            Mix_FreeChunk(it->second);
+             //cout<<it->first<<" free"<<endl;
+        }
+
+    musics.clear();
+    sounds.clear();
+
+}
+
+void Bubi_Sound::Stop()
+{
+    Mix_FadeOutChannel(-1,500);
+    Mix_FadeOutMusic(500);
+}
+
+
+
+
+
