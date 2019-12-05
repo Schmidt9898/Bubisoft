@@ -117,7 +117,7 @@ void MainServer::conn_client() {
                     c.pos_y = p.pos_y;
                     c.p_size = p.p_size;
                     c.ready = false;
-                    clients.insert(p.p_id,c)
+                    clients.insert(pair<uint32_t,client>(p.p_id,c));
                 }
         }
     }
