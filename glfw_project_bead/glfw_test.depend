@@ -1,0 +1,457 @@
+# depslib dependency file v1.0
+1532463844 source:c:\users\u_bpc\desktop\project\glfw_test\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"gui.hpp"
+
+1530705938 source:c:\users\u_bpc\desktop\project\glfw_test\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1530781633 c:\users\u_bpc\desktop\project\glfw_test\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1530898506 c:\users\u_bpc\desktop\project\glfw_test\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1531135648 c:\users\u_bpc\desktop\project\glfw_test\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1531063676 c:\users\u_bpc\desktop\project\glfw_test\model.h
+	<vector>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+
+1532249633 c:\users\u_bpc\desktop\project\glfw_test\mesh.hpp
+	<glad/glad.h>
+	<GL/glfw3.h>
+
+1532250420 c:\users\u_bpc\desktop\project\glfw_test\gui.hpp
+	<GL/glfw3.h>
+
+1530702338 source:c:\users\u_bpc\desktop\project\glfw_test_backup\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1532763274 source:c:\users\u_bpc\desktop\project\glfw_test_backup\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"gui.hpp"
+
+1531132048 c:\users\u_bpc\desktop\project\glfw_test_backup\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1530778033 c:\users\u_bpc\desktop\project\glfw_test_backup\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1530894906 c:\users\u_bpc\desktop\project\glfw_test_backup\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1532246820 c:\users\u_bpc\desktop\project\glfw_test_backup\gui.hpp
+	<GL/glfw3.h>
+
+1530702338 source:c:\users\u_bpc\desktop\project\glfw_project\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1572360681 source:c:\users\u_bpc\desktop\project\glfw_project\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"gui.hpp"
+	"vao.hpp"
+
+1531132048 c:\users\u_bpc\desktop\project\glfw_project\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1530778033 c:\users\u_bpc\desktop\project\glfw_project\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1572357256 c:\users\u_bpc\desktop\project\glfw_project\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1532246820 c:\users\u_bpc\desktop\project\glfw_project\gui.hpp
+	<GL/glfw3.h>
+
+1572360509 c:\users\u_bpc\desktop\project\glfw_project\vao.hpp
+
+1530702338 source:c:\users\u_bpc\desktop\project\glfw_project - copy\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1572372054 source:c:\users\u_bpc\desktop\project\glfw_project - copy\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"gui.hpp"
+	"texture.hpp"
+	"vao.hpp"
+
+1572372132 c:\users\u_bpc\desktop\project\glfw_project - copy\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1530778033 c:\users\u_bpc\desktop\project\glfw_project - copy\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1572357256 c:\users\u_bpc\desktop\project\glfw_project - copy\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1532246820 c:\users\u_bpc\desktop\project\glfw_project - copy\gui.hpp
+	<GL/glfw3.h>
+
+1559901493 c:\users\u_bpc\desktop\project\glfw_project - copy\texture.hpp
+	<string>
+	<cstring>
+
+1572360509 c:\users\u_bpc\desktop\project\glfw_project - copy\vao.hpp
+
+1530702338 source:c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1572426228 source:c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"gui.hpp"
+	"texture.hpp"
+	"vao.hpp"
+
+1572372132 c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1530778033 c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1572357256 c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1532246820 c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\gui.hpp
+	<GL/glfw3.h>
+
+1572373437 c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\texture.hpp
+	<string>
+	<cstring>
+
+1572426273 c:\users\u_bpc\desktop\project\glfw_project sample code texture f-up\vao.hpp
+
+1530702338 source:c:\users\u_bpc\desktop\project\glfw_project main\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1574447227 source:c:\users\u_bpc\desktop\project\glfw_project main\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"dae.h"
+	"model.h"
+
+1572372132 c:\users\u_bpc\desktop\project\glfw_project main\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1530778033 c:\users\u_bpc\desktop\project\glfw_project main\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1572357256 c:\users\u_bpc\desktop\project\glfw_project main\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1572536803 c:\users\u_bpc\desktop\project\glfw_project main\vao.hpp
+
+1574447389 c:\users\u_bpc\desktop\project\glfw_project main\dae.h
+	<iostream>
+	<string>
+	<sstream>
+	<vector>
+	"model.h"
+
+1572770667 c:\users\u_bpc\desktop\project\glfw_project main\model.h
+	<iostream>
+	<vector>
+
+1530702338 source:c:\users\u_bpc\desktop\project\glfw_project_bead\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1575731861 source:c:\users\u_bpc\desktop\project\glfw_project_bead\main.cpp
+	<iostream>
+	<glad/glad.h>
+	<GL/glfw3.h>
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+
+1572372132 c:\users\u_bpc\desktop\project\glfw_project_bead\shader.hpp
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<glm/glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1530778033 c:\users\u_bpc\desktop\project\glfw_project_bead\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1572357256 c:\users\u_bpc\desktop\project\glfw_project_bead\camera.hpp
+	<glad/glad.h>
+	<glm/glm/glm.hpp>
+	<glm/glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1575724508 c:\users\u_bpc\desktop\project\glfw_project_bead\vao.hpp
+	"game_vertices.h"
+
+1575727031 c:\users\u_bpc\desktop\project\glfw_project_bead\game_vertices.h
+
