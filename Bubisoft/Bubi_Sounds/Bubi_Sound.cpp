@@ -3,6 +3,7 @@
 
 
 Bubi_Sound::Bubi_Sound(){
+
         if(SDL_Init(SDL_INIT_AUDIO)==-1)
         {
             printf("SDL_Init: %s\n", SDL_GetError());
@@ -46,13 +47,14 @@ Bubi_Sound::~Bubi_Sound()
 
   bool Bubi_Sound::Load_sounds(std::string filename)
     {
+
         /// sounds feltöltése
         std::string path_head="Bubi_Sounds/";
         std::ifstream file;
         file.open(filename);
         if(!file.good())
         {
-            std::cout<<"File can't be openned."<<std::endl;
+            std::cout<<"File can't be openned.:"<<filename<<std::endl;
             return false;
         }
         std::string line;
@@ -188,11 +190,19 @@ void Bubi_Sound::Bubibip(std::string bip)
 
 
 
- void  Bubi_Sound::Bubi_change_atmos(Atmos atmos)
+ void  Bubi_Sound::Bubi_change_atmos(std::string music)
  {
     Mix_Paused(-1);
     Mix_FadeOutMusic(1000);
 
+    std::map<std::string,Mix_Music*>::iterator it;
+    it = musics.find(music);
+    if (it == musics.end())
+        return;
+    Mix_FadeInMusic(it->second,-1,500);
+    //Mix_PlayMusic(it->second,-1);
+
+/*
     switch(atmos)
     {
     case menu:
@@ -234,6 +244,39 @@ void Bubi_Sound::Bubibip(std::string bip)
     default:
         break;
     }
+    */
 
 }
+
+
+
+void Bubi_Sound::Unload()
+{
+
+            for (std::map<std::string,Mix_Music*>::iterator it = musics.begin(); it != musics.end(); ++it)
+        {
+
+            Mix_FreeMusic(it->second);
+            // cout<<it->first<<" free"<<endl;
+        }
+         for (std::map<std::string,Mix_Chunk*>::iterator it = sounds.begin(); it != sounds.end(); ++it)
+        {
+            Mix_FreeChunk(it->second);
+             //cout<<it->first<<" free"<<endl;
+        }
+
+    musics.clear();
+    sounds.clear();
+
+}
+
+void Bubi_Sound::Stop()
+{
+    Mix_FadeOutChannel(-1,500);
+    Mix_FadeOutMusic(500);
+}
+
+
+
+
 

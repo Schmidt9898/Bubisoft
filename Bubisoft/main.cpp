@@ -1,8 +1,9 @@
 #include <iostream>
 
 #include "Bubisoft_Net.hpp"
+#include "Bubi_Sound.h"
 #include "mainClient.h"
-#include "mainServer.h"
+//#include "mainServer.h"
 //#include "MainLaci.hpp"
 
 //#include "Bubi_package.h"
@@ -20,6 +21,7 @@ int main()
 
     cout << "Hello!" << endl << endl;
      // MainLaci();
+/*
     cout << "Server(s) or Client(c): ";
     cin >> tipus;
 
@@ -27,6 +29,17 @@ int main()
         case 's' : MainServer(); break;
         case 'c' : MainClient(); break;
     }
+*/
+string ip;
+    cout << "Give server address: ";
+    cin >> ip;
+    int port;
+    cout << "Give server port: ";
+    cin >> port;
+MainClient Main( (ip=="0")? "localhost" : ip ,(port==0)?12345:port);   ///init
+Main.Loop();
+
+   cin >> ip;
 
     return 0;
 }

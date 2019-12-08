@@ -2,4 +2,6 @@ loading.mp3
 menu.mp3
 deleted.wav
 created.wav
-game.mp3
+game1.mp3
+game12.mp3
+game2.mp3

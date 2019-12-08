@@ -1,61 +1,146 @@
-#include <mainClient.h>
+#include "mainClient.h"
 #include <iostream>
 #include <thread>
-#include <Bubisoft_Net.hpp>
+#include "Bubisoft_Net.hpp"
+#include "Drawable.h"
 
-void MainClient::start_net(string ip) {
 
-    Bubi_Factory F;
 
-    try{
-        vector<Bubi_package> vec;
-        Bubi_package package;
-        cout<<"asd:"<<package.ToString()<<endl;
-        for(int i=0;i<10;i++){
-            vec.push_back(package);
-        }
+MainClient::MainClient(string ip,int port) {
 
-        //Bubi_Server server(12345,0);
-        //server.Open_Server();
-        //char * a=new char('s');
-        Bubi_Client client(ip.c_str(),12345);
-        client.Start_matchmaking();
-
-        this_thread::sleep_for(chrono::milliseconds(1000));
-        client.Push_Bubivector(&vec);
-        //server.Push_Bubivector(&vec);
-        //cout<<"chapter"<<endl;
-
-        //server.Close_Server();
-        //cout<<vec2->size()<<" merete"<<endl;
-        //this_thread::sleep_for(chrono::milliseconds(500));
-        while(true){
-            vector<Bubi_package>* vec2 = client.Pop_Bubivector();
-            cout<<"----->"<<vec2->size()<<"<-----"<<endl;
-            int j=1;
-            for(Bubi_package p : *vec2){
-                cout<<j++;
-                cout<<p.ToString()<<endl;
-            }
-        }
-
-        SDLNet_Quit();
-        SDL_Quit();
-        }
-        catch(std::exception e){
-            cout<<"valami nem jo"<<endl;
-        }
+    cout << "Init.." << endl;
+    echo.setIPort(ip.c_str(),port);
 
 }
 
-MainClient::MainClient() {
 
-    cout << "mainClient" << endl << endl;
-    cout << "Give server address: ";
-    string ip;
-    cin >> ip;
 
-    thread th1(MainClient::start_net,this,ip);
-    th1.join();
+void MainClient::Loop() {///load here everithing
+Scene scene=setup_scene;
+while(scene!=close_game)
+{
+    switch(scene){///you can change scene by returning enum ,same thread
+    case setup_scene: scene = Setup(); break;
+    case menu_scene: scene = Menu(); break;
+    case game_scene: scene = Game(); break;
+    case load_scene: scene = Load(); break;
+    }
 
 }
+   cout << "exit game.." << endl;
+            if(window)
+                SDL_DestroyWindow(window);
+
+    atmos.Stop();
+
+}
+
+
+Scene MainClient::Setup() {///load here everithing
+cout << "Setup.." << endl;
+
+        atmos.Unload();
+        if(window)
+                SDL_DestroyWindow(window);
+        atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
+        ///load graf
+        window = SDL_CreateWindow(
+        "Dwendallan",                  // window title
+        SDL_WINDOWPOS_UNDEFINED,           // initial x position
+        SDL_WINDOWPOS_UNDEFINED,           // initial y position
+        width,                               // width, in pixels
+        hight,                               // height, in pixels
+        0                  // flags - see below
+    );
+ /*   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+img = IMG_LoadTexture(renderer, "Drawable/Background.png");
+if(!img)
+    cout<<SDL_GetError();*/
+
+
+
+        return menu_scene;
+
+}
+
+
+
+Scene MainClient::Menu() {
+cout << "Menu.." << endl;
+
+atmos.Bubi_change_atmos("menu");
+
+//////////////
+
+
+while(true){
+    SDL_Event e;
+		if ( SDL_PollEvent(&e) ) {
+			if (e.type == SDL_QUIT)
+				break;
+			else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
+				break;
+		}
+
+}
+
+
+//////////////
+
+return game_scene;
+
+}
+
+Scene MainClient::Game() {
+cout << "Game.." << endl;
+
+
+atmos.Bubi_change_atmos("game2");
+
+while(true){
+    SDL_Event e;
+		if ( SDL_PollEvent(&e) ) {
+			if (e.type == SDL_QUIT)
+				break;
+			else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
+				break;
+		}
+
+}
+
+return load_scene;
+
+
+}
+
+Scene MainClient::Load() {
+cout << "Load.." << endl;
+atmos.Bubi_change_atmos("game1");
+
+
+while(true){
+    SDL_Event e;
+		if ( SDL_PollEvent(&e) ) {
+			if (e.type == SDL_QUIT)
+				break;
+			else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
+				break;
+		}
+
+}
+
+
+
+
+return close_game;
+
+}
+
+
+
+
+
+
+
+
+

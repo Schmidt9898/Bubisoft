@@ -60,7 +60,7 @@ public :
     Bubi_Client(const char * _ip,int _port);//throw (Cant_cast_ip_exception);
     Bubi_Client(const char * _ip,int _port,size_t burst_size);//throw (Cant_cast_ip_exception);
 
-    /// váni fog a szálakra
+    /// várni fog a szálakra
     ~Bubi_Client();
     /// szerver oldali port cím, egyedi minden clientnél, csak csatlakozott cliensnél érvényes
     unsigned int Get_ID();
@@ -76,6 +76,9 @@ public :
     void Push_Bubivector(std::vector<Bubi_package> *vec);
     ///beteszi a küldõ bufferbe a vectort és azt majd elküldi a szervernek a kliens, a vectort majd a küldõ felszabadítja
     std::vector<Bubi_package>* Pop_Bubivector();
+
+
+    void setIPort(const char* _ip,int _port);
 
 
 

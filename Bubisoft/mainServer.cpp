@@ -1,4 +1,4 @@
-#include <mainServer.h>
+#include "mainServer.h"
 #include <Bubisoft_Net.hpp>
 #include <thread>
 #include <iostream>
@@ -117,7 +117,9 @@ void MainServer::conn_client() {
                     c.pos_y = p.pos_y;
                     c.p_size = p.p_size;
                     c.ready = false;
+
                     clients.insert(pair<uint32_t,client>(p.p_id,c));
+                  //  clients.insert(p.p_id,c)
                 }
         }
     }
