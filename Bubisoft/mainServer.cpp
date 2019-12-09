@@ -55,8 +55,8 @@ void MainServer::start_net() {
 
 bool MainServer::check_ready() {
 
-    for(map<uint32_t,client>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        if(it->second.ready==false) return false;
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        if(it->second->isReady()==false) return false;
     }
     return true;
 }
@@ -110,15 +110,9 @@ void MainServer::conn_client() {
         reader = server->Pop_Bubivector();
         for( Bubi_package p : *reader) {
                 if(p.flag==Flag::player) {
-                    client c;
-                    c.mom_x = p.mom_x;
-                    c.mom_y = p.mom_y;
-                    c.pos_x = p.pos_x;
-                    c.pos_y = p.pos_y;
-                    c.p_size = p.p_size;
-                    c.ready = false;
-
-                    clients.insert(pair<uint32_t,client>(p.p_id,c));
+                    unsigned char ch ='0';
+                    Client* c = new Client(p.p_id,p.pos_x,p.pos_y,p.p_size,ch,p.mom_x,p.mom_y);
+                    clients.insert(pair<uint32_t,Client*>(p.p_id,c));
                   //  clients.insert(p.p_id,c)
                 }
         }
@@ -137,6 +131,9 @@ MainServer::MainServer() {
     while(true) {
         thread t2(MainServer::conn_client,this);
         start_game();
+    }
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        delete it->second;
     }
 
 }

@@ -32,6 +32,7 @@ public:
 
     friend class PickUp;
     friend class Player;
+    friend class Client;
 
 };
 
@@ -50,7 +51,7 @@ public :
 };
 
 
-class Player : Drawable
+class Player : public Drawable
 {
     unsigned char pickup;
 public :
@@ -60,5 +61,18 @@ public :
     void Draw() {};
 };
 
+class Client : public Drawable
+{
+    float mom_x,mom_y;
+    unsigned char pickup;
+    bool ready;
+
+public:
+    Client(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,size),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
+    ~Client() {}
+    void InteractionWith(Drawable& it);
+    void Draw() {};
+    bool isReady() {return ready;}
+};
 
 #endif // DRAWABLE_H_INCLUDED

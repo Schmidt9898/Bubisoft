@@ -2,8 +2,8 @@
 
 #include "Bubisoft_Net.hpp"
 #include "Bubi_Sound.h"
-#include "mainClient.h"
-//#include "mainServer.h"
+//#include "mainClient.h"
+#include "mainServer.h"
 //#include "MainLaci.hpp"
 
 //#include "Bubi_package.h"
@@ -17,7 +17,7 @@ using namespace std;
 
 int main()
 {
-    char tipus;
+//    char tipus;
 
     cout << "Hello!" << endl << endl;
      // MainLaci();
@@ -30,6 +30,7 @@ int main()
         case 'c' : MainClient(); break;
     }
 */
+/*
 string ip;
     cout << "Give server address: ";
     cin >> ip;
@@ -40,6 +41,6 @@ MainClient Main( (ip=="0")? "localhost" : ip ,(port==0)?12345:port);   ///init
 Main.Loop();
 
    cin >> ip;
-
+*/
     return 0;
 }
