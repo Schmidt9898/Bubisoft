@@ -6,7 +6,7 @@
 #include "Bubisoft_Net.hpp"
 #include "Drawable.h"
 #include "Bubi_Sound.h"
-#include <SDL_image.h>
+//#include <SDL_image.h>
 
 using namespace std;
 
@@ -33,9 +33,10 @@ class MainClient {
     int hight=600;
 
     SDL_Window* window=NULL;
-    //SDL_Renderer *renderer = NULL;
+    SDL_Renderer *renderer = NULL;
 	//SDL_Texture *img = NULL;
-
+	Uint32 timerevent=0;
+    thread *timer;
 
 
 
@@ -45,10 +46,11 @@ class MainClient {
     public:
         MainClient(string ip,int port);
         void Loop();
-        Scene Setup();
-        Scene Menu();
-        Scene Game();
-        Scene Load();
+        Scene Setup();//destroy and rebuild window
+        Scene Menu();//draw and navigate menu
+        Scene Game();//draw game
+
+        Scene Load();//
 
 };
 
