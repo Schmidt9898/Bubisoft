@@ -21,9 +21,6 @@ enum Scene
 
 class MainClient {
 
-    Bubi_Factory F;
-    Bubi_Sound atmos;
-    Bubi_Client echo;
 
     string username = "Larry";
     int volume=50;
@@ -31,6 +28,13 @@ class MainClient {
     int music_volume=100;
     int width=800;
     int hight=600;
+
+
+    Bubi_Factory F;
+    Bubi_Sound atmos;
+    Bubi_Client echo;
+
+    thread * tree_updater=nullptr;
 
     SDL_Window* window=NULL;
     SDL_Renderer *renderer = NULL;
@@ -42,6 +46,9 @@ class MainClient {
 
     map<uint32_t,Drawable*> Entities;
     map<uint32_t,Player*> Players;
+
+    void Tree_update();
+    void Tree_package(Bubi_package);
 
     public:
         MainClient(string ip,int port);

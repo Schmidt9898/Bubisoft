@@ -7,6 +7,7 @@
 #include "Bubisoft_Net.hpp"
 #include "Drawable.h"
 #include "objects.h"
+#include "Windows.h"
 
 void tick(Uint32 timerevent)
 {
@@ -19,8 +20,9 @@ if (timerevent != ((Uint32)-1)) {
     SDL_memset(&event, 0, sizeof(event));
     event.type = timerevent;
 //    event.user.code = my_event_code;
-//   event.user.data1 = significant_data;
-    event.user.data2 = 0;
+long int* time= new long int(GetTickCount());
+   event.user.data1 = (void*) time;
+   // event.user.data2 = 0;
     SDL_PushEvent(&event);
 }
 this_thread::sleep_for(chrono::milliseconds(20));
@@ -91,7 +93,7 @@ cout << "Setup.." << endl;
 
 
 
-        return menu_scene;
+        return game_scene;//menu_scene;
 
 }
 
@@ -113,6 +115,8 @@ while(true){
 
 
 		if ( SDL_PollEvent(&e) ) {
+                //get event here
+
 			if (e.type == SDL_QUIT)
 				break;
 			if (e.type == SDL_MOUSEMOTION)
@@ -124,7 +128,12 @@ while(true){
 
 
             if(e.type==timerevent){
-            i++;
+            //i++;
+            if(GetTickCount()-*((long int*)e.user.data1)<1)
+            {
+            //draw menu here
+
+
             SDL_SetRenderDrawColor(renderer,0,0,0,255);
 			SDL_RenderClear(renderer);
 			//draw
@@ -134,7 +143,11 @@ while(true){
 
 			//show
             SDL_RenderPresent(renderer);
-
+            }
+            else
+            {
+                cout<<"late"<<endl;
+            }
             }
 
 
@@ -155,48 +168,112 @@ Scene MainClient::Game() {
 cout << "Game.." << endl;
 
 
-//atmos.Bubi_change_atmos("game2");
+atmos.Bubi_change_atmos("game2");
+SDL_Event e;
+int i=0;
+int x=200,y=200;
+
 
 while(true){
-    SDL_Event e;
-		if ( SDL_PollEvent(&e) ) {
+if ( SDL_PollEvent(&e) ) {
+                //get event here
+
 			if (e.type == SDL_QUIT)
 				break;
-			else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
-				break;
-		}
+			if (e.type == SDL_MOUSEMOTION)
+            {
+                x=e.motion.x;
+                y=e.motion.y;
+
+            }
+
+
+            //tick time
+            if(e.type==timerevent){
+            //i++;
+            if(GetTickCount()-*((long int*)e.user.data1)<1)
+            {
+
+
+
+            //put updated changes in com out <- this could be 2 step
+            ///todo
+
+
+            //(calculate stat)
+
+
+
+
+
+            //call draw on tree
+            //draw myself
+            //(draw hud , stats)
+
+
+            //draw menu here
+
+
+            SDL_SetRenderDrawColor(renderer,0,0,0,255);
+			SDL_RenderClear(renderer);
+			//draw
+
+			SDL_SetRenderDrawColor(renderer,0,100,255,255);
+            Circle(renderer,20,x,y);
+
+			//show
+            SDL_RenderPresent(renderer);
+            }
+            else
+            {
+                cout<<"late"<<endl;
+            }
+            }
+}
 
 }
 
-return close_game;
+//echo.Close_Client();
+//tree_updater->join();
+return menu_scene;
 
 
 }
 
 Scene MainClient::Load() {
-cout << "Load.." << endl;
+cout << "Loading.." << endl;
 atmos.Bubi_change_atmos("game1");
 
-/*
-while(true){
-    SDL_Event e;
-		if ( SDL_PollEvent(&e) ) {
-			if (e.type == SDL_QUIT)
-				break;
-			else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
-				break;
-		}
+//echo.setIPort(0,0);
+//echo.Start_matchmaking();
+//tree_updater = new thread(MainClient::Tree_update,this);
 
-}
-*/
-
-
-
-return close_game;
+return game_scene;
 
 }
 
 
+
+void MainClient::Tree_update()
+{
+    vector<Bubi_package>* vec=0;
+    while(echo.IsConected())
+    {
+    vec=echo.Pop_Bubivector();
+        for(int i=0;i<vec->size();i++)
+        {
+               Tree_package(vec->at(i));
+        }
+    delete vec;
+    }
+    cout<<"tree_updater ended"<<endl;
+}
+
+void MainClient::Tree_package(Bubi_package)
+{
+
+///mit csináljon a csomagokkal;
+}
 
 
 
