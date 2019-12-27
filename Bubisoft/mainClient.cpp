@@ -105,7 +105,7 @@ cout << "Setup.." << endl;
 Scene MainClient::Menu() {
 cout << "Menu.." << endl;
 
-//atmos.Bubi_change_atmos("menu");
+atmos.Bubi_change_atmos("menu");
 
 //////////////
 
