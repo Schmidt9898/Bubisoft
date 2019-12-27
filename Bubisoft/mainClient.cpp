@@ -9,10 +9,10 @@
 #include "objects.h"
 #include "Windows.h"
 
-void tick(Uint32 timerevent)
+void MainClient::tick()
 {
 
-    while(true)
+    while(!timerstop)
     {
 
 if (timerevent != ((Uint32)-1)) {
@@ -26,6 +26,8 @@ long int* time= new long int(GetTickCount());
     SDL_PushEvent(&event);
 }
 this_thread::sleep_for(chrono::milliseconds(20));
+
+
     }
 
 
@@ -38,7 +40,8 @@ MainClient::MainClient(string ip,int port) {
     cout << "Init.." << endl;
     echo.setIPort(ip.c_str(),port);
     timerevent = SDL_RegisterEvents(1);
-    timer=new thread(tick,timerevent);
+    timer=new thread(tick,this);
+
 }
 
 
@@ -269,10 +272,44 @@ void MainClient::Tree_update()
     cout<<"tree_updater ended"<<endl;
 }
 
-void MainClient::Tree_package(Bubi_package)
+void MainClient::Tree_package(Bubi_package p)
 {
 
 ///mit csináljon a csomagokkal;
+switch(p.doflag){
+    case purpose::add :
+        if(p.flag==Flag::player)
+        {
+            Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+                Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+        }
+
+    break;
+    case purpose::delet :
+
+    break;
+    case purpose::update :
+
+    break;
+   // case purpose::get_stat :break;
+    case purpose::get_name :
+
+        break;
+    //case purpose::set_name :break;
+    case purpose::stat :
+
+    break;
+   // case purpose::get_tree :break;
+
+
+
+
+}
+
+
+
+
+
 }
 
 

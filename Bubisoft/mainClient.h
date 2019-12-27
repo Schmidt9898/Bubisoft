@@ -35,12 +35,14 @@ class MainClient {
     Bubi_Client echo;
 
     thread * tree_updater=nullptr;
+    //bool updaterstop=false;
 
     SDL_Window* window=NULL;
     SDL_Renderer *renderer = NULL;
 	//SDL_Texture *img = NULL;
 	Uint32 timerevent=0;
     thread *timer;
+    bool timerstop=false;
 
 
 
@@ -49,6 +51,7 @@ class MainClient {
 
     void Tree_update();
     void Tree_package(Bubi_package);
+    void tick();
 
     public:
         MainClient(string ip,int port);
