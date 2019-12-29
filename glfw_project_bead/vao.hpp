@@ -69,7 +69,7 @@ VAO::VAO(float* _data, unsigned _num_floats, unsigned _num_vertices, std::string
         }
         else
         {
-            std::cout << "Failed to load texture" << std::endl;
+            std::cout << "Failed to load texture: " << texture_path <<std::endl;
         }
         stbi_image_free(tex_data);
 

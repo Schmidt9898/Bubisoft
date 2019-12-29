@@ -1,0 +1,19 @@
+"you  need to link against:
+glfw, opengl32, glu32, gdi32, user32, and kernel32 in this order"
+
+tehát
+other linker options:
+-lglfw
+-lopengl32
+-lglu32
+-lgdi32
+-luser32
+-lkernel32
+
+link libraries:
+depend\bin\libglfw3.a
+depend\bin\libglfw3dll.a
+
+a "glfw.dll" neve eredetileg "glfw3.dll" de a 3mast nem olvasta be a linkelésnél
+
+elvileg ennyi :3
