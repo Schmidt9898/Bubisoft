@@ -12,14 +12,15 @@ struct Bubi_package
     ///pls don't change
     unsigned char flag='a';///if átfedést lehetővé teszi
     unsigned char pickup_flag='b';/// 4*1 byte but actually 4 byte
-    unsigned char space0=255;
-    unsigned char space1=255;
-    float pos_x=4,    /// 4 byte
-          pos_y=4;    /// 4 byte
-    float mom_x=4,    /// 4 byte
+    unsigned char doflag=255;
+    unsigned char bringflag=255;
+    float pos_x=0,    /// 4 byte
+          pos_y=0;    /// 4 byte
+    float mom_x=0,    /// 4 byte
           mom_y=0;    /// 4 byte
     int32_t p_size=0; /// 4 byte
     uint32_t p_id=0;/// 4 byte
+    uint32_t point=0;///4 byte
 //char pickup_flag; ///1 byte but 4 byte
 
     Bubi_package(unsigned char _flag,unsigned char _pickup_flag,///TODO bool[]
@@ -76,7 +77,7 @@ struct Bubi_name_package
             memcpy(name, &_name, 23);
     }
 };
-
+/*
 enum Flag :char
 {
     notset=0,
@@ -86,7 +87,28 @@ enum Flag :char
     ready=4,
     not_ready=5
 };
-
+*/
+enum Flag :char
+{
+    notset=0,
+    player=1,
+    pickup=2,
+    name=3,
+    ready=4,
+    not_ready=5
+};
+enum purpose :char
+{
+    none=0,
+    add=1,
+    delet=2,
+    update=3,
+    get_stat=4,
+    get_name=5,
+    set_name=6,
+    stat=7,
+    get_tree=8
+};
 
 
 
@@ -96,12 +118,12 @@ public :
 ///kiolvassa a stringet ha ez tényleg egy név package
     std::string get_name(Bubi_package &p)
     {
-        if(p.flag=Flag::name)
+        if(p.flag==Flag::name)
             return "not a name";
-
-        char name[23];
+size_t meret=sizeof(Bubi_package)-5;
+        char name[meret];
         //char * cp = (char*)&p;
-        memcpy(name,&p+1,23);
+        memcpy(name,&p+1,meret);
         return std::string(name);
     }
     ///bármien package-bő név packaget csinál
@@ -109,8 +131,8 @@ public :
     {
 
         p.flag=Flag::name;
-
-        memcpy(&p+1,name.c_str(),23);
+size_t meret=sizeof(Bubi_package)-5;
+        memcpy(&p+1,name.c_str(),meret);
 
 
 
