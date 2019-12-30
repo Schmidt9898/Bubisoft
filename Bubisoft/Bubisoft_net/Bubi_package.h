@@ -20,6 +20,7 @@ struct Bubi_package
           mom_y=0;    /// 4 byte
     int32_t p_size=0; /// 4 byte
     uint32_t p_id=0;/// 4 byte
+    uint32_t point=0;///4 byte
 //char pickup_flag; ///1 byte but 4 byte
 
     Bubi_package(unsigned char _flag,unsigned char _pickup_flag,///TODO bool[]
@@ -119,10 +120,10 @@ public :
     {
         if(p.flag==Flag::name)
             return "not a name";
-
-        char name[23];
+size_t meret=sizeof(Bubi_package)-5;
+        char name[meret];
         //char * cp = (char*)&p;
-        memcpy(name,&p+1,23);
+        memcpy(name,&p+1,meret);
         return std::string(name);
     }
     ///bármien package-bő név packaget csinál
@@ -130,8 +131,8 @@ public :
     {
 
         p.flag=Flag::name;
-
-        memcpy(&p+1,name.c_str(),23);
+size_t meret=sizeof(Bubi_package)-5;
+        memcpy(&p+1,name.c_str(),meret);
 
 
 
