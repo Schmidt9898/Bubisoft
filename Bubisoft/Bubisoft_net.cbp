@@ -42,7 +42,6 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer" />
-			<Add option="-lSDL2_image" />
 			<Add directory="sdl/lib" />
 			<Add directory="Bubisoft_net/net/lib" />
 			<Add directory="Bubi_Sounds/mixer/lib" />
@@ -63,8 +62,12 @@
 		<Unit filename="Drawable/Drawable.h" />
 		<Unit filename="MainLaci.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="mainClient.cpp" />
-		<Unit filename="mainClient.h" />
+		<Unit filename="mainClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mainClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="mainServer.cpp" />
 		<Unit filename="mainServer.h" />
 		<Extensions>

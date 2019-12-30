@@ -7,3 +7,5 @@
 
 
 *.save-failed
+*.cbp
+*.lnk
