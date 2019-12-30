@@ -1,0 +1,17 @@
+alapértelmezett pályaméret: 1000*1000
+játékos kezdőmérete: 5
+játékos méretcsökkenése lépésenként: 0.01
+pickup mérete: 3
+játékos timeout: 2 másodperc
+
+flagek:
+    notset=0,   ///általános player csomag
+    player=1,   ///new player
+    pickup=2,   ///pickup típusú csomag
+    name=3,     ///new name
+    ready=4,    ///player készen áll a játékra
+    not_ready=5,///player nem áll készen a játékra
+    dead=6,     ///player meghalt
+    disconn=7,  ///player lecsatlakozott
+    replay=8    ///player újra játszani akar
+

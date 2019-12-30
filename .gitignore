@@ -2,6 +2,8 @@
 *.depend
 *.layout
 *.o
+*.cbp
+*.lnk
 
 
 *.save-failed

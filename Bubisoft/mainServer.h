@@ -37,6 +37,7 @@ private:
     void get_values();
     void calculate();
     void send_values();
+    void send_names();
 
     bool check_end();
     void send_end();
