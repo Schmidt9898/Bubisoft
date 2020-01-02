@@ -8,7 +8,7 @@ protected:
     float x, y;
     int32_t r, p;
 public:
-    Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {}
+    Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {};
 
 
     virtual ~Drawable() {};
@@ -50,7 +50,6 @@ class PickUp : public Drawable
 
 public :
     PickUp(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
-
 
     void InteractionWith(Drawable& it){};
     void Draw() {};
