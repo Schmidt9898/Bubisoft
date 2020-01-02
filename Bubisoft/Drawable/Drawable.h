@@ -11,7 +11,7 @@ public:
     Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {}
 
 
-    virtual ~Drawable() {}
+    virtual ~Drawable() {};
 
     virtual bool collision(Drawable* it)
     {
@@ -49,10 +49,10 @@ class PickUp : public Drawable
     unsigned char type;
 
 public :
-    PickUp(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {}
+    PickUp(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
 
 
-    void InteractionWith(Drawable& it);
+    void InteractionWith(Drawable& it){};
     void Draw() {};
 
 };
@@ -62,10 +62,11 @@ class Player : public Drawable
 {
     unsigned char pickup;
 public :
-    Player(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {}
+    Player(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {};
 
-    void InteractionWith(Drawable& it);
+    void InteractionWith(Drawable& it){};
     void Draw() {};
+
 };
 
 class Client : public Drawable
