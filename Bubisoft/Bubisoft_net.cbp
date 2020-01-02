@@ -63,8 +63,12 @@
 		<Unit filename="Drawable/objects.h" />
 		<Unit filename="MainLaci.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="mainClient.cpp" />
-		<Unit filename="mainClient.h" />
+		<Unit filename="mainClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mainClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="mainServer.cpp" />
 		<Unit filename="mainServer.h" />
 		<Extensions>

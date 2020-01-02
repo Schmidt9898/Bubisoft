@@ -80,12 +80,15 @@ struct Bubi_name_package
 /*
 enum Flag :char
 {
-    notset=0,
-    player=1,
-    pickup=2,
-    name=3,
-    ready=4,
-    not_ready=5
+    notset=0,   ///általános player csomag
+    player=1,   ///new player
+    pickup=2,   ///pickup típusú csomag
+    name=3,     ///new name
+    ready=4,    ///player készen áll a játékra
+    not_ready=5,///player nem áll készen a játékra
+    dead=6,     ///player meghalt
+    disconn=7,  ///player lecsatlakozott
+    replay=8    ///player újra játszani akar
 };
 */
 enum Flag :char

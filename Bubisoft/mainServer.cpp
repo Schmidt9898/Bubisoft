@@ -55,8 +55,8 @@ void MainServer::start_net() {
 
 bool MainServer::check_ready() {
 
-    for(map<uint32_t,client>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        if(it->second.ready==false) return false;
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        if(it->second->isReady()==false) return false;
     }
     return true;
 }
@@ -80,7 +80,7 @@ void MainServer::start_game() {
         get_values();
         calculate();
         send_values();
-        if(!check_end()) {
+        if(check_end()) {
             end_game=true;
             send_end();
         }
@@ -88,12 +88,91 @@ void MainServer::start_game() {
 }
 
 void MainServer::get_values() {
+    reader = server->Pop_Bubivector();
+    for( Bubi_package p : *reader) {
+            if(clients.at(p.p_id)->isReady()){
+                if(p.flag==Flag::notset) {
+                    clients.at(p.p_id)->Move(p.mom_x, p.mom_y);
+                    //  clients.insert(p.p_id,c)
+                }
+            }
+            if(p.pickup_flag==Flag::ready) {
+                clients.at(p.p_id)->setReady();
+            }
+            else if(p.flag==Flag::player) {
+                    unsigned char ch =Flag::player;
+                    Client* c = new Client(p.p_id,p.pos_x,p.pos_y,5,ch,p.mom_x,p.mom_y); ///default start size = 5 for players
+                    clients.insert(pair<uint32_t,Client*>(p.p_id,c));
+                    //  clients.insert(p.p_id,c)
+            }
+                    else if(p.flag==Flag::name) {
+                        Bubi_Factory bf;
+                        string name=bf.get_name(p);
+                        if(name!="not a name") {
+                            clients.at(p.p_id)->setName(name);
+                        }
+                    }
+    }
+    delete reader;
+}
+
+void MainServer::send_names() {
+    vector<Bubi_package> *vec=0;
+    Bubi_package bubi;
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        bubi.flag=Flag::name;
+        bubi.p_id=it->first;
+        Bubi_Factory bf;
+        bf.set_name(bubi,it->second->getName());
+        vec->push_back(bubi);
+    }
+    server->Push_Bubivector(vec);
+    delete vec;
 }
 
 void MainServer::calculate() {
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) { ///ha több, mint két másodperce volt utoljára frissítve a kliens, akkor a klienset halottnak tekintjük
+        if(it->second->get_pickup()==Flag::dead) continue;
+        auto start = it->second->getLastUpdate();
+        auto end = std::chrono::system_clock::now();
+        std::chrono::duration<double> diff = end-start;
+        if(diff.count()>2000) {
+            it->second->set_flag(Flag::dead);
+        }
+    }
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        if(it->second->get_pickup()==Flag::dead) continue;
+        for(map<uint32_t,Client*>::iterator it2 = clients.begin(); it2 != clients.end(); ++it2) {
+            if(it==it2) continue;
+            if(it2->second->get_pickup()!=Flag::dead){
+                if(it->second->inside(it2->second)){
+                    it2->second->set_r(it->second->get_r()+it2->second->get_r());
+                    //it->second->set_r(0);
+                    it->second->set_flag(Flag::dead);
+                }
+            }
+        }
+    }
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        it->second->set_r(it->second->get_r()-0.01)
+    }
 }
 
 void MainServer::send_values() {
+    vector<Bubi_package> *vec=0;
+    Bubi_package bubi;
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        if(it->second->isReady()){
+            bubi.flag=it->second->get_pickup();
+            bubi.pos_x=it->second->get_x();
+            bubi.pos_y=it->second->get_y();
+            bubi.p_size=it->second->get_r();
+            ///TODO - bubi feltöltése
+            vec->push_back(bubi);
+        }
+    }
+    server->Push_Bubivector(vec);
+    delete vec;
 }
 
 bool MainServer::check_end() {
@@ -107,19 +186,27 @@ void MainServer::conn_client() {
     cout << "conn_client" << endl << endl;
 
     while(!game) {
-        reader = server->Pop_Bubivector();
+        /*reader = server->Pop_Bubivector();
         for( Bubi_package p : *reader) {
                 if(p.flag==Flag::player) {
-                    client c;
-                    c.mom_x = p.mom_x;
-                    c.mom_y = p.mom_y;
-                    c.pos_x = p.pos_x;
-                    c.pos_y = p.pos_y;
-                    c.p_size = p.p_size;
-                    c.ready = false;
+                    unsigned char ch =Flag::player;
+                    Client* c = new Client(p.p_id,p.pos_x,p.pos_y,5,ch,p.mom_x,p.mom_y);
+                    clients.insert(pair<uint32_t,Client*>(p.p_id,c));
                   //  clients.insert(p.p_id,c)
                 }
+                if(p.flag==Flag::name) {
+                        Bubi_Factory bf;
+                        string name=bf.get_name(p);
+                        if(name!="not a name") {
+                            clients.at(p.p_id)->setName(name);
+                            clients.at(p.p_id)->set_flag(Flag::name);
+                        }
+                }
         }
+        delete reader;*/
+        get_values();
+        send_values();
+        send_names();
     }
 
 }
@@ -135,6 +222,9 @@ MainServer::MainServer() {
     while(true) {
         thread t2(MainServer::conn_client,this);
         start_game();
+    }
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        delete it->second;
     }
 
 }

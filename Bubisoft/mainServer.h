@@ -4,26 +4,29 @@
 #include <map>
 #include <stdint.h>
 #include <Bubisoft_Net.hpp>
+#include "Drawable.h"
 
 using namespace std;
 
 class MainServer
 {
+private:
+
     Bubi_Server *server = nullptr;
 
-    struct client {
+    /*struct client {
         float pos_x, pos_y;
         float mom_x, mom_y;
         int32_t p_size;
         bool ready;
-    };
+    };*/
 
     bool end_game = false;
     bool game = false;
 
     vector<Bubi_package>* reader;
 
-    map<uint32_t,client> clients;
+    map<uint32_t,Client*> clients;
 
     void start_net();
     void conn_client();
@@ -34,9 +37,12 @@ class MainServer
     void get_values();
     void calculate();
     void send_values();
+    void send_names();
 
     bool check_end();
     void send_end();
+
+    const int timeout = 20000;
 
     public: MainServer();
 
