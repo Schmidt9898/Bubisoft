@@ -2,6 +2,8 @@
 #include <Bubisoft_Net.hpp>
 #include <thread>
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 //4#include <limits>
 
@@ -11,6 +13,8 @@ void MainServer::start_net() {
 
     //Bubi_Factory F;
    // cout << numeric_limits<float>::max() << endl << "test" << endl;
+
+   srand(time(NULL));
 
     try{
         vector<Bubi_package> vec;
@@ -42,6 +46,7 @@ void MainServer::start_net() {
                 cout<<j++;
                 cout<<p.ToString()<<endl;
             }
+            delete vec2;
         }
 
         SDLNet_Quit();
@@ -103,6 +108,7 @@ void MainServer::get_values() {
                     unsigned char ch =Flag::player;
                     Client* c = new Client(p.p_id,p.pos_x,p.pos_y,5,ch,p.mom_x,p.mom_y); ///default start size = 5 for players
                     clients.insert(pair<uint32_t,Client*>(p.p_id,c));
+                    put_player(p.p_id);
                     //  clients.insert(p.p_id,c)
             }
                     else if(p.flag==Flag::name) {
@@ -127,7 +133,6 @@ void MainServer::send_names() {
         vec->push_back(bubi);
     }
     server->Push_Bubivector(vec);
-    delete vec;
 }
 
 void MainServer::calculate() {
@@ -154,7 +159,7 @@ void MainServer::calculate() {
         }
     }
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        it->second->set_r(it->second->get_r()-0.01)
+        it->second->set_r(it->second->get_r()-0.01);
     }
 }
 
@@ -172,13 +177,27 @@ void MainServer::send_values() {
         }
     }
     server->Push_Bubivector(vec);
-    delete vec;
 }
 
 bool MainServer::check_end() {
 }
 
 void MainServer::send_end() {
+}
+
+void MainServer::put_player(uint32_t id) {
+
+    while(true) {
+        float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/clients.at(id)->getMax_x()));
+        float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/clients.at(id)->getMax_y()));
+
+        for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+            if(it->first==id) continue;
+            if(it->second->inside(clients.at(id))) continue;
+        }
+
+        break;
+    }
 }
 
 void MainServer::conn_client() {

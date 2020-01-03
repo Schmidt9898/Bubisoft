@@ -30,6 +30,7 @@ private:
 
     void start_net();
     void conn_client();
+    void put_player(uint32_t);
 
     bool check_ready();
     void start_game();

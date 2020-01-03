@@ -47,12 +47,16 @@ class PickUp : public Drawable
 {
     //int point
     unsigned char type;
+    std::chrono::system_clock::duration length = std::chrono::system_clock::duration::zero();
 
 public :
     PickUp(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
 
     void InteractionWith(Drawable& it){};
     void Draw() {};
+    std::chrono::system_clock::duration getLength() {
+        return length;
+    }
 
 };
 
@@ -77,6 +81,8 @@ class Client : public Drawable
     float max_y=1000;
     std::string name;
     std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
+    std::chrono::system_clock::time_point pickup_get_time;
+    std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration::zero();
 
 public:
     Client(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,size,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
@@ -87,7 +93,10 @@ public:
     bool isReady() {return ready;}
     void setReady() {ready=true;}
 
-    void update() {last_update = std::chrono::system_clock::now();}
+    void update() {
+        last_update = std::chrono::system_clock::now();
+    }
+
     std::chrono::system_clock::time_point getLastUpdate() {
         return last_update;
     }
@@ -116,6 +125,14 @@ public:
 
     std::string getName() {
         return name;
+    }
+
+    float getMax_x() {
+        return max_x;
+    }
+
+    float getMax_y() {
+        return max_y;
     }
 };
 
