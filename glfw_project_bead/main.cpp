@@ -1,4 +1,4 @@
-    #include <iostream>
+	#include <iostream>
     #include "depend/include/glad.h"
     ///sets up openGl pointers
     #include "depend/include/GLFW/glfw3.h"
@@ -81,6 +81,11 @@ void drawPlayer(unsigned id, VAO &vao, float wave, float size);
 void drawLocalPlayer(VAO &vao, float wave, float size);
 void drawMenu(VAO &_screen, VAO &_play_button, VAO &_options_button, VAO &_options_screen, VAO &_volume_slider);
 void drawMap(VAO &_floor, VAO &_water, VAO &_grass, VAO &_sky);
+void drawPickup(VAO &_pickup, glm::vec3 _pos);
+void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id);
+void drawDisconnect(VAO &_disc);
+
+float GLOBAL_PICKUP_SCALE = 1.0f;
 
 
 float wave_time = 0.0f;
@@ -159,6 +164,7 @@ int main()
     VAO blue_victory(screen_background, 30, 6, "textures/blue_wins.jpg");
     VAO red_victory(screen_background, 30, 6, "textures/red_wins.jpg");
     VAO yellow_victory(screen_background, 30, 6, "textures/yellow_wins.jpg");
+    VAO disconnect(screen_background, 30, 6, "textures/disconnect.jpg");
 
     glm::mat4 E = glm::mat4(1.0f);
     //glm::mat4 water = E * mat_MS;
@@ -389,11 +395,63 @@ void drawLocalPlayer(VAO &vao, float wave, float size){
     M = glm::translate(M, glm::vec3(global_player_positions[0]));
     M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
     M = glm::scale(M, glm::vec3(size, size, 1.0f));
-    MVP = MVP = projection * view * M;
+    MVP = projection * view * M;
     waterShader->setVec3("aColor", global_player_colors[0]);
     waterShader->setFloat("aAlpha", 0.7f);
     waterShader->setMat4("MVP", MVP);
     vao.draw();
+}
+
+void drawPickup(VAO &vao, glm::vec3 pos){
+	if(GLOBAL_IN_MENU) return;
+    glfwMakeContextCurrent(window);
+    waterShader->use();
+    glm::mat4 M = glm::mat4(1.0f);
+    M = glm::translate(M, pos);
+    M = glm::scale(M, glm::vec3(GLOBAL_PICKUP_SCALE, GLOBAL_PICKUP_SCALE, 1.0f));
+    MVP = projection * view * M;
+    waterShader->setVec3("aColor", no_color);
+    waterShader->setFloat("aAlpha", 1.0f);
+    waterShader->setMat4("MVP", MVP);
+    vao.draw();
+}
+
+void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id){
+	if(GLOBAL_IN_MENU) return;
+	glfwMakeContextCurrent(window);
+    waterShader->use();
+	glClear(GL_DEPTH_BUFFER_BIT);
+	MVP =  mat_victory;
+	waterShader->setFloat("aAlpha", 1.0f);
+	waterShader->setMat4("MVP", MVP);
+	waterShader->setVec3("aColor", no_color);
+	switch(id){
+		case 0: {
+				red_victory.draw();
+			break;
+		}
+		case 1: {
+				yellow_victory.draw();
+			break;
+		}
+		case 2: {
+				blue_victory.draw();
+			break;
+		}
+		
+	}
+}
+
+void drawDisconnect(VAO &_disc){
+	if(GLOBAL_IN_MENU) return;
+	glfwMakeContextCurrent(window);
+    waterShader->use();
+	glClear(GL_DEPTH_BUFFER_BIT);
+	MVP =  mat_victory;
+	waterShader->setFloat("aAlpha", 1.0f);
+	waterShader->setMat4("MVP", MVP);
+	waterShader->setVec3("aColor", no_color);
+	_disc.draw();
 }
 
 
