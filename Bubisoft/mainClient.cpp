@@ -71,6 +71,10 @@ MainClient::MainClient(string ip,int port) {
 
 void MainClient::Loop() {///load here everithing
 
+        atmos.Unload();
+        atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
+        atmos.Bubi_change_atmos("game2");
+
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
 float x=0,y=0;
