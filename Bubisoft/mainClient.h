@@ -37,8 +37,8 @@ class MainClient {
     thread * tree_updater=nullptr;
     //bool updaterstop=false;
 
-    SDL_Window* window=NULL;
-    SDL_Renderer *renderer = NULL;
+    SDL_Window* swindow=NULL;
+    SDL_Renderer *srenderer = NULL;
 	//SDL_Texture *img = NULL;
 	Uint32 timerevent=0;
     thread *timer;

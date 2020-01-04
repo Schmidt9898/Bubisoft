@@ -42,10 +42,17 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer" />
+			<Add option="-lglfw" />
+			<Add option="-lopengl32" />
+			<Add option="-lglu32" />
+			<Add option="-lgdi32" />
+			<Add option="-luser32" />
+			<Add option="-lkernel32" />
 			<Add directory="sdl/lib" />
 			<Add directory="Bubisoft_net/net/lib" />
 			<Add directory="Bubi_Sounds/mixer/lib" />
 			<Add directory="Drawable/image/lib" />
+			<Add directory="depend/bin" />
 		</Linker>
 		<Unit filename="Bubi_Sounds/Bubi_Sound.cpp" />
 		<Unit filename="Bubi_Sounds/Bubi_Sound.h" />

@@ -7,6 +7,7 @@ protected:
     const uint32_t id;
     float x, y;
     int32_t r;
+
 public:
     Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size):id(id_),x(pos_x),y(pos_y),r(size) {};
 
@@ -53,9 +54,10 @@ public :
 class Player : public Drawable
 {
     unsigned char pickup;
+
 public :
     Player(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size),pickup(pickup_) {};
-
+int vertex_id=-1;
     void InteractionWith(Drawable& it){};
     void Draw() {};
 

@@ -9,6 +9,29 @@
 #include "objects.h"
 #include "Windows.h"
 
+//
+	#include <iostream>
+    //#include "depend/include/glad/glad.h"
+    #include <glad/glad.h>
+    ///sets up openGl pointers
+    #include "depend/include/GLFW/glfw3.h"
+    #include "shader.hpp"
+
+    #include <thread>
+    #include <chrono>
+    #define STB_IMAGE_IMPLEMENTATION
+    #include "stb_image.h"
+    #include "depend/include/glm/glm.hpp"
+    #include "depend/include/glm/gtc/matrix_transform.hpp"
+    #include "depend/include/glm/gtc/type_ptr.hpp"
+    #include "camera.hpp"
+    #include <iostream>
+    #include <random>
+    #include "vao.hpp"
+    #include "global_variables.h"
+//
+
+
 void MainClient::tick()
 {
 
@@ -40,14 +63,40 @@ MainClient::MainClient(string ip,int port) {
     cout << "Init.." << endl;
     echo.setIPort(ip.c_str(),port);
     timerevent = SDL_RegisterEvents(1);
-    timer=new thread(tick,this);
+    //timer=new thread(tick,this);
 
 }
 
 
 
 void MainClient::Loop() {///load here everithing
-Scene scene=setup_scene;
+
+if(!globalGraphicsInit()) RENDER = false;
+    ///MODELS / MESHES / OBJECTS
+float x=0,y=0;
+
+    if ( RENDER )
+    while (!glfwWindowShouldClose(window))
+    {
+x+=0.01;
+y+=0.01;
+game->update_cameraZ(2.5+x);
+        game->update_player_pos(1,x,y,0.5);
+
+        game->loop();
+
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+
+    game->cleanup();
+    delete game;
+
+
+
+
+//Scene scene=game_scene;
+/*
 while(scene!=close_game)
 {
     switch(scene){///you can change scene by returning enum ,same thread
@@ -58,18 +107,20 @@ while(scene!=close_game)
     }
 
 }
+
+*/
    cout << "exit game.." << endl;
-            if(window)
-                SDL_DestroyWindow(window);
-            if(renderer)
-                SDL_DestroyRenderer(renderer);
+            if(swindow)
+                SDL_DestroyWindow(swindow);
+            if(srenderer)
+                SDL_DestroyRenderer(srenderer);
 
     atmos.Stop();
     timer->join();
 
 }
 
-
+/*
 Scene MainClient::Setup() {///load here everithing
 cout << "Setup.." << endl;
 
@@ -101,7 +152,8 @@ cout << "Setup.." << endl;
 }
 
 
-
+*/
+/*
 Scene MainClient::Menu() {
 cout << "Menu.." << endl;
 
@@ -166,7 +218,8 @@ while(true){
 return game_scene;
 
 }
-
+*/
+/*
 Scene MainClient::Game() {
 cout << "Game.." << endl;
 
@@ -241,8 +294,8 @@ if ( SDL_PollEvent(&e) ) {
 return menu_scene;
 
 
-}
-
+}*/
+/*
 Scene MainClient::Load() {
 cout << "Loading.." << endl;
 atmos.Bubi_change_atmos("game1");
@@ -255,7 +308,7 @@ return game_scene;
 
 }
 
-
+*/
 
 void MainClient::Tree_update()
 {
