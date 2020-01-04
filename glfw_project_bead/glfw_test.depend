@@ -988,3 +988,12 @@
 1530860767 c:\users\u_bpc\desktop\project\glfw_project_bead\depend\include\glm\glm\gtc\type_ptr.inl
 	<cstring>
 
+1578053429 source:d:\programozas\programok_gited\bubisoft\bubisoft\glfw_project_bead\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
