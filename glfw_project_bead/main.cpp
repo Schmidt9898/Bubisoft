@@ -1,5 +1,6 @@
 	#include <iostream>
-    #include "depend/include/glad.h"
+    //#include "depend/include/glad/glad.h"
+    #include <glad/glad.h>
     ///sets up openGl pointers
     #include "depend/include/GLFW/glfw3.h"
     #include "shader.hpp"
@@ -8,9 +9,9 @@
     #include <chrono>
     #define STB_IMAGE_IMPLEMENTATION
     #include "stb_image.h"
-    #include "depend/include/glm/glm/glm.hpp"
-    #include "depend/include/glm/glm/gtc/matrix_transform.hpp"
-    #include "depend/include/glm/glm/gtc/type_ptr.hpp"
+    #include "depend/include/glm/glm.hpp"
+    #include "depend/include/glm/gtc/matrix_transform.hpp"
+    #include "depend/include/glm/gtc/type_ptr.hpp"
     #include "camera.hpp"
     #include <iostream>
     #include <random>
@@ -164,7 +165,7 @@ int main()
     VAO blue_victory(screen_background, 30, 6, "textures/blue_wins.jpg");
     VAO red_victory(screen_background, 30, 6, "textures/red_wins.jpg");
     VAO yellow_victory(screen_background, 30, 6, "textures/yellow_wins.jpg");
-    VAO disconnect(screen_background, 30, 6, "textures/disconnect.jpg");
+    VAO disconnect(screen_background, 30, 6, "textures/DISCONNECTED.jpg");
 
     glm::mat4 E = glm::mat4(1.0f);
     //glm::mat4 water = E * mat_MS;
@@ -427,18 +428,18 @@ void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id){
 	waterShader->setVec3("aColor", no_color);
 	switch(id){
 		case 0: {
-				red_victory.draw();
+				_vic0.draw();
 			break;
 		}
 		case 1: {
-				yellow_victory.draw();
+				_vic1.draw();
 			break;
 		}
 		case 2: {
-				blue_victory.draw();
+				_vic2.draw();
 			break;
 		}
-		
+
 	}
 }
 
