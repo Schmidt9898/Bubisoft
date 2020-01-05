@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <Bubisoft_Net.hpp>
 #include "Drawable.h"
+#include <chrono>
 
 using namespace std;
 
@@ -13,6 +14,9 @@ class MainServer
 private:
 
     Bubi_Server *server = nullptr;
+
+    std::chrono::system_clock::time_point gamestart;
+    double max_game_time = 15*60*1000;
 
     /*struct client {
         float pos_x, pos_y;
@@ -23,14 +27,17 @@ private:
 
     bool end_game = false;
     bool game = false;
+    bool close = false;
 
     vector<Bubi_package>* reader;
 
     map<uint32_t,Client*> clients;
+    map<uint32_t,PickUp*> pickups;
 
     void start_net();
     void conn_client();
     void put_player(uint32_t);
+    void pickup_generator();
 
     bool check_ready();
     void start_game();
@@ -42,6 +49,8 @@ private:
 
     bool check_end();
     void send_end();
+
+    void closepanel();
 
     const int timeout = 20000;
 

@@ -34,7 +34,9 @@ public:
     int32_t get_r() {return r;}
     uint32_t get_id() {return id;}
     void set_r(int32_t rr) {r=rr;}
-
+    int32_t getPoint() {return p;}
+    void setPoint(int32_t pp) {p=pp;}
+    void addPoint(int32_t pp) {p+=pp;}
 
 
     friend class PickUp;
@@ -57,6 +59,9 @@ public :
     std::chrono::system_clock::duration getLength() {
         return length;
     }
+
+    unsigned char get_type() {return type;}
+    void set_type(unsigned char t) {type=t;}
 
 };
 
@@ -96,11 +101,17 @@ public:
     void update() {
         last_update = std::chrono::system_clock::now();
     }
-
     std::chrono::system_clock::time_point getLastUpdate() {
         return last_update;
     }
 
+    void set_pickup_get_time() {
+        pickup_get_time = std::chrono::system_clock::now();
+    }
+
+    void set_pickup_duration(std::chrono::system_clock::duration dur) {
+        pickup_length=dur;
+    }
 
     char get_pickup() {return pickup;}
 
@@ -113,6 +124,14 @@ public:
         if(y<0) y=0;
         if(x>max_x) x=max_x;
         if(y>max_y) y=max_y;
+
+        if(pickup>=10) {
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double> diff = end-pickup_get_time;
+            if(diff>pickup_length) {
+                pickup = 0;
+            }
+        }
     }
 
     void setName(std::string p_name) {

@@ -88,7 +88,14 @@ enum Flag :char
     not_ready=5,///player nem áll készen a játékra
     dead=6,     ///player meghalt
     disconn=7,  ///player lecsatlakozott
-    replay=8    ///player újra játszani akar
+    replay=8,   ///player újra játszani akar
+    winner=9,   ///playernek van a legtöbb pontja
+    game_end=10,
+
+    food=11,
+    food1=12,
+    immortal=13,
+    doublepoint=14
 };
 
 enum purpose :char
