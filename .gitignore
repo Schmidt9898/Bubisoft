@@ -1,7 +1,5 @@
 *.exe
-*.depend
-*.layout
-*.o
+
 
 
 *.save-failed
