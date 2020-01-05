@@ -70,6 +70,8 @@ bool global_players_alive[3];
 
 float global_map_size=2.0f;
 
+
+///DRAW FUNC
 void drawPlayer(unsigned id, VAO &vao, float wave, float size);
 void drawLocalPlayer(VAO &vao, float wave, float size);
 void drawMenu(VAO &_screen, VAO &_play_button, VAO &_options_button, VAO &_options_screen, VAO &_volume_slider);
@@ -79,7 +81,7 @@ void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id);
 void drawDisconnect(VAO &_disc);
 void drawPickups(VAO *vao, float &wave_time);
 void managePositions();
-void manageVictory();
+void drawScore(unsigned score, unsigned id, VAO* score_table, VAO* number);
 
 float GLOBAL_PICKUP_SCALE = 1.0f;
 
@@ -93,6 +95,7 @@ char GLOBAL_SELECT_BUTTON = 'P';
 char global_match_state = 'A';
 
 Shader* waterShader;
+Shader* numberShader;
 GLFWwindow* window;
 
 
@@ -125,6 +128,8 @@ class GAME{
      VAO* red_victory;
      VAO* yellow_victory;
      VAO* disconnect;
+     VAO* score_table;
+     VAO* number;
 
 
 
@@ -141,10 +146,12 @@ class GAME{
         volume_slider = new VAO(slider_vertices, 30, 6, "textures/slider.jpg");
         player = new VAO(slime_vertices, 1020, 204, "textures/slime.jpg");
         pickup = new VAO(pickup_vertices, 15, 3, "textures/slider.jpg");
-        blue_victory = new VAO(screen_background, 30, 6, "textures/blue_wins.jpg");
-        red_victory = new VAO(screen_background, 30, 6, "textures/red_wins.jpg");
-        yellow_victory = new VAO(screen_background, 30, 6, "textures/yellow_wins.jpg");
+        blue_victory = new VAO(screen_background, 30, 6, "textures/player3.jpg");
+        red_victory = new VAO(screen_background, 30, 6, "textures/player1.jpg");
+        yellow_victory = new VAO(screen_background, 30, 6, "textures/player2.jpg");
         disconnect = new VAO(screen_background, 30, 6, "textures/DISCONNECTED.jpg");
+        score_table = new VAO(screen_background, 30, 6, "textures/score.jpg");
+        number = new VAO(number_vertices, 30, 6, "textures/number.jpg");
 
         for(unsigned i = 0; i < 3; i++)
             global_players_alive[i]=true;
@@ -176,6 +183,8 @@ class GAME{
         }
         managePositions();
         drawPickups(pickup, wave_time);
+        //drawVictory(*red_victory, *yellow_victory, *blue_victory, 0);
+        //drawScore(72, 0, score_table, number);
 
 
         if(global_players_alive[0] && !global_players_alive[1] && !global_players_alive[2]){
@@ -227,6 +236,8 @@ class GAME{
         delete red_victory;
         delete yellow_victory;
         delete disconnect;
+        delete number;
+        delete score_table;
         glfwTerminate();
     }
 };
@@ -387,6 +398,7 @@ int globalGraphicsInit(){
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     globalMatricesInit();
     waterShader = new Shader("shader/water/vertex.txt", "shader/water/fragment.txt");
+    numberShader = new Shader("shader/number/vertex.txt", "shader/number/fragment.txt");
     game = new GAME();
     return (int)true;
 }
@@ -554,15 +566,51 @@ void drawPickup(VAO *vao, glm::vec3 pos, float wave){
     vao->draw();
 }
 
+void drawScore(unsigned score, unsigned id, VAO* score_table, VAO* number){
+    glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(0.25f, 0.25f, 1.0f));
+    model = glm::translate(model, glm::vec3(-0.4f, -0.65f, 0.0f));
+    if(GLOBAL_IN_MENU) return;
+	glfwMakeContextCurrent(window);
+	waterShader->use();
+    glClear(GL_DEPTH_BUFFER_BIT);
+    MVP = model;
+
+	waterShader->setFloat("aAlpha", 1.0f);
+	waterShader->setMat4("MVP", MVP);
+	waterShader->setVec3("aColor", global_player_colors[id]);
+	score_table->draw();
+
+    numberShader->use();
+	glClear(GL_DEPTH_BUFFER_BIT);
+	model = glm::scale(model, glm::vec3(0.25f, 1.9f, 1.0f));
+	model = glm::translate(model, glm::vec3(5.0f, -0.4f, 0.0f));
+	MVP = model;
+	numberShader->setFloat("aAlpha", 1.0f);
+	numberShader->setMat4("MVP", MVP);
+	numberShader->setVec3("aColor", global_player_colors[id]);
+	numberShader->setFloat("aOffset", (unsigned)score/10);
+	number->draw();
+
+    numberShader->setFloat("aOffset", (unsigned)score%10);
+    model = glm::translate(model, glm::vec3(1.5f, 0.0f, 0.0f));
+    MVP = model;
+    numberShader->setMat4("MVP", MVP);
+    number->draw();
+
+
+}
+
+
+
 void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id){
 	if(GLOBAL_IN_MENU) return;
 	glfwMakeContextCurrent(window);
     waterShader->use();
 	glClear(GL_DEPTH_BUFFER_BIT);
-	MVP =  mat_victory;
+	MVP =  glm::translate(mat_victory, glm::vec3(0.0f, 0.8f, 0.0f));
 	waterShader->setFloat("aAlpha", 1.0f);
 	waterShader->setMat4("MVP", MVP);
-	waterShader->setVec3("aColor", no_color);
+	waterShader->setVec3("aColor", global_player_colors[id]);
 	switch(id){
 		case 0: {
 				_vic0.draw();
