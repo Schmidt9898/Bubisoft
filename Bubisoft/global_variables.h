@@ -1,6 +1,8 @@
 #ifndef GLOBAL_VARIABLES_H_INCLUDED
 #define GLOBAL_VARIABLES_H_INCLUDED
 
+#include <math.h>
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -60,19 +62,24 @@ glm::vec3 select_color(0.9f, 0.8f, 0.5f);
 
 ///PLAYER STUFF
 ///===========================================
-const int szam=3;
+glm::vec3 global_player_colors[3];
+glm::vec3 global_player_positions[3];
+float global_player_size[3]={0.5f, 0.5f, 0.5f};
+glm::vec3 global_pickup_positions[50];
+bool global_players_alive[3];
 
-glm::vec3 global_player_colors[szam];
-glm::vec3 global_player_positions[szam];
-float global_player_size[szam];
+float global_map_size=2.0f;
 
 void drawPlayer(unsigned id, VAO &vao, float wave, float size);
 void drawLocalPlayer(VAO &vao, float wave, float size);
 void drawMenu(VAO &_screen, VAO &_play_button, VAO &_options_button, VAO &_options_screen, VAO &_volume_slider);
 void drawMap(VAO &_gamefloor, VAO &_water, VAO &_grass, VAO &_sky);
-void drawPickup(VAO &_pickup, glm::vec3 _pos);
+void drawPickup(VAO *_pickup, glm::vec3 _pos, float wave);
 void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id);
 void drawDisconnect(VAO &_disc);
+void drawPickups(VAO *vao, float &wave_time);
+void managePositions();
+void manageVictory();
 
 float GLOBAL_PICKUP_SCALE = 1.0f;
 
@@ -82,6 +89,8 @@ float wave_time = 0.0f;
 float GLOBAL_VOLUME_SLIDER = 0.5f;
 float GLOBAL_OTHER_SLIDER = 0.5f;
 char GLOBAL_SELECT_BUTTON = 'P';
+
+char global_match_state = 'A';
 
 Shader* waterShader;
 GLFWwindow* window;
@@ -136,10 +145,13 @@ class GAME{
         red_victory = new VAO(screen_background, 30, 6, "textures/red_wins.jpg");
         yellow_victory = new VAO(screen_background, 30, 6, "textures/yellow_wins.jpg");
         disconnect = new VAO(screen_background, 30, 6, "textures/DISCONNECTED.jpg");
-        for(int i=0;i<szam;i++)///át kell írni
-        {
-            global_player_size[i]=0.5;
-        }
+
+        for(unsigned i = 0; i < 3; i++)
+            global_players_alive[i]=true;
+
+        glm::vec3 nullvec(0.0f, 0.0f, 0.0f);
+        for(unsigned i = 0; i<50; i++)
+            global_pickup_positions[i]=nullvec;
     }
     void loop(){
         wave_time+=0.025f;
@@ -157,11 +169,25 @@ class GAME{
         drawMap(*gamefloor, *water, *grass, *sky);
         //drawLocalPlayer(*player, wave_time, 1.0f);
 
-        for(int i=0;i<szam;i++)
+        for(int i=0;i<3;i++)
         {
-            if(global_player_size[i]>0)
-            drawPlayer(i,*player,wave_time,global_player_size[i]);
+            if(global_players_alive[i])
+                drawPlayer(i,*player,wave_time+(i*0.3f),global_player_size[i]);
         }
+        managePositions();
+        drawPickups(pickup, wave_time);
+
+
+        if(global_players_alive[0] && !global_players_alive[1] && !global_players_alive[2]){
+            drawVictory(*red_victory, *yellow_victory, *blue_victory, 0);
+        }
+        if(!global_players_alive[0] && global_players_alive[1] && !global_players_alive[2]){
+            drawVictory(*red_victory, *yellow_victory, *blue_victory, 1);
+        }
+        if(!global_players_alive[0] && !global_players_alive[1] && global_players_alive[2]){
+            drawVictory(*red_victory, *yellow_victory, *blue_victory, 2);
+        }
+
 
 
 
@@ -182,14 +208,6 @@ class GAME{
     void update_cameraZ(float d)
     {
         cameraPos.z=d;
-    }
-    void set_player_color(int id)
-    {
-         if(id<0)
-            return;
-///TODO
-
-
     }
 
     void cleanup(){
@@ -214,6 +232,85 @@ class GAME{
 };
 
 GAME *game;
+
+void drawPickups(VAO *vao, float &wave_time){
+    glm::vec3 nullvec(0.0f, 0.0f, 0.0f);
+    for(unsigned i = 0; i < 50; i++){
+        if(global_pickup_positions[i] == nullvec) continue;
+        else drawPickup(vao, global_pickup_positions[i], wave_time);
+    }
+}
+
+const float PI = 3.1415f;
+
+void managePositions(){
+    auto dist=[](glm::vec3 _vec1, glm::vec3 _vec2) -> float
+    {
+        return (float)std::sqrt
+        (
+            (_vec1.x - _vec2.x)*(_vec1.x - _vec2.x) +
+            (_vec1.y - _vec2.y)*(_vec1.y - _vec2.y)
+        );
+    };
+
+    auto place=[](glm::vec3 &vec) -> void
+    {
+        float r = 12.0f * std::sqrt( (double)(rand()%5000)/5000);
+        float theta = (double)(rand()%5000)/5000 * 2 * PI;
+        vec.x= r * sin(theta);
+        vec.y= r * cos(theta);
+
+    };
+
+    auto eat=[&](unsigned p1, unsigned p2) -> void
+    {
+        if(global_players_alive[p1] && global_players_alive[p2])
+        {
+            if(dist(global_player_positions[p1], global_player_positions[p2]) < (global_player_size[p1] + global_player_size[p2])/5.0f )
+            {
+                if(global_player_size[p1] == global_player_size[p2]) return;
+                if(global_player_size[p1] > global_player_size[p2]) {global_player_size[p1]+=0.03; global_players_alive[p2]=false;}
+                if(global_player_size[p1] < global_player_size[p2]) {global_player_size[p2]+=0.03; global_players_alive[p1]=false;}
+            }
+        } else return;
+    };
+
+    eat(0, 1);
+    eat(1, 2);
+    eat(2, 0);
+
+    glm::vec3 nullvec(0.0f, 0.0f, 0.0f);
+
+    for(unsigned p = 0; p < 3; p++){
+        if(!global_players_alive[p]) continue;
+        for(unsigned i = 0; i < 50; i++){
+
+            if(global_pickup_positions[i] == nullvec) {
+                place(global_pickup_positions[i]);
+                continue;
+            }
+
+            if(dist(global_player_positions[p], global_pickup_positions[i]) < global_player_size[p]/3.0 ){
+                global_player_size[p]+=0.01;
+                global_pickup_positions[i]=nullvec;
+            }
+        }
+        float border_dist = dist(nullvec, global_player_positions[p]);
+        if(border_dist >= 12.0f ){
+            global_player_positions[p]+= 0.01f * (border_dist-12.0f) * (nullvec-global_player_positions[p]);
+        }
+    }
+    if(global_match_state == 'A'){
+        place(global_player_positions[0]);
+        cameraPos.x=global_player_positions[0].x;
+        cameraPos.y=global_player_positions[0].y;
+        place(global_player_positions[1]);
+        place(global_player_positions[2]);
+        global_match_state='B';
+    }
+
+
+}
 
 void globalMatricesInit(){
     glm::mat4 E = glm::mat4(1.0f);
@@ -361,6 +458,7 @@ void drawMap(VAO &floor, VAO &water, VAO &grass, VAO &sky){
     waterShader->use();
     view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
     model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -1.0f));
+    model = glm::scale(model, glm::vec3(global_map_size, global_map_size, 1.0f));
     MVP = projection * view * model;
     waterShader->setMat4("MVP", MVP);
     waterShader->setVec3("aColor", water_color);
@@ -368,7 +466,7 @@ void drawMap(VAO &floor, VAO &water, VAO &grass, VAO &sky){
     floor.draw();
     glClear(GL_DEPTH_BUFFER_BIT);
 
-    model = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f, 1.5f, 0.0f));
+    model = glm::scale(glm::mat4(1.0f), glm::vec3(5.0f, 5.0f, 1.0f));
     MVP = projection * view * model;
     waterShader->setMat4("MVP", MVP);
     waterShader->setVec3("aColor", no_color);
@@ -413,10 +511,10 @@ void drawPlayer(unsigned id, VAO &vao, float wave, float size){
     if(GLOBAL_IN_MENU) return;
     glfwMakeContextCurrent(window);
     waterShader->use();
-    float scale = 1.0f + (1.0f+sin(2.1f*wave))/4;
+    float scale = (1.0f+sin(2.1f*wave))/4 - 0.25f;//-0.25-0.25
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, glm::vec3(global_player_positions[id]));
-    M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
+    M = glm::scale(M, glm::vec3(1.0f+scale, 1.0f-scale, 1.0f));
     M = glm::scale(M, glm::vec3(size, size, 1.0f));
     MVP = projection * view * M;
     waterShader->setMat4("MVP", MVP);
@@ -441,18 +539,19 @@ void drawLocalPlayer(VAO &vao, float wave, float size){
     vao.draw();
 }
 
-void drawPickup(VAO &vao, glm::vec3 pos){
+void drawPickup(VAO *vao, glm::vec3 pos, float wave){
 	if(GLOBAL_IN_MENU) return;
     glfwMakeContextCurrent(window);
     waterShader->use();
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, pos);
+    M = glm::translate(M, glm::vec3(0.0f, 0.0f, (float)( sin(wave*pos.x)+cos(wave*pos.y) ) /4.0 + 0.25f ) );
     M = glm::scale(M, glm::vec3(GLOBAL_PICKUP_SCALE, GLOBAL_PICKUP_SCALE, 1.0f));
     MVP = projection * view * M;
     waterShader->setVec3("aColor", no_color);
     waterShader->setFloat("aAlpha", 1.0f);
     waterShader->setMat4("MVP", MVP);
-    vao.draw();
+    vao->draw();
 }
 
 void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id){
@@ -503,21 +602,20 @@ void processInput(GLFWwindow *window){
 
     float cameraSpeed = 1.3 * deltaTime;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
-        cameraPos.y+= 1 * cameraSpeed;
         global_player_positions[0].y+= 1 * cameraSpeed;
-
+        cameraPos.y=global_player_positions[0].y;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
-        cameraPos.y-=1 * cameraSpeed;
         global_player_positions[0].y-=1 * cameraSpeed;
+        cameraPos.y=global_player_positions[0].y;
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
         global_player_positions[0].x -= 1 * cameraSpeed;
+        cameraPos.x=global_player_positions[0].x;
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
         global_player_positions[0].x += 1 * cameraSpeed;
+        cameraPos.x=global_player_positions[0].x;
     }
     if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
         GLOBAL_IN_MENU = true;
@@ -548,6 +646,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     {
         std::cout<<"Camera State: "<<cameraPos.x<<" "<<cameraPos.y<<" "<<cameraPos.z<<"\n";
         LOOK_AROUND = !LOOK_AROUND;
+        for(unsigned i = 0; i < 50; i++){
+            std::cout<<"\n  pickup_pos: "<<global_pickup_positions[i].x<<" "
+            <<global_pickup_positions[i].y<<" "
+            <<global_pickup_positions[i].z;
+        }
     }
     if (key == GLFW_KEY_W && action == GLFW_PRESS)
     {
