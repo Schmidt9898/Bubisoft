@@ -39,6 +39,7 @@
 			<Add directory="Bubi_Sounds" />
 			<Add directory="Drawable" />
 			<Add directory="Drawable/image/include/SDL2" />
+			<Add directory="depend/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer" />
