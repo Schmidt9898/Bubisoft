@@ -62,7 +62,7 @@ MainClient::MainClient(string ip,int port) {
 
     cout << "Init.." << endl;
     echo.setIPort(ip.c_str(),port);
-    timerevent = SDL_RegisterEvents(1);
+  //  timerevent = SDL_RegisterEvents(1);
     //timer=new thread(tick,this);
 
 }
@@ -82,10 +82,12 @@ float x=0,y=0;
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
     {
-x+=0.01;
-y+=0.01;
+//x+=0.01;
+//y+=0.01;
 game->update_cameraZ(3);
-        game->update_player_pos(1,x,y,2);
+        //game->update_player_pos(1,x,y,2);
+
+
 
         game->loop();
 
