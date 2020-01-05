@@ -60,9 +60,12 @@ glm::vec3 select_color(0.9f, 0.8f, 0.5f);
 
 ///PLAYER STUFF
 ///===========================================
-glm::vec3 global_player_colors[3];
-glm::vec3 global_player_positions[3];
-float global_player_size[3]={0.5,0.5,0.5};
+const int szam=3;
+
+glm::vec3 global_player_colors[szam];
+glm::vec3 global_player_positions[szam];
+float global_player_size[szam];
+
 void drawPlayer(unsigned id, VAO &vao, float wave, float size);
 void drawLocalPlayer(VAO &vao, float wave, float size);
 void drawMenu(VAO &_screen, VAO &_play_button, VAO &_options_button, VAO &_options_screen, VAO &_volume_slider);
@@ -133,6 +136,10 @@ class GAME{
         red_victory = new VAO(screen_background, 30, 6, "textures/red_wins.jpg");
         yellow_victory = new VAO(screen_background, 30, 6, "textures/yellow_wins.jpg");
         disconnect = new VAO(screen_background, 30, 6, "textures/DISCONNECTED.jpg");
+        for(int i=0;i<szam;i++)///át kell írni
+        {
+            global_player_size[i]=0.5;
+        }
     }
     void loop(){
         wave_time+=0.025f;
@@ -150,9 +157,10 @@ class GAME{
         drawMap(*gamefloor, *water, *grass, *sky);
         //drawLocalPlayer(*player, wave_time, 1.0f);
 
-        for(int i=0;i<3;i++)
+        for(int i=0;i<szam;i++)
         {
-            drawPlayer(i,*player,wave_time,0.5);
+            if(global_player_size[i]>0)
+            drawPlayer(i,*player,wave_time,global_player_size[i]);
         }
 
 
@@ -174,6 +182,14 @@ class GAME{
     void update_cameraZ(float d)
     {
         cameraPos.z=d;
+    }
+    void set_player_color(int id)
+    {
+         if(id<0)
+            return;
+///TODO
+
+
     }
 
     void cleanup(){

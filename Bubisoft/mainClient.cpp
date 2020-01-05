@@ -73,7 +73,7 @@ void MainClient::Loop() {///load here everithing
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
-        atmos.Bubi_change_atmos("game2");
+       // atmos.Bubi_change_atmos("game2");
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
@@ -84,8 +84,8 @@ float x=0,y=0;
     {
 x+=0.01;
 y+=0.01;
-game->update_cameraZ(2.5+x);
-        game->update_player_pos(1,x,y,0.5);
+game->update_cameraZ(3);
+        game->update_player_pos(1,x,y,2);
 
         game->loop();
 
