@@ -77,6 +77,7 @@
 		<Unit filename="glad.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="global_variables.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mainClient.cpp" />
 		<Unit filename="mainClient.h" />
