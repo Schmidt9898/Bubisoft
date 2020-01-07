@@ -20,6 +20,7 @@ int main()
 //    char tipus;
 
     cout << "Hello!" << endl << endl;
+    MainServer();
      // MainLaci();
 /*
     cout << "Server(s) or Client(c): ";
