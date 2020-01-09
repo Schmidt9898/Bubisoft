@@ -18,7 +18,7 @@ struct Bubi_package
           pos_y=0;    /// 4 byte
     float mom_x=0,    /// 4 byte
           mom_y=0;    /// 4 byte
-    int32_t p_size=0; /// 4 byte
+    float p_size=0; /// 4 byte
     uint32_t p_id=0;/// 4 byte
     uint32_t point=0;///4 byte
 //char pickup_flag; ///1 byte but 4 byte

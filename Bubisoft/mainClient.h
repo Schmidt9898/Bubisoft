@@ -37,17 +37,18 @@ class MainClient {
     thread * tree_updater=nullptr;
     //bool updaterstop=false;
 
-    SDL_Window* window=NULL;
-    SDL_Renderer *renderer = NULL;
+    SDL_Window* swindow=NULL;
+    SDL_Renderer *srenderer = NULL;
 	//SDL_Texture *img = NULL;
 	Uint32 timerevent=0;
     thread *timer;
     bool timerstop=false;
 
+    std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
 
-
-    map<uint32_t,Drawable*> Entities;
+    //map<uint32_t,Drawable*> Entities;
     map<uint32_t,Player*> Players;
+    map<uint32_t,PickUp*> pickups;
 
     void Tree_update();
     void Tree_package(Bubi_package);

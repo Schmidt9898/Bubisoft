@@ -39,13 +39,24 @@
 			<Add directory="Bubi_Sounds" />
 			<Add directory="Drawable" />
 			<Add directory="Drawable/image/include/SDL2" />
+			<Add directory="../Bubisoft" />
+			<Add directory="depend/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer" />
+			<Add option="-lglfw" />
+			<Add option="-lopengl32" />
+			<Add option="-lglu32" />
+			<Add option="-lgdi32" />
+			<Add option="-luser32" />
+			<Add option="-lkernel32" />
+			<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/libgdi32.a" />
 			<Add directory="sdl/lib" />
 			<Add directory="Bubisoft_net/net/lib" />
 			<Add directory="Bubi_Sounds/mixer/lib" />
 			<Add directory="Drawable/image/lib" />
+			<Add directory="depend/bin" />
+			<Add directory="../Bubisoft" />
 		</Linker>
 		<Unit filename="Bubi_Sounds/Bubi_Sound.cpp" />
 		<Unit filename="Bubi_Sounds/Bubi_Sound.h" />
@@ -62,6 +73,11 @@
 		<Unit filename="Drawable/Drawable.h" />
 		<Unit filename="Drawable/objects.h" />
 		<Unit filename="MainLaci.hpp" />
+		<Unit filename="depend/include/glad/glad.h" />
+		<Unit filename="glad.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="global_variables.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mainClient.cpp">
 			<Option target="&lt;{~None~}&gt;" />
