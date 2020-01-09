@@ -95,7 +95,7 @@ SDL_Event e;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
         cameraPos.y+= 1 * cameraSpeed;
         //global_player_positions[0].y+= 1 * cameraSpeed;
-r=255;
+    r=255;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
         cameraPos.y-=1 * cameraSpeed;
@@ -110,9 +110,9 @@ r=255;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
        // global_player_positions[0].x += 1 * cameraSpeed;
-          r=0;
-            g=0;
-              b=0;
+        r=0;
+        g=0;
+        b=0;
     }
 
 
@@ -121,11 +121,11 @@ r=255;
 
 
 
-        game->update_camera();
-        game->draw_map();
-        game->draw_pickup();
-        game->draw_player();
-        game->show();
+        game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5*Players.at(echo.Get_ID())->get_r()/0.06);
+        game->Draw_map();
+        game->Draw_pickup();
+        game->Draw_player();
+        game->Show();
 
 
         std::this_thread::sleep_for(std::chrono::milliseconds(20));
@@ -380,10 +380,16 @@ void MainClient::Tree_package(Bubi_package p) {
             }
             break;
         case Flag::notset :
-            Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+            Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
             break;
         case Flag::dead :
             Players.erase(p.p_id);
+            break;
+        case Flag::pickup :
+            if(pickups.find(p.p_id)==pickups.end()) {
+                PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
+                pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
+            }
             break;
     }
 

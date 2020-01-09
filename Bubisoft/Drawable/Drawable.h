@@ -121,7 +121,7 @@ public:
     void Draw() {};
 
     bool isReady() {return ready;}
-    void setReady() {ready=true;}
+    void setReady() {ready=true; pickup=Flag::notset;}
 
     void update() {
         last_update = std::chrono::system_clock::now();

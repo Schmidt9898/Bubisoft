@@ -46,9 +46,9 @@ class MainClient {
 
     std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
 
-
-    map<uint32_t,Drawable*> Entities;
+    //map<uint32_t,Drawable*> Entities;
     map<uint32_t,Player*> Players;
+    map<uint32_t,PickUp*> pickups;
 
     void Tree_update();
     void Tree_package(Bubi_package);
