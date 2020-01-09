@@ -5,3 +5,4 @@
 *.save-failed
 *.o
 *.o
+*.depend

@@ -142,7 +142,7 @@ class GAME{
             global_player_size[i]=0.5;
         }
     }
-    void loop(){
+    /*void loop(){
         wave_time+=0.025f;
         if(cameraState == CameraState::STATIC) glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         else glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -170,6 +170,7 @@ class GAME{
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+    */
 
 /*
     void update_player_pos(int id,float x,float y,float size_)
@@ -182,7 +183,42 @@ class GAME{
 
     }
     */
-    void Draw_player()
+    void Draw_player(float x,float y, float meret,int r,int g,int b)
+    {
+        glm::vac3 pos(x,y,0.0f);
+        glm::vac3 color(((float)r)/255.0f,((float)g)/255.0f,((float)b)/255.0f);
+
+
+    glfwMakeContextCurrent(window);
+    waterShader->use();
+    float scale = 1.0f + (1.0f+sin(2.1f*wave))/4;
+    glm::mat4 M = glm::mat4(1.0f);
+    M = glm::translate(M, pos);
+    M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
+    M = glm::scale(M, glm::vec3(meret, meret, 1.0f));
+    MVP = projection * view * M;
+    waterShader->setMat4("MVP", MVP);
+    waterShader->setVec3("aColor", global_player_colors[id]);
+    waterShader->setFloat("aAlpha", 0.7f);
+    vao.draw();
+
+
+    }
+    void Draw_pickup(float x,float y,int r,int g,int b)
+    {
+
+
+    }
+    void Draw_map()
+    {
+
+
+    }
+    void Show()
+    {
+
+
+    }
 
 
     void update_cameraZ(float d)
