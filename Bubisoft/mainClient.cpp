@@ -120,11 +120,13 @@ SDL_Event e;
 
 
 
+        if(Players.find(echo.Get_ID())!=Players.end()) {
+            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5*Players.at(echo.Get_ID())->get_r()/0.06);
+        }  else {game->update_camera(0,0,2.5);}
 
-        game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5*Players.at(echo.Get_ID())->get_r()/0.06);
         game->Draw_map();
-        game->Draw_pickup();
-        game->Draw_player();
+//        game->Draw_pickup();
+  //      game->Draw_player();
         game->Show();
 
 
