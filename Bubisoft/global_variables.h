@@ -247,7 +247,7 @@ class GAME{
     }
 
 
-      /*  void Draw_menu()
+       void Draw_menu()
     {
 
         //if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
@@ -282,7 +282,7 @@ class GAME{
         (*play_button).draw();
 
     }
-*/
+
 
     void Show()
     {
