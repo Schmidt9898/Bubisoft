@@ -69,16 +69,15 @@ public :
 class Player : public Drawable
 {
     unsigned char pickup;
-    std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
 public :
     Player(uint32_t id_,float pos_x,float pos_y,float size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {};
 
-    void update(float pos_x_, float pos_y_, float size_, unsigned char pickup_) {
-        pos_x=pos_x_;
-        pos_y=pos_y_;
+    void update(float pos_x_, float pos_y_, float size_, unsigned char pickup_, int32_t point) {
+        x=pos_x_;
+        y=pos_y_;
         r=size_;
         pickup=pickup_;
-        last_update = std::chrono::system_clock::now();
+        p=point;
     }
 
     void InteractionWith(Drawable& it){};
