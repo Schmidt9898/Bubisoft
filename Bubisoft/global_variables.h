@@ -19,6 +19,7 @@ bool LOOK_AROUND=false;
 
 
 // camera
+
 glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f, 2.5f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -60,11 +61,11 @@ glm::vec3 select_color(0.9f, 0.8f, 0.5f);
 
 ///PLAYER STUFF
 ///===========================================
-const int szam=3;
+//const int szam=3;
 
-glm::vec3 global_player_colors[szam];
-glm::vec3 global_player_positions[szam];
-float global_player_size[szam];
+///glm::vec3 global_player_colors[szam];
+///glm::vec3 global_player_positions[szam];
+///float global_player_size[szam];
 
 void drawPlayer(unsigned id, VAO &vao, float wave, float size);
 void drawLocalPlayer(VAO &vao, float wave, float size);
@@ -170,6 +171,7 @@ class GAME{
         glfwPollEvents();
     }
 
+/*
     void update_player_pos(int id,float x,float y,float size_)
     {
         if(id<0)
@@ -179,6 +181,10 @@ class GAME{
 
 
     }
+    */
+    void Draw_player()
+
+
     void update_cameraZ(float d)
     {
         cameraPos.z=d;
