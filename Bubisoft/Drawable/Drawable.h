@@ -84,8 +84,9 @@ public :
 class Player : public Drawable
 {
     unsigned char pickup;
+    bool ready;
 public :
-    Player(uint32_t id_,float pos_x,float pos_y,float size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {};
+    Player(uint32_t id_,float pos_x,float pos_y,float size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {ready=false;};
 
     void update(float pos_x_, float pos_y_, float size_, unsigned char pickup_, int32_t point) {
         x=pos_x_;
@@ -94,6 +95,9 @@ public :
         pickup=pickup_;
         p=point;
     }
+
+    bool isReady() {return ready;}
+    void setReady(bool ready_) {ready=ready_;}
 
     void InteractionWith(Drawable& it){};
     void Draw() {};

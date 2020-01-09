@@ -125,9 +125,18 @@ SDL_Event e;
         }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
-        game->Draw_pickup(0,0,0,255,0);
-        game->Draw_player(0,0,1,255,255,255);
-        game->Draw_player(5,0,0.06,255,255,255);
+
+        for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
+            game->Draw_pickup(it->second->get_x(),it->second->get_y(),255,255,255);
+        }
+        for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
+                game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
+        }
+        game->Draw_player(0,0,0.06,255,255,255);
+        game->Draw_player(0.2,0.2,0.06,255,255,255);
+        game->Show();
+
+
 
      //  game->Draw_menu();
  game->Show();
@@ -392,6 +401,21 @@ void MainClient::Tree_package(Bubi_package p) {
             if(pickups.find(p.p_id)==pickups.end()) {
                 PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
                 pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
+            }
+            break;
+        case Flag::dead_flag :
+            if(pickups.find(p.p_id)!=pickups.end()) {
+                pickups.erase(p.p_id);
+            }
+            break;
+        case Flag::ready :
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.at(p.p_id)->setReady(true);
+            }
+            break;
+        case Flag::not_ready :
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.at(p.p_id)->setReady(false);
             }
             break;
     }
