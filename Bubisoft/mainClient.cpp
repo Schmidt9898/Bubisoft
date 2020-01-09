@@ -399,7 +399,7 @@ void MainClient::Tree_package(Bubi_package p) {
                 pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
             }
             break;
-        case Flag::dead_pickup :
+        case Flag::dead_flag :
             if(pickups.find(p.p_id)!=pickups.end()) {
                 pickups.erase(p.p_id);
             }

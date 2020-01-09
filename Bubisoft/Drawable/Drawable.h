@@ -97,7 +97,7 @@ public :
     }
 
     bool isReady() {return ready;}
-    void setReady(bool ready_) {return ready=ready_;}
+    void setReady(bool ready_) {ready=ready_;}
 
     void InteractionWith(Drawable& it){};
     void Draw() {};
