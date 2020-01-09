@@ -122,15 +122,15 @@ SDL_Event e;
 
         if(Players.find(echo.Get_ID())!=Players.end()) {
             game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5*Players.at(echo.Get_ID())->get_r()/0.06);
-        }  else {game->update_camera(0,0,1);}
+        }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
-//        game->Draw_pickup();
-        game->Draw_player(0,0,0.06,255,255,255);
-        game->Draw_player(0.1,0.1,0.03,255,255,255);
-        game->Show();
+        game->Draw_pickup(0,0,0,255,0);
+        game->Draw_player(0,0,1,255,255,255);
+        game->Draw_player(5,0,0.06,255,255,255);
 
-
+     //  game->Draw_menu();
+ game->Show();
         std::this_thread::sleep_for(std::chrono::milliseconds(20));
     }
 

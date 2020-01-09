@@ -86,12 +86,12 @@ if(!globalGraphicsInit()) RENDER = false;
 
 
 
-string ip;
-    cout << "Give server address: ";
-    cin >> ip;
-    int port;
-    cout << "Give server port: ";
-    cin >> port;
+string ip="0";
+    //cout << "Give server address: ";
+    //cin >> ip;
+    int port=0;
+    //cout << "Give server port: ";
+    //cin >> port;*/
 MainClient Main( (ip=="0")? "localhost" : ip ,(port==0)?12345:port);   ///init
 Main.Loop();
 

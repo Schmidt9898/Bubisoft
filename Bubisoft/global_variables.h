@@ -13,8 +13,7 @@ void globalMatricesInit();
 const unsigned int SCR_WIDTH = 1024;
 const unsigned int SCR_HEIGHT = 768;
 bool RENDER = true;
-bool GLOBAL_IN_MENU=true;
-bool GLOBAL_IN_OPTIONS=false;
+
 bool LOOK_AROUND=false;
 
 
@@ -83,6 +82,8 @@ float wave_time = 0.0f;
 float GLOBAL_VOLUME_SLIDER = 0.5f;
 float GLOBAL_OTHER_SLIDER = 0.5f;
 char GLOBAL_SELECT_BUTTON = 'P';
+bool GLOBAL_IN_MENU=true;
+bool GLOBAL_IN_OPTIONS=false;
 
 Shader* waterShader;
 GLFWwindow* window;
@@ -244,6 +245,45 @@ class GAME{
 
 
     }
+
+
+        void Draw_menu()
+    {
+
+        //if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
+
+         if(cameraState == CameraState::STATIC) glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+        else glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+      //  processInput(window);
+
+        glClearColor(0.3f, 0.3f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+          glfwMakeContextCurrent(window);
+        waterShader->use();
+        view = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::mat4(1.0f);
+        MVP = projection * view * model;
+        waterShader->setMat4("MVP", MVP);
+        waterShader->setVec3("aColor", no_color);
+        waterShader->setFloat("aAlpha", 1.0f);
+
+        (*screen).draw();
+        glClear(GL_DEPTH_BUFFER_BIT);
+
+        model = mat_play_button;
+        MVP = projection * view * model;
+        waterShader->setMat4("MVP", MVP);
+
+        waterShader->setVec3("aColor", select_color);
+        (*play_button).draw();
+
+    }
+
+
     void Show()
     {
         glfwSwapBuffers(window);
