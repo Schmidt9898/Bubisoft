@@ -44,6 +44,7 @@ class MainClient {
     thread *timer;
     bool timerstop=false;
 
+    std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
 
 
     map<uint32_t,Drawable*> Entities;

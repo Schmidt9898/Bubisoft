@@ -370,6 +370,7 @@ void MainClient::Tree_update()
 void MainClient::Tree_package(Bubi_package p) {
 
 ///mit csináljon a csomagokkal;
+    last_update = std::chrono::system_clock::now();
     switch(p.flag) {
         case Flag::player :
             if(p.flag==Flag::player)
