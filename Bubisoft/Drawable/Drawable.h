@@ -146,10 +146,15 @@ public:
         mom_y=mom_y_;
         x+=mom_x;
         y+=mom_y;
-        if(x<min_x) x=min_x;
-        if(y<min_y) y=min_y;
-        if(x>max_x) x=max_x;
-        if(y>max_y) y=max_y;
+        if(sqrt(x*x+y*y)+r >= 10)
+        {
+            mom_x=0;
+            mom_y=0;
+
+            float s=sqrt(x*x+y*y)*10;
+            x -= x/s;
+            y -= y/s;
+        }
 
         if(pickup>=11) {
             auto end = std::chrono::system_clock::now();
