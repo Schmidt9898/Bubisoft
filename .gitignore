@@ -8,3 +8,7 @@
 *.depend
 Bubisoft/Bubisoft_net.depend
 *.o
+Bubisoft/obj/Debug/main.o
+*.o
+Bubisoft/obj/Debug/mainClient.o
+Bubisoft/Bubisoft_net.depend
