@@ -1265,7 +1265,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1578562860 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1578570297 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	<thread>
@@ -1673,7 +1673,7 @@
 	<thread>
 	<iostream>
 
-1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+1578571700 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
 	<cmath>
 
 1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h
@@ -2641,7 +2641,7 @@
 
 1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\game_vertices.h
 
-1578566087 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
+1578570058 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
 
 1578562860 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\glad.c
 	<stdio.h>

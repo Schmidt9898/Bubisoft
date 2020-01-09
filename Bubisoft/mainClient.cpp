@@ -78,18 +78,84 @@ void MainClient::Loop() {///load here everithing
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
 float x=0,y=0;
+int r=0,g=0,b=0;
+SDL_Event e;
 
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
     {
 //x+=0.01;
 //y+=0.01;
-game->update_cameraZ(3);
+//game->update_cameraZ(3);
         //game->update_player_pos(1,x,y,2);
 
 
 
-        game->loop();
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            glfwSetWindowShouldClose(window, true);
+
+
+    float cameraSpeed = 1.3 * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
+        cameraPos.y+= 1 * cameraSpeed;
+        //global_player_positions[0].y+= 1 * cameraSpeed;
+r=255;
+    }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+        cameraPos.y-=1 * cameraSpeed;
+        //global_player_positions[0].y-=1 * cameraSpeed;
+         g=255;
+    }
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        //global_player_positions[0].x -= 1 * cameraSpeed;
+          b=255;
+    }
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+       // global_player_positions[0].x += 1 * cameraSpeed;
+          r=0;
+            g=0;
+              b=0;
+    }
+
+       /*
+        if(SDL_PollEvent(&e))
+        {
+            ///van event
+            if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_w)
+                r=255;
+            if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_a)
+                    g=255;
+            if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_s)
+                    b=255;
+            if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_d)
+                cout<<"d"<<endl;
+            if(e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_w)
+                r=0;
+            if(e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_a)
+                    g=0;
+            if(e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_s)
+                    b=0;
+            if(e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_d){}
+
+
+        }
+
+*/
+
+
+
+
+
+
+
+
+        game->Draw_map();
+        game->Draw_player(0,0,2,r,g,b);
+        game->Show();
+
+        //game->loop();
 
 
         std::this_thread::sleep_for(std::chrono::milliseconds(20));

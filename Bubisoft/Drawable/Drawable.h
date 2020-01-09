@@ -6,7 +6,7 @@ class Drawable
 protected:
     const uint32_t id;
     float x, y;
-    int32_t r;
+    float r;
 
 public:
     Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size):id(id_),x(pos_x),y(pos_y),r(size) {};
@@ -28,6 +28,19 @@ public:
     virtual void Draw()=0;
 
     virtual void InteractionWith(Drawable& it)=0;
+
+
+    uint32_t get_id(){return id;}
+    float get_x(){return x;}
+    float get_y(){return y;}
+    float get_r(){return r;}
+
+
+    //void set_id(uint32_t id_){id=id_;}
+    void set_x(float x_){x=x_;}
+    void set_y(float y_){y=y_;}
+    void set_r(float r_){r=r_;}
+
 
 
 
