@@ -74,6 +74,9 @@ void MainClient::Loop() {///load here everything
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
        // atmos.Bubi_change_atmos("game2");
+echo.Start_matchmaking();
+tree_updater = new thread(MainClient::Tree_update,this);
+
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
@@ -145,6 +148,7 @@ SDL_Event e;
 
     game->cleanup();
     delete game;
+    tree_updater->join();
 
 
 
