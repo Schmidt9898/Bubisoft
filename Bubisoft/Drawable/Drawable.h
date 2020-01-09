@@ -5,10 +5,10 @@ class Drawable
 {
 protected:
     const uint32_t id;
-    float x, y;
-    int32_t r, p;
+    float x, y, r;
+    int32_t p;
 public:
-    Drawable(uint32_t id_,float pos_x,float pos_y,int32_t size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {};
+    Drawable(uint32_t id_,float pos_x,float pos_y,float size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {};
 
 
     virtual ~Drawable() {};
@@ -31,12 +31,27 @@ public:
 
     float get_x() {return x;}
     float get_y() {return y;}
-    int32_t get_r() {return r;}
+    float get_r() {return r;}
     uint32_t get_id() {return id;}
     void set_r(int32_t rr) {r=rr;}
     int32_t getPoint() {return p;}
     void setPoint(int32_t pp) {p=pp;}
     void addPoint(int32_t pp) {p+=pp;}
+
+   /* uint32_t get_id(){return id;}
+    int32_t get_point(){return p;}
+    float get_x(){return x;}
+    float get_y(){return y;}
+    float get_r(){return r;}
+
+
+    void set_point(int32_t pont){p=pont;}
+    void set_x(float x_){x=x_;}
+    void set_y(float y_){y=y_;}
+    void set_r(float r_){r=r_;}
+    */
+
+
 
 
     friend class PickUp;
@@ -52,7 +67,7 @@ class PickUp : public Drawable
     std::chrono::system_clock::duration length = std::chrono::system_clock::duration::zero();
 
 public :
-    PickUp(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
+    PickUp(uint32_t id_,float pos_x,float pos_y,float size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
 
     void InteractionWith(Drawable& it){};
     void Draw() {};
@@ -69,8 +84,20 @@ public :
 class Player : public Drawable
 {
     unsigned char pickup;
+    bool ready;
 public :
-    Player(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {};
+    Player(uint32_t id_,float pos_x,float pos_y,float size,unsigned char pickup_):Drawable(id_,pos_x,pos_y,size,0),pickup(pickup_) {ready=false;};
+
+    void update(float pos_x_, float pos_y_, float size_, unsigned char pickup_, int32_t point) {
+        x=pos_x_;
+        y=pos_y_;
+        r=size_;
+        pickup=pickup_;
+        p=point;
+    }
+
+    bool isReady() {return ready;}
+    void setReady(bool ready_) {ready=ready_;}
 
     void InteractionWith(Drawable& it){};
     void Draw() {};
@@ -82,21 +109,23 @@ class Client : public Drawable
     float mom_x,mom_y;
     unsigned char pickup;
     bool ready;
-    float max_x=1000;
-    float max_y=1000;
+    float max_x=10;
+    float max_y=10;
+    float min_x=-10;
+    float min_y=-10;
     std::string name;
     std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point pickup_get_time;
     std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration::zero();
 
 public:
-    Client(uint32_t id_,float pos_x,float pos_y,int32_t size,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,size,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
+    Client(uint32_t id_,float pos_x,float pos_y,float size,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,size,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
 
     void InteractionWith(Drawable& it) {};
     void Draw() {};
 
     bool isReady() {return ready;}
-    void setReady() {ready=true;}
+    void setReady() {ready=true; pickup=Flag::notset;}
 
     void update() {
         last_update = std::chrono::system_clock::now();
@@ -120,12 +149,17 @@ public:
         mom_y=mom_y_;
         x+=mom_x;
         y+=mom_y;
-        if(x<0) x=0;
-        if(y<0) y=0;
-        if(x>max_x) x=max_x;
-        if(y>max_y) y=max_y;
+        if(sqrt(x*x+y*y)+r >= 10)
+        {
+            mom_x=0;
+            mom_y=0;
 
-        if(pickup>=10) {
+            float s=sqrt(x*x+y*y)*10;
+            x -= x/s;
+            y -= y/s;
+        }
+
+        if(pickup>=11) {
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double> diff = end-pickup_get_time;
             if(diff>pickup_length) {
@@ -144,6 +178,14 @@ public:
 
     std::string getName() {
         return name;
+    }
+
+    float getMin_x() {
+        return min_x;
+    }
+
+    float getMin_y() {
+        return min_y;
     }
 
     float getMax_x() {

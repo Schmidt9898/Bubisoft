@@ -52,7 +52,7 @@ private:
 
     void closepanel();
 
-    const int timeout = 20000;
+    const int timeout = 2000;
 
     public: MainServer();
 

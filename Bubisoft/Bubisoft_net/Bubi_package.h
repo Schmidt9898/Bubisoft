@@ -91,6 +91,7 @@ enum Flag :char
     replay=8,   ///player újra játszani akar
     winner=9,   ///playernek van a legtöbb pontja
     game_end=10,
+    dead_flag=20,
 
     food=11,
     food1=12,
