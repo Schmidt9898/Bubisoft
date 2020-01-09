@@ -85,7 +85,8 @@ SDL_Event e;
     while (!glfwWindowShouldClose(window))
     {
 
-
+    float mom_x=0;
+    float mom_y=0;
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, true);
@@ -93,29 +94,34 @@ SDL_Event e;
 
     float cameraSpeed = 1.3 * deltaTime;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
-        cameraPos.y+= 1 * cameraSpeed;
+        //cameraPos.y+= 1 * cameraSpeed;
         //global_player_positions[0].y+= 1 * cameraSpeed;
-    r=255;
+        mom_y+=0.1;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
-        cameraPos.y-=1 * cameraSpeed;
+        //cameraPos.y-=1 * cameraSpeed;
         //global_player_positions[0].y-=1 * cameraSpeed;
-         g=255;
+        mom_y-=0.1;
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
         //global_player_positions[0].x -= 1 * cameraSpeed;
-          b=255;
+        mom_x-=0.1;
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
        // global_player_positions[0].x += 1 * cameraSpeed;
-        r=0;
-        g=0;
-        b=0;
+       mom_x+=0.1;
     }
 
-
+    Bubi_package p;
+        p.flag=Flag::notset;
+        p.p_id=echo.Get_ID();
+        p.mom_x=mom_x;
+        p.mom_y=mom_y;
+    vector<Bubi_package> *vec = new vector<Bubi_package>();
+    vec->push_back(p);
+    echo.Push_Bubivector(vec);
 
 
 
@@ -139,7 +145,7 @@ SDL_Event e;
 
 
      //  game->Draw_menu();
- game->Show();
+        game->Show();
         std::this_thread::sleep_for(std::chrono::milliseconds(20));
     }
 
