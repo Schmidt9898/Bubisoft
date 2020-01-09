@@ -137,12 +137,13 @@ class GAME{
         red_victory = new VAO(screen_background, 30, 6, "textures/red_wins.jpg");
         yellow_victory = new VAO(screen_background, 30, 6, "textures/yellow_wins.jpg");
         disconnect = new VAO(screen_background, 30, 6, "textures/DISCONNECTED.jpg");
-        for(int i=0;i<szam;i++)///át kell írni
+       /* for(int i=0;i<szam;i++)///át kell írni
         {
             global_player_size[i]=0.5;
-        }
+        }*/
     }
-    /*void loop(){
+    /*
+    void loop(){
         wave_time+=0.025f;
         if(cameraState == CameraState::STATIC) glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         else glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -156,6 +157,8 @@ class GAME{
 
         drawMenu(*screen, *play_button, *options_button, *options_screen, *volume_slider);
         drawMap(*gamefloor, *water, *grass, *sky);
+
+
         //drawLocalPlayer(*player, wave_time, 1.0f);
 
         for(int i=0;i<szam;i++)
@@ -169,8 +172,8 @@ class GAME{
 
         glfwSwapBuffers(window);
         glfwPollEvents();
-    }
-    */
+    }*/
+
 
 /*
     void update_player_pos(int id,float x,float y,float size_)
@@ -185,54 +188,78 @@ class GAME{
     */
     void Draw_player(float x,float y, float meret,int r,int g,int b)
     {
-        glm::vac3 pos(x,y,0.0f);
-        glm::vac3 color(((float)r)/255.0f,((float)g)/255.0f,((float)b)/255.0f);
+        glm::vec3 pos(x,y,0.0f);
+        glm::vec3 color(((float)r)/255.0f,((float)g)/255.0f,((float)b)/255.0f);
 
 
     glfwMakeContextCurrent(window);
     waterShader->use();
-    float scale = 1.0f + (1.0f+sin(2.1f*wave))/4;
+    float scale = 1.0f + (1.0f+sin(2.1f*wave_time))/4;
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, pos);
     M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
     M = glm::scale(M, glm::vec3(meret, meret, 1.0f));
     MVP = projection * view * M;
     waterShader->setMat4("MVP", MVP);
-    waterShader->setVec3("aColor", global_player_colors[id]);
+    waterShader->setVec3("aColor", color);
     waterShader->setFloat("aAlpha", 0.7f);
-    vao.draw();
+    (*player).draw();
 
 
     }
     void Draw_pickup(float x,float y,int r,int g,int b)
     {
+        glm::vec3 pos(x,y,0.0f);
+        glm::vec3 color(((float)r)/255.0f,((float)g)/255.0f,((float)b)/255.0f);
+
+
+    glfwMakeContextCurrent(window);
+    waterShader->use();
+    glm::mat4 M = glm::mat4(1.0f);
+    M = glm::translate(M, pos);
+    M = glm::scale(M, glm::vec3(GLOBAL_PICKUP_SCALE, GLOBAL_PICKUP_SCALE, 1.0f));
+    MVP = projection * view * M;
+    waterShader->setVec3("aColor", color);
+    waterShader->setFloat("aAlpha", 1.0f);
+    waterShader->setMat4("MVP", MVP);
+    (*pickup).draw();
 
 
     }
     void Draw_map()
     {
+        wave_time+=0.025f;
+        if(cameraState == CameraState::STATIC) glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+        else glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+      //  processInput(window);
+
+        glClearColor(0.3f, 0.3f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+      //  drawMenu(*screen, *play_button, *options_button, *options_screen, *volume_slider);
+        drawMap(*gamefloor, *water, *grass, *sky);
 
 
     }
     void Show()
     {
-
+        glfwSwapBuffers(window);
+        glfwPollEvents();
 
     }
 
 
-    void update_cameraZ(float d)
+    void update_camera(float x,float y,float z)
     {
-        cameraPos.z=d;
-    }
-    void set_player_color(int id)
-    {
-         if(id<0)
-            return;
-///TODO
-
+        cameraPos.z=z;
+        cameraPos.x=x;
+        cameraPos.y=y;
 
     }
+
 
     void cleanup(){
         delete waterShader;
@@ -282,13 +309,13 @@ void globalMatricesInit(){
     grass_pos[4]=glm::translate(grass_pos[4], glm::vec3(+3.0f, 0.0f, 0.0f));
     grass_pos[5]=glm::translate(grass_pos[5], glm::vec3(+2.5f, -1.0f, 0.0f));
 
-    global_player_positions[0] = glm::vec3(0.0f, 0.0f, 0.0f);
+/*    global_player_positions[0] = glm::vec3(0.0f, 0.0f, 0.0f);
     global_player_positions[1] = glm::vec3(0.0f, 0.0f, 0.0f);
     global_player_positions[2] = glm::vec3(0.0f, 0.0f, 0.0f);
 
     global_player_colors[0]=glm::vec3(0.89f, 0.2f, 0.5f);
     global_player_colors[1]=glm::vec3(0.5f, 0.89f, 0.2f);
-    global_player_colors[2]=glm::vec3(0.2f, 0.5f, 0.89f);
+    global_player_colors[2]=glm::vec3(0.2f, 0.5f, 0.89f);*/
 }
 
 int globalGraphicsInit(){
@@ -312,10 +339,10 @@ int globalGraphicsInit(){
     }
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, mouse_callback);
-    glfwSetScrollCallback(window, scroll_callback);
-    glfwSetMouseButtonCallback(window, mouse_button_callback);
-    glfwSetKeyCallback(window, key_callback);
+  //  glfwSetCursorPosCallback(window, mouse_callback);
+  //  glfwSetScrollCallback(window, scroll_callback);
+  //  glfwSetMouseButtonCallback(window, mouse_button_callback);
+//    glfwSetKeyCallback(window, key_callback);
 
     // tell GLFW to capture our mouse
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
@@ -398,7 +425,7 @@ void drawMenu(VAO &screen, VAO &play_button, VAO &options_button, VAO &options_s
 }
 
 void drawMap(VAO &floor, VAO &water, VAO &grass, VAO &sky){
-    if(GLOBAL_IN_MENU) return;
+   // if(GLOBAL_IN_MENU) return;
     glfwMakeContextCurrent(window);
     waterShader->use();
     view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
@@ -450,7 +477,7 @@ void drawMap(VAO &floor, VAO &water, VAO &grass, VAO &sky){
 
 
 }
-
+/*
 void drawPlayer(unsigned id, VAO &vao, float wave, float size){
     if(GLOBAL_IN_MENU) return;
     glfwMakeContextCurrent(window);
@@ -496,7 +523,7 @@ void drawPickup(VAO &vao, glm::vec3 pos){
     waterShader->setMat4("MVP", MVP);
     vao.draw();
 }
-
+*/
 void drawVictory(VAO &_vic0, VAO &_vic1, VAO &_vic2, unsigned id){
 	if(GLOBAL_IN_MENU) return;
 	glfwMakeContextCurrent(window);
@@ -534,7 +561,7 @@ void drawDisconnect(VAO &_disc){
 	waterShader->setVec3("aColor", no_color);
 	_disc.draw();
 }
-
+/*
 void processInput(GLFWwindow *window){
 ///this function is for movement only
     ///ESC
@@ -672,7 +699,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     }
 
 }
-
+*/
 void framebuffer_size_callback(GLFWwindow* window, int width, int height){
     // make sure the viewport matches the new window dimensions; note that width and
     // height will be significantly larger than specified on retina displays.

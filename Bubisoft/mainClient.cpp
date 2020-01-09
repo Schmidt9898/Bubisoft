@@ -77,17 +77,51 @@ void MainClient::Loop() {///load here everything
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
-float x=0,y=0;
+
+int r=0,g=0,b=0;
+SDL_Event e;
 
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
     {
-//x+=0.01;
-//y+=0.01;
+
+
+
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            glfwSetWindowShouldClose(window, true);
+
+
+    float cameraSpeed = 1.3 * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
+        cameraPos.y+= 1 * cameraSpeed;
+        //global_player_positions[0].y+= 1 * cameraSpeed;
+r=255;
+    }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+        cameraPos.y-=1 * cameraSpeed;
+        //global_player_positions[0].y-=1 * cameraSpeed;
+         g=255;
+    }
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        //global_player_positions[0].x -= 1 * cameraSpeed;
+          b=255;
+    }
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+       // global_player_positions[0].x += 1 * cameraSpeed;
+          r=0;
+            g=0;
+              b=0;
+    }
+
+
+
+
+
+
+
         game->update_camera();
-        //game->update_player_pos(1,x,y,2);
-
-
         game->draw_map();
         game->draw_pickup();
         game->draw_player();
