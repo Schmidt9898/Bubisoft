@@ -69,7 +69,7 @@ MainClient::MainClient(string ip,int port) {
 
 
 
-void MainClient::Loop() {///load here everything
+void MainClient::Loop() {///load here everithing
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
@@ -84,14 +84,12 @@ float x=0,y=0;
     {
 //x+=0.01;
 //y+=0.01;
-        game->update_camera();
+game->update_cameraZ(3);
         //game->update_player_pos(1,x,y,2);
 
 
-        game->draw_map();
-        game->draw_pickup();
-        game->draw_player();
-        game->show();
+
+        game->loop();
 
 
         std::this_thread::sleep_for(std::chrono::milliseconds(20));
@@ -333,23 +331,49 @@ void MainClient::Tree_update()
     cout<<"tree_updater ended"<<endl;
 }
 
-void MainClient::Tree_package(Bubi_package p) {
+void MainClient::Tree_package(Bubi_package p)
+{
 
 ///mit csináljon a csomagokkal;
-    switch(p.flag) {
-        case Flag::player :
-            if(p.flag==Flag::player)
-            {
-                Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+switch(p.doflag){
+    case purpose::add :
+        if(p.flag==Flag::player)
+        {
+            Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
                 Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
-            }
-            break;
-        case Flag::notset :
-            Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
-            break;
-        case Flag::dead :
-            Players.erase(p.p_id);
-            break;
-    }
+        }
+
+    break;
+    case purpose::delet :
+
+    break;
+    case purpose::update :
+
+    break;
+   // case purpose::get_stat :break;
+    case purpose::get_name :
+
+        break;
+    //case purpose::set_name :break;
+    case purpose::stat :
+
+    break;
+   // case purpose::get_tree :break;
+
+
+
 
 }
+
+
+
+
+
+}
+
+
+
+
+
+
+
