@@ -134,7 +134,7 @@ SDL_Event e;
         }
         game->Draw_player(0,0,0.06,255,255,255);
         game->Draw_player(0.2,0.2,0.06,255,255,255);
-        game->Show();
+      //  game->Show();
 
 
 
