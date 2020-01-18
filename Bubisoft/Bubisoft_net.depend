@@ -4505,7 +4505,7 @@
 	"Bubi_package.h"
 	<atomic>
 
-1578577700 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
+1578577998 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
@@ -4542,7 +4542,7 @@
 	<inttypes.h>
 	<stdint.h>
 
-1578577700 source:v:\halado_cpp\bubisoft0\bubisoft\main.cpp
+1578578154 source:v:\halado_cpp\bubisoft0\bubisoft\main.cpp
 	<iostream>
 	"Bubisoft_Net.hpp"
 	"Bubi_Sound.h"
@@ -5505,7 +5505,7 @@
 
 1578576984 v:\halado_cpp\bubisoft0\bubisoft\game_vertices.h
 
-1578576984 v:\halado_cpp\bubisoft0\bubisoft\global_variables.h
+1578578476 v:\halado_cpp\bubisoft0\bubisoft\global_variables.h
 
 1578576984 v:\halado_cpp\bubisoft0\bubisoft\mainclient.h
 	<string>
@@ -5517,14 +5517,43 @@
 1578577778 v:\halado_cpp\bubisoft0\bubisoft\drawable\drawable.h
 	<cmath>
 
-1578577700 source:v:\halado_cpp\bubisoft0\bubisoft\mainserver.cpp
+1578577998 source:v:\halado_cpp\bubisoft0\bubisoft\mainserver.cpp
 	"mainServer.h"
 	<Bubisoft_Net.hpp>
 	<thread>
 	<iostream>
 
-1578577700 v:\halado_cpp\bubisoft0\bubisoft\mainserver.h
+1578577998 v:\halado_cpp\bubisoft0\bubisoft\mainserver.h
 	<map>
 	<stdint.h>
 	<Bubisoft_Net.hpp>
+
+1579368358 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
+	"mainClient.h"
+	<iostream>
+	<thread>
+	<mutex>
+	<condition_variable>
+	"Bubisoft_Net.hpp"
+	"Drawable.h"
+	"objects.h"
+	"Windows.h"
+	<iostream>
+	<glad/glad.h>
+	"depend/include/GLFW/glfw3.h"
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	"depend/include/glm/glm.hpp"
+	"depend/include/glm/gtc/matrix_transform.hpp"
+	"depend/include/glm/gtc/type_ptr.hpp"
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"global_variables.h"
+
+1578390058 v:\halado_cpp\bubisoft0\bubisoft\drawable\objects.h
+	<SDL.h>
 

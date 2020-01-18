@@ -77,6 +77,20 @@ void MainClient::Loop() {///load here everything
 echo.Start_matchmaking();
 tree_updater = new thread(MainClient::Tree_update,this);
 
+    Bubi_package p;
+    p.flag=Flag::player;
+    p.p_id=echo.Get_ID();
+    vector<Bubi_package> *vec = new vector<Bubi_package>();
+    vec->push_back(p);
+    echo.Push_Bubivector(vec);
+
+    Bubi_package p2;
+    p2.flag=Flag::ready;
+    p2.p_id=echo.Get_ID();
+    vector<Bubi_package> *vec3 = new vector<Bubi_package>();
+    vec3->push_back(p2);
+    echo.Push_Bubivector(vec3);
+
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
