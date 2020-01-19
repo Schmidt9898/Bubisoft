@@ -22,7 +22,7 @@ public:
         if(r>=it->r)
             return false;
         else
-            return (sqrt(  pow(x-it->x,2) +  pow(y-it->y,2) ) + it->r <= r);
+            return (sqrt(  pow(x-it->x,2) +  pow(y-it->y,2) ) + r <= it->r);
     }
 
     virtual void Draw()=0;

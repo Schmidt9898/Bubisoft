@@ -826,7 +826,7 @@
 1573751794 c:\lacika\programok_gited\bubisoft\bubisoft\mainclient.h
 	<string>
 
-1578561842 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
+1579452274 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
 1578561842 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.h
@@ -1218,7 +1218,7 @@
 	"Bubi_package.h"
 	<atomic>
 
-1578573992 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
+1579452274 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
@@ -1230,7 +1230,7 @@
 1575369875 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubisoft_net.cpp
 	"Bubisoft_Net.hpp"
 
-1578575824 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
+1579452274 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
 	<iostream>
 	"Bubisoft_Net.hpp"
 	"Bubi_Sound.h"
@@ -1260,7 +1260,7 @@
 	"Drawable.h"
 	"Bubi_Sound.h"
 
-1578322594 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
+1579452274 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
 	<map>
 	<stdint.h>
 	<Bubisoft_Net.hpp>
@@ -1667,13 +1667,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1578561843 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
+1579452274 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
 	"mainServer.h"
 	<Bubisoft_Net.hpp>
 	<thread>
 	<iostream>
 
-1578577857 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+1579461527 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
 	<cmath>
 
 1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h
@@ -2641,7 +2641,7 @@
 
 1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\game_vertices.h
 
-1578578461 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
+1579452274 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
 
 1578562860 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\glad.c
 	<stdio.h>
