@@ -27,6 +27,8 @@ class Bubi_Server
     std::list<TCPsocket> clients;
     std::vector<std::thread*> Readers;
 
+    int number_of_clients=0;
+
     int package_size=sizeof(Bubi_package)*50;
 
     std::atomic_bool run{true};
