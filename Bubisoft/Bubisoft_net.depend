@@ -4460,7 +4460,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1579444928 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.cpp
+1579452002 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
 1578390056 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.h
@@ -4505,13 +4505,13 @@
 	"Bubi_package.h"
 	<atomic>
 
-1579447040 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
+1579459614 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
 	<string>
 
-1578390056 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_server.cpp
+1579444420 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_server.cpp
 	"Bubi_server.h"
 
 1573477918 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubisoft_net.cpp
@@ -4542,7 +4542,7 @@
 	<inttypes.h>
 	<stdint.h>
 
-1578578154 source:v:\halado_cpp\bubisoft0\bubisoft\main.cpp
+1579452002 source:v:\halado_cpp\bubisoft0\bubisoft\main.cpp
 	<iostream>
 	"Bubisoft_Net.hpp"
 	"Bubi_Sound.h"
@@ -5505,7 +5505,7 @@
 
 1578576984 v:\halado_cpp\bubisoft0\bubisoft\game_vertices.h
 
-1578578476 v:\halado_cpp\bubisoft0\bubisoft\global_variables.h
+1579452002 v:\halado_cpp\bubisoft0\bubisoft\global_variables.h
 
 1578576984 v:\halado_cpp\bubisoft0\bubisoft\mainclient.h
 	<string>
@@ -5514,21 +5514,21 @@
 	"Drawable.h"
 	"Bubi_Sound.h"
 
-1578577778 v:\halado_cpp\bubisoft0\bubisoft\drawable\drawable.h
+1579463024 v:\halado_cpp\bubisoft0\bubisoft\drawable\drawable.h
 	<cmath>
 
-1578577998 source:v:\halado_cpp\bubisoft0\bubisoft\mainserver.cpp
+1579452002 source:v:\halado_cpp\bubisoft0\bubisoft\mainserver.cpp
 	"mainServer.h"
 	<Bubisoft_Net.hpp>
 	<thread>
 	<iostream>
 
-1578577998 v:\halado_cpp\bubisoft0\bubisoft\mainserver.h
+1579452002 v:\halado_cpp\bubisoft0\bubisoft\mainserver.h
 	<map>
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1579449346 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
+1579465768 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	<thread>

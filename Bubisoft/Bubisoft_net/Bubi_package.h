@@ -102,6 +102,7 @@ enum Flag :char
     winner='9',   ///playernek van a legtöbb pontja
     game_end='a',
     dead_flag='b',
+    dead_pickup='g',
 
     food='c',
     food1='d',

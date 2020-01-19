@@ -29,6 +29,7 @@
     #include <random>
     #include "vao.hpp"
     #include "global_variables.h"
+    #include <math.h>
 //
 
 
@@ -132,24 +133,24 @@ SDL_Event e;
 
         if(Players.find(echo.Get_ID())!=Players.end()) {
                 //cout << "Found"<< endl;
-            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5*Players.at(echo.Get_ID())->get_r()/0.04);
+            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5/pow(Players.at(echo.Get_ID())->get_r()+0.94,2));
         }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
 
         for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
-            game->Draw_pickup(it->second->get_x(),it->second->get_y(),255,255,255);
+            game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
         }
         for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
                 game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
         }
-        game->Draw_player(0,0,0.06,255,255,255);
-        game->Draw_player(0.2,0.2,0.06,255,255,255);
+       // game->Draw_player(0,0,0.06,255,255,255);
+       // game->Draw_player(0.2,0.2,0.06,255,255,255);
       //  game->Show();
 
 
 
-     //  game->Draw_menu();
+      //  game->Draw_menu();
         game->Show();
         //std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
@@ -412,24 +413,30 @@ void MainClient::Tree_package(Bubi_package p) {
         Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
         Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
     }
-    else if(Players.find(p.p_id)!=Players.end()) {
-            cout << p.ToString() << endl;
+    else if(Players.find(p.p_id)!=Players.end() || pickups.find(p.p_id)!=pickups.end()) {
+            //cout << p.ToString() << endl;
     switch(p.flag) {
+        case 0 :
+            //cout << p.ToString() << endl;
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
+            }
+            break;
         case Flag::notset :
-            Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
+            //cout << p.ToString() << endl;
+            //cout << "Update..." << endl;
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
+            }
             break;
         case Flag::dead :
-            Players.erase(p.p_id);
-            break;
-        case Flag::pickup :
-            if(pickups.find(p.p_id)==pickups.end()) {
-                PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
-                pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.erase(p.p_id);
             }
             break;
         case Flag::dead_flag :
-            if(pickups.find(p.p_id)!=pickups.end()) {
-                pickups.erase(p.p_id);
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.erase(p.p_id);
             }
             break;
         case Flag::ready :
@@ -442,10 +449,21 @@ void MainClient::Tree_package(Bubi_package p) {
                 Players.at(p.p_id)->setReady(false);
             }
             break;
+        case Flag::dead_pickup :
+            if(pickups.find(p.p_id)!=pickups.end()) {
+                pickups.erase(p.p_id);
+            }
+            break;
     }
     } else {
-        Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
-        Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+        if(p.flag==Flag::pickup || p.flag==Flag::food || p.flag==Flag::food1 || p.flag==Flag::immortal || p.flag==Flag::doublepoint) {
+            PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
+            pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
+        }
+        else {
+            Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+            Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+        }
     }
 
 }
