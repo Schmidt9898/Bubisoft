@@ -167,7 +167,7 @@ void MainServer::send_names() {
 }
 
 void MainServer::calculate() {
-    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) { ///ha tï¿½bb, mint kï¿½t mï¿½sodperce volt utoljï¿½ra frissï¿½tve a kliens, akkor a klienset halottnak tekintjï¿½k
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) { ///ha több, mint két másodperce volt utoljára frissítve a kliens, akkor a klienset halottnak tekintjük
         if(it->second->get_pickup()==Flag::dead) continue;
         auto start = it->second->getLastUpdate();
         auto end = std::chrono::system_clock::now();
@@ -176,16 +176,21 @@ void MainServer::calculate() {
             it->second->set_flag(Flag::dead);
         }
     }
+
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second->get_pickup()==Flag::dead) continue;
+       // cout << "client"  << endl;
         for(uint32_t i = 0; i<pickups.size(); ++i) {
             if(pickups.find(i)!=pickups.end()) {
             if(pickups.at(i)->get_type()==Flag::notset) continue;
+            if(pickups.at(i)->get_type()==Flag::dead_pickup) continue;
+            //cout << "pickup" << endl;
             if(pickups.at(i)->inside(it->second)) {
                 it->second->set_flag(pickups.at(i)->get_type());
                 it->second->set_r(it->second->get_r()+pickups.at(i)->get_r());
+                cout << "méret" << endl;
                 it->second->addPoint(pickups.at(i)->getPoint());
-                pickups.at(i)->set_type(Flag::notset);
+                pickups.at(i)->set_type(Flag::dead_pickup);
             }
             }
         }
@@ -208,12 +213,12 @@ void MainServer::calculate() {
         }
         it->second->update();
     }
-    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+   /* for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
-        if(it->second->get_r()>0.04) {
-            it->second->set_r(it->second->get_r()-0.0001);
+        if(it->second->get_r()>0.05) {
+            it->second->set_r(it->second->get_r()-0.000001);
         }
-    }
+    }*/
 }
 
 void MainServer::send_values() {
@@ -229,25 +234,28 @@ void MainServer::send_values() {
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
            // cout << bubi.ToString() << endl;
-            ///TODO - bubi feltï¿½ltï¿½se?
+            ///TODO - bubi feltöltése?
             vec->push_back(bubi);
             if(it->second->get_pickup()==Flag::player) {
                 it->second->set_flag(Flag::notset);
             }
         }
     }
-    /*for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
+    for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
         if(it->second->get_type()==Flag::notset) {
-            bubi.flag=Flag::dead_flag;
-        } else bubi.flag=it->second->get_type();
+            bubi.flag=Flag::dead_pickup;
+        } else {
+            bubi.flag=it->second->get_type();
+        }
+        //cout << bubi.flag << endl;
         bubi.pos_x=it->second->get_x();
         bubi.pos_y=it->second->get_y();
         bubi.p_size=it->second->get_r();
         bubi.p_id=it->first;
         bubi.point=it->second->getPoint();
-        ///TODO - bubi feltï¿½ltï¿½se?
+        ///TODO - bubi feltöltése?
         vec->push_back(bubi);
-    }*/
+    }
 
     if(vec->size()!=0) {
         //cout << "Sending" << endl;
@@ -257,7 +265,7 @@ void MainServer::send_values() {
 
     for(uint32_t i=0; i<pickups.size(); ++i) {
         if(pickups.find(i)!=pickups.end()) {
-            if(pickups.at(i)->get_type()==Flag::notset) {
+            if(pickups.at(i)->get_type()==Flag::dead_pickup || pickups.at(i)->get_type()==Flag::notset) {
                 pickups.erase(i);
             }
         }
@@ -357,9 +365,14 @@ void MainServer::pickup_generator() {
         if(i<4) {
             float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            while((pow(pos_x,2)+pow(pos_y,2))>=100) {
+                pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+                pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            }
+
             int32_t point = rand() % 21 + 5;
-            int rflag = rand() % 4;
-            unsigned char flag = '0';
+            int rflag = rand() % 4 +1;
+            unsigned char flag;
             switch(rflag) {
                 case 1: flag=Flag::food;
                     break;
@@ -371,15 +384,20 @@ void MainServer::pickup_generator() {
                     break;
             }
 
-            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.03,flag,point);
+            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
         }
         else {
             float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            while((pow(pos_x,2)+pow(pos_y,2))>=100) {
+                pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+                pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            }
+
             int32_t point = rand() % 21 + 5;
-            int rflag = rand() % 4;
-            unsigned char flag = '0';
+            int rflag = rand() % 4 +1;
+            unsigned char flag;
             switch(rflag) {
                 case 1: flag=Flag::food;
                     break;
@@ -391,7 +409,7 @@ void MainServer::pickup_generator() {
                     break;
             }
 
-            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.03,flag,point);
+            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
 
             int sleeptime = rand() % 4001 + 1000;

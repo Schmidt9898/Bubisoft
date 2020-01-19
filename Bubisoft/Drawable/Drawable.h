@@ -19,10 +19,11 @@ public:
     }
     virtual bool inside(Drawable* it) ///me inside it
     {
+        //std::cout << "inside test" << std::endl;
         if(r>=it->r)
             return false;
         else
-            return (sqrt(  pow(x-it->x,2) +  pow(y-it->y,2) ) + it->r <= r);
+            return ((sqrt(  pow(x-it->x,2) +  pow(y-it->y,2) ) + r )<= it->r);
     }
 
     virtual void Draw()=0;
@@ -37,21 +38,6 @@ public:
     uint32_t getPoint() {return p;}
     void setPoint(uint32_t pp) {p=pp;}
     void addPoint(uint32_t pp) {p+=pp;}
-
-   /* uint32_t get_id(){return id;}
-    int32_t get_point(){return p;}
-    float get_x(){return x;}
-    float get_y(){return y;}
-    float get_r(){return r;}
-
-
-    void set_point(int32_t pont){p=pont;}
-    void set_x(float x_){x=x_;}
-    void set_y(float y_){y=y_;}
-    void set_r(float r_){r=r_;}
-    */
-
-
 
    /* uint32_t get_id(){return id;}
     int32_t get_point(){return p;}
