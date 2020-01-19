@@ -167,7 +167,7 @@ void MainServer::send_names() {
 }
 
 void MainServer::calculate() {
-    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) { ///ha több, mint két másodperce volt utoljára frissítve a kliens, akkor a klienset halottnak tekintjük
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) { ///ha tï¿½bb, mint kï¿½t mï¿½sodperce volt utoljï¿½ra frissï¿½tve a kliens, akkor a klienset halottnak tekintjï¿½k
         if(it->second->get_pickup()==Flag::dead) continue;
         auto start = it->second->getLastUpdate();
         auto end = std::chrono::system_clock::now();
@@ -229,7 +229,7 @@ void MainServer::send_values() {
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
            // cout << bubi.ToString() << endl;
-            ///TODO - bubi feltöltése?
+            ///TODO - bubi feltï¿½ltï¿½se?
             vec->push_back(bubi);
             if(it->second->get_pickup()==Flag::player) {
                 it->second->set_flag(Flag::notset);
@@ -245,7 +245,7 @@ void MainServer::send_values() {
         bubi.p_size=it->second->get_r();
         bubi.p_id=it->first;
         bubi.point=it->second->getPoint();
-        ///TODO - bubi feltöltése?
+        ///TODO - bubi feltï¿½ltï¿½se?
         vec->push_back(bubi);
     }*/
 

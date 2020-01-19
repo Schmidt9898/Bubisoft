@@ -53,6 +53,21 @@ public:
 
 
 
+   /* uint32_t get_id(){return id;}
+    int32_t get_point(){return p;}
+    float get_x(){return x;}
+    float get_y(){return y;}
+    float get_r(){return r;}
+
+
+    void set_point(int32_t pont){p=pont;}
+    void set_x(float x_){x=x_;}
+    void set_y(float y_){y=y_;}
+    void set_r(float r_){r=r_;}
+    */
+
+
+
 
     friend class PickUp;
     friend class Player;

@@ -1,0 +1,5530 @@
+# depslib dependency file v1.0
+1571231390 source:c:\lacika\programok\haladó_c++\bubisoft_net\main.cpp
+	<iostream>
+	"Bubisoft_Net.hpp"
+	<SDL.h>
+	<SDL_net.h>
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\begin_code.h
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\close_code.h
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564032984 c:\lacika\programok\haladó_c++\sdl2-2.0.10\x86_64-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451811457 c:\lacika\programok\haladó_c++\sdl2_net-2.0.1\x86_64-w64-mingw32\include\sdl2\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\close_code.h
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 c:\lacika\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451807846 c:\lacika\programok\haladó_c++\sdl2_net-2.0.1\i686-w64-mingw32\include\sdl2\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1570989975 source:c:\lacika\programok\haladó_c++\bubisoft_net\bubisoft_net.cpp
+	"Bubisoft_Net.hpp"
+
+1571231554 c:\lacika\programok\haladó_c++\bubisoft_net\bubisoft_net.hpp
+	<SDL.h>
+	<SDL_net.h>
+	"Bubi_exceptions.h"
+	"Bubi_client.h"
+	"Bubi_server.h"
+
+1571046310 c:\lacika\programok\haladó_c++\bubisoft_net\bubi_exceptions.h
+	<exception>
+	<string>
+
+1571233059 c:\lacika\programok\haladó_c++\bubisoft_net\bubi_client.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	"Bubi_package.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+
+1571232007 source:c:\lacika\programok\haladó_c++\bubisoft_net\bubi_client.cpp
+	"Bubi_client.h"
+
+1571155800 c:\lacika\programok\haladó_c++\bubisoft_net\bubi_server.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	"Bubi_package.h"
+
+1571233059 c:\lacika\programok\haladó_c++\bubisoft_net\bubi_package.h
+	<vector>
+	<memory.h>
+	<iostream>
+	<string>
+
+1573754300 source:c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
+	"Bubi_client.h"
+
+1573754300 c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubi_client.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	"Bubi_package.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<condition_variable>
+	<atomic>
+
+1573564562 c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubisoft_net.hpp
+	<SDL.h>
+	<SDL_net.h>
+	"Bubi_exceptions.h"
+	"Bubi_client.h"
+	"Bubi_server.h"
+
+1573565264 c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubi_exceptions.h
+	<exception>
+	<string>
+
+1574072615 c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubi_server.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<list>
+	<condition_variable>
+	"Bubi_package.h"
+	<atomic>
+
+1573756473 c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubi_package.h
+	<vector>
+	<memory.h>
+	<iostream>
+	<string>
+
+1572455167 source:c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubisoft_net.cpp
+	"Bubisoft_Net.hpp"
+
+1573751794 source:c:\lacika\programok_gited\bubisoft\bubisoft\main.cpp
+	<iostream>
+	"Bubisoft_Net.hpp"
+	"mainClient.h"
+	"mainServer.h"
+	<SDL.h>
+	<SDL_net.h>
+
+1572455936 source:c:\lacika\programok_gited\bubisoft\bubisoft\mainlaci.cpp
+	<iostream>
+	"Bubisoft_Net.hpp"
+	<iostream>
+
+1573567895 c:\lacika\programok_gited\bubisoft\bubisoft\mainlaci.hpp
+	<iostream>
+
+1573567400 source:c:\lacika\programok_gited\bubisoft\bubisoft\bubisoft_net\bubi_server.cpp
+	"Bubi_server.h"
+
+1573751794 c:\lacika\programok_gited\bubisoft\bubisoft\mainserver.h
+
+1573751794 c:\lacika\programok_gited\bubisoft\bubisoft\mainclient.h
+	<string>
+
+1578561842 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
+	"Bubi_client.h"
+
+1578561842 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	"Bubi_package.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<condition_variable>
+	<atomic>
+
+1575369875 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubisoft_net.hpp
+	<SDL.h>
+	<SDL_net.h>
+	"Bubi_exceptions.h"
+	"Bubi_client.h"
+	"Bubi_server.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\close_code.h
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1564029277 d:\programozas\programok\haladó_c++\sdl2-2.0.10\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451807846 d:\programozas\programok\haladó_c++\sdl2_net-2.0.1\i686-w64-mingw32\include\sdl2\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1575369875 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_exceptions.h
+	<exception>
+	<string>
+
+1575369875 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<list>
+	<condition_variable>
+	"Bubi_package.h"
+	<atomic>
+
+1578563600 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
+	<vector>
+	<memory.h>
+	<iostream>
+	<string>
+
+1578561842 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.cpp
+	"Bubi_server.h"
+
+1575369875 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubisoft_net.cpp
+	"Bubisoft_Net.hpp"
+
+1578562860 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
+	<iostream>
+	"Bubisoft_Net.hpp"
+	"Bubi_Sound.h"
+	<iostream>
+	<glad/glad.h>
+	"depend/include/GLFW/glfw3.h"
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	"depend/include/glm/glm.hpp"
+	"depend/include/glm/gtc/matrix_transform.hpp"
+	"depend/include/glm/gtc/type_ptr.hpp"
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"global_variables.h"
+	"mainClient.h"
+	<SDL.h>
+	<SDL_net.h>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
+	<string>
+	<map>
+	"Bubisoft_Net.hpp"
+	"Drawable.h"
+	"Bubi_Sound.h"
+
+1578322594 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
+	<map>
+	<stdint.h>
+	<Bubisoft_Net.hpp>
+
+1578570297 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+	"mainClient.h"
+	<iostream>
+	<thread>
+	<mutex>
+	<condition_variable>
+	"Bubisoft_Net.hpp"
+	"Drawable.h"
+	"objects.h"
+	"Windows.h"
+	<iostream>
+	<glad/glad.h>
+	"depend/include/GLFW/glfw3.h"
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	"depend/include/glm/glm.hpp"
+	"depend/include/glm/gtc/matrix_transform.hpp"
+	"depend/include/glm/gtc/type_ptr.hpp"
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"global_variables.h"
+
+1578561841 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubi_sounds\bubi_sound.cpp
+	"Bubi_Sound.h"
+
+1578561841 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubi_sounds\bubi_sound.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<map>
+	<fstream>
+	<string>
+	<algorithm>
+	<iostream>
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\begin_code.h
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\close_code.h
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561844 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\sdl\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561842 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubi_sounds\mixer\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561842 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\net\include\sdl2\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561843 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
+	"mainServer.h"
+	<Bubisoft_Net.hpp>
+	<thread>
+	<iostream>
+
+1578573962 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+	<cmath>
+
+1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561843 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\objects.h
+	<SDL.h>
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glad\glad.h
+	<windows.h>
+	<stddef.h>
+	<KHR/khrplatform.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\khr\khrplatform.h
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\shader.hpp
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\glm.hpp
+	"detail/_fixes.hpp"
+	"detail/setup.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\_fixes.hpp
+	<cmath>
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+	<CL/sycl.hpp>
+	<limits>
+	<cstdint>
+	<type_traits>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\simd\platform.h
+	<cuda.h>
+	<immintrin.h>
+	<immintrin.h>
+	<popcntintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<arm_neon.h>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\fwd.hpp
+	"detail/qualifier.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\qualifier.hpp
+	"setup.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\vec2.hpp
+	"./ext/vector_bool2.hpp"
+	"./ext/vector_bool2_precision.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float2_precision.hpp"
+	"./ext/vector_double2.hpp"
+	"./ext/vector_double2_precision.hpp"
+	"./ext/vector_int2.hpp"
+	"./ext/vector_int2_precision.hpp"
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_uint2_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool2.hpp
+	"../detail/type_vec2.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec2.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\_swizzle.hpp
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\_swizzle_func.hpp
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec2.inl
+	"./compute_vector_relational.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\compute_vector_relational.hpp
+	"setup.hpp"
+	<limits>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float2.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double2.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int2.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint2.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\vec3.hpp
+	"./ext/vector_bool3.hpp"
+	"./ext/vector_bool3_precision.hpp"
+	"./ext/vector_float3.hpp"
+	"./ext/vector_float3_precision.hpp"
+	"./ext/vector_double3.hpp"
+	"./ext/vector_double3_precision.hpp"
+	"./ext/vector_int3.hpp"
+	"./ext/vector_int3_precision.hpp"
+	"./ext/vector_uint3.hpp"
+	"./ext/vector_uint3_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool3.hpp
+	"../detail/type_vec3.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec3.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec3.inl
+	"compute_vector_relational.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float3.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double3.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int3.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint3.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\vec4.hpp
+	"./ext/vector_bool4.hpp"
+	"./ext/vector_bool4_precision.hpp"
+	"./ext/vector_float4.hpp"
+	"./ext/vector_float4_precision.hpp"
+	"./ext/vector_double4.hpp"
+	"./ext/vector_double4_precision.hpp"
+	"./ext/vector_int4.hpp"
+	"./ext/vector_int4_precision.hpp"
+	"./ext/vector_uint4.hpp"
+	"./ext/vector_uint4_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool4.hpp
+	"../detail/type_vec4.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec4.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec4.inl
+	"compute_vector_relational.hpp"
+	"type_vec4_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec4_simd.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float4.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double4.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double4_precision.hpp
+	"../detail/setup.hpp"
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int4.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint4.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat2x2.hpp
+	"./ext/matrix_double2x2.hpp"
+	"./ext/matrix_double2x2_precision.hpp"
+	"./ext/matrix_float2x2.hpp"
+	"./ext/matrix_float2x2_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat2x2.hpp
+	"type_vec2.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat2x2.inl
+	"../matrix.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\matrix.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"detail/func_matrix.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat2x3.hpp
+	"./ext/matrix_double2x3.hpp"
+	"./ext/matrix_double2x3_precision.hpp"
+	"./ext/matrix_float2x3.hpp"
+	"./ext/matrix_float2x3_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat2x3.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat2x3.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat2x4.hpp
+	"./ext/matrix_double2x4.hpp"
+	"./ext/matrix_double2x4_precision.hpp"
+	"./ext/matrix_float2x4.hpp"
+	"./ext/matrix_float2x4_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat2x4.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat2x4.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat3x2.hpp
+	"./ext/matrix_double3x2.hpp"
+	"./ext/matrix_double3x2_precision.hpp"
+	"./ext/matrix_float3x2.hpp"
+	"./ext/matrix_float3x2_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat3x2.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat3x2.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat3x3.hpp
+	"./ext/matrix_double3x3.hpp"
+	"./ext/matrix_double3x3_precision.hpp"
+	"./ext/matrix_float3x3.hpp"
+	"./ext/matrix_float3x3_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat3x3.hpp
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat3x3.inl
+	"../matrix.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat3x4.hpp
+	"./ext/matrix_double3x4.hpp"
+	"./ext/matrix_double3x4_precision.hpp"
+	"./ext/matrix_float3x4.hpp"
+	"./ext/matrix_float3x4_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat3x4.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat3x4.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat4x2.hpp
+	"./ext/matrix_double4x2.hpp"
+	"./ext/matrix_double4x2_precision.hpp"
+	"./ext/matrix_float4x2.hpp"
+	"./ext/matrix_float4x2_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x2.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x2.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double4x2_precision.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float4x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat4x3.hpp
+	"./ext/matrix_double4x3.hpp"
+	"./ext/matrix_double4x3_precision.hpp"
+	"./ext/matrix_float4x3.hpp"
+	"./ext/matrix_float4x3_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x3.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x3.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\mat4x4.hpp
+	"./ext/matrix_double4x4.hpp"
+	"./ext/matrix_double4x4_precision.hpp"
+	"./ext/matrix_float4x4.hpp"
+	"./ext/matrix_float4x4_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x4.hpp
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x4.inl
+	"../matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_mat4x4_simd.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\geometric.hpp
+	"detail/type_vec3.hpp"
+	"detail/func_geometric.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_geometric.inl
+	"../exponential.hpp"
+	"../common.hpp"
+	"func_geometric_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\exponential.hpp
+	"detail/type_vec1.hpp"
+	"detail/type_vec2.hpp"
+	"detail/type_vec3.hpp"
+	"detail/type_vec4.hpp"
+	<cmath>
+	"detail/func_exponential.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec1.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_vec1.inl
+	"./compute_vector_relational.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_exponential.inl
+	"../vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\vector_relational.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/func_vector_relational.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_vector_relational.inl
+	"func_vector_relational_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_vector_relational_simd.inl
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\_vectorize.hpp
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\simd\exponential.h
+	"platform.h"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\common.hpp
+	"detail/qualifier.hpp"
+	"detail/_fixes.hpp"
+	"detail/func_common.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_common.inl
+	"../vector_relational.hpp"
+	"compute_common.hpp"
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\compute_common.hpp
+	"setup.hpp"
+	<limits>
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\simd\common.h
+	"platform.h"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\simd\geometric.h
+	"common.h"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"../geometric.hpp"
+	"../simd/matrix.h"
+	<cstring>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\simd\matrix.h
+	"geometric.h"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_double2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_float2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\trigonometric.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/func_trigonometric.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\packing.hpp
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float4.hpp"
+	"detail/func_packing.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_packing.inl
+	"../common.hpp"
+	"type_half.hpp"
+	"func_packing_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_half.inl
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_packing_simd.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\integer.hpp
+	"detail/qualifier.hpp"
+	"common.hpp"
+	"vector_relational.hpp"
+	"detail/func_integer.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_integer.inl
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\func_integer_simd.inl
+	"../simd/integer.h"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\simd\integer.h
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../ext/matrix_projection.hpp"
+	"../ext/matrix_clip_space.hpp"
+	"../ext/matrix_transform.hpp"
+	"matrix_transform.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_projection.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_projection.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\constants.hpp
+	"../ext/scalar_constants.hpp"
+	"constants.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\scalar_constants.hpp
+	"../detail/setup.hpp"
+	"scalar_constants.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\scalar_constants.inl
+	<limits>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\constants.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_projection.inl
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_clip_space.hpp
+	"../ext/scalar_constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"matrix_clip_space.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_clip_space.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_transform.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_transform.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\matrix_transform.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\quaternion.hpp
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_common.hpp"
+	"../ext/quaternion_float.hpp"
+	"../ext/quaternion_float_precision.hpp"
+	"../ext/quaternion_double.hpp"
+	"../ext/quaternion_double_precision.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../ext/quaternion_trigonometric.hpp"
+	"../ext/quaternion_transform.hpp"
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"quaternion.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_relational.hpp
+	"../detail/qualifier.hpp"
+	"vector_relational.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_relational.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+	"../detail/qualifier.hpp"
+	"../detail/type_float.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_common.hpp
+	"../ext/scalar_constants.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	<limits>
+	"quaternion_common.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_geometric.hpp
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../ext/vector_relational.hpp"
+	"quaternion_geometric.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_geometric.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_common.inl
+	"quaternion_common_simd.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_common_simd.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_float.hpp
+	"../detail/type_quat.hpp"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_quat.hpp
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"type_quat.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_relational.hpp
+	"../vector_relational.hpp"
+	"quaternion_relational.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_relational.inl
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_quat.inl
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"../ext/quaternion_geometric.hpp"
+	<limits>
+	"type_quat_simd.inl"
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\detail\type_quat_simd.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_float_precision.hpp
+	"../detail/type_quat.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_double.hpp
+	"../detail/type_quat.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_double_precision.hpp
+	"../detail/type_quat.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_trigonometric.hpp
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"scalar_constants.hpp"
+	"vector_relational.hpp"
+	<limits>
+	"quaternion_trigonometric.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_trigonometric.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_transform.hpp
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"quaternion_transform.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\quaternion_transform.inl
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\epsilon.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"epsilon.inl"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\epsilon.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\vec1.hpp
+	"../ext/vector_bool1.hpp"
+	"../ext/vector_bool1_precision.hpp"
+	"../ext/vector_float1.hpp"
+	"../ext/vector_float1_precision.hpp"
+	"../ext/vector_double1.hpp"
+	"../ext/vector_double1_precision.hpp"
+	"../ext/vector_int1.hpp"
+	"../ext/vector_int1_precision.hpp"
+	"../ext/vector_uint1.hpp"
+	"../ext/vector_uint1_precision.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool1.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_bool1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float1.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_float1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double1.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_double1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int1.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_int1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint1.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\ext\vector_uint1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\depend\include\glm\gtc\type_ptr.inl
+	<cstring>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1578562859 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\camera.hpp
+	<glad/glad.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\vao.hpp
+	"game_vertices.h"
+	<glad/glad.h>
+
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\game_vertices.h
+
+1578570058 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
+
+1578562860 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1578150535 source:d:\programozas\bubisoft_bitonsági mentés\bubi_sounds\bubi_sound.cpp
+	"Bubi_Sound.h"
+
+1578150535 d:\programozas\bubisoft_bitonsági mentés\bubi_sounds\bubi_sound.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<map>
+	<fstream>
+	<string>
+	<algorithm>
+	<iostream>
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\begin_code.h
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\close_code.h
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150536 d:\programozas\bubisoft_bitonsági mentés\sdl\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150535 d:\programozas\bubisoft_bitonsági mentés\bubi_sounds\mixer\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578150535 source:d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubi_client.cpp
+	"Bubi_client.h"
+
+1578150535 d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubi_client.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	"Bubi_package.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<condition_variable>
+	<atomic>
+
+1575369875 d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubisoft_net.hpp
+	<SDL.h>
+	<SDL_net.h>
+	"Bubi_exceptions.h"
+	"Bubi_client.h"
+	"Bubi_server.h"
+
+1578150535 d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\net\include\sdl2\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1575369875 d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubi_exceptions.h
+	<exception>
+	<string>
+
+1575369875 d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubi_server.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<list>
+	<condition_variable>
+	"Bubi_package.h"
+	<atomic>
+
+1578152304 d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubi_package.h
+	<vector>
+	<memory.h>
+	<iostream>
+	<string>
+
+1578150535 source:d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubi_server.cpp
+	"Bubi_server.h"
+
+1575369875 source:d:\programozas\bubisoft_bitonsági mentés\bubisoft_net\bubisoft_net.cpp
+	"Bubisoft_Net.hpp"
+
+1578156356 source:d:\programozas\bubisoft_bitonsági mentés\main.cpp
+	<iostream>
+	"Bubisoft_Net.hpp"
+	"Bubi_Sound.h"
+	<iostream>
+	<glad/glad.h>
+	"depend/include/GLFW/glfw3.h"
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	"depend/include/glm/glm.hpp"
+	"depend/include/glm/gtc/matrix_transform.hpp"
+	"depend/include/glm/gtc/type_ptr.hpp"
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"global_variables.h"
+	"mainClient.h"
+	<SDL.h>
+	<SDL_net.h>
+
+1578150218 d:\programozas\bubisoft_bitonsági mentés\depend\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\shader.hpp
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\glm.hpp
+	"detail/_fixes.hpp"
+	"detail/setup.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1578150218 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\_fixes.hpp
+	<cmath>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+	<CL/sycl.hpp>
+	<limits>
+	<cstdint>
+	<type_traits>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\simd\platform.h
+	<cuda.h>
+	<immintrin.h>
+	<immintrin.h>
+	<popcntintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<arm_neon.h>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\fwd.hpp
+	"detail/qualifier.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\qualifier.hpp
+	"setup.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\vec2.hpp
+	"./ext/vector_bool2.hpp"
+	"./ext/vector_bool2_precision.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float2_precision.hpp"
+	"./ext/vector_double2.hpp"
+	"./ext/vector_double2_precision.hpp"
+	"./ext/vector_int2.hpp"
+	"./ext/vector_int2_precision.hpp"
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_uint2_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool2.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec2.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\_swizzle.hpp
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\_swizzle_func.hpp
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec2.inl
+	"./compute_vector_relational.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\compute_vector_relational.hpp
+	"setup.hpp"
+	<limits>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float2.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double2.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int2.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint2.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\vec3.hpp
+	"./ext/vector_bool3.hpp"
+	"./ext/vector_bool3_precision.hpp"
+	"./ext/vector_float3.hpp"
+	"./ext/vector_float3_precision.hpp"
+	"./ext/vector_double3.hpp"
+	"./ext/vector_double3_precision.hpp"
+	"./ext/vector_int3.hpp"
+	"./ext/vector_int3_precision.hpp"
+	"./ext/vector_uint3.hpp"
+	"./ext/vector_uint3_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool3.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec3.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec3.inl
+	"compute_vector_relational.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float3.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double3.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int3.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint3.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\vec4.hpp
+	"./ext/vector_bool4.hpp"
+	"./ext/vector_bool4_precision.hpp"
+	"./ext/vector_float4.hpp"
+	"./ext/vector_float4_precision.hpp"
+	"./ext/vector_double4.hpp"
+	"./ext/vector_double4_precision.hpp"
+	"./ext/vector_int4.hpp"
+	"./ext/vector_int4_precision.hpp"
+	"./ext/vector_uint4.hpp"
+	"./ext/vector_uint4_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool4.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec4.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec4.inl
+	"compute_vector_relational.hpp"
+	"type_vec4_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec4_simd.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float4.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double4.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double4_precision.hpp
+	"../detail/setup.hpp"
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int4.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint4.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat2x2.hpp
+	"./ext/matrix_double2x2.hpp"
+	"./ext/matrix_double2x2_precision.hpp"
+	"./ext/matrix_float2x2.hpp"
+	"./ext/matrix_float2x2_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat2x2.hpp
+	"type_vec2.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat2x2.inl
+	"../matrix.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\matrix.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"detail/func_matrix.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat2x3.hpp
+	"./ext/matrix_double2x3.hpp"
+	"./ext/matrix_double2x3_precision.hpp"
+	"./ext/matrix_float2x3.hpp"
+	"./ext/matrix_float2x3_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat2x3.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat2x3.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat2x4.hpp
+	"./ext/matrix_double2x4.hpp"
+	"./ext/matrix_double2x4_precision.hpp"
+	"./ext/matrix_float2x4.hpp"
+	"./ext/matrix_float2x4_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat2x4.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat2x4.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat3x2.hpp
+	"./ext/matrix_double3x2.hpp"
+	"./ext/matrix_double3x2_precision.hpp"
+	"./ext/matrix_float3x2.hpp"
+	"./ext/matrix_float3x2_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat3x2.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat3x2.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat3x3.hpp
+	"./ext/matrix_double3x3.hpp"
+	"./ext/matrix_double3x3_precision.hpp"
+	"./ext/matrix_float3x3.hpp"
+	"./ext/matrix_float3x3_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat3x3.hpp
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat3x3.inl
+	"../matrix.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat3x4.hpp
+	"./ext/matrix_double3x4.hpp"
+	"./ext/matrix_double3x4_precision.hpp"
+	"./ext/matrix_float3x4.hpp"
+	"./ext/matrix_float3x4_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat3x4.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat3x4.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat4x2.hpp
+	"./ext/matrix_double4x2.hpp"
+	"./ext/matrix_double4x2_precision.hpp"
+	"./ext/matrix_float4x2.hpp"
+	"./ext/matrix_float4x2_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x2.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x2.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double4x2_precision.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float4x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat4x3.hpp
+	"./ext/matrix_double4x3.hpp"
+	"./ext/matrix_double4x3_precision.hpp"
+	"./ext/matrix_float4x3.hpp"
+	"./ext/matrix_float4x3_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x3.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x3.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\mat4x4.hpp
+	"./ext/matrix_double4x4.hpp"
+	"./ext/matrix_double4x4_precision.hpp"
+	"./ext/matrix_float4x4.hpp"
+	"./ext/matrix_float4x4_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x4.hpp
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x4.inl
+	"../matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_mat4x4_simd.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\geometric.hpp
+	"detail/type_vec3.hpp"
+	"detail/func_geometric.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_geometric.inl
+	"../exponential.hpp"
+	"../common.hpp"
+	"func_geometric_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\exponential.hpp
+	"detail/type_vec1.hpp"
+	"detail/type_vec2.hpp"
+	"detail/type_vec3.hpp"
+	"detail/type_vec4.hpp"
+	<cmath>
+	"detail/func_exponential.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec1.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_vec1.inl
+	"./compute_vector_relational.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_exponential.inl
+	"../vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\vector_relational.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/func_vector_relational.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_vector_relational.inl
+	"func_vector_relational_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_vector_relational_simd.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\_vectorize.hpp
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\simd\exponential.h
+	"platform.h"
+
+1578150218 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\common.hpp
+	"detail/qualifier.hpp"
+	"detail/_fixes.hpp"
+	"detail/func_common.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_common.inl
+	"../vector_relational.hpp"
+	"compute_common.hpp"
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\compute_common.hpp
+	"setup.hpp"
+	<limits>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\simd\common.h
+	"platform.h"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\simd\geometric.h
+	"common.h"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"../geometric.hpp"
+	"../simd/matrix.h"
+	<cstring>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\simd\matrix.h
+	"geometric.h"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_double2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_float2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\trigonometric.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/func_trigonometric.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\packing.hpp
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float4.hpp"
+	"detail/func_packing.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_packing.inl
+	"../common.hpp"
+	"type_half.hpp"
+	"func_packing_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_half.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_packing_simd.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\integer.hpp
+	"detail/qualifier.hpp"
+	"common.hpp"
+	"vector_relational.hpp"
+	"detail/func_integer.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_integer.inl
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\func_integer_simd.inl
+	"../simd/integer.h"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\simd\integer.h
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../ext/matrix_projection.hpp"
+	"../ext/matrix_clip_space.hpp"
+	"../ext/matrix_transform.hpp"
+	"matrix_transform.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_projection.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_projection.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\constants.hpp
+	"../ext/scalar_constants.hpp"
+	"constants.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\scalar_constants.hpp
+	"../detail/setup.hpp"
+	"scalar_constants.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\scalar_constants.inl
+	<limits>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\constants.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_projection.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_clip_space.hpp
+	"../ext/scalar_constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"matrix_clip_space.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_clip_space.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_transform.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_transform.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\matrix_transform.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\quaternion.hpp
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_common.hpp"
+	"../ext/quaternion_float.hpp"
+	"../ext/quaternion_float_precision.hpp"
+	"../ext/quaternion_double.hpp"
+	"../ext/quaternion_double_precision.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../ext/quaternion_trigonometric.hpp"
+	"../ext/quaternion_transform.hpp"
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"quaternion.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_relational.hpp
+	"../detail/qualifier.hpp"
+	"vector_relational.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_relational.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+	"../detail/qualifier.hpp"
+	"../detail/type_float.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_common.hpp
+	"../ext/scalar_constants.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	<limits>
+	"quaternion_common.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_geometric.hpp
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../ext/vector_relational.hpp"
+	"quaternion_geometric.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_geometric.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_common.inl
+	"quaternion_common_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_common_simd.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_float.hpp
+	"../detail/type_quat.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_quat.hpp
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"type_quat.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_relational.hpp
+	"../vector_relational.hpp"
+	"quaternion_relational.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_relational.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_quat.inl
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"../ext/quaternion_geometric.hpp"
+	<limits>
+	"type_quat_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\detail\type_quat_simd.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_float_precision.hpp
+	"../detail/type_quat.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_double.hpp
+	"../detail/type_quat.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_double_precision.hpp
+	"../detail/type_quat.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_trigonometric.hpp
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"scalar_constants.hpp"
+	"vector_relational.hpp"
+	<limits>
+	"quaternion_trigonometric.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_trigonometric.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_transform.hpp
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"quaternion_transform.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\quaternion_transform.inl
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\epsilon.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"epsilon.inl"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\epsilon.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\vec1.hpp
+	"../ext/vector_bool1.hpp"
+	"../ext/vector_bool1_precision.hpp"
+	"../ext/vector_float1.hpp"
+	"../ext/vector_float1_precision.hpp"
+	"../ext/vector_double1.hpp"
+	"../ext/vector_double1_precision.hpp"
+	"../ext/vector_int1.hpp"
+	"../ext/vector_int1_precision.hpp"
+	"../ext/vector_uint1.hpp"
+	"../ext/vector_uint1_precision.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool1.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_bool1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float1.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_float1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double1.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_double1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int1.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_int1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint1.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\ext\vector_uint1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\depend\include\glm\gtc\type_ptr.inl
+	<cstring>
+
+1578150218 d:\programozas\bubisoft_bitonsági mentés\camera.hpp
+	<glad/glad.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1578155224 d:\programozas\bubisoft_bitonsági mentés\vao.hpp
+	"game_vertices.h"
+	<glad/glad.h>
+
+1578150219 d:\programozas\bubisoft_bitonsági mentés\game_vertices.h
+
+1578158279 d:\programozas\bubisoft_bitonsági mentés\global_variables.h
+
+1578156233 d:\programozas\bubisoft_bitonsági mentés\mainclient.h
+	<string>
+	<map>
+	"Bubisoft_Net.hpp"
+	"Drawable.h"
+	"Bubi_Sound.h"
+
+1578157457 d:\programozas\bubisoft_bitonsági mentés\drawable\drawable.h
+	<cmath>
+
+1578158279 source:d:\programozas\bubisoft_bitonsági mentés\mainclient.cpp
+	"mainClient.h"
+	<iostream>
+	<thread>
+	<mutex>
+	<condition_variable>
+	"Bubisoft_Net.hpp"
+	"Drawable.h"
+	"objects.h"
+	"Windows.h"
+	<iostream>
+	<glad/glad.h>
+	"depend/include/GLFW/glfw3.h"
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	"depend/include/glm/glm.hpp"
+	"depend/include/glm/gtc/matrix_transform.hpp"
+	"depend/include/glm/gtc/type_ptr.hpp"
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"global_variables.h"
+
+1578150535 d:\programozas\bubisoft_bitonsági mentés\drawable\objects.h
+	<SDL.h>
+
+1578152304 source:d:\programozas\bubisoft_bitonsági mentés\mainserver.cpp
+	"mainServer.h"
+	<Bubisoft_Net.hpp>
+	<thread>
+	<iostream>
+
+1578152304 d:\programozas\bubisoft_bitonsági mentés\mainserver.h
+	<map>
+	<stdint.h>
+	<Bubisoft_Net.hpp>
+
+1578561868 source:v:\halado_cpp\bubisoft0\bubisoft\bubi_sounds\bubi_sound.cpp
+	"Bubi_Sound.h"
+
+1578561868 v:\halado_cpp\bubisoft0\bubisoft\bubi_sounds\bubi_sound.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<map>
+	<fstream>
+	<string>
+	<algorithm>
+	<iostream>
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\begin_code.h
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\close_code.h
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\sdl\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561868 v:\halado_cpp\bubisoft0\bubisoft\bubi_sounds\mixer\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1578561868 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.cpp
+	"Bubi_client.h"
+
+1578561868 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	"Bubi_package.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<condition_variable>
+	<atomic>
+
+1573569596 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubisoft_net.hpp
+	<SDL.h>
+	<SDL_net.h>
+	"Bubi_exceptions.h"
+	"Bubi_client.h"
+	"Bubi_server.h"
+
+1578561868 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\net\include\sdl2\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1573569596 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_exceptions.h
+	<exception>
+	<string>
+
+1574073706 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_server.h
+	"Bubisoft_Net.hpp"
+	"Bubi_exceptions.h"
+	<cstring>
+	<thread>
+	<mutex>
+	<vector>
+	<list>
+	<condition_variable>
+	"Bubi_package.h"
+	<atomic>
+
+1578572184 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
+	<vector>
+	<memory.h>
+	<iostream>
+	<string>
+
+1578561868 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_server.cpp
+	"Bubi_server.h"
+
+1573477918 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubisoft_net.cpp
+	"Bubisoft_Net.hpp"
+
+1578561870 source:v:\halado_cpp\bubisoft0\bubisoft\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glad\glad.h
+	<windows.h>
+	<stddef.h>
+	<KHR/khrplatform.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\khr\khrplatform.h
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+
+1578561870 source:v:\halado_cpp\bubisoft0\bubisoft\main.cpp
+	<iostream>
+	"Bubisoft_Net.hpp"
+	"Bubi_Sound.h"
+	<iostream>
+	<glad/glad.h>
+	"depend/include/GLFW/glfw3.h"
+	"shader.hpp"
+	<thread>
+	<chrono>
+	"stb_image.h"
+	"depend/include/glm/glm.hpp"
+	"depend/include/glm/gtc/matrix_transform.hpp"
+	"depend/include/glm/gtc/type_ptr.hpp"
+	"camera.hpp"
+	<iostream>
+	<random>
+	"vao.hpp"
+	"global_variables.h"
+	"mainClient.h"
+	<SDL.h>
+	<SDL_net.h>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\shader.hpp
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\glm.hpp
+	"detail/_fixes.hpp"
+	"detail/setup.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\_fixes.hpp
+	<cmath>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+	<CL/sycl.hpp>
+	<limits>
+	<cstdint>
+	<type_traits>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\simd\platform.h
+	<cuda.h>
+	<immintrin.h>
+	<immintrin.h>
+	<popcntintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<arm_neon.h>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\fwd.hpp
+	"detail/qualifier.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\qualifier.hpp
+	"setup.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\vec2.hpp
+	"./ext/vector_bool2.hpp"
+	"./ext/vector_bool2_precision.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float2_precision.hpp"
+	"./ext/vector_double2.hpp"
+	"./ext/vector_double2_precision.hpp"
+	"./ext/vector_int2.hpp"
+	"./ext/vector_int2_precision.hpp"
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_uint2_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool2.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec2.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\_swizzle.hpp
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\_swizzle_func.hpp
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec2.inl
+	"./compute_vector_relational.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\compute_vector_relational.hpp
+	"setup.hpp"
+	<limits>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float2.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double2.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int2.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint2.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\vec3.hpp
+	"./ext/vector_bool3.hpp"
+	"./ext/vector_bool3_precision.hpp"
+	"./ext/vector_float3.hpp"
+	"./ext/vector_float3_precision.hpp"
+	"./ext/vector_double3.hpp"
+	"./ext/vector_double3_precision.hpp"
+	"./ext/vector_int3.hpp"
+	"./ext/vector_int3_precision.hpp"
+	"./ext/vector_uint3.hpp"
+	"./ext/vector_uint3_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool3.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec3.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec3.inl
+	"compute_vector_relational.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float3.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double3.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int3.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint3.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\vec4.hpp
+	"./ext/vector_bool4.hpp"
+	"./ext/vector_bool4_precision.hpp"
+	"./ext/vector_float4.hpp"
+	"./ext/vector_float4_precision.hpp"
+	"./ext/vector_double4.hpp"
+	"./ext/vector_double4_precision.hpp"
+	"./ext/vector_int4.hpp"
+	"./ext/vector_int4_precision.hpp"
+	"./ext/vector_uint4.hpp"
+	"./ext/vector_uint4_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool4.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec4.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec4.inl
+	"compute_vector_relational.hpp"
+	"type_vec4_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec4_simd.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float4.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double4.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double4_precision.hpp
+	"../detail/setup.hpp"
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int4.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint4.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat2x2.hpp
+	"./ext/matrix_double2x2.hpp"
+	"./ext/matrix_double2x2_precision.hpp"
+	"./ext/matrix_float2x2.hpp"
+	"./ext/matrix_float2x2_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat2x2.hpp
+	"type_vec2.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat2x2.inl
+	"../matrix.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\matrix.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"detail/func_matrix.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat2x3.hpp
+	"./ext/matrix_double2x3.hpp"
+	"./ext/matrix_double2x3_precision.hpp"
+	"./ext/matrix_float2x3.hpp"
+	"./ext/matrix_float2x3_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat2x3.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat2x3.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat2x4.hpp
+	"./ext/matrix_double2x4.hpp"
+	"./ext/matrix_double2x4_precision.hpp"
+	"./ext/matrix_float2x4.hpp"
+	"./ext/matrix_float2x4_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat2x4.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat2x4.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat3x2.hpp
+	"./ext/matrix_double3x2.hpp"
+	"./ext/matrix_double3x2_precision.hpp"
+	"./ext/matrix_float3x2.hpp"
+	"./ext/matrix_float3x2_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat3x2.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat3x2.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat3x3.hpp
+	"./ext/matrix_double3x3.hpp"
+	"./ext/matrix_double3x3_precision.hpp"
+	"./ext/matrix_float3x3.hpp"
+	"./ext/matrix_float3x3_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat3x3.hpp
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat3x3.inl
+	"../matrix.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat3x4.hpp
+	"./ext/matrix_double3x4.hpp"
+	"./ext/matrix_double3x4_precision.hpp"
+	"./ext/matrix_float3x4.hpp"
+	"./ext/matrix_float3x4_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat3x4.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat3x4.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat4x2.hpp
+	"./ext/matrix_double4x2.hpp"
+	"./ext/matrix_double4x2_precision.hpp"
+	"./ext/matrix_float4x2.hpp"
+	"./ext/matrix_float4x2_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x2.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x2.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double4x2_precision.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float4x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat4x3.hpp
+	"./ext/matrix_double4x3.hpp"
+	"./ext/matrix_double4x3_precision.hpp"
+	"./ext/matrix_float4x3.hpp"
+	"./ext/matrix_float4x3_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x3.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x3.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\mat4x4.hpp
+	"./ext/matrix_double4x4.hpp"
+	"./ext/matrix_double4x4_precision.hpp"
+	"./ext/matrix_float4x4.hpp"
+	"./ext/matrix_float4x4_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x4.hpp
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x4.inl
+	"../matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_mat4x4_simd.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\geometric.hpp
+	"detail/type_vec3.hpp"
+	"detail/func_geometric.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_geometric.inl
+	"../exponential.hpp"
+	"../common.hpp"
+	"func_geometric_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\exponential.hpp
+	"detail/type_vec1.hpp"
+	"detail/type_vec2.hpp"
+	"detail/type_vec3.hpp"
+	"detail/type_vec4.hpp"
+	<cmath>
+	"detail/func_exponential.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec1.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_vec1.inl
+	"./compute_vector_relational.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_exponential.inl
+	"../vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\vector_relational.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/func_vector_relational.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_vector_relational.inl
+	"func_vector_relational_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_vector_relational_simd.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\_vectorize.hpp
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\simd\exponential.h
+	"platform.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\common.hpp
+	"detail/qualifier.hpp"
+	"detail/_fixes.hpp"
+	"detail/func_common.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_common.inl
+	"../vector_relational.hpp"
+	"compute_common.hpp"
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\compute_common.hpp
+	"setup.hpp"
+	<limits>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\simd\common.h
+	"platform.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\simd\geometric.h
+	"common.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"../geometric.hpp"
+	"../simd/matrix.h"
+	<cstring>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\simd\matrix.h
+	"geometric.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_double2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_float2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\trigonometric.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/func_trigonometric.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\packing.hpp
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float4.hpp"
+	"detail/func_packing.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_packing.inl
+	"../common.hpp"
+	"type_half.hpp"
+	"func_packing_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_half.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_packing_simd.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\integer.hpp
+	"detail/qualifier.hpp"
+	"common.hpp"
+	"vector_relational.hpp"
+	"detail/func_integer.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_integer.inl
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\func_integer_simd.inl
+	"../simd/integer.h"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\simd\integer.h
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../ext/matrix_projection.hpp"
+	"../ext/matrix_clip_space.hpp"
+	"../ext/matrix_transform.hpp"
+	"matrix_transform.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_projection.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_projection.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\constants.hpp
+	"../ext/scalar_constants.hpp"
+	"constants.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\scalar_constants.hpp
+	"../detail/setup.hpp"
+	"scalar_constants.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\scalar_constants.inl
+	<limits>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\constants.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_projection.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_clip_space.hpp
+	"../ext/scalar_constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"matrix_clip_space.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_clip_space.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_transform.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_transform.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\matrix_transform.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\quaternion.hpp
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_common.hpp"
+	"../ext/quaternion_float.hpp"
+	"../ext/quaternion_float_precision.hpp"
+	"../ext/quaternion_double.hpp"
+	"../ext/quaternion_double_precision.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../ext/quaternion_trigonometric.hpp"
+	"../ext/quaternion_transform.hpp"
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"quaternion.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_relational.hpp
+	"../detail/qualifier.hpp"
+	"vector_relational.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_relational.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+	"../detail/qualifier.hpp"
+	"../detail/type_float.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_common.hpp
+	"../ext/scalar_constants.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	<limits>
+	"quaternion_common.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_geometric.hpp
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../ext/vector_relational.hpp"
+	"quaternion_geometric.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_geometric.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_common.inl
+	"quaternion_common_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_common_simd.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_float.hpp
+	"../detail/type_quat.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_quat.hpp
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"type_quat.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_relational.hpp
+	"../vector_relational.hpp"
+	"quaternion_relational.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_relational.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_quat.inl
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"../ext/quaternion_geometric.hpp"
+	<limits>
+	"type_quat_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\detail\type_quat_simd.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_float_precision.hpp
+	"../detail/type_quat.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_double.hpp
+	"../detail/type_quat.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_double_precision.hpp
+	"../detail/type_quat.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_trigonometric.hpp
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"scalar_constants.hpp"
+	"vector_relational.hpp"
+	<limits>
+	"quaternion_trigonometric.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_trigonometric.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_transform.hpp
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"quaternion_transform.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\quaternion_transform.inl
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\epsilon.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"epsilon.inl"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\epsilon.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\vec1.hpp
+	"../ext/vector_bool1.hpp"
+	"../ext/vector_bool1_precision.hpp"
+	"../ext/vector_float1.hpp"
+	"../ext/vector_float1_precision.hpp"
+	"../ext/vector_double1.hpp"
+	"../ext/vector_double1_precision.hpp"
+	"../ext/vector_int1.hpp"
+	"../ext/vector_int1_precision.hpp"
+	"../ext/vector_uint1.hpp"
+	"../ext/vector_uint1_precision.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool1.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_bool1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float1.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_float1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double1.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_double1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int1.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_int1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint1.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\ext\vector_uint1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\depend\include\glm\gtc\type_ptr.inl
+	<cstring>
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1578561868 v:\halado_cpp\bubisoft0\bubisoft\camera.hpp
+	<glad/glad.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<vector>
+
+1578561872 v:\halado_cpp\bubisoft0\bubisoft\vao.hpp
+	"game_vertices.h"
+	<glad/glad.h>
+
+1578561870 v:\halado_cpp\bubisoft0\bubisoft\game_vertices.h
+
+1578572248 v:\halado_cpp\bubisoft0\bubisoft\global_variables.h
+
+1578573568 v:\halado_cpp\bubisoft0\bubisoft\mainclient.h
+	<string>
+	<map>
+	"Bubisoft_Net.hpp"
+	"Drawable.h"
+	"Bubi_Sound.h"
+
+1578574196 v:\halado_cpp\bubisoft0\bubisoft\drawable\drawable.h
+	<cmath>
+
+1578561870 source:v:\halado_cpp\bubisoft0\bubisoft\mainserver.cpp
+	"mainServer.h"
+	<Bubisoft_Net.hpp>
+	<thread>
+	<iostream>
+
+1578561788 v:\halado_cpp\bubisoft0\bubisoft\mainserver.h
+	<map>
+	<stdint.h>
+	<Bubisoft_Net.hpp>
+
