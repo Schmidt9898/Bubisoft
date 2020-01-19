@@ -90,23 +90,23 @@ enum Flag :char
 */
 enum Flag :char
 {
-    notset=0,   ///általános player csomag
-    player=1,   ///new player
-    pickup=2,   ///pickup típusú csomag
-    name=3,     ///new name
-    ready=4,    ///player készen áll a játékra
-    not_ready=5,///player nem áll készen a játékra
-    dead=6,     ///player meghalt
-    disconn=7,  ///player lecsatlakozott
-    replay=8,   ///player újra játszani akar
-    winner=9,   ///playernek van a legtöbb pontja
-    game_end=10,
-    dead_flag=20,
+    notset='0',   ///általános player csomag
+    player='1',   ///new player
+    pickup='2',   ///pickup típusú csomag
+    name='3',     ///new name
+    ready='4',    ///player készen áll a játékra
+    not_ready='5',///player nem áll készen a játékra
+    dead='6',     ///player meghalt
+    disconn='7',  ///player lecsatlakozott
+    replay='8',   ///player újra játszani akar
+    winner='9',   ///playernek van a legtöbb pontja
+    game_end='a',
+    dead_flag='b',
 
-    food=11,
-    food1=12,
-    immortal=13,
-    doublepoint=14
+    food='c',
+    food1='d',
+    immortal='e',
+    doublepoint='f'
 };
 
 enum purpose :char

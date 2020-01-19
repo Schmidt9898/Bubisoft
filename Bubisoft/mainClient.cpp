@@ -91,7 +91,6 @@ tree_updater = new thread(MainClient::Tree_update,this);
     vec3->push_back(p2);
     echo.Push_Bubivector(vec3);
 
-
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
 
@@ -390,13 +389,16 @@ return game_scene;
 
 void MainClient::Tree_update()
 {
+   // cout << "Tree update in" << endl;
     vector<Bubi_package>* vec=0;
     while(echo.IsConected())
     {
+        //cout << "Tree to update" << endl;
     vec=echo.Pop_Bubivector();
         for(int i=0;i<vec->size();i++)
         {
                Tree_package(vec->at(i));
+              // cout << "Tree updated" << endl;
         }
     delete vec;
     }

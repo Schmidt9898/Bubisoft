@@ -4460,7 +4460,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1578390056 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.cpp
+1579444928 source:v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
 1578390056 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_client.h
@@ -5528,7 +5528,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1579368358 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
+1579370448 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	<thread>

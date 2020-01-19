@@ -188,7 +188,7 @@ std::cout<<"client olvaso hiba"<<std::endl;
 void Bubi_Client::Push_Bubivector(std::vector<Bubi_package> *vec)
 {
 
-     std::cout<<"client pushed"<<std::endl;
+     //std::cout<<"client pushed"<<std::endl;
     OUT_buff_M.lock();
     OUT_buffer.push_back(vec);
     /// notify
