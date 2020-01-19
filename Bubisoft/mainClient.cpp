@@ -29,6 +29,7 @@
     #include <random>
     #include "vao.hpp"
     #include "global_variables.h"
+    #include <math.h>
 //
 
 
@@ -74,6 +75,22 @@ void MainClient::Loop() {///load here everything
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
        // atmos.Bubi_change_atmos("game2");
+echo.Start_matchmaking();
+tree_updater = new thread(MainClient::Tree_update,this);
+
+    Bubi_package p;
+    p.flag=Flag::player;
+    p.p_id=echo.Get_ID();
+    vector<Bubi_package> *vec = new vector<Bubi_package>();
+    vec->push_back(p);
+    echo.Push_Bubivector(vec);
+
+    Bubi_package p2;
+    p2.flag=Flag::ready;
+    p2.p_id=echo.Get_ID();
+    vector<Bubi_package> *vec3 = new vector<Bubi_package>();
+    vec3->push_back(p2);
+    echo.Push_Bubivector(vec3);
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
@@ -85,7 +102,8 @@ SDL_Event e;
     while (!glfwWindowShouldClose(window))
     {
 
-
+    float mom_x=0;
+    float mom_y=0;
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, true);
@@ -93,54 +111,62 @@ SDL_Event e;
 
     float cameraSpeed = 1.3 * deltaTime;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
-        cameraPos.y+= 1 * cameraSpeed;
+        //cameraPos.y+= 1 * cameraSpeed;
         //global_player_positions[0].y+= 1 * cameraSpeed;
-    r=255;
+        mom_y+=0.00001;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
-        cameraPos.y-=1 * cameraSpeed;
+        //cameraPos.y-=1 * cameraSpeed;
         //global_player_positions[0].y-=1 * cameraSpeed;
-         g=255;
+        mom_y-=0.00001;
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
         //global_player_positions[0].x -= 1 * cameraSpeed;
-          b=255;
+        mom_x-=0.00001;
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
        // global_player_positions[0].x += 1 * cameraSpeed;
-        r=0;
-        g=0;
-        b=0;
+       mom_x+=0.00001;
     }
 
-
-
-
-
-
         if(Players.find(echo.Get_ID())!=Players.end()) {
-            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5*Players.at(echo.Get_ID())->get_r()/0.06);
-        }  else {game->update_camera(0,0,1);}
+                //cout << "Found"<< endl;
+            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5/pow(Players.at(echo.Get_ID())->get_r()+0.94,2));
+        }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
+
         for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
-            game->Draw_pickup(it->second->get_x(),it->second->get_y(),255,255,255);
+            game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
         }
         for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
                 game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
         }
-        game->Draw_player(0,0,0.06,255,255,255);
-        game->Draw_player(0.2,0.2,0.06,255,255,255);
+       // game->Draw_player(0,0,0.06,255,255,255);
+       // game->Draw_player(0.2,0.2,0.06,255,255,255);
+      //  game->Show();
+
+
+
+      //  game->Draw_menu();
         game->Show();
+        //std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+        Bubi_package p;
+        p.flag=Flag::notset;
+        p.p_id=echo.Get_ID();
+        p.mom_x=mom_x;
+        p.mom_y=mom_y;
+        vector<Bubi_package> *vec = new vector<Bubi_package>();
+        vec->push_back(p);
+        echo.Push_Bubivector(vec);
     }
 
     game->cleanup();
     delete game;
+    tree_updater->join();
 
 
 
@@ -362,13 +388,16 @@ return game_scene;
 
 void MainClient::Tree_update()
 {
+   // cout << "Tree update in" << endl;
     vector<Bubi_package>* vec=0;
     while(echo.IsConected())
     {
+        //cout << "Tree to update" << endl;
     vec=echo.Pop_Bubivector();
         for(int i=0;i<vec->size();i++)
         {
                Tree_package(vec->at(i));
+              // cout << "Tree updated" << endl;
         }
     delete vec;
     }
@@ -379,29 +408,35 @@ void MainClient::Tree_package(Bubi_package p) {
 
 ///mit csináljon a csomagokkal;
     last_update = std::chrono::system_clock::now();
+    if(p.flag==Flag::player && Players.find(p.p_id)==Players.end())
+    {
+        Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+        Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+    }
+    else if(Players.find(p.p_id)!=Players.end() || pickups.find(p.p_id)!=pickups.end()) {
+            //cout << p.ToString() << endl;
     switch(p.flag) {
-        case Flag::player :
-            if(p.flag==Flag::player)
-            {
-                Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
-                Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+        case 0 :
+            //cout << p.ToString() << endl;
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
             }
             break;
         case Flag::notset :
-            Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
-            break;
-        case Flag::dead :
-            Players.erase(p.p_id);
-            break;
-        case Flag::pickup :
-            if(pickups.find(p.p_id)==pickups.end()) {
-                PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
-                pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
+            //cout << p.ToString() << endl;
+            //cout << "Update..." << endl;
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
             }
             break;
-        case Flag::dead_pickup :
-            if(pickups.find(p.p_id)!=pickups.end()) {
-                pickups.erase(p.p_id);
+        case Flag::dead :
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.erase(p.p_id);
+            }
+            break;
+        case Flag::dead_flag :
+            if(Players.find(p.p_id)!=Players.end()) {
+                Players.erase(p.p_id);
             }
             break;
         case Flag::ready :
@@ -414,6 +449,21 @@ void MainClient::Tree_package(Bubi_package p) {
                 Players.at(p.p_id)->setReady(false);
             }
             break;
+        case Flag::dead_pickup :
+            if(pickups.find(p.p_id)!=pickups.end()) {
+                pickups.erase(p.p_id);
+            }
+            break;
+    }
+    } else {
+        if(p.flag==Flag::pickup || p.flag==Flag::food || p.flag==Flag::food1 || p.flag==Flag::immortal || p.flag==Flag::doublepoint) {
+            PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
+            pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
+        }
+        else {
+            Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+            Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+        }
     }
 
 }
