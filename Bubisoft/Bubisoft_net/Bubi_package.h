@@ -18,7 +18,7 @@ struct Bubi_package
           pos_y=0;    /// 4 byte
     float mom_x=0,    /// 4 byte
           mom_y=0;    /// 4 byte
-    int32_t p_size=0; /// 4 byte
+    float p_size=0; /// 4 byte
     uint32_t p_id=0;/// 4 byte
     uint32_t point=0;///4 byte
 //char pickup_flag; ///1 byte but 4 byte
@@ -46,7 +46,7 @@ struct Bubi_package
         value+=pickup_flag;
         value+=" | pos_x: ";
         value+=std::to_string(pos_x);
-        value+=" | pos_x: ";
+        value+=" | pos_y: ";
         value+=std::to_string(pos_y);
         value+=" | mom_x: ";
         value+=std::to_string(mom_x);
@@ -80,22 +80,23 @@ struct Bubi_name_package
 
 enum Flag :char
 {
-    notset=0,   ///általános player csomag
-    player=1,   ///new player
-    pickup=2,   ///pickup típusú csomag
-    name=3,     ///new name
-    ready=4,    ///player készen áll a játékra
-    not_ready=5,///player nem áll készen a játékra
-    dead=6,     ///player meghalt
-    disconn=7,  ///player lecsatlakozott
-    replay=8,   ///player újra játszani akar
-    winner=9,   ///playernek van a legtöbb pontja
-    game_end=10,
+    notset='0',   ///általános player csomag
+    player='1',   ///new player
+    pickup='2',   ///pickup típusú csomag
+    name='3',     ///new name
+    ready='4',    ///player készen áll a játékra
+    not_ready='5',///player nem áll készen a játékra
+    dead='6',     ///player meghalt
+    disconn='7',  ///player lecsatlakozott
+    replay='8',   ///player újra játszani akar
+    winner='9',   ///playernek van a legtöbb pontja
+    game_end='a',
+    dead_flag='b',
 
-    food=11,
-    food1=12,
-    immortal=13,
-    doublepoint=14
+    food='c',
+    food1='d',
+    immortal='e',
+    doublepoint='f'
 };
 
 enum purpose :char

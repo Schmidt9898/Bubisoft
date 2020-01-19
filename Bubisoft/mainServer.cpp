@@ -16,15 +16,16 @@ void MainServer::start_net() {
     //Bubi_Factory F;
    // cout << numeric_limits<float>::max() << endl << "test" << endl;
 
-   srand(time(NULL));
+   srand (static_cast <unsigned> (time(NULL)));
+   //cout << "Teszt" << endl;
 
     try{
         vector<Bubi_package> vec;
         Bubi_package package;
-        cout<<"asd:"<<package.ToString()<<endl;
+        /*cout<<package.ToString()<<endl;
         for(int i=0;i<10;i++){
             vec.push_back(package);
-        }
+        }*/
 
         //Bubi_Server server(12345,0);
         server->Open_Server();
@@ -34,21 +35,21 @@ void MainServer::start_net() {
 
         this_thread::sleep_for(chrono::milliseconds(1000));
         //client.Push_Bubivector(&vec);
-        server->Push_Bubivector(&vec);
+        //server->Push_Bubivector(&vec);
         //cout<<"chapter"<<endl;
 
         //server->Close_Server();
         //cout<<vec2->size()<<" merete"<<endl;
         //this_thread::sleep_for(chrono::milliseconds(500));
         while(true){
-            vector<Bubi_package>* vec2 = server->Pop_Bubivector();
-            cout<<"----->"<<vec2->size()<<"<-----"<<endl;
+           /* vector<Bubi_package>* vec2 = server->Pop_Bubivector();
+            //cout<<"----->"<<vec2->size()<<"<-----"<<endl;
             int j=1;
             for(Bubi_package p : *vec2){
-                cout<<j++;
-                cout<<p.ToString()<<endl;
+            //    cout<<j++;
+            //    cout<<p.ToString()<<endl;
             }
-            delete vec2;
+            delete vec2;*/
         }
 
         SDLNet_Quit();
@@ -69,8 +70,9 @@ bool MainServer::check_ready() {
 }
 
 void MainServer::start_game() {
+    cout << "test" << endl;
 
-    while (clients.size()<2 && check_ready()) {
+  /*  while (clients.size()<2 && check_ready()) {
 
         cout << "client_check" << endl << endl;
         unique_lock<std::mutex> lk(server->Clients_M);
@@ -78,11 +80,13 @@ void MainServer::start_game() {
         lk.unlock();
 
     }
-
+*/
     game = true;
     gamestart = std::chrono::system_clock::now();
 
     while (!end_game) {
+        //this_thread::sleep_for(chrono::milliseconds(10));
+        //cout << "asd" << endl;
         get_values();
         calculate();
         send_values();
@@ -94,21 +98,32 @@ void MainServer::start_game() {
 }
 
 void MainServer::get_values() {
+    //cout << "values" << endl;
     reader = server->Pop_Bubivector();
     for( Bubi_package p : *reader) {
+            //cout << p.ToString() << endl;
             if(p.flag==Flag::player) {
                 unsigned char ch =Flag::player;
-                Client* c = new Client(p.p_id,p.pos_x,p.pos_y,6,ch,p.mom_x,p.mom_y); ///default start size = 6 for players
+                Client* c = new Client(p.p_id,p.pos_x,p.pos_y,ch,p.mom_x,p.mom_y); ///default start size = 0.06 for players
                 clients.insert(pair<uint32_t,Client*>(p.p_id,c));
+                clients.at(p.p_id)->set_r(0.06);
                 put_player(p.p_id);
                 //  clients.insert(p.p_id,c)
+                continue;
             }
-            else if(p.pickup_flag==Flag::ready) {
+
+            if(clients.find(p.p_id)!=clients.end()) {
+                   // cout << "Found" << endl;
+
+            if(p.flag==Flag::ready) {
                 clients.at(p.p_id)->setReady();
+                //cout << "Ready" << endl;
             }
-            else if(clients.at(p.p_id)->isReady()){
+            //else
+            if(clients.at(p.p_id)->isReady()){
                     if(p.flag==Flag::notset) {
                         clients.at(p.p_id)->Move(p.mom_x, p.mom_y);
+                        //cout << "Moving" << endl;
                         //  clients.insert(p.p_id,c)
                     }
             }
@@ -120,18 +135,19 @@ void MainServer::get_values() {
                 }
             }
             else if(p.flag==Flag::replay) {
-                clients.at(p.p_id)->set_r(6);
+                clients.at(p.p_id)->set_r(0.06);
                 put_player(p.p_id);
             }
             else if(p.flag==Flag::disconn) {
                 clients.at(p.p_id)->set_flag(Flag::dead);
             }
     }
+    }
     delete reader;
 }
 
 void MainServer::send_names() {
-    vector<Bubi_package> *vec=0;
+    vector<Bubi_package> *vec = new vector<Bubi_package>;
     Bubi_package bubi;
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second->get_pickup()!=Flag::name) continue;
@@ -144,7 +160,10 @@ void MainServer::send_names() {
 
         it->second->set_flag(Flag::notset);
     }
-    server->Push_Bubivector(vec);
+    if(vec->size()!=0) {
+        cout << "Sending names" << endl;
+        server->Push_Bubivector(vec);
+    } else delete vec;
 }
 
 void MainServer::calculate() {
@@ -159,12 +178,16 @@ void MainServer::calculate() {
     }
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second->get_pickup()==Flag::dead) continue;
-        for(uint32_t i = 0; i<UINT32_MAX; ++i) {
-            if(pickups.at(i)->get_type()==0) continue;
-            it->second->set_flag(pickups.at(i)->get_type());
-            it->second->set_r(it->second->get_r()+pickups.at(i)->get_r());
-            it->second->addPoint(pickups.at(i)->getPoint());
-            pickups.at(i)->set_type(0);
+        for(uint32_t i = 0; i<pickups.size(); ++i) {
+            if(pickups.find(i)!=pickups.end()) {
+            if(pickups.at(i)->get_type()==Flag::notset) continue;
+            if(pickups.at(i)->inside(it->second)) {
+                it->second->set_flag(pickups.at(i)->get_type());
+                it->second->set_r(it->second->get_r()+pickups.at(i)->get_r());
+                it->second->addPoint(pickups.at(i)->getPoint());
+                pickups.at(i)->set_type(Flag::notset);
+            }
+            }
         }
 
         for(map<uint32_t,Client*>::iterator it2 = clients.begin(); it2 != clients.end(); ++it2) {
@@ -175,9 +198,9 @@ void MainServer::calculate() {
                     it2->second->set_r(it->second->get_r()+it2->second->get_r());
                     //it->second->set_r(0);
                     it->second->set_flag(Flag::dead);
-                    it2->second->addPoint(it->second->get_r());
+                    it2->second->addPoint((int32_t)it->second->get_r()*100);
                     if(it2->second->get_pickup()==Flag::doublepoint) {
-                        it2->second->addPoint(it->second->get_r());
+                        it2->second->addPoint((int32_t)it->second->get_r()*100);
                     }
                     break;
                 }
@@ -186,26 +209,59 @@ void MainServer::calculate() {
         it->second->update();
     }
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        it->second->set_r(it->second->get_r()-0.01);
+        //it->second->Move();
+        if(it->second->get_r()>0.04) {
+            it->second->set_r(it->second->get_r()-0.0001);
+        }
     }
 }
 
 void MainServer::send_values() {
-    vector<Bubi_package> *vec=0;
+    vector<Bubi_package> *vec = new vector<Bubi_package>();
     Bubi_package bubi;
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second->get_pickup()!=Flag::name){
             bubi.flag=it->second->get_pickup();
             bubi.pos_x=it->second->get_x();
             bubi.pos_y=it->second->get_y();
+           // cout << to_string(it->second->get_r());
             bubi.p_size=it->second->get_r();
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
+           // cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
+            if(it->second->get_pickup()==Flag::player) {
+                it->second->set_flag(Flag::notset);
+            }
         }
     }
-    server->Push_Bubivector(vec);
+    /*for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
+        if(it->second->get_type()==Flag::notset) {
+            bubi.flag=Flag::dead_flag;
+        } else bubi.flag=it->second->get_type();
+        bubi.pos_x=it->second->get_x();
+        bubi.pos_y=it->second->get_y();
+        bubi.p_size=it->second->get_r();
+        bubi.p_id=it->first;
+        bubi.point=it->second->getPoint();
+        ///TODO - bubi feltöltése?
+        vec->push_back(bubi);
+    }*/
+
+    if(vec->size()!=0) {
+        //cout << "Sending" << endl;
+        server->Push_Bubivector(vec);
+    }
+    else delete vec;
+
+    for(uint32_t i=0; i<pickups.size(); ++i) {
+        if(pickups.find(i)!=pickups.end()) {
+            if(pickups.at(i)->get_type()==Flag::notset) {
+                pickups.erase(i);
+            }
+        }
+    }
 }
 
 bool MainServer::check_end() {
@@ -225,7 +281,10 @@ bool MainServer::check_end() {
         uint32_t max_point=0;
         map<uint32_t,Client*>::iterator winner = clients.begin();
         for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
-            if(it->second->getPoint()>max_point) winner=it;
+            if(it->second->getPoint()>max_point) {
+                winner=it;
+                max_point=it->second->getPoint();
+            }
         }
         winner->second->set_flag(Flag::winner);
         for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
@@ -244,8 +303,9 @@ void MainServer::send_end() {
 void MainServer::put_player(uint32_t id) {
 
     while(true) {
-        float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/clients.at(id)->getMax_x()));
-        float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/clients.at(id)->getMax_y()));
+        float pos_x = clients.at(id)->getMin_x() + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(clients.at(id)->getMax_x()-clients.at(id)->getMin_x())));
+        float pos_y = clients.at(id)->getMin_y() + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(clients.at(id)->getMax_y()-clients.at(id)->getMin_y())));
+        clients.at(id)->setPosition(pos_x,pos_y);
 
         map<uint32_t,Client*>::iterator it;
 
@@ -270,7 +330,7 @@ void MainServer::conn_client() {
         for( Bubi_package p : *reader) {
                 if(p.flag==Flag::player) {
                     unsigned char ch =Flag::player;
-                    Client* c = new Client(p.p_id,p.pos_x,p.pos_y,6,ch,p.mom_x,p.mom_y);
+                    Client* c = new Client(p.p_id,p.pos_x,p.pos_y,0.06,ch,p.mom_x,p.mom_y);
                     clients.insert(pair<uint32_t,Client*>(p.p_id,c));
                   //  clients.insert(p.p_id,c)
                 }
@@ -293,23 +353,45 @@ void MainServer::conn_client() {
 }
 
 void MainServer::pickup_generator() {
-    for(uint32_t i=0; i<UINT32_MAX; i++) {
+    for(uint32_t i=0; i<UINT32_MAX-1; i++) {
         if(i<4) {
-            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/1000));
-            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/1000));
+            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             int32_t point = rand() % 21 + 5;
-            unsigned char flag = rand() % 4 + 11;
+            int rflag = rand() % 4;
+            unsigned char flag = '0';
+            switch(rflag) {
+                case 1: flag=Flag::food;
+                    break;
+                case 2: flag=Flag::food;
+                    break;
+                case 3: flag=Flag::immortal;
+                    break;
+                case 4: flag=Flag::doublepoint;
+                    break;
+            }
 
-            PickUp *pickup = new PickUp(i,pos_x,pos_y,3,flag,point);
+            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.03,flag,point);
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
         }
         else {
-            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/1000));
-            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/1000));
+            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             int32_t point = rand() % 21 + 5;
-            unsigned char flag = rand() % 4 + 11;
+            int rflag = rand() % 4;
+            unsigned char flag = '0';
+            switch(rflag) {
+                case 1: flag=Flag::food;
+                    break;
+                case 2: flag=Flag::food;
+                    break;
+                case 3: flag=Flag::immortal;
+                    break;
+                case 4: flag=Flag::doublepoint;
+                    break;
+            }
 
-            PickUp *pickup = new PickUp(i,pos_x,pos_y,3,flag,point);
+            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.03,flag,point);
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
 
             int sleeptime = rand() % 4001 + 1000;
@@ -338,7 +420,7 @@ MainServer::MainServer() {
     thread t1(MainServer::start_net,this);
     //t1.join();
 
-    thread t3(MainServer::closepanel,this);
+   // thread t3(MainServer::closepanel,this);
 
     while(!close) {
         thread t2(MainServer::conn_client,this);
@@ -346,7 +428,7 @@ MainServer::MainServer() {
         t2.join();
     }
 
-    t3.join();
+    //t3.join();
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         clients.erase(it);
