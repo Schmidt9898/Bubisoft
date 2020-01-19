@@ -4505,7 +4505,7 @@
 	"Bubi_package.h"
 	<atomic>
 
-1578577998 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
+1579447040 v:\halado_cpp\bubisoft0\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
@@ -5528,7 +5528,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1579370448 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
+1579449346 source:v:\halado_cpp\bubisoft0\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	<thread>
