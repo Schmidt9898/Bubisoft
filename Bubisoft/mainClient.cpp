@@ -74,7 +74,7 @@ void MainClient::Loop() {///load here everything
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
-       // atmos.Bubi_change_atmos("game2");
+       // atmos.Bubi_change_atmos("game1");
 echo.Start_matchmaking();
 tree_updater = new thread(MainClient::Tree_update,this);
 
@@ -94,7 +94,7 @@ tree_updater = new thread(MainClient::Tree_update,this);
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
-
+atmos.Bubi_change_atmos("game1");
 int r=0,g=0,b=0;
 SDL_Event e;
 
@@ -452,6 +452,7 @@ void MainClient::Tree_package(Bubi_package p) {
         case Flag::dead_pickup :
             if(pickups.find(p.p_id)!=pickups.end()) {
                 pickups.erase(p.p_id);
+                atmos.Bubibip("Pickup");
             }
             break;
     }
