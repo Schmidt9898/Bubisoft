@@ -113,27 +113,27 @@ SDL_Event e;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
         //cameraPos.y+= 1 * cameraSpeed;
         //global_player_positions[0].y+= 1 * cameraSpeed;
-        mom_y+=0.00001;
+        mom_y+=0.0001;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
         //cameraPos.y-=1 * cameraSpeed;
         //global_player_positions[0].y-=1 * cameraSpeed;
-        mom_y-=0.00001;
+        mom_y-=0.0001;
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
         //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
         //global_player_positions[0].x -= 1 * cameraSpeed;
-        mom_x-=0.00001;
+        mom_x-=0.0001;
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
         //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
        // global_player_positions[0].x += 1 * cameraSpeed;
-       mom_x+=0.00001;
+       mom_x+=0.0001;
     }
 
         if(Players.find(echo.Get_ID())!=Players.end()) {
                 //cout << "Found"<< endl;
-            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5/pow(Players.at(echo.Get_ID())->get_r()+0.94,2));
+            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.44+Players.at(echo.Get_ID())->get_r());
         }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
