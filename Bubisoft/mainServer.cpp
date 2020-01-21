@@ -181,18 +181,19 @@ void MainServer::calculate() {
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second->get_pickup()==Flag::dead) continue;
        // cout << "client"  << endl;
-        for(uint32_t i = 0; i<pickups.size(); ++i) {
-            if(pickups.find(i)!=pickups.end()) {
-            if(pickups.at(i)->get_type()==Flag::notset) continue;
-            if(pickups.at(i)->get_type()==Flag::dead_pickup) continue;
+        for(map<uint32_t,PickUp*>::iterator it2 = pickups.begin(); it2 != pickups.end(); ++it2) {
+            if(it2->second->get_type()==Flag::notset) continue;
+            if(it2->second->get_type()==Flag::dead_pickup) continue;
             //cout << "pickup" << endl;
-            if(pickups.at(i)->inside(it->second)) {
-                it->second->set_flag(pickups.at(i)->get_type());
-                it->second->set_r(it->second->get_r()+pickups.at(i)->get_r());
+            if(it2->second->inside(it->second)) {
+                it->second->set_flag(it2->second->get_type());
+                it->second->set_r(it->second->get_r()+it2->second->get_r());
                 //cout << "méret" << endl;
-                it->second->addPoint(pickups.at(i)->getPoint());
-                pickups.at(i)->set_type(Flag::dead_pickup);
-            }
+                it->second->addPoint(it2->second->getPoint());
+                if(it->second->get_pickup()==Flag::doublepoint) {
+                    it->second->addPoint(it2->second->getPoint());
+                }
+                it2->second->set_type(Flag::dead_pickup);
             }
         }
 
@@ -369,7 +370,7 @@ void MainServer::pickup_generator() {
         if(i<4) {
             float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-            while((pow(pos_x,2)+pow(pos_y,2))>=100) {
+            while((pow(pos_x,2)+pow(pos_y,2))>=70) {
                 pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
                 pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             }

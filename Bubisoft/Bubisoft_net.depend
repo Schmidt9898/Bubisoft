@@ -826,7 +826,7 @@
 1573751794 c:\lacika\programok_gited\bubisoft\bubisoft\mainclient.h
 	<string>
 
-1579612280 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
+1579452274 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
 1578561842 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.h
@@ -1206,7 +1206,7 @@
 	<exception>
 	<string>
 
-1579614031 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.h
+1579611589 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.h
 	"Bubisoft_Net.hpp"
 	"Bubi_exceptions.h"
 	<cstring>
@@ -1218,19 +1218,19 @@
 	"Bubi_package.h"
 	<atomic>
 
-1579613687 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
+1579520230 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
 	<string>
 
-1579614031 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.cpp
+1579611589 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.cpp
 	"Bubi_server.h"
 
 1575369875 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubisoft_net.cpp
 	"Bubisoft_Net.hpp"
 
-1579613687 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
+1579520230 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
 	<iostream>
 	"Bubisoft_Net.hpp"
 	"Bubi_Sound.h"
@@ -1260,12 +1260,12 @@
 	"Drawable.h"
 	"Bubi_Sound.h"
 
-1579613687 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
+1579520231 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
 	<map>
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1579613687 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1579524924 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	<thread>
@@ -1668,13 +1668,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1579613687 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
+1579520231 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
 	"mainServer.h"
 	<Bubisoft_Net.hpp>
 	<thread>
 	<iostream>
 
-1579613687 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+1579520230 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
 	<cmath>
 
 1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h
@@ -2640,9 +2640,9 @@
 	"game_vertices.h"
 	<glad/glad.h>
 
-1579614299 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\game_vertices.h
+1578562860 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\game_vertices.h
 
-1579614548 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
+1579452274 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
 
 1578562860 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\glad.c
 	<stdio.h>
@@ -5903,7 +5903,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1579468010 source:v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_client.cpp
+1579612824 source:v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
 1578390056 v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_client.h
@@ -5936,7 +5936,7 @@
 	<exception>
 	<string>
 
-1579513632 v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_server.h
+1579612824 v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_server.h
 	"Bubisoft_Net.hpp"
 	"Bubi_exceptions.h"
 	<cstring>
@@ -5954,7 +5954,7 @@
 	<iostream>
 	<string>
 
-1579513632 source:v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_server.cpp
+1579612824 source:v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubi_server.cpp
 	"Bubi_server.h"
 
 1573477918 source:v:\halado_cpp\bubisoft1\bubisoft\bubisoft_net\bubisoft_net.cpp

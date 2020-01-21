@@ -9,3 +9,5 @@
 *.save-failed
 *.cbp
 *.lnk
+*.depend
+*.layout

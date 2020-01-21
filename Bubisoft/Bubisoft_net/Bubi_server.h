@@ -28,7 +28,6 @@ class Bubi_Server
     std::vector<std::thread*> Readers;
 
     uint32_t number_of_clients=0;
-    uint32_t clients_id_counter=0;
 
     int package_size=sizeof(Bubi_package)*50;
 
