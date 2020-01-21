@@ -96,6 +96,8 @@ public :
         p=point;
     }
 
+    char get_pickup() {return pickup;}
+
     bool isReady() {return ready;}
     void setReady(bool ready_) {ready=ready_;}
 

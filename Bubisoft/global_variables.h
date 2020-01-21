@@ -198,7 +198,7 @@ class GAME{
     float scale = 1.0f + (1.0f+sin(2.1f*wave_time))/4;
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, pos);
-    M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
+    //M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
     M = glm::scale(M, glm::vec3(meret, meret, meret));
     MVP = projection * view * M;
     waterShader->setMat4("MVP", MVP);

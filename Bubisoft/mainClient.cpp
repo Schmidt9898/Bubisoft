@@ -135,7 +135,7 @@ SDL_Event e;
 
         if(Players.find(echo.Get_ID())!=Players.end()) {
                 //cout << "Found"<< endl;
-            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.44+Players.at(echo.Get_ID())->get_r());
+            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),3.5+2*Players.at(echo.Get_ID())->get_r());
         }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
@@ -144,6 +144,7 @@ SDL_Event e;
             game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
         }
         for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
+                if(it->second->get_pickup()==Flag::dead) continue;
                 game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
         }
        // game->Draw_player(0,0,0.06,255,255,255);
