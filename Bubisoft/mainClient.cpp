@@ -440,6 +440,9 @@ void MainClient::Tree_package(Bubi_package p) {
                 case Flag::not_ready :
                     Players.at(p.p_id)->setReady(false);
                     break;
+                default:
+                    Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
+                    break;
             }
             } else {
                     Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
