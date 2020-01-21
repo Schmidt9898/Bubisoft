@@ -1,6 +1,6 @@
 #ifndef GLOBAL_VARIABLES_H_INCLUDED
 #define GLOBAL_VARIABLES_H_INCLUDED
-
+//asd
 #include <math.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
