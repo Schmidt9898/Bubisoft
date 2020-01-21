@@ -65,10 +65,29 @@ void Bubi_Client::Start_matchmaking()
     connected=true;
 
     ///get unique id from con server port
-    IPaddress *remote_ip;
+    //IPaddress *remote_ip;
 
-    remote_ip=SDLNet_TCP_GetPeerAddress(tcp_socket);
-    Bubi_ID=(uint32_t)remote_ip->port;
+    //remote_ip=SDLNet_TCP_GetPeerAddress(tcp_socket);
+    //Bubi_ID=(uint32_t)remote_ip->port;
+    int32_t bytesize=0;
+    char * buff=nullptr;
+
+    buff= (char*) malloc(sizeof(Bubi_ID));
+
+    bytesize = SDLNet_TCP_Recv(tcp_socket,buff,sizeof(Bubi_ID));
+
+
+        if(bytesize<0)
+        {
+//            throw new Lost_connection_exception(SDLNet_GetError());
+
+            connected=false;
+
+        }
+
+
+    Bubi_ID=*(uint32_t*)buff;
+
     std::cout<<" port"<<Bubi_ID <<std::endl;
 
 

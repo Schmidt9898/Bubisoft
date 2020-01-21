@@ -74,7 +74,7 @@ void MainClient::Loop() {///load here everything
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
-       // atmos.Bubi_change_atmos("game2");
+       // atmos.Bubi_change_atmos("game1");
 echo.Start_matchmaking();
 tree_updater = new thread(MainClient::Tree_update,this);
 
@@ -94,7 +94,7 @@ tree_updater = new thread(MainClient::Tree_update,this);
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
-
+atmos.Bubi_change_atmos("game1");
 int r=0,g=0,b=0;
 SDL_Event e;
 
@@ -113,27 +113,27 @@ SDL_Event e;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
         //cameraPos.y+= 1 * cameraSpeed;
         //global_player_positions[0].y+= 1 * cameraSpeed;
-        mom_y+=0.00001;
+        mom_y+=0.0001;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
         //cameraPos.y-=1 * cameraSpeed;
         //global_player_positions[0].y-=1 * cameraSpeed;
-        mom_y-=0.00001;
+        mom_y-=0.0001;
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
         //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
         //global_player_positions[0].x -= 1 * cameraSpeed;
-        mom_x-=0.00001;
+        mom_x-=0.0001;
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
         //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
        // global_player_positions[0].x += 1 * cameraSpeed;
-       mom_x+=0.00001;
+       mom_x+=0.0001;
     }
 
         if(Players.find(echo.Get_ID())!=Players.end()) {
                 //cout << "Found"<< endl;
-            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.5/pow(Players.at(echo.Get_ID())->get_r()+0.94,2));
+            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),2.44+Players.at(echo.Get_ID())->get_r());
         }  else {game->update_camera(0,0,2.5);}
 
         game->Draw_map();
@@ -452,6 +452,7 @@ void MainClient::Tree_package(Bubi_package p) {
         case Flag::dead_pickup :
             if(pickups.find(p.p_id)!=pickups.end()) {
                 pickups.erase(p.p_id);
+                atmos.Bubibip("Pickup");
             }
             break;
     }
