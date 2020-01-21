@@ -2,14 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
+	<File name="Bubisoft_net\Bubisoft_Net.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="400" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="global_variables.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Bubisoft_net\Bubi_package.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2070" topLine="64" />
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -17,9 +17,9 @@
 			<Cursor1 position="750" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="mainClient.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="Bubisoft_net\Bubi_client.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9106" topLine="35" />
+			<Cursor1 position="2612" topLine="48" />
 		</Cursor>
 	</File>
 	<File name="mainClient.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,14 +27,9 @@
 			<Cursor1 position="306" topLine="28" />
 		</Cursor>
 	</File>
-	<File name="MainLaci.hpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="mainServer.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4001" topLine="206" />
-		</Cursor>
-	</File>
-	<File name="Drawable\objects.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="392" topLine="0" />
+			<Cursor1 position="7372" topLine="203" />
 		</Cursor>
 	</File>
 	<File name="mainServer.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,14 +37,19 @@
 			<Cursor1 position="482" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="mainServer.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Bubisoft_net\Bubi_package.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2396" topLine="75" />
+			<Cursor1 position="2070" topLine="64" />
 		</Cursor>
 	</File>
-	<File name="Bubisoft_net\Bubi_client.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Drawable\Drawable.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2612" topLine="48" />
+			<Cursor1 position="4326" topLine="169" />
+		</Cursor>
+	</File>
+	<File name="Bubisoft_net\Bubi_exceptions.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="625" topLine="1" />
 		</Cursor>
 	</File>
 	<File name="Bubisoft_net\Bubi_server.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -63,19 +63,14 @@
 			<Collapse line="45" />
 		</Folding>
 	</File>
-	<File name="Bubisoft_net\Bubi_client.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="Drawable\objects.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4225" topLine="172" />
+			<Cursor1 position="392" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Bubisoft_net\Bubi_exceptions.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MainLaci.hpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="625" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="Drawable\Drawable.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="723" topLine="73" />
+			<Cursor1 position="4001" topLine="206" />
 		</Cursor>
 	</File>
 	<File name="Bubi_Sounds\Bubi_Sound.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -83,14 +78,19 @@
 			<Cursor1 position="1066" topLine="18" />
 		</Cursor>
 	</File>
+	<File name="mainClient.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9106" topLine="35" />
+		</Cursor>
+	</File>
 	<File name="Bubi_Sounds\Bubi_Sound.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6551" topLine="75" />
 		</Cursor>
 	</File>
-	<File name="Bubisoft_net\Bubisoft_Net.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Bubisoft_net\Bubi_client.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="400" topLine="0" />
+			<Cursor1 position="4225" topLine="172" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -160,11 +160,11 @@ public:
             y -= y/s;
         }
 
-        if(pickup>=11) {
+        if(pickup=='c' || pickup=='d' || pickup=='e' || pickup=='f') {
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double> diff = end-pickup_get_time;
             if(diff>pickup_length) {
-                pickup = 0;
+                pickup = '0';
             }
         }
     }

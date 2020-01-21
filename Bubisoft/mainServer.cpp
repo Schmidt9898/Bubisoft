@@ -137,6 +137,7 @@ void MainServer::get_values() {
             else if(p.flag==Flag::replay) {
                 clients.at(p.p_id)->set_r(0.06);
                 put_player(p.p_id);
+                clients.at(p.p_id)->set_flag(Flag::replay);
             }
             else if(p.flag==Flag::disconn) {
                 clients.at(p.p_id)->set_flag(Flag::dead);
@@ -233,7 +234,7 @@ void MainServer::send_values() {
             bubi.p_size=it->second->get_r();
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
-           // cout << bubi.ToString() << endl;
+            cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
             if(it->second->get_pickup()==Flag::player) {
@@ -324,6 +325,7 @@ void MainServer::put_player(uint32_t id) {
         }
 
         if(it == clients.end()) {
+            clients.at(id)->set_flag(Flag::player);
             break;
         }
     }
