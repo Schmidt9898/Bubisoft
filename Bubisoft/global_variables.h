@@ -102,7 +102,7 @@ void options(){
 
 class GAME{
 
-
+     VAO* number;
      VAO* gamefloor;
      VAO* grass;
      VAO* water;
@@ -123,6 +123,7 @@ class GAME{
 
     public:
     GAME(){
+	number = new VAO(screen_background, 30, 6, "textures/number.jpg");
         gamefloor = new VAO(floor_triangles, 90, 18, "textures/sand_full_res.jpg");
         grass = new VAO(grass_triangles, 900, 180, "textures/grass_mid_res.jpg");
         water = new VAO(floor_triangles, 90, 18, "textures/water_mid.jpg");
@@ -138,7 +139,7 @@ class GAME{
         red_victory = new VAO(screen_background, 30, 6, "textures/red_wins.jpg");
         yellow_victory = new VAO(screen_background, 30, 6, "textures/yellow_wins.jpg");
         disconnect = new VAO(screen_background, 30, 6, "textures/DISCONNECTED.jpg");
-       /* for(int i=0;i<szam;i++)///át kell írni
+       /* for(int i=0;i<szam;i++)///Ã¡t kell Ã­rni
         {
             global_player_size[i]=0.5;
         }*/
@@ -208,6 +209,32 @@ class GAME{
 
 
     }
+	
+    void drawScore(unsigned score, glm::vec3 offset, glm::vec3 tint){
+        glfwMakeContextCurrent(window);
+        numberShader->use();
+        glClear(GL_DEPTH_BUFFER_BIT);
+
+        waterShader->setFloat("aAlpha", 1.0f);
+        waterShader->setVec3("aColor", tint);
+
+        glm::mat4 model = glm::mat4(1.0f);
+        glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.25f, 0.5f, 1.0f));
+        model = glm::translate(model, glm::vec3(offset.x-0.06, offset.y, offset.z));
+        scale = glm::scale(scale, glm::vec3(0.25f, 0.25f, 1.0f));
+
+        numberShader->setMat4("MVP", model*scale);
+        numberShader->setFloat("aOffset", (float)((unsigned)score/10)/10.0f);
+        number->draw();
+
+        numberShader->setFloat("aOffset", (float)((unsigned)score%10)/10.0f);
+        model = glm::translate(model, glm::vec3(0.12f, 0.0f, 0.0f));
+        numberShader->setMat4("MVP", model*scale);
+        number->draw();
+    }	
+	
+	
+
     void Draw_pickup(float x,float y,int r,int g,int b)
     {
         glm::vec3 pos(x,y,0.0f);
