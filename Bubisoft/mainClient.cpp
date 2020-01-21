@@ -431,10 +431,10 @@ void MainClient::Tree_package(Bubi_package p) {
                     Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
                     break;
                 case Flag::dead :
-                    Players.erase(p.p_id);
+                    Players.at(p.p_id)->setDead();
                     break;
                 case Flag::dead_flag :
-                    Players.erase(p.p_id);
+                    Players.at(p.p_id)->setDead();
                     break;
                 case Flag::ready :
                     Players.at(p.p_id)->setReady(true);

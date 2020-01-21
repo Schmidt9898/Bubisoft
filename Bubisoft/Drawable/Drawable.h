@@ -96,6 +96,8 @@ public :
         p=point;
     }
 
+    void setDead() {pickup=Flag::dead;}
+
     char get_pickup() {return pickup;}
 
     bool isReady() {return ready;}
