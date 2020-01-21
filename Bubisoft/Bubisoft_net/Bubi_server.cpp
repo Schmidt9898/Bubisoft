@@ -96,7 +96,24 @@ void Bubi_Server::Accepting_TCP_loop()
 
             clients.push_back(client);
             Readers.push_back(new std::thread(Bubi_Server::Reader_loop,this,client));
+
+
+            ///idküld
+
+            char* buff_to_send = (char*) &number_of_clients;
+            size_t buff_size=sizeof(number_of_clients);
+
+
+            int error=SDLNet_TCP_Send(client,buff_to_send,buff_size);
+                if(error<(int)buff_size)///nem megfelelő
+                {
+                    ///TODO ellenörzés
+                    //   throw new Lost_connection_exception(SDLNet_GetError());
+                    std::cout<<"id küldés hiba"<<std::endl;
+                }
+
             number_of_clients++;
+            ///idvége
             ///notify
             Clients_C.notify_all();
 
