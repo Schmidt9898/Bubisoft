@@ -74,6 +74,7 @@ void MainClient::Loop() {///load here everything
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
+        atmos.Volume(64);
        // atmos.Bubi_change_atmos("game1");
 echo.Start_matchmaking();
 tree_updater = new thread(MainClient::Tree_update,this);
