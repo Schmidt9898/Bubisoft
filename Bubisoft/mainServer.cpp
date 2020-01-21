@@ -102,7 +102,7 @@ void MainServer::get_values() {
     reader = server->Pop_Bubivector();
     for( Bubi_package p : *reader) {
             //cout << p.ToString() << endl;
-            if(p.flag==Flag::player) {
+            if(p.flag==Flag::player && clients.find(p.p_id) == clients.end()) {
                 unsigned char ch =Flag::player;
                 Client* c = new Client(p.p_id,p.pos_x,p.pos_y,ch,p.mom_x,p.mom_y); ///default start size = 0.06 for players
                 clients.insert(pair<uint32_t,Client*>(p.p_id,c));
@@ -188,7 +188,7 @@ void MainServer::calculate() {
             if(pickups.at(i)->inside(it->second)) {
                 it->second->set_flag(pickups.at(i)->get_type());
                 it->second->set_r(it->second->get_r()+pickups.at(i)->get_r());
-                cout << "méret" << endl;
+                //cout << "méret" << endl;
                 it->second->addPoint(pickups.at(i)->getPoint());
                 pickups.at(i)->set_type(Flag::dead_pickup);
             }
@@ -213,12 +213,12 @@ void MainServer::calculate() {
         }
         it->second->update();
     }
-   /* for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
         if(it->second->get_r()>0.05) {
-            it->second->set_r(it->second->get_r()-0.000001);
+            it->second->set_r(it->second->get_r()-0.00000001);
         }
-    }*/
+    }
 }
 
 void MainServer::send_values() {
