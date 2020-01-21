@@ -132,7 +132,7 @@ class GAME{
         play_button = new VAO(button_vertices, 150, 30, "textures/button_play.jpg");
         options_button = new VAO(button_vertices, 150, 30, "textures/button_options.jpg");
         volume_slider = new VAO(slider_vertices, 30, 6, "textures/slider.jpg");
-        player = new VAO(slime_vertices, 1020, 204, "textures/slime.jpg");
+        player = new VAO(slime_vertices, 1680, 336, "textures/slime.jpg");
         pickup = new VAO(pickup_vertices, 15, 3, "textures/slider.jpg");
         blue_victory = new VAO(screen_background, 30, 6, "textures/blue_wins.jpg");
         red_victory = new VAO(screen_background, 30, 6, "textures/red_wins.jpg");
@@ -199,7 +199,7 @@ class GAME{
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, pos);
     M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
-    M = glm::scale(M, glm::vec3(meret, meret, 1.0f));
+    M = glm::scale(M, glm::vec3(meret, meret, meret));
     MVP = projection * view * M;
     waterShader->setMat4("MVP", MVP);
     waterShader->setVec3("aColor", color);

@@ -74,6 +74,8 @@ void MainClient::Loop() {///load here everything
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
+        atmos.Volume_atmos(64);
+        atmos.Volume_bip(128);
        // atmos.Bubi_change_atmos("game1");
 echo.Start_matchmaking();
 tree_updater = new thread(MainClient::Tree_update,this);
@@ -408,62 +410,49 @@ void MainClient::Tree_package(Bubi_package p) {
 
 ///mit csináljon a csomagokkal;
     last_update = std::chrono::system_clock::now();
-    if(p.flag==Flag::player && Players.find(p.p_id)==Players.end())
-    {
-        Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
-        Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
-    }
-    else if(Players.find(p.p_id)!=Players.end() || pickups.find(p.p_id)!=pickups.end()) {
-            //cout << p.ToString() << endl;
-    switch(p.flag) {
-        case 0 :
-            //cout << p.ToString() << endl;
-            if(Players.find(p.p_id)!=Players.end()) {
-                Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
-            }
-            break;
-        case Flag::notset :
-            //cout << p.ToString() << endl;
-            //cout << "Update..." << endl;
-            if(Players.find(p.p_id)!=Players.end()) {
-                Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
-            }
-            break;
-        case Flag::dead :
-            if(Players.find(p.p_id)!=Players.end()) {
-                Players.erase(p.p_id);
-            }
-            break;
-        case Flag::dead_flag :
-            if(Players.find(p.p_id)!=Players.end()) {
-                Players.erase(p.p_id);
-            }
-            break;
-        case Flag::ready :
-            if(Players.find(p.p_id)!=Players.end()) {
-                Players.at(p.p_id)->setReady(true);
-            }
-            break;
-        case Flag::not_ready :
-            if(Players.find(p.p_id)!=Players.end()) {
-                Players.at(p.p_id)->setReady(false);
-            }
-            break;
-        case Flag::dead_pickup :
-            if(pickups.find(p.p_id)!=pickups.end()) {
-                pickups.erase(p.p_id);
-                atmos.Bubibip("Pickup");
-            }
-            break;
-    }
-    } else {
-        if(p.flag==Flag::pickup || p.flag==Flag::food || p.flag==Flag::food1 || p.flag==Flag::immortal || p.flag==Flag::doublepoint) {
-            PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
-            pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
-        }
-        else {
+    if(p.pickup_flag==Flag::player) {
+        if(p.flag==Flag::player && Players.find(p.p_id)==Players.end())
+        {
             Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
             Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+        }
+        else if(Players.find(p.p_id)!=Players.end()) {
+            //cout << p.ToString() << endl;
+            switch(p.flag) {
+                case 0 :
+                    //cout << p.ToString() << endl;
+                    Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
+                    break;
+                case Flag::notset :
+                    //cout << p.ToString() << endl;
+                    //cout << "Update..." << endl;
+                    Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
+                    break;
+                case Flag::dead :
+                    Players.erase(p.p_id);
+                    break;
+                case Flag::dead_flag :
+                    Players.erase(p.p_id);
+                    break;
+                case Flag::ready :
+                    Players.at(p.p_id)->setReady(true);
+                    break;
+                case Flag::not_ready :
+                    Players.at(p.p_id)->setReady(false);
+                    break;
+            }
+            } else {
+                    Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
+                    Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
+                }
+
+    } else if(p.pickup_flag == Flag::pickup) {
+        if(p.flag == Flag::dead_pickup && pickups.find(p.p_id) != pickups.end() ) {
+            pickups.erase(p.p_id);
+            atmos.Bubibip("Pickup");
+        } else {
+            PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
+            pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
         }
     }
 
