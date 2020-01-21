@@ -86,6 +86,7 @@ bool GLOBAL_IN_MENU=true;
 bool GLOBAL_IN_OPTIONS=false;
 
 Shader* waterShader;
+Shader* numberShader;
 GLFWwindow* window;
 
 
@@ -426,6 +427,7 @@ int globalGraphicsInit(){
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     globalMatricesInit();
     waterShader = new Shader("shader/water/vertex.txt", "shader/water/fragment.txt");
+    numberShader = new Shader("shader/number/vertex.txt", "shader/number/fragment.txt");
     game = new GAME();
     return (int)true;
 }
