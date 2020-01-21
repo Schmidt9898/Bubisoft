@@ -1,0 +1,19 @@
+#version 330 core
+    layout (location = 0) in vec3 aPos;
+    layout (location = 1) in vec2 aTex;
+    uniform mat4 MVP;
+    uniform vec3 aColor;
+    uniform float aAlpha;
+	uniform float aOffset;
+    out vec2 bTex;
+    out vec3 bColor;
+    out float bAlpha;
+    void main()
+    {
+       gl_Position = MVP * vec4(aPos.xyz, 1.0);
+	   float _y = (aTex.y * 0.5f);
+	   float _x = (aTex.x * 0.1f)+aOffset;
+       bTex=vec2(_x, _y);
+       bColor=aColor;
+       bAlpha=aAlpha;
+    }
