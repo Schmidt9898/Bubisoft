@@ -146,6 +146,7 @@ SDL_Event e;
         for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
                 game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
         }
+	game->drawScore(13, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 (0.99f, 0.99f, 0.99f));
        // game->Draw_player(0,0,0.06,255,255,255);
        // game->Draw_player(0.2,0.2,0.06,255,255,255);
       //  game->Show();
@@ -408,7 +409,7 @@ void MainClient::Tree_update()
 
 void MainClient::Tree_package(Bubi_package p) {
 
-///mit csin·ljon a csomagokkal;
+///mit csin√°ljon a csomagokkal;
     last_update = std::chrono::system_clock::now();
     if(p.pickup_flag==Flag::player) {
         if(p.flag==Flag::player && Players.find(p.p_id)==Players.end())
