@@ -234,6 +234,7 @@ void MainServer::send_values() {
             bubi.p_size=it->second->get_r();
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
+            bubi.pickup_flag=Flag::player;
             cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
@@ -248,6 +249,7 @@ void MainServer::send_values() {
         } else {
             bubi.flag=it->second->get_type();
         }
+        bubi.pickup_flag=Flag::pickup;
         //cout << bubi.flag << endl;
         bubi.pos_x=it->second->get_x();
         bubi.pos_y=it->second->get_y();
