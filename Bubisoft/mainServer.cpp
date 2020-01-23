@@ -236,7 +236,7 @@ void MainServer::send_values() {
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
             bubi.pickup_flag=Flag::player;
-            cout << bubi.ToString() << endl;
+            //cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
             if(it->second->get_pickup()==Flag::player) {
