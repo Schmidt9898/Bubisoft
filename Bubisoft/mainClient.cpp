@@ -117,9 +117,9 @@ SDL_Event e;
         vec3->push_back(p2);
         echo.Push_Bubivector(vec3);
 
-        game = true;
+        gamebool = true;
 
-        while(game) {
+        while(gamebool) {
 
             float mom_x=0;
             float mom_y=0;
@@ -418,7 +418,7 @@ void MainClient::Tree_update()
         for(int i=0;i<vec->size();i++)
         {
                Tree_package(vec->at(i));
-               //if(!game) break;
+               //if(!gamebool) break;
               // cout << "Tree updated" << endl;
         }
     delete vec;
@@ -461,7 +461,7 @@ void MainClient::Tree_package(Bubi_package p) {
                     Players.at(p.p_id)->setReady(false);
                     break;
                 case Flag::winner :
-                    game=false;
+                    gamebool=false;
                 default:
                     Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
                     break;
