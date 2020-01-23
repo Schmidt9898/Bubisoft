@@ -87,13 +87,6 @@ tree_updater = new thread(MainClient::Tree_update,this);
     vec->push_back(p);
     echo.Push_Bubivector(vec);
 
-    Bubi_package p2;
-    p2.flag=Flag::ready;
-    p2.p_id=echo.Get_ID();
-    vector<Bubi_package> *vec3 = new vector<Bubi_package>();
-    vec3->push_back(p2);
-    echo.Push_Bubivector(vec3);
-
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
 atmos.Bubi_change_atmos("game1");
@@ -103,12 +96,13 @@ SDL_Event e;
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
     {
-        Bubi_package p;
-        p.flag=Flag::replay;
-        p.p_id=echo.Get_ID();
-        vector<Bubi_package> *vec = new vector<Bubi_package>();
-        vec->push_back(p);
-        echo.Push_Bubivector(vec);
+        Bubi_package p3;
+        p3.flag=Flag::replay;
+        p3.p_id=echo.Get_ID();
+        vector<Bubi_package> *vec2 = new vector<Bubi_package>();
+        vec->push_back(p3);
+        vec->push_back(p3);
+        echo.Push_Bubivector(vec2);
 
         Bubi_package p2;
         p2.flag=Flag::ready;
@@ -185,6 +179,7 @@ SDL_Event e;
             echo.Push_Bubivector(vec);
         }
         game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
+        game->Show();
     }
 
     game->cleanup();
@@ -452,6 +447,7 @@ void MainClient::Tree_package(Bubi_package p) {
                     break;
                 case Flag::dead :
                     Players.at(p.p_id)->setDead();
+                    if(p.p_id==echo.Get_ID()) gamebool=false;
                     break;
                 case Flag::dead_flag :
                     Players.at(p.p_id)->setDead();
