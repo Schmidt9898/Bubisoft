@@ -165,7 +165,7 @@ SDL_Event e;
                 game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
             }
             if(Players.find(echo.Get_ID())!=Players.end()) {
-                game->drawScore(Players.at(echo.Get_ID())->getPoint(), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 (0.99f, 0.99f, 0.99f));
+                game->drawScore(Players.at(echo.Get_ID())->getPoint(), glm::vec3(38.0f, 28.0f, 0.0f), glm::vec3 (0.99f, 0.99f, 0.99f));
             }
             //game->Draw_player(0,0,0.06,255,255,255);
             //game->Draw_player(0.2,0.2,0.06,255,255,255);
