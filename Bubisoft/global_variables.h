@@ -210,7 +210,7 @@ class GAME{
 
 
     }
-	
+
     void drawScore(unsigned score, glm::vec3 offset, glm::vec3 tint){
         glfwMakeContextCurrent(window);
         numberShader->use();
@@ -232,9 +232,9 @@ class GAME{
         model = glm::translate(model, glm::vec3(0.12f, 0.0f, 0.0f));
         numberShader->setMat4("MVP", model*scale);
         number->draw();
-    }	
-	
-	
+    }
+
+
 
     void Draw_pickup(float x,float y,int r,int g,int b)
     {
