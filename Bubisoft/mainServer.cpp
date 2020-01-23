@@ -236,7 +236,7 @@ void MainServer::send_values() {
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
             bubi.pickup_flag=Flag::player;
-            cout << bubi.ToString() << endl;
+            //cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
             if(it->second->get_pickup()==Flag::player) {
@@ -252,6 +252,7 @@ void MainServer::send_values() {
         }
         bubi.pickup_flag=Flag::pickup;
         //cout << bubi.flag << endl;
+        //cout << bubi.ToString() << endl;
         bubi.pos_x=it->second->get_x();
         bubi.pos_y=it->second->get_y();
         bubi.p_size=it->second->get_r();
@@ -265,13 +266,10 @@ void MainServer::send_values() {
         //cout << "Sending" << endl;
         server->Push_Bubivector(vec);
     }
-    else delete vec;
 
-    for(uint32_t i=0; i<pickups.size(); ++i) {
-        if(pickups.find(i)!=pickups.end()) {
-            if(pickups.at(i)->get_type()==Flag::dead_pickup || pickups.at(i)->get_type()==Flag::notset) {
-                pickups.erase(i);
-            }
+    for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
+        if(it->second->get_type()==Flag::dead_pickup || it->second->get_type()==Flag::notset) {
+            pickups.erase(it);
         }
     }
 }
