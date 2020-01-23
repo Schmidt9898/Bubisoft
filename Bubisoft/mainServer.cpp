@@ -85,7 +85,7 @@ void MainServer::start_game() {
     gamestart = std::chrono::system_clock::now();
 
     while (!end_game) {
-        //this_thread::sleep_for(chrono::milliseconds(10));
+        this_thread::sleep_for(chrono::milliseconds(5));
         //cout << "asd" << endl;
         get_values();
         calculate();
@@ -244,9 +244,16 @@ void MainServer::send_values() {
             }
         }
     }
+
+
+
+
+
+
     for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
         if(it->second->get_type()==Flag::notset) {
             bubi.flag=Flag::dead_pickup;
+
         } else {
             bubi.flag=it->second->get_type();
         }
@@ -262,16 +269,29 @@ void MainServer::send_values() {
         vec->push_back(bubi);
     }
 
+
+     vector<uint32_t> id_torol;
+      for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
+
+        if(it->second->get_type()==Flag::dead_pickup || it->second->get_type()==Flag::notset) {
+
+                id_torol.push_back(it->first);
+
+        }
+    }
+    for(int i=0;i<id_torol.size();i++)
+    {
+     pickups.erase(id_torol[i]);
+
+    }
+
+
     if(vec->size()!=0) {
         //cout << "Sending" << endl;
         server->Push_Bubivector(vec);
     }
 
-    for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
-        if(it->second->get_type()==Flag::dead_pickup || it->second->get_type()==Flag::notset) {
-            pickups.erase(it);
-        }
-    }
+
 }
 
 bool MainServer::check_end() {
@@ -388,7 +408,11 @@ void MainServer::pickup_generator() {
             }
 
             PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
+                    cout<<"pt"<<endl;
+
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
+                    cout<<"plos"<<endl;
+
         }
         else {
             float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
@@ -413,8 +437,9 @@ void MainServer::pickup_generator() {
             }
 
             PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
+          //  cout<<"pt"<<endl;
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
-
+           //תתת cout<<"plos"<<endl;
             int sleeptime = rand() % 4001 + 1000;
             this_thread::sleep_for(chrono::milliseconds(sleeptime));
         }
@@ -452,7 +477,7 @@ MainServer::MainServer() {
     //t3.join();
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        clients.erase(it);
+        clients.erase(it->first);
     }
 
 }
