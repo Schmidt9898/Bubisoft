@@ -189,6 +189,20 @@ class GAME{
 
     }
     */
+	
+void draw_endScreen(unsigned score, glm::vec3 score_tint){
+        glfwMakeContextCurrent(window);
+        waterShader->use();
+        MVP = glm::mat4(1.0f);
+        waterShader->setMat4("MVP", MVP);
+        waterShader->setVec3("aColor", no_color);
+        waterShader->setFloat("aAlpha", 1.0f);
+        glClear(GL_DEPTH_BUFFER_BIT);
+        screen->draw();
+        glClear(GL_DEPTH_BUFFER_BIT);
+        drawScore(score, glm::vec3(-3.1, 0.0f, 0.0f), score_tint);
+
+    }
     void Draw_player(float x,float y, float meret,int r,int g,int b)
     {
         glm::vec3 pos(x,y,0.0f);
