@@ -358,6 +358,8 @@ class GAME{
 
 
     void cleanup(){
+	delete number;
+	delete numberShader;
         delete waterShader;
         delete gamefloor;
         delete grass;
