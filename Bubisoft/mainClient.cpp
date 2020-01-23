@@ -103,69 +103,86 @@ SDL_Event e;
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
     {
-
-    float mom_x=0;
-    float mom_y=0;
-
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-            glfwSetWindowShouldClose(window, true);
-
-
-    float cameraSpeed = 1.3 * deltaTime;
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
-        //cameraPos.y+= 1 * cameraSpeed;
-        //global_player_positions[0].y+= 1 * cameraSpeed;
-        mom_y+=0.0001;
-    }
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
-        //cameraPos.y-=1 * cameraSpeed;
-        //global_player_positions[0].y-=1 * cameraSpeed;
-        mom_y-=0.0001;
-    }
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
-        //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-        //global_player_positions[0].x -= 1 * cameraSpeed;
-        mom_x-=0.0001;
-    }
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
-        //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-       // global_player_positions[0].x += 1 * cameraSpeed;
-       mom_x+=0.0001;
-    }
-
-        if(Players.find(echo.Get_ID())!=Players.end()) {
-                //cout << "Found"<< endl;
-            game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),3.5+2*Players.at(echo.Get_ID())->get_r());
-        }  else {game->update_camera(0,0,2.5);}
-
-        game->Draw_map();
-
-        for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
-            game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
-        }
-        for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
-                if(it->second->get_pickup()==Flag::dead) continue;
-                game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
-        }
-	game->drawScore(13, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 (0.99f, 0.99f, 0.99f));
-       // game->Draw_player(0,0,0.06,255,255,255);
-       // game->Draw_player(0.2,0.2,0.06,255,255,255);
-      //  game->Show();
-
-
-
-      //  game->Draw_menu();
-        game->Show();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
         Bubi_package p;
-        p.flag=Flag::notset;
+        p.flag=Flag::replay;
         p.p_id=echo.Get_ID();
-        p.mom_x=mom_x;
-        p.mom_y=mom_y;
         vector<Bubi_package> *vec = new vector<Bubi_package>();
         vec->push_back(p);
         echo.Push_Bubivector(vec);
+
+        Bubi_package p2;
+        p2.flag=Flag::ready;
+        p2.p_id=echo.Get_ID();
+        vector<Bubi_package> *vec3 = new vector<Bubi_package>();
+        vec3->push_back(p2);
+        echo.Push_Bubivector(vec3);
+
+        game = true;
+
+        while(game) {
+
+            float mom_x=0;
+            float mom_y=0;
+
+            if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+                glfwSetWindowShouldClose(window, true);
+
+
+            float cameraSpeed = 1.3 * deltaTime;
+            if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
+                //cameraPos.y+= 1 * cameraSpeed;
+                //global_player_positions[0].y+= 1 * cameraSpeed;
+                mom_y+=0.0001;
+            }
+            if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+                //cameraPos.y-=1 * cameraSpeed;
+                //global_player_positions[0].y-=1 * cameraSpeed;
+                mom_y-=0.0001;
+            }
+            if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+                //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+                //global_player_positions[0].x -= 1 * cameraSpeed;
+                mom_x-=0.0001;
+            }
+            if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+                //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+                //global_player_positions[0].x += 1 * cameraSpeed;
+                mom_x+=0.0001;
+            }
+
+            if(Players.find(echo.Get_ID())!=Players.end()) {
+                //cout << "Found"<< endl;
+                game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),3.5+2*Players.at(echo.Get_ID())->get_r());
+            }  else {game->update_camera(0,0,2.5);}
+
+            game->Draw_map();
+
+            for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
+                game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
+            }
+            for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
+                if(it->second->get_pickup()==Flag::dead) continue;
+                game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
+            }
+            game->drawScore(13, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 (0.99f, 0.99f, 0.99f));
+            //game->Draw_player(0,0,0.06,255,255,255);
+            //game->Draw_player(0.2,0.2,0.06,255,255,255);
+            //game->Show();
+
+            //game->Draw_menu();
+            game->Show();
+            //std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+            Bubi_package p;
+            p.flag=Flag::notset;
+            p.p_id=echo.Get_ID();
+            p.mom_x=mom_x;
+            p.mom_y=mom_y;
+            vector<Bubi_package> *vec = new vector<Bubi_package>();
+            vec->push_back(p);
+            echo.Push_Bubivector(vec);
+        }
+        ///IDE KELL TENNI A JÁTÉK VÉGÉT
     }
 
     game->cleanup();
@@ -401,6 +418,7 @@ void MainClient::Tree_update()
         for(int i=0;i<vec->size();i++)
         {
                Tree_package(vec->at(i));
+               //if(!game) break;
               // cout << "Tree updated" << endl;
         }
     delete vec;
@@ -442,6 +460,8 @@ void MainClient::Tree_package(Bubi_package p) {
                 case Flag::not_ready :
                     Players.at(p.p_id)->setReady(false);
                     break;
+                case Flag::winner :
+                    game=false;
                 default:
                     Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
                     break;

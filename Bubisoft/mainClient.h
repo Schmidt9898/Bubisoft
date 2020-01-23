@@ -53,6 +53,7 @@ class MainClient {
     void Tree_update();
     void Tree_package(Bubi_package);
     void tick();
+    bool game;
 
     public:
         MainClient(string ip,int port);
