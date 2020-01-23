@@ -70,7 +70,7 @@ bool MainServer::check_ready() {
 }
 
 void MainServer::start_game() {
-    cout << "test" << endl;
+    //cout << "test" << endl;
 
   /*  while (clients.size()<2 && check_ready()) {
 
@@ -103,7 +103,7 @@ void MainServer::get_values() {
     for( Bubi_package p : *reader) {
             //cout << p.ToString() << endl;
             if(p.flag==Flag::player && clients.find(p.p_id) == clients.end()) {
-                unsigned char ch =Flag::player;
+                unsigned char ch =Flag::dead;
                 Client* c = new Client(p.p_id,p.pos_x,p.pos_y,ch,p.mom_x,p.mom_y); ///default start size = 0.06 for players
                 clients.insert(pair<uint32_t,Client*>(p.p_id,c));
                 clients.at(p.p_id)->set_r(0.06);
@@ -115,34 +115,34 @@ void MainServer::get_values() {
             if(clients.find(p.p_id)!=clients.end()) {
                    // cout << "Found" << endl;
 
-            if(p.flag==Flag::ready) {
-                clients.at(p.p_id)->setReady();
-                //cout << "Ready" << endl;
-            }
-            //else
-            if(clients.at(p.p_id)->isReady()){
+                if(p.flag==Flag::ready) {
+                    clients.at(p.p_id)->setReady();
+                    //cout << "Ready" << endl;
+                }
+                //else
+                if(clients.at(p.p_id)->isReady()){
                     if(p.flag==Flag::notset) {
                         clients.at(p.p_id)->Move(p.mom_x, p.mom_y);
                         //cout << "Moving" << endl;
                         //  clients.insert(p.p_id,c)
                     }
-            }
-            else if(p.flag==Flag::name) {
-                Bubi_Factory bf;
-                string name=bf.get_name(p);
-                if(name!="not a name") {
-                    clients.at(p.p_id)->setName(name);
+                }
+                else if(p.flag==Flag::name) {
+                    Bubi_Factory bf;
+                    string name=bf.get_name(p);
+                    if(name!="not a name") {
+                        clients.at(p.p_id)->setName(name);
+                    }
+                }
+                else if(p.flag==Flag::replay) {
+                    clients.at(p.p_id)->set_r(0.06);
+                    put_player(p.p_id);
+                    clients.at(p.p_id)->setPoint(0);
+                }
+                else if(p.flag==Flag::disconn) {
+                    clients.at(p.p_id)->set_flag(Flag::dead);
                 }
             }
-            else if(p.flag==Flag::replay) {
-                clients.at(p.p_id)->set_r(0.06);
-                put_player(p.p_id);
-                clients.at(p.p_id)->set_flag(Flag::replay);
-            }
-            else if(p.flag==Flag::disconn) {
-                clients.at(p.p_id)->set_flag(Flag::dead);
-            }
-    }
     }
     delete reader;
 }
@@ -162,7 +162,7 @@ void MainServer::send_names() {
         it->second->set_flag(Flag::notset);
     }
     if(vec->size()!=0) {
-        cout << "Sending names" << endl;
+        //cout << "Sending names" << endl;
         server->Push_Bubivector(vec);
     } else delete vec;
 }
@@ -245,11 +245,6 @@ void MainServer::send_values() {
         }
     }
 
-
-
-
-
-
     for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
         if(it->second->get_type()==Flag::notset) {
             bubi.flag=Flag::dead_pickup;
@@ -269,20 +264,16 @@ void MainServer::send_values() {
         vec->push_back(bubi);
     }
 
-
-     vector<uint32_t> id_torol;
-      for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
-
+    vector<uint32_t> id_torol;
+    for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
         if(it->second->get_type()==Flag::dead_pickup || it->second->get_type()==Flag::notset) {
-
                 id_torol.push_back(it->first);
-
         }
     }
+
     for(int i=0;i<id_torol.size();i++)
     {
-     pickups.erase(id_torol[i]);
-
+        pickups.erase(id_torol[i]);
     }
 
 
@@ -290,7 +281,6 @@ void MainServer::send_values() {
         //cout << "Sending" << endl;
         server->Push_Bubivector(vec);
     }
-
 
 }
 
@@ -340,13 +330,14 @@ void MainServer::put_player(uint32_t id) {
         map<uint32_t,Client*>::iterator it;
 
         for(it = clients.begin(); it != clients.end(); ++it) {
-            if(it->second->get_pickup()==Flag::dead) break;
+            if(it->second->get_pickup()==Flag::dead) continue;
             if(it->first==id) continue;
-            if(it->second->inside(clients.at(id))) break;
+            if(clients.at(id)->inside(it->second)) break;
         }
 
         if(it == clients.end()) {
             clients.at(id)->set_flag(Flag::player);
+            clients.at(id)->setPoint(0);
             break;
         }
     }
@@ -354,7 +345,7 @@ void MainServer::put_player(uint32_t id) {
 
 void MainServer::conn_client() {
 
-    cout << "conn_client" << endl << endl;
+    //cout << "conn_client" << endl << endl;
 
     while(!game) {
         /*reader = server->Pop_Bubivector();
@@ -363,7 +354,6 @@ void MainServer::conn_client() {
                     unsigned char ch =Flag::player;
                     Client* c = new Client(p.p_id,p.pos_x,p.pos_y,0.06,ch,p.mom_x,p.mom_y);
                     clients.insert(pair<uint32_t,Client*>(p.p_id,c));
-                  //  clients.insert(p.p_id,c)
                 }
                 if(p.flag==Flag::name) {
                         Bubi_Factory bf;
@@ -408,10 +398,7 @@ void MainServer::pickup_generator() {
             }
 
             PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
-                    cout<<"pt"<<endl;
-
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
-                    cout<<"plos"<<endl;
 
         }
         else {
@@ -437,9 +424,7 @@ void MainServer::pickup_generator() {
             }
 
             PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
-          //  cout<<"pt"<<endl;
             pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
-           //תתת cout<<"plos"<<endl;
             int sleeptime = rand() % 4001 + 1000;
             this_thread::sleep_for(chrono::milliseconds(sleeptime));
         }
@@ -459,7 +444,7 @@ void MainServer::closepanel() {
 }
 
 MainServer::MainServer() {
-    cout << "mainServer" << endl << endl;
+    //cout << "mainServer" << endl << endl;
 
     server = new Bubi_Server(12345);
 
@@ -477,7 +462,7 @@ MainServer::MainServer() {
     //t3.join();
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        clients.erase(it->first);
+        clients.erase(it);
     }
 
 }
