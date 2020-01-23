@@ -100,8 +100,8 @@ void Bubi_Server::Accepting_TCP_loop()
 
             ///idküld
 
-            char* buff_to_send = (char*) &number_of_clients;
-            size_t buff_size=sizeof(number_of_clients);
+            char* buff_to_send = (char*) &clients_id_counter;
+            size_t buff_size=sizeof(clients_id_counter);
 
 
             int error=SDLNet_TCP_Send(client,buff_to_send,buff_size);
@@ -113,6 +113,7 @@ void Bubi_Server::Accepting_TCP_loop()
                 }
 
             number_of_clients++;
+            clients_id_counter++;
             ///idvége
             ///notify
             Clients_C.notify_all();
