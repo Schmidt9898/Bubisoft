@@ -184,7 +184,7 @@ SDL_Event e;
             vec->push_back(p);
             echo.Push_Bubivector(vec);
         }
-        ///IDE KELL TENNI A JÁTÉK VÉGÉT
+        game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
     }
 
     game->cleanup();
