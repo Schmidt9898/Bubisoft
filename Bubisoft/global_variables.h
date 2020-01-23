@@ -220,19 +220,47 @@ class GAME{
         waterShader->setVec3("aColor", tint);
 
         glm::mat4 model = glm::mat4(1.0f);
-        glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.25f, 0.5f, 1.0f));
-        model = glm::translate(model, glm::vec3(offset.x-0.06, offset.y, offset.z));
-        scale = glm::scale(scale, glm::vec3(0.25f, 0.25f, 1.0f));
+        glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.15f, 0.30f, 1.0f));
+        model = glm::translate(model, glm::vec3(offset.x, offset.y, offset.z));
+        scale = glm::scale(scale, glm::vec3(0.13f, 0.10f, 1.0f));
 
-        numberShader->setMat4("MVP", model*scale);
-        numberShader->setFloat("aOffset", (float)((unsigned)score/10)/10.0f);
-        number->draw();
+        unsigned _score = score;
+        unsigned thousand = (unsigned)_score/1000;
+        _score -= (thousand*1000);
+        unsigned hundred = (unsigned)_score/100;
+        _score -= (hundred*100);
+        unsigned ten = (unsigned)_score/10;
+        _score -= (ten*10);
+        unsigned one=_score;
 
-        numberShader->setFloat("aOffset", (float)((unsigned)score%10)/10.0f);
-        model = glm::translate(model, glm::vec3(0.12f, 0.0f, 0.0f));
-        numberShader->setMat4("MVP", model*scale);
-        number->draw();
+        if(thousand>0){
+            numberShader->setFloat("aOffset", (float)(thousand)/10.0f);
+            numberShader->setMat4("MVP", scale*model);
+            number->draw();
+        }
+
+        if(hundred>0 || thousand>0){
+            model = glm::translate(model, glm::vec3(1.55f, 0.0f, 0.0f));
+            numberShader->setFloat("aOffset", (float)(hundred)/10.0f);
+            numberShader->setMat4("MVP", scale*model);
+            number->draw();
+        }
+
+        if(ten>0 || hundred>0 || thousand>0){
+            model = glm::translate(model, glm::vec3(1.55f, 0.0f, 0.0f));
+            numberShader->setFloat("aOffset", (float)(ten)/10.0f);
+            numberShader->setMat4("MVP", scale*model);
+            number->draw();
+        }
+
+        if(one>0 || ten>0 || hundred>0 || thousand>0){
+            model = glm::translate(model, glm::vec3(1.55f, 0.0f, 0.0f));
+            numberShader->setFloat("aOffset", (float)(one)/10.0f);
+            numberShader->setMat4("MVP", scale*model);
+            number->draw();
+        }
     }
+
 
 
 
