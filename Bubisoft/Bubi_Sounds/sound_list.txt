@@ -1,5 +1,0 @@
-menu.mp3
-Pickup.wav
-game1.mp3
-game12.mp3
-game2.mp3

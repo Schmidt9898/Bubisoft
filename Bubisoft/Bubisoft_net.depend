@@ -826,10 +826,10 @@
 1573751794 c:\lacika\programok_gited\bubisoft\bubisoft\mainclient.h
 	<string>
 
-1579612280 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
+1580235462 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
-1578561842 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.h
+1580232971 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.h
 	"Bubisoft_Net.hpp"
 	"Bubi_exceptions.h"
 	"Bubi_package.h"
@@ -1206,7 +1206,7 @@
 	<exception>
 	<string>
 
-1579781108 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.h
+1580235462 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.h
 	"Bubisoft_Net.hpp"
 	"Bubi_exceptions.h"
 	<cstring>
@@ -1218,22 +1218,21 @@
 	"Bubi_package.h"
 	<atomic>
 
-1579781108 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
+1580235462 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
 	<string>
 
-1579781108 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.cpp
+1580235462 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_server.cpp
 	"Bubi_server.h"
 
 1575369875 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubisoft_net.cpp
 	"Bubisoft_Net.hpp"
 
-1579781108 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
+1580235605 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
 	<iostream>
 	"Bubisoft_Net.hpp"
-	"Bubi_Sound.h"
 	<iostream>
 	<glad/glad.h>
 	"depend/include/GLFW/glfw3.h"
@@ -1260,7 +1259,7 @@
 	"Drawable.h"
 	"Bubi_Sound.h"
 
-1579781108 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
+1580235464 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.h
 	<map>
 	<stdint.h>
 	<Bubisoft_Net.hpp>
@@ -1670,7 +1669,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1579782404 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
+1580235464 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainserver.cpp
 	"mainServer.h"
 	<Bubisoft_Net.hpp>
 	<thread>
@@ -1680,7 +1679,7 @@
 	<stdint.h>
 	"Drawable.h"
 
-1579781108 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+1580235462 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
 	<cmath>
 
 1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h

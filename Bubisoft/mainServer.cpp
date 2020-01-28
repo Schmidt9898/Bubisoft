@@ -455,6 +455,7 @@ MainServer::MainServer() {
 
     while(!close) {
         thread t2(MainServer::conn_client,this);
+
         start_game();
         t2.join();
     }
