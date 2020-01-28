@@ -279,7 +279,7 @@ void draw_endScreen(unsigned score, glm::vec3 score_tint){
 
     void Draw_pickup(float x,float y,int r,int g,int b)
     {
-        glm::vec3 pos(x,y,0.0f);
+        glm::vec3 pos(x,y,1.0f);
         glm::vec3 color(((float)r)/255.0f,((float)g)/255.0f,((float)b)/255.0f);
 
 

@@ -25,6 +25,7 @@ class MainClient {
 
 
     string username = "Larry";
+    uint32_t myid=-1;
     int volume=50;
     int sound_volume=100;
     int music_volume=100;

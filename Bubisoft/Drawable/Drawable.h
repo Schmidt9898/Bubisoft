@@ -67,7 +67,8 @@ class PickUp : public Drawable
     std::chrono::system_clock::duration length = std::chrono::system_clock::duration::zero();
 
 public :
-    PickUp(uint32_t id_,float pos_x,float pos_y,float size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
+    PickUp(uint32_t id_,float pos_x,float pos_y,float size,unsigned char flag,int32_t point)
+    :Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
 
     void InteractionWith(Drawable& it){};
     void Draw() {};
@@ -146,7 +147,8 @@ public:
         pickup_length=dur;
     }
 
-    char get_pickup() {return pickup;}
+    unsigned char get_pickup() {return pickup;}
+    void set_pickup(unsigned char c) {pickup=c;}
 
     void Move(float mom_x_, float mom_y_) {
         mom_x=mom_x_;
@@ -163,7 +165,7 @@ public:
             y -= y/s;
         }
 
-        if(pickup>=11) {
+        if(pickup>=10000) {
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double> diff = end-pickup_get_time;
             if(diff>pickup_length) {

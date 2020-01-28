@@ -75,6 +75,7 @@ void MainClient::Loop() {///load here everything
         atmos.Volume_bip(128);
        // atmos.Bubi_change_atmos("game1");
 echo.Start_matchmaking();
+myid=echo.Get_ID();
 tree_updater = new thread(MainClient::Tree_update,this);
 
     Bubi_package p;
@@ -86,7 +87,7 @@ tree_updater = new thread(MainClient::Tree_update,this);
 
 if(!globalGraphicsInit()) RENDER = false;
     ///MODELS / MESHES / OBJECTS
-atmos.Bubi_change_atmos("game1");
+//atmos.Bubi_change_atmos("game1");
 int r=0,g=0,b=0;
 SDL_Event e;
 
@@ -141,20 +142,73 @@ SDL_Event e;
                 mom_x+=0.0001;
             }
 
-            if(Players.find(echo.Get_ID())!=Players.end()) {
+          /*  if(Players.find(echo.Get_ID())!=Players.end()) {
                 //cout << "Found"<< endl;
-                game->update_camera(Players.at(echo.Get_ID())->get_x(),Players.at(echo.Get_ID())->get_y(),3.5+2*Players.at(echo.Get_ID())->get_r());
-            }  else {game->update_camera(0,0,2.5);}
 
+            }  else {game->update_camera(0,0,2.5);}
+*/
             game->Draw_map();
 
         m.lock();
             for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
-                game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
+                PickUp* temp=it->second;
+
+                    switch(temp->get_type())
+                    {
+                   case Flag::food :
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),102,102,51);
+                    break;
+                   case Flag::food1 :
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),51,153,51);
+                    break;
+                   case Flag::immortal :
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,102,255);
+                    break;
+                   case Flag::doublepoint :
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,255,26);
+                    break;
+                   default:
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),0,0,0);
+                    break;
+
+                    }
+
+
             }
+
             for(map<uint32_t,Player*>::iterator it = Players.begin(); it != Players.end(); ++it) {
-                if(it->second->get_pickup()==Flag::dead) continue;
-                game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
+                           Player* temp=it->second;
+               // if(temp->get_pickup()==Flag::dead) continue;
+                if(temp->get_id()==myid)
+                {
+                    game->Draw_player(temp->get_x(), temp->get_y(), temp->get_r(), 20,255,20);
+                    game->update_camera(temp->get_x(), temp->get_y(),3.5+2*temp->get_r());
+                }else
+                {
+                game->Draw_player(temp->get_x(), temp->get_y(), temp->get_r(), 255,20,10);
+                }
+
+                switch(temp->get_pickup())
+                    {
+                   case Flag::food :
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),102,102,51);
+                    break;
+                   case Flag::food1 :
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),51,153,51);
+                    break;
+                   case Flag::immortal :
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,102,255);
+                    break;
+                   case Flag::doublepoint :
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,255,26);
+                    break;
+                   default:
+                      // game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r()/2,0,0,0);
+ //cout<<temp->get_pickup();
+                    break;
+
+                    }
+
             }
         m.unlock();
             if(Players.find(echo.Get_ID())!=Players.end()) {
@@ -429,19 +483,16 @@ void MainClient::Tree_package(Bubi_package p) {
 
 ///mit csináljon a csomagokkal;
     last_update = std::chrono::system_clock::now();
-    if(p.pickup_flag==Flag::player) {
-        if(p.flag==Flag::player && Players.find(p.p_id)==Players.end())
+    if(p.flag==Flag::player) {
+        if(Players.find(p.p_id)==Players.end())
         {
             Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
             Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
         }
         else if(Players.find(p.p_id)!=Players.end()) {
             //cout << p.ToString() << endl;
-            switch(p.flag) {
-                case 0 :
-                    //cout << p.ToString() << endl;
-                    Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
-                    break;
+           // cout<<p.pickup_flag;
+            switch(p.pickup_flag) {
                 case Flag::notset :
                     //cout << p.ToString() << endl;
                     //cout << "Update..." << endl;
@@ -471,12 +522,14 @@ void MainClient::Tree_package(Bubi_package p) {
                     Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
                 }
 
-    } else if(p.pickup_flag == Flag::pickup) {
-        if(p.flag == Flag::dead_pickup && pickups.find(p.p_id) != pickups.end() ) {
+    } else if(p.flag == Flag::pickup) {
+        //cout<<p.pickup_flag;
+        if(p.pickup_flag == Flag::dead_pickup && pickups.find(p.p_id) != pickups.end() ) {
+               delete pickups.at(p.p_id);
             pickups.erase(p.p_id);
             atmos.Bubibip("Pickup");
         } else {
-            PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.flag,p.point);
+            PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
             pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));
         }
     }
