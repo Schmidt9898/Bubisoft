@@ -117,7 +117,7 @@ class Client : public Drawable
     std::string name;
     std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point pickup_get_time;
-    std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration::zero();
+    //std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration:: ;
 
 public:
     Client(uint32_t id_,float pos_x,float pos_y,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,0.06,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
@@ -135,38 +135,51 @@ public:
         return last_update;
     }
 
-    void set_pickup_get_time() {
+    /*void set_pickup_get_time() {
         pickup_get_time = std::chrono::system_clock::now();
     }
 
     void set_pickup_duration(std::chrono::system_clock::duration dur) {
-        pickup_length=dur;
-    }
-
-    char get_pickup() {return pickup;}
+     //   pickup_length=dur;
+    }*/
+ unsigned char get_pickup() {return pickup;}
+    void set_pickup(unsigned char c) {pickup=c;}
 
     void Move(float mom_x_, float mom_y_) {
         mom_x+=mom_x_;
         mom_y+=mom_y_;
+        if(mom_x>5)
+            mom_x=5;
+        if(mom_y>5)
+            mom_y=5;
+
         x+=mom_x;
         y+=mom_y;
-        if(sqrt(x*x+y*y)+r >= 10)
-        {
-            mom_x=0;
-            mom_y=0;
 
-            float s=sqrt(x*x+y*y)*10;
-            x -= x/s;
-            y -= y/s;
+        if(mom_x_==0 && mom_y_==0){
+        mom_x/=1.05;
+        mom_y/=1.05;
         }
 
+
+
+        if(sqrt(x*x+y*y)+r >= 10)
+        {
+            mom_x/=1.05;
+            mom_y/=1.05;
+
+            /*float s=sqrt(x*x+y*y)*10;
+            x -= x/s;
+            y -= y/s;*/
+        }
+/*
         if(pickup=='c' || pickup=='d' || pickup=='e' || pickup=='f') {
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double> diff = end-pickup_get_time;
             if(diff>pickup_length) {
                 pickup = '0';
             }
-        }
+        }*/
     }
 
     void Move() {

@@ -179,41 +179,44 @@ void MainServer::calculate() {
     }
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
-        if(it->second->get_pickup()==Flag::dead) continue;
+           Client* player=it->second;
+        if(player->get_pickup()==Flag::dead) continue;
        // cout << "client"  << endl;
         for(map<uint32_t,PickUp*>::iterator it2 = pickups.begin(); it2 != pickups.end(); ++it2) {
-            if(it2->second->get_type()==Flag::notset) continue;
-            if(it2->second->get_type()==Flag::dead_pickup) continue;
+            PickUp* food=it2->second;
+            if(food->get_type()==Flag::notset) continue;
+            if(food->get_type()==Flag::dead_pickup) continue;
             //cout << "pickup" << endl;
-            if(it2->second->inside(it->second)) {
-                it->second->set_flag(it2->second->get_type());
-                it->second->set_r(it->second->get_r()+it2->second->get_r());
+            if(food->inside(player)) {
+                player->set_pickup(food->get_type());
+                player->set_r(player->get_r()+food->get_r());
                 //cout << "méret" << endl;
-                it->second->addPoint(it2->second->getPoint());
-                if(it->second->get_pickup()==Flag::doublepoint) {
-                    it->second->addPoint(it2->second->getPoint());
+                player->addPoint(food->getPoint());
+                if(player->get_pickup()==Flag::doublepoint) {
+                    player->addPoint(food->getPoint());
                 }
-                it2->second->set_type(Flag::dead_pickup);
+                food->set_type(Flag::dead_pickup);///todo delete
             }
         }
 
         for(map<uint32_t,Client*>::iterator it2 = clients.begin(); it2 != clients.end(); ++it2) {
-            if(it==it2) continue;
-            if(it->second->get_pickup()==Flag::immortal) continue;
-            if(it2->second->get_pickup()!=Flag::dead){
-                if(it->second->inside(it2->second)){
-                    it2->second->set_r(it->second->get_r()+it2->second->get_r());
+                Client* player2=it2->second;
+            if(player==player2) continue;
+            if(player->get_pickup()==Flag::immortal) continue;
+            if(player2->get_pickup()!=Flag::dead){
+                if(player->inside(player2)){
+                    player2->set_r(player->get_r()+player2->get_r());
                     //it->second->set_r(0);
-                    it->second->set_flag(Flag::dead);
-                    it2->second->addPoint((int32_t)it->second->get_r()*100);
-                    if(it2->second->get_pickup()==Flag::doublepoint) {
-                        it2->second->addPoint((int32_t)it->second->get_r()*100);
+                    player->set_flag(Flag::dead);
+                    player2->addPoint((int32_t)player->get_r()*100);
+                    if(player2->get_pickup()==Flag::doublepoint) {
+                        player2->addPoint((int32_t)player->get_r()*100);
                     }
                     break;
                 }
             }
         }
-        it->second->update();
+        player->update();
     }
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
@@ -228,20 +231,22 @@ void MainServer::send_values() {
     Bubi_package bubi;
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         if(it->second->get_pickup()!=Flag::name){
-            bubi.flag=it->second->get_pickup();
+                ///if(kell még)
+            bubi.pickup_flag=it->second->get_pickup();
+        //cout<<bubi.pickup_flag;
             bubi.pos_x=it->second->get_x();
             bubi.pos_y=it->second->get_y();
            // cout << to_string(it->second->get_r());
             bubi.p_size=it->second->get_r();
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
-            bubi.pickup_flag=Flag::player;
+            bubi.flag=Flag::player;
             //cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
-            if(it->second->get_pickup()==Flag::player) {
+           /* if(it->second->get_pickup()==Flag::player) {
                 it->second->set_flag(Flag::notset);
-            }
+            }*/
         }
     }
 
@@ -250,9 +255,9 @@ void MainServer::send_values() {
             bubi.flag=Flag::dead_pickup;
 
         } else {
-            bubi.flag=it->second->get_type();
+            bubi.flag=Flag::pickup;
         }
-        bubi.pickup_flag=Flag::pickup;
+        bubi.pickup_flag=it->second->get_type();
         //cout << bubi.flag << endl;
         //cout << bubi.ToString() << endl;
         bubi.pos_x=it->second->get_x();
@@ -271,9 +276,12 @@ void MainServer::send_values() {
         }
     }
 
+    PickUp* temp=nullptr;
     for(int i=0;i<id_torol.size();i++)
     {
+        temp= pickups.at(id_torol[i]);
         pickups.erase(id_torol[i]);
+        delete temp;
     }
 
 
@@ -374,8 +382,45 @@ void MainServer::conn_client() {
 }
 
 void MainServer::pickup_generator() {
-    for(uint32_t i=0; i<UINT32_MAX-1; i++) {
-        if(i<4) {
+    uint32_t picid=0;
+    for(int i=0;i<20;i++)
+    {
+        float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            while((pow(pos_x,2)+pow(pos_y,2))>=70) {
+                pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+                pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            }
+
+            unsigned char flag;
+            int32_t point = 5;
+
+            if((rand() % 16)==0){
+            flag=Flag::immortal;
+            point+=2;
+            }
+            else if((rand() % 8)==0){
+            flag=Flag::doublepoint;
+            point*=2;
+            }
+            else if((rand() % 4)==0){
+            flag=Flag::food1;
+            point++;
+            }
+            else
+            flag=Flag::food;
+
+
+            PickUp *pickup = new PickUp(picid,pos_x,pos_y,0.04,flag,point);
+
+            pickups.insert(pair<uint32_t,PickUp*>(picid,pickup));
+            picid++;
+
+    }
+while(true){
+    if(pickups.size()<30) {
+
+
             float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             while((pow(pos_x,2)+pow(pos_y,2))>=70) {
@@ -383,52 +428,47 @@ void MainServer::pickup_generator() {
                 pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
             }
 
-            int32_t point = rand() % 21 + 5;
-            int rflag = rand() % 4 +1;
             unsigned char flag;
+            int32_t point = 5;
+
+            if((rand() % 16)==0){
+            flag=Flag::immortal;
+            point+=2;
+            }
+            else if((rand() % 8)==0){
+            flag=Flag::doublepoint;
+            point*=2;
+            }
+            else if((rand() % 4)==0){
+            flag=Flag::food1;
+            point++;
+            }
+            else
+            flag=Flag::food;
+
+
+
+            /*
             switch(rflag) {
                 case 1: flag=Flag::food;
                     break;
-                case 2: flag=Flag::food;
+                case 2: flag=Flag::food1;
                     break;
                 case 3: flag=Flag::immortal;
                     break;
                 case 4: flag=Flag::doublepoint;
                     break;
-            }
+            }*/
 
-            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
-            pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
+            PickUp *pickup = new PickUp(picid,pos_x,pos_y,0.04,flag,point);
 
-        }
-        else {
-            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-            while((pow(pos_x,2)+pow(pos_y,2))>=100) {
-                pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-                pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-            }
-
-            int32_t point = rand() % 21 + 5;
-            int rflag = rand() % 4 +1;
-            unsigned char flag;
-            switch(rflag) {
-                case 1: flag=Flag::food;
-                    break;
-                case 2: flag=Flag::food;
-                    break;
-                case 3: flag=Flag::immortal;
-                    break;
-                case 4: flag=Flag::doublepoint;
-                    break;
-            }
-
-            PickUp *pickup = new PickUp(i,pos_x,pos_y,0.04,flag,point);
-            pickups.insert(pair<uint32_t,PickUp*>(i,pickup));
+            pickups.insert(pair<uint32_t,PickUp*>(picid,pickup));
+            picid++;
             int sleeptime = rand() % 4001 + 1000;
             this_thread::sleep_for(chrono::milliseconds(sleeptime));
-        }
+
     }
+}
 }
 
 void MainServer::closepanel() {
