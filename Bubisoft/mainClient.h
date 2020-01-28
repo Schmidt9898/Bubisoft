@@ -6,6 +6,8 @@
 #include "Bubisoft_Net.hpp"
 #include "Drawable.h"
 #include "Bubi_Sound.h"
+#include <thread>
+#include <mutex>
 //#include <SDL_image.h>
 
 using namespace std;
@@ -33,15 +35,17 @@ class MainClient {
     Bubi_Factory F;
     Bubi_Sound atmos;
     Bubi_Client echo;
+    Bubi_Client echo2;
 
     thread * tree_updater=nullptr;
+    std::mutex m;
     //bool updaterstop=false;
 
-    SDL_Window* swindow=NULL;
-    SDL_Renderer *srenderer = NULL;
+    //SDL_Window* swindow=NULL;
+    //SDL_Renderer *srenderer = NULL;
 	//SDL_Texture *img = NULL;
-	Uint32 timerevent=0;
-    thread *timer;
+	//Uint32 timerevent=0;
+    //thread *timer;
     bool timerstop=false;
 
     std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
@@ -52,7 +56,7 @@ class MainClient {
 
     void Tree_update();
     void Tree_package(Bubi_package);
-    void tick();
+  //  void tick();
     bool gamebool;
 
     public:

@@ -49,7 +49,7 @@
 #include <SDL_net.h>
 */
 using namespace std;
-
+ // mutex trm;
 int main()
 {
     char tipus;

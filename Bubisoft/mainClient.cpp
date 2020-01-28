@@ -1,9 +1,6 @@
 #include "mainClient.h"
 #include <iostream>
-#include <thread>
 
-#include  <mutex>
-#include <condition_variable>
 #include "Bubisoft_Net.hpp"
 #include "Drawable.h"
 #include "objects.h"
@@ -32,7 +29,7 @@
     #include <math.h>
 //
 
-
+/*
 void MainClient::tick()
 {
 
@@ -56,7 +53,7 @@ this_thread::sleep_for(chrono::milliseconds(20));
 
 
 }
-
+*/
 
 
 MainClient::MainClient(string ip,int port) {
@@ -151,6 +148,7 @@ SDL_Event e;
 
             game->Draw_map();
 
+        m.lock();
             for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
                 game->Draw_player(it->second->get_x(),it->second->get_y(),it->second->get_r(),255,255,0);
             }
@@ -158,6 +156,7 @@ SDL_Event e;
                 if(it->second->get_pickup()==Flag::dead) continue;
                 game->Draw_player(it->second->get_x(), it->second->get_y(), it->second->get_r(), 255,255,255);
             }
+        m.unlock();
             if(Players.find(echo.Get_ID())!=Players.end()) {
                 game->drawScore(Players.at(echo.Get_ID())->getPoint(), glm::vec3(38.0f, 28.0f, 0.0f), glm::vec3 (0.99f, 0.99f, 0.99f));
             }
@@ -180,6 +179,7 @@ SDL_Event e;
         }
         game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
         game->Show();
+
     }
 
     game->cleanup();
@@ -204,13 +204,13 @@ while(scene!=close_game)
 
 */
    cout << "exit game.." << endl;
-            if(swindow)
+/*           if(swindow)
                 SDL_DestroyWindow(swindow);
             if(srenderer)
                 SDL_DestroyRenderer(srenderer);
-
+*/
     atmos.Stop();
-    timer->join();
+   // timer->join();
 
 }
 
@@ -412,12 +412,14 @@ void MainClient::Tree_update()
     {
         //cout << "Tree to update" << endl;
     vec=echo.Pop_Bubivector();
+   //m.lock();
         for(int i=0;i<vec->size();i++)
         {
                Tree_package(vec->at(i));
                //if(!gamebool) break;
               // cout << "Tree updated" << endl;
         }
+     //   m.unlock();
     delete vec;
     }
     cout<<"tree_updater ended"<<endl;

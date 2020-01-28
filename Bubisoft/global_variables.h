@@ -16,7 +16,6 @@ bool RENDER = true;
 
 bool LOOK_AROUND=false;
 
-
 // camera
 
 glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f, 2.5f);
@@ -189,7 +188,7 @@ class GAME{
 
     }
     */
-	
+
 void draw_endScreen(unsigned score, glm::vec3 score_tint){
         glfwMakeContextCurrent(window);
         waterShader->use();
