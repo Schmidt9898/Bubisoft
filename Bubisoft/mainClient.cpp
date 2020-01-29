@@ -75,16 +75,41 @@ void MainClient::Loop() {
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
-        atmos.Volume_atmos(30);
+        atmos.Volume_atmos(40);
         atmos.Volume_bip(128);
         atmos.Bubi_change_atmos("game1");
 
     if(!globalGraphicsInit()) RENDER = false;
+    int mastervolume=50;
+    atmos.Volume(mastervolume);
         while(true)
         {
+             if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
+                glfwSetWindowShouldClose(window, true);
+             break;
+             }
+
+            if (glfwGetKey(window, GLFW_KEY_S) == GLFW_FALSE){
+             mastervolume+=5;
+             if(mastervolume>120)
+                mastervolume=120;
+             atmos.Volume(mastervolume);
+            }
+            if (glfwGetKey(window, GLFW_KEY_W) == GLFW_FALSE){
+             mastervolume-=5;
+             if(mastervolume<0)
+                mastervolume=0;
+             atmos.Volume(mastervolume);
+            }
+            if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS){
+                    break;
+            }
+
+
 
             game->Draw_menu();
             game->Show();
+              std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
 
 
@@ -102,7 +127,7 @@ tree_updater = new thread(MainClient::Tree_update,this);
 
 
     ///MODELS / MESHES / OBJECTS
-//atmos.Bubi_change_atmos("game1");
+atmos.Bubi_change_atmos("game12");
 
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
@@ -124,13 +149,15 @@ tree_updater = new thread(MainClient::Tree_update,this);
 */
         gamebool = true;
 
-        while(gamebool) {
+      //  while(gamebool) {
 
             float mom_x=0;
             float mom_y=0;
 
-            if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
                 glfwSetWindowShouldClose(window, true);
+            break;
+            }
 
 
             float cameraSpeed = 1.3 * deltaTime;
@@ -245,6 +272,7 @@ tree_updater = new thread(MainClient::Tree_update,this);
             {
             p.flag=Flag::player;
             p.pickup_flag=Flag::replay;
+          //  atmos.Bubi_change_atmos("game12");
             }
             p.p_id=myid;
             p.mom_x=mom_x;
@@ -260,9 +288,9 @@ tree_updater = new thread(MainClient::Tree_update,this);
             vec->push_back(p);
             echo.Push_Bubivector(vec);
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
-        }
-        game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
-        game->Show();
+      //  }
+      //  game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
+      //  game->Show();
 
     }
 
