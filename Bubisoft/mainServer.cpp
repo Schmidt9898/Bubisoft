@@ -85,7 +85,7 @@ void MainServer::start_game() {
     gamestart = std::chrono::system_clock::now();
 
     while (!end_game) {
-        this_thread::sleep_for(chrono::milliseconds(5));
+        this_thread::sleep_for(chrono::milliseconds(10));
         //cout << "asd" << endl;
         get_values();
         calculate();
@@ -192,7 +192,7 @@ void MainServer::calculate() {
             //cout << "pickup" << endl;
             if(food->inside(player)) {
                 player->set_pickup(food->get_type());
-                player->set_r(player->get_r()+food->get_r());
+                player->set_r(player->get_r()+0.02);
                 //cout << "méret" << endl;
                 player->addPoint(food->getPoint());
                 if(player->get_pickup()==Flag::doublepoint) {
@@ -223,8 +223,8 @@ void MainServer::calculate() {
     }
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
-        if(it->second->get_r()>0.05) {
-            it->second->set_r(it->second->get_r()-0.00000001);
+        if(it->second->get_r()>0.06) {
+            it->second->set_r(it->second->get_r()-0.00001);
         }
     }
 }
