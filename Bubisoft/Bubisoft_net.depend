@@ -826,7 +826,7 @@
 1573751794 c:\lacika\programok_gited\bubisoft\bubisoft\mainclient.h
 	<string>
 
-1580235462 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
+1580321840 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.cpp
 	"Bubi_client.h"
 
 1580232971 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_client.h
@@ -1230,7 +1230,7 @@
 1575369875 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubisoft_net.cpp
 	"Bubisoft_Net.hpp"
 
-1580236095 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
+1580321038 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\main.cpp
 	<iostream>
 	"Bubisoft_Net.hpp"
 	"Bubi_Sound.h"
@@ -1253,7 +1253,7 @@
 	<SDL.h>
 	<SDL_net.h>
 
-1580293863 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
+1580321453 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
 	<string>
 	<map>
 	"Bubisoft_Net.hpp"
@@ -1267,7 +1267,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1580318667 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1580321786 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	"Bubisoft_Net.hpp"

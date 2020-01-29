@@ -88,7 +88,7 @@ void Bubi_Client::Start_matchmaking()
 
     Bubi_ID=*(uint32_t*)buff;
 
-    std::cout<<" port"<<Bubi_ID <<std::endl;
+    std::cout<<"MY ID"<<Bubi_ID <<std::endl;
 
 
     ///start 2 thread writing and reading

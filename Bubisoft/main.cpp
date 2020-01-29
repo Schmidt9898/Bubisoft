@@ -92,7 +92,7 @@ string ip="0";
     int port=0;
     //cout << "Give server port: ";
     //cin >> port;*/
-MainClient Main( (ip=="0")? "localhost" : ip ,(port==0)?12345:port);   ///init
+MainClient Main("config.txt");   ///init
 Main.Loop();
 
    cin >> ip;

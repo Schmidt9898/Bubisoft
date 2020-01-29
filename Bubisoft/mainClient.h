@@ -27,6 +27,10 @@ class MainClient {
     string username = "Larry";
     uint32_t myid=-1;
 
+    string filepath;
+    string ip;
+    int port;
+
 
 
 
@@ -41,11 +45,11 @@ class MainClient {
 
 
     int volume=50;
-    int sound_volume=100;
+    /*int sound_volume=100;
     int music_volume=100;
     int width=800;
     int hight=600;
-
+*/
 
     Bubi_Factory F;
     Bubi_Sound atmos;
@@ -74,8 +78,12 @@ class MainClient {
   //  void tick();
     bool gamebool;
 
+    void savefile();
+
     public:
         MainClient(string ip,int port);
+        MainClient(string path);
+
         void Loop();
         Scene Setup();//destroy and rebuild window
         Scene Menu();//draw and navigate menu

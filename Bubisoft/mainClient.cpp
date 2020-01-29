@@ -65,6 +65,37 @@ MainClient::MainClient(string ip,int port) {
 
 }
 
+MainClient::MainClient(string path) {
+
+    cout << "fileread.." << endl;
+    filepath=path;
+    ifstream file(path);
+    file>>ip>>ws;
+    file>>port>>ws;
+    file>>volume;
+
+
+    echo.setIPort(ip.c_str(),port);
+  //  timerevent = SDL_RegisterEvents(1);
+    //timer=new thread(tick,this);
+
+}
+void MainClient::savefile(){
+
+    cout << "filesave.." << endl;
+
+    ofstream file(filepath);
+    file<<ip<<'\n';
+    file<<port<<'\n';
+    file<<volume<<'\n';
+
+
+    //echo.setIPort(ip.c_str(),port);
+  //  timerevent = SDL_RegisterEvents(1);
+    //timer=new thread(tick,this);
+
+}
+
 
 
 void MainClient::Loop() {
@@ -77,11 +108,12 @@ void MainClient::Loop() {
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
         atmos.Volume_atmos(40);
         atmos.Volume_bip(128);
+          atmos.Volume(volume);
         atmos.Bubi_change_atmos("game1");
 
     if(!globalGraphicsInit()) RENDER = false;
-    int mastervolume=50;
-    atmos.Volume(mastervolume);
+
+
         while(true)
         {
              if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
@@ -90,16 +122,16 @@ void MainClient::Loop() {
              }
 
             if (glfwGetKey(window, GLFW_KEY_S) == GLFW_FALSE){
-             mastervolume+=5;
-             if(mastervolume>120)
-                mastervolume=120;
-             atmos.Volume(mastervolume);
+             volume+=5;
+             if(volume>120)
+                volume=120;
+             atmos.Volume(volume);
             }
             if (glfwGetKey(window, GLFW_KEY_W) == GLFW_FALSE){
-             mastervolume-=5;
-             if(mastervolume<0)
-                mastervolume=0;
-             atmos.Volume(mastervolume);
+             volume-=5;
+             if(volume<0)
+                volume=0;
+             atmos.Volume(volume);
             }
             if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS){
                     break;
@@ -111,6 +143,7 @@ void MainClient::Loop() {
             game->Show();
               std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
+        savefile();
 
 
 echo.Start_matchmaking();
@@ -284,7 +317,7 @@ atmos.Bubi_change_atmos("game12");
             p.mom_y=0;
             }
             vector<Bubi_package> *vec = new vector<Bubi_package>();
-            cout<<p.ToString()<<endl;
+           // cout<<p.ToString()<<endl;
             vec->push_back(p);
             echo.Push_Bubivector(vec);
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
@@ -587,6 +620,7 @@ void MainClient::Tree_package(Bubi_package p) {
         if(p.pickup_flag == Flag::dead_pickup && pickups.find(p.p_id) != pickups.end() ) {
                delete pickups.at(p.p_id);
             pickups.erase(p.p_id);
+            if(p.bringflag==(unsigned char)myid)
             atmos.Bubibip("Pickup");
         } else {
             PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
