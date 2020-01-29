@@ -157,16 +157,16 @@ SDL_Event e;
                     switch(temp->get_type())
                     {
                    case Flag::food :
-                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),102,102,51);
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,179,0);
                     break;
                    case Flag::food1 :
-                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),51,153,51);
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),76,200,0);
                     break;
                    case Flag::immortal :
-                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,102,255);
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),0,255,242);
                     break;
                    case Flag::doublepoint :
-                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,255,26);
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,255,100);
                     break;
                    case Flag::dead_pickup:
 
@@ -195,16 +195,16 @@ SDL_Event e;
                 switch(temp->get_pickup())
                     {
                    case Flag::food :
-                       game->Draw_pickup(temp->get_x(),temp->get_y(),102,102,51);
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,179,0);
                     break;
                    case Flag::food1 :
-                       game->Draw_pickup(temp->get_x(),temp->get_y(),51,153,51);
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),76,200,0);
                     break;
                    case Flag::immortal :
-                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,102,255);
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),0,255,242);
                     break;
                    case Flag::doublepoint :
-                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,255,26);
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,255,100);
                     break;
                    default:
                       // game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r()/2,0,0,0);
@@ -517,8 +517,10 @@ void MainClient::Tree_package(Bubi_package p) {
                     Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
                     break;
                 case Flag::dead :
-                    Players.at(p.p_id)->setDead();
-                    if(p.p_id==echo.Get_ID()) gamebool=false;
+
+                    Players.erase(p.p_id);
+///todo
+                    if(p.p_id==echo.Get_ID()) {}//gamebool=false;
                     break;
                 case Flag::dead_flag :
                     Players.at(p.p_id)->setDead();

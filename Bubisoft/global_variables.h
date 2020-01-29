@@ -210,7 +210,7 @@ void draw_endScreen(unsigned score, glm::vec3 score_tint){
 
     glfwMakeContextCurrent(window);
     waterShader->use();
-    float scale = 1.0f + (1.0f+sin(2.1f*wave_time))/4;
+   // float scale = 1.0f + (1.0f+sin(2.1f*wave_time))/4;
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, pos);
     //M = glm::scale(M, glm::vec3(scale, 2.5f-scale, 1.0f));
@@ -287,7 +287,7 @@ void draw_endScreen(unsigned score, glm::vec3 score_tint){
     waterShader->use();
     glm::mat4 M = glm::mat4(1.0f);
     M = glm::translate(M, pos);
-    M = glm::scale(M, glm::vec3(GLOBAL_PICKUP_SCALE, GLOBAL_PICKUP_SCALE, 1.0f));
+    //M = glm::scale(M, glm::vec3(GLOBAL_PICKUP_SCALE, GLOBAL_PICKUP_SCALE, 1.0f));
     MVP = projection * view * M;
     waterShader->setVec3("aColor", color);
     waterShader->setFloat("aAlpha", 1.0f);
