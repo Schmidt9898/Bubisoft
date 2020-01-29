@@ -65,6 +65,7 @@ class PickUp : public Drawable
 {
     //int point
     unsigned char type;
+
     std::chrono::system_clock::duration length = std::chrono::system_clock::duration::zero();
 
 public :
@@ -75,7 +76,7 @@ public :
     std::chrono::system_clock::duration getLength() {
         return length;
     }
-
+uint32_t playerakimegevett=-1;
     unsigned char get_type() {return type;}
     void set_type(unsigned char t) {type=t;}
 
@@ -148,10 +149,10 @@ public:
     void update_Move(float mom_x_, float mom_y_) {
         mom_x+=mom_x_;
         mom_y+=mom_y_;
-        if(mom_x>5)
-            mom_x=5;
-        if(mom_y>5)
-            mom_y=5;
+        if(mom_x>2)
+            mom_x=2;
+        if(mom_y>2)
+            mom_y=2;
 
 
         if(mom_x_==0 && mom_y_==0){

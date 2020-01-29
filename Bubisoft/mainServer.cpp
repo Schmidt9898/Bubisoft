@@ -192,13 +192,14 @@ void MainServer::calculate() {
             //cout << "pickup" << endl;
             if(food->inside(player)) {
                 player->set_pickup(food->get_type());
-                player->set_r(player->get_r()+0.02);
+                player->set_r(player->get_r()+0.01);
                 //cout << "méret" << endl;
                 player->addPoint(food->getPoint());
                 if(player->get_pickup()==Flag::doublepoint) {
                     player->addPoint(food->getPoint());
                 }
-                food->set_type(Flag::dead_pickup);///todo delete
+                food->set_type(Flag::dead_pickup);
+                food->playerakimegevett=player->get_id();
             }
         }
 
@@ -223,8 +224,8 @@ void MainServer::calculate() {
     }
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
-        if(it->second->get_r()>0.06) {
-            it->second->set_r(it->second->get_r()-0.00001);
+        if(it->second->get_r()>0.05) {
+            it->second->set_r(it->second->get_r()-0.00003);
         }
     }
 }
@@ -297,6 +298,7 @@ if(send_pickups_again){
 
         bubi.flag=Flag::pickup;
         bubi.p_id=temp->get_id();
+        bubi.bringflag=(unsigned char)temp->playerakimegevett;
         bubi.pickup_flag=Flag::dead_pickup;
 
         vec->push_back(bubi);
@@ -550,7 +552,7 @@ while(true){
 
             pickups.insert(pair<uint32_t,PickUp*>(picid,pickup));
             picid++;
-            int sleeptime = rand() % 4001 + 1000;
+            int sleeptime = rand() % 2000 + 1000;
             this_thread::sleep_for(chrono::milliseconds(sleeptime));
 
     }
