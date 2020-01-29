@@ -347,6 +347,13 @@ void draw_endScreen(unsigned score, glm::vec3 score_tint){
         MVP = projection * view * model;
         waterShader->setMat4("MVP", MVP);
 
+        ///ez alá
+
+        ///ide
+
+        ///e fölé
+
+
         waterShader->setVec3("aColor", select_color);
         (*play_button).draw();
 

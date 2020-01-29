@@ -1267,7 +1267,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1580297029 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1580318667 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	"Bubisoft_Net.hpp"
@@ -2641,7 +2641,7 @@
 
 1580236095 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\game_vertices.h
 
-1580297372 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
+1580319113 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\global_variables.h
 
 1580236095 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\glad.c
 	<stdio.h>

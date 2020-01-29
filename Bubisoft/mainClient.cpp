@@ -67,13 +67,27 @@ MainClient::MainClient(string ip,int port) {
 
 
 
-void MainClient::Loop() {///load here everything
+void MainClient::Loop() {
+
+
+
+
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
-        atmos.Volume_atmos(64);
+        atmos.Volume_atmos(30);
         atmos.Volume_bip(128);
-       // atmos.Bubi_change_atmos("game1");
+        atmos.Bubi_change_atmos("game1");
+
+    if(!globalGraphicsInit()) RENDER = false;
+        while(true)
+        {
+
+            game->Draw_menu();
+            game->Show();
+        }
+
+
 echo.Start_matchmaking();
 myid=echo.Get_ID();
 tree_updater = new thread(MainClient::Tree_update,this);
@@ -86,11 +100,9 @@ tree_updater = new thread(MainClient::Tree_update,this);
     vec->push_back(p);
     echo.Push_Bubivector(vec);
 
-if(!globalGraphicsInit()) RENDER = false;
+
     ///MODELS / MESHES / OBJECTS
 //atmos.Bubi_change_atmos("game1");
-int r=0,g=0,b=0;
-SDL_Event e;
 
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
