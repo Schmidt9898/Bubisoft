@@ -145,7 +145,7 @@ public:
  unsigned char get_pickup() {return pickup;}
     void set_pickup(unsigned char c) {pickup=c;}
 
-    void Move(float mom_x_, float mom_y_) {
+    void update_Move(float mom_x_, float mom_y_) {
         mom_x+=mom_x_;
         mom_y+=mom_y_;
         if(mom_x>5)
@@ -153,7 +153,12 @@ public:
         if(mom_y>5)
             mom_y=5;
 
-        x+=mom_x;
+
+        if(mom_x_==0 && mom_y_==0){
+        mom_x/=1.05;
+        mom_y/=1.05;
+        }
+        /*x+=mom_x;
         y+=mom_y;
 
         if(mom_x_==0 && mom_y_==0){
@@ -168,6 +173,24 @@ public:
             mom_x/=1.05;
             mom_y/=1.05;
 
+            /*float s=sqrt(x*x+y*y)*10;
+            x -= x/s;
+            y -= y/s;*/
+        }
+    void Move_one() {
+        x+=mom_x;
+        y+=mom_y;
+
+
+
+
+        if(sqrt(x*x+y*y)+r >= 10)
+        {
+            mom_x/=1.05;
+            mom_y/=1.05;
+            float s=sqrt(x*x+y*y)*100;
+            mom_x+=-x/s;
+            mom_y+=-y/s;
             /*float s=sqrt(x*x+y*y)*10;
             x -= x/s;
             y -= y/s;*/

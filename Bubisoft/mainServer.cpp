@@ -108,6 +108,7 @@ void MainServer::get_values() {
                 clients.insert(pair<uint32_t,Client*>(p.p_id,c));
                 clients.at(p.p_id)->set_r(0.06);
                 put_player(p.p_id);
+                send_pickups_again=true;
                 //  clients.insert(p.p_id,c)
                 continue;
             }
@@ -115,17 +116,17 @@ void MainServer::get_values() {
             if(clients.find(p.p_id)!=clients.end()) {
                    // cout << "Found" << endl;
 
-                if(p.flag==Flag::ready) {
+               /* if(p.flag==Flag::ready) {
                     clients.at(p.p_id)->setReady();
                     //cout << "Ready" << endl;
-                }
+                }*/
                 //else
-                if(clients.at(p.p_id)->isReady()){
-                    if(p.flag==Flag::notset) {
-                        clients.at(p.p_id)->Move(p.mom_x, p.mom_y);
+               // if(clients.at(p.p_id)->isReady()){
+                    //if(p.flag==Flag::notset) {
+                        clients.at(p.p_id)->update_Move(p.mom_x, p.mom_y);
                         //cout << "Moving" << endl;
                         //  clients.insert(p.p_id,c)
-                    }
+                   // }
                 }
                 else if(p.flag==Flag::name) {
                     Bubi_Factory bf;
@@ -134,7 +135,7 @@ void MainServer::get_values() {
                         clients.at(p.p_id)->setName(name);
                     }
                 }
-                else if(p.flag==Flag::replay) {
+                else if(p.pickup_flag==Flag::replay) {
                     clients.at(p.p_id)->set_r(0.06);
                     put_player(p.p_id);
                     clients.at(p.p_id)->setPoint(0);
@@ -142,7 +143,7 @@ void MainServer::get_values() {
                 else if(p.flag==Flag::disconn) {
                     clients.at(p.p_id)->set_flag(Flag::dead);
                 }
-            }
+
     }
     delete reader;
 }
@@ -175,7 +176,9 @@ void MainServer::calculate() {
         std::chrono::duration<double> diff = end-start;
         if(diff.count()>2000) {
             it->second->set_flag(Flag::dead);
+            continue;
         }
+        it->second->Move_one();
     }
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
@@ -249,7 +252,7 @@ void MainServer::send_values() {
             }*/
         }
     }
-
+if(send_pickups_again){
     for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
         if(it->second->get_type()==Flag::notset) {
             bubi.flag=Flag::dead_pickup;
@@ -268,6 +271,16 @@ void MainServer::send_values() {
         ///TODO - bubi feltöltése?
         vec->push_back(bubi);
     }
+    send_pickups_again=false;
+    }
+    generatormonitor.lock();
+
+    if(newpicup!=nullptr){
+    vec->insert(vec->end(),newpicup->begin(),newpicup->end());
+    newpicup=nullptr;///nézd át és gondolt át mégegyszer
+    }
+    generatormonitor.unlock();
+
 
     vector<uint32_t> id_torol;
     for(map<uint32_t,PickUp*>::iterator it = pickups.begin(); it != pickups.end(); ++it) {
@@ -281,14 +294,40 @@ void MainServer::send_values() {
     {
         temp= pickups.at(id_torol[i]);
         pickups.erase(id_torol[i]);
+
+        bubi.flag=Flag::pickup;
+        bubi.p_id=temp->get_id();
+        bubi.pickup_flag=Flag::dead_pickup;
+
+        vec->push_back(bubi);
         delete temp;
     }
-
 
     if(vec->size()!=0) {
         //cout << "Sending" << endl;
         server->Push_Bubivector(vec);
     }
+
+     vector<uint32_t> player_torol;
+    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+        if(it->second->get_pickup()==Flag::dead) {
+                player_torol.push_back(it->first);
+        }
+    }
+    Client* temp2=nullptr;
+    for(int i=0;i<player_torol.size();i++)
+    {
+
+         temp2= clients.at(player_torol[i]);
+        clients.erase(player_torol[i]);
+
+        delete temp2;
+    }
+
+
+
+
+
 
 }
 
@@ -345,6 +384,7 @@ void MainServer::put_player(uint32_t id) {
 
         if(it == clients.end()) {
             clients.at(id)->set_flag(Flag::player);
+            clients.at(id)->set_pickup(Flag::notset);
             clients.at(id)->setPoint(0);
             break;
         }
@@ -413,6 +453,31 @@ void MainServer::pickup_generator() {
 
             PickUp *pickup = new PickUp(picid,pos_x,pos_y,0.04,flag,point);
 
+
+               generatormonitor.lock();
+            if(newpicup==nullptr)
+            {
+                newpicup=new vector<Bubi_package>();
+            }
+            Bubi_package bubi;
+            bubi.flag=Flag::pickup;
+        bubi.pickup_flag=pickup->get_type();
+        bubi.pos_x=pickup->get_x();
+        bubi.pos_y=pickup->get_y();
+        bubi.p_size=pickup->get_r();
+        bubi.p_id=pickup->get_id();
+        bubi.point=pickup->getPoint();
+        ///TODO - bubi feltöltése?
+        newpicup->push_back(bubi);
+
+
+
+
+
+            generatormonitor.unlock();
+
+
+
             pickups.insert(pair<uint32_t,PickUp*>(picid,pickup));
             picid++;
 
@@ -459,8 +524,29 @@ while(true){
                 case 4: flag=Flag::doublepoint;
                     break;
             }*/
-
             PickUp *pickup = new PickUp(picid,pos_x,pos_y,0.04,flag,point);
+
+            generatormonitor.lock();
+            if(newpicup==nullptr)
+            {
+                newpicup=new vector<Bubi_package>();
+            }
+            Bubi_package bubi;
+            bubi.flag=Flag::pickup;
+        bubi.pickup_flag=pickup->get_type();
+        bubi.pos_x=pickup->get_x();
+        bubi.pos_y=pickup->get_y();
+        bubi.p_size=pickup->get_r();
+        bubi.p_id=pickup->get_id();
+        bubi.point=pickup->getPoint();
+        ///TODO - bubi feltöltése?
+        newpicup->push_back(bubi);
+
+
+
+
+
+            generatormonitor.unlock();
 
             pickups.insert(pair<uint32_t,PickUp*>(picid,pickup));
             picid++;

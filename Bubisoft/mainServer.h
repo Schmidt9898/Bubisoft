@@ -6,6 +6,8 @@
 #include <Bubisoft_Net.hpp>
 #include "Drawable.h"
 #include <chrono>
+#include <mutex>
+#include <vector>
 
 using namespace std;
 
@@ -34,6 +36,9 @@ private:
     map<uint32_t,Client*> clients;
     map<uint32_t,PickUp*> pickups;
 
+    vector<Bubi_package>* newpicup=nullptr;
+    mutex generatormonitor;
+    bool send_pickups_again=false;
     void start_net();
     void conn_client();
     void put_player(uint32_t);
