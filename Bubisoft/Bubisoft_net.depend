@@ -1253,7 +1253,7 @@
 	<SDL.h>
 	<SDL_net.h>
 
-1580245176 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
+1580293863 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
 	<string>
 	<map>
 	"Bubisoft_Net.hpp"
@@ -1267,7 +1267,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1580250054 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1580294063 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	"Bubisoft_Net.hpp"

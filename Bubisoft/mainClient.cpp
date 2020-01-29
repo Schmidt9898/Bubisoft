@@ -77,11 +77,12 @@ void MainClient::Loop() {///load here everything
 echo.Start_matchmaking();
 myid=echo.Get_ID();
 tree_updater = new thread(MainClient::Tree_update,this);
+ vector<Bubi_package> *vec = new vector<Bubi_package>();
 
     Bubi_package p;
     p.flag=Flag::player;
     p.p_id=echo.Get_ID();
-    vector<Bubi_package> *vec = new vector<Bubi_package>();
+
     vec->push_back(p);
     echo.Push_Bubivector(vec);
 
@@ -94,7 +95,7 @@ SDL_Event e;
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
     {
-        Bubi_package p3;
+        /*Bubi_package p3;
         p3.flag=Flag::replay;
         p3.p_id=echo.Get_ID();
         vector<Bubi_package> *vec2 = new vector<Bubi_package>();
@@ -108,7 +109,7 @@ SDL_Event e;
         vector<Bubi_package> *vec3 = new vector<Bubi_package>();
         vec3->push_back(p2);
         echo.Push_Bubivector(vec3);
-
+*/
         gamebool = true;
 
         while(gamebool) {
@@ -124,22 +125,22 @@ SDL_Event e;
             if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
                 //cameraPos.y+= 1 * cameraSpeed;
                 //global_player_positions[0].y+= 1 * cameraSpeed;
-                mom_y+=0.0001;
+                mom_y+=0.001;
             }
             if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
                 //cameraPos.y-=1 * cameraSpeed;
                 //global_player_positions[0].y-=1 * cameraSpeed;
-                mom_y-=0.0001;
+                mom_y-=0.001;
             }
             if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
                 //cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
                 //global_player_positions[0].x -= 1 * cameraSpeed;
-                mom_x-=0.0001;
+                mom_x-=0.001;
             }
             if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
                 //cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
                 //global_player_positions[0].x += 1 * cameraSpeed;
-                mom_x+=0.0001;
+                mom_x+=0.001;
             }
 
           /*  if(Players.find(echo.Get_ID())!=Players.end()) {
@@ -166,6 +167,9 @@ SDL_Event e;
                     break;
                    case Flag::doublepoint :
                        game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,255,26);
+                    break;
+                   case Flag::dead_pickup:
+
                     break;
                    default:
                        game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),0,0,0);
@@ -220,16 +224,30 @@ SDL_Event e;
 
             //game->Draw_menu();
             game->Show();
-            //std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
-            Bubi_package p;
-            p.flag=Flag::notset;
-            p.p_id=echo.Get_ID();
+
+            if(Players.find(echo.Get_ID())!=Players.end())
+            {
+            Player* me=Players.find(echo.Get_ID())->second;
+            if(me->get_pickup()==Flag::dead)
+            {
+            p.flag=Flag::player;
+            p.pickup_flag=Flag::replay;
+            }
+            p.p_id=myid;
             p.mom_x=mom_x;
             p.mom_y=mom_y;
+            }else{
+            p.flag=Flag::player;
+            p.p_id=myid;
+            p.mom_x=0;
+            p.mom_y=0;
+            }
             vector<Bubi_package> *vec = new vector<Bubi_package>();
+            cout<<p.ToString()<<endl;
             vec->push_back(p);
             echo.Push_Bubivector(vec);
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
         game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
         game->Show();
