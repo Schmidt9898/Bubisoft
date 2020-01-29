@@ -149,10 +149,8 @@ public:
     void update_Move(float mom_x_, float mom_y_) {
         mom_x+=mom_x_;
         mom_y+=mom_y_;
-        if(mom_x>2)
-            mom_x=2;
-        if(mom_y>2)
-            mom_y=2;
+        std::cout<<mom_x<<std::endl;
+
 
 
         if(mom_x_==0 && mom_y_==0){
@@ -179,10 +177,27 @@ public:
             y -= y/s;*/
         }
     void Move_one() {
+          /*if(mom_x>0.02)
+            mom_x=0.02;
+        if(mom_x<-0.02)
+            mom_x=-0.02;
+        if(mom_y>0.02)
+            mom_y=0.02;
+        if(mom_y<-0.02)
+            mom_y=-0.02;*/
+
+
+
+
         x+=mom_x;
         y+=mom_y;
 
 
+
+        x-=mom_x*0.01;
+        y-=mom_y*0.01;
+        mom_x-=mom_x*0.01;
+        mom_y-=mom_y*0.01;
 
 
         if(sqrt(x*x+y*y)+r >= 10)

@@ -16,24 +16,24 @@ void MainServer::start_net() {
     //Bubi_Factory F;
    // cout << numeric_limits<float>::max() << endl << "test" << endl;
 
-   srand (static_cast <unsigned> (time(NULL)));
+  // srand (static_cast <unsigned> (time(NULL)));
    //cout << "Teszt" << endl;
 
-    try{
-        vector<Bubi_package> vec;
-        Bubi_package package;
+   //try{
+      //  vector<Bubi_package> vec;
+      //  Bubi_package package;
         /*cout<<package.ToString()<<endl;
         for(int i=0;i<10;i++){
             vec.push_back(package);
         }*/
 
         //Bubi_Server server(12345,0);
-        server->Open_Server();
+       // server->Open_Server();
         //char * a=new char('s');
         //Bubi_Client client(a,12345);
         //client.Start_matchmaking();
 
-        this_thread::sleep_for(chrono::milliseconds(1000));
+       // this_thread::sleep_for(chrono::milliseconds(1000));
         //client.Push_Bubivector(&vec);
         //server->Push_Bubivector(&vec);
         //cout<<"chapter"<<endl;
@@ -41,7 +41,7 @@ void MainServer::start_net() {
         //server->Close_Server();
         //cout<<vec2->size()<<" merete"<<endl;
         //this_thread::sleep_for(chrono::milliseconds(500));
-        while(true){
+       // while(true){
            /* vector<Bubi_package>* vec2 = server->Pop_Bubivector();
             //cout<<"----->"<<vec2->size()<<"<-----"<<endl;
             int j=1;
@@ -50,14 +50,14 @@ void MainServer::start_net() {
             //    cout<<p.ToString()<<endl;
             }
             delete vec2;*/
-        }
+       // }
 
-        SDLNet_Quit();
-        SDL_Quit();
-        }
-        catch(std::exception e){
-            cout<<"valami nem jo"<<endl;
-        }
+      //  SDLNet_Quit();
+       // SDL_Quit();
+       // }
+       // catch(std::exception e){
+       //     cout<<"valami nem jo"<<endl;
+      //  }
 
 }
 
@@ -81,25 +81,32 @@ void MainServer::start_game() {
 
     }
 */
+    readerthread = new thread(get_values,this);
     game = true;
     gamestart = std::chrono::system_clock::now();
 
     while (!end_game) {
-        this_thread::sleep_for(chrono::milliseconds(10));
+
         //cout << "asd" << endl;
-        get_values();
+       // get_values();
+       treeM.lock();
         calculate();
         send_values();
-        if(check_end()) {
+        treeM.unlock();
+         this_thread::sleep_for(chrono::milliseconds(10));
+
+       /* if(check_end()) {
             end_game=true;
             send_end();
-        }
+        }*/
     }
 }
 
 void MainServer::get_values() {
     //cout << "values" << endl;
+    while(true){///TODO ne legyen true
     reader = server->Pop_Bubivector();
+    treeM.lock();
     for( Bubi_package p : *reader) {
             //cout << p.ToString() << endl;
             if(p.flag==Flag::player && clients.find(p.p_id) == clients.end()) {
@@ -145,7 +152,9 @@ void MainServer::get_values() {
                 }
 
     }
+    treeM.unlock();
     delete reader;
+    }
 }
 
 void MainServer::send_names() {
@@ -225,7 +234,7 @@ void MainServer::calculate() {
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
         if(it->second->get_r()>0.05) {
-            it->second->set_r(it->second->get_r()-0.00003);
+            it->second->set_r(it->second->get_r()-0.000005);
         }
     }
 }
@@ -395,9 +404,9 @@ void MainServer::put_player(uint32_t id) {
 
 void MainServer::conn_client() {
 
-    //cout << "conn_client" << endl << endl;
+   ///cout << "conn_client" << endl << endl;
 
-    while(!game) {
+   // while(!game) {
         /*reader = server->Pop_Bubivector();
         for( Bubi_package p : *reader) {
                 if(p.flag==Flag::player) {
@@ -415,11 +424,11 @@ void MainServer::conn_client() {
                 }
         }
         delete reader;*/
-        get_values();
+        /*get_values();
         send_values();
         send_names();
     }
-    pickup_generator();
+    pickup_generator();*/
 
 }
 
@@ -488,12 +497,14 @@ while(true){
     if(pickups.size()<30) {
 
 
-            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+            float pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/15)) -7;
+            float pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/15)) -7;
             while((pow(pos_x,2)+pow(pos_y,2))>=70) {
-                pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
-                pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/20)) -10;
+                pos_x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/15)) -7;
+                pos_y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/15)) -7;
+                //cout<<"+";
             }
+            //cout<<endl;
 
             unsigned char flag;
             int32_t point = 5;
@@ -552,10 +563,11 @@ while(true){
 
             pickups.insert(pair<uint32_t,PickUp*>(picid,pickup));
             picid++;
-            int sleeptime = rand() % 2000 + 1000;
-            this_thread::sleep_for(chrono::milliseconds(sleeptime));
+
 
     }
+      int sleeptime = rand() % 2000 + 1000;
+            this_thread::sleep_for(chrono::milliseconds(sleeptime));
 }
 }
 
@@ -575,19 +587,22 @@ MainServer::MainServer() {
     //cout << "mainServer" << endl << endl;
 
     server = new Bubi_Server(12345);
-
-    thread t1(MainServer::start_net,this);
+server->Open_Server();
+this_thread::sleep_for(chrono::milliseconds(100));
+   // thread t1(MainServer::start_net,this);
     //t1.join();
 
    // thread t3(MainServer::closepanel,this);
 
-    while(!close) {
-        thread t2(MainServer::conn_client,this);
+  //  while(!close) {
+        thread t2(MainServer::pickup_generator,this);
 
         start_game();
         t2.join();
-    }
+   // }
 
+  SDLNet_Quit();
+        SDL_Quit();
     //t3.join();
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {

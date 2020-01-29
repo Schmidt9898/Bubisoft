@@ -38,6 +38,10 @@ private:
 
     vector<Bubi_package>* newpicup=nullptr;
     mutex generatormonitor;
+    mutex treeM;
+
+    thread * readerthread=nullptr;
+
     bool send_pickups_again=false;
     void start_net();
     void conn_client();
