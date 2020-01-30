@@ -4,12 +4,12 @@
 class Drawable
 {
 protected:
-    const uint32_t id;
+    const uint32_t id=-1;
     float x, y, r;
     int32_t p;
 public:
     Drawable(uint32_t id_,float pos_x,float pos_y,float size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {};
-
+    Drawable(){};
 
     virtual ~Drawable() {};
 
@@ -109,9 +109,11 @@ public :
 
 };
 
+
 class Client : public Drawable
 {
-    float mom_x,mom_y;
+    float mom_x=0,mom_y=0;
+    float nyom_x=0,nyom_y=0;
     unsigned char pickup;
     bool ready;
     float max_x=10;
@@ -121,11 +123,11 @@ class Client : public Drawable
     std::string name;
     std::chrono::system_clock::time_point last_update = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point pickup_get_time;
-    std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration::zero();
+    //std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration:: ;
 
 public:
-    Client(uint32_t id_,float pos_x,float pos_y,float size,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,size,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
-
+    Client(uint32_t id_,float pos_x,float pos_y,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,0.06,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
+    Client():Drawable(){};
     void InteractionWith(Drawable& it) {};
     void Draw() {};
 
@@ -139,20 +141,103 @@ public:
         return last_update;
     }
 
-    void set_pickup_get_time() {
+    /*void set_pickup_get_time() {
         pickup_get_time = std::chrono::system_clock::now();
     }
 
     void set_pickup_duration(std::chrono::system_clock::duration dur) {
-        pickup_length=dur;
-    }
-
-    unsigned char get_pickup() {return pickup;}
+     //   pickup_length=dur;
+    }*/
+ unsigned char get_pickup() {return pickup;}
     void set_pickup(unsigned char c) {pickup=c;}
 
-    void Move(float mom_x_, float mom_y_) {
-        mom_x=mom_x_;
-        mom_y=mom_y_;
+    void update_Move(float mom_x_, float mom_y_) {
+        nyom_x=mom_x_;
+        nyom_y=mom_y_;
+        //std::cout<<mom_x<<std::endl;
+
+
+
+
+        /*x+=mom_x;
+        y+=mom_y;
+
+        if(mom_x_==0 && mom_y_==0){
+        mom_x/=1.05;
+        mom_y/=1.05;
+        }
+
+
+
+        if(sqrt(x*x+y*y)+r >= 10)
+        {
+            mom_x/=1.05;
+            mom_y/=1.05;
+
+            /*float s=sqrt(x*x+y*y)*10;
+            x -= x/s;
+            y -= y/s;*/
+        }
+    void Move_one() {
+          /*if(mom_x>0.02)
+            mom_x=0.02;
+        if(mom_x<-0.02)
+            mom_x=-0.02;
+        if(mom_y>0.02)
+            mom_y=0.02;
+        if(mom_y<-0.02)
+            mom_y=-0.02;*/
+
+
+
+//std::cout<<"p:"<<x<<" p:"<<y<<std::endl;
+
+
+
+
+        mom_x+=nyom_x;
+        mom_y+=nyom_y;
+
+        if(nyom_x==0 && nyom_y==0){
+        mom_x/=1.05;
+        mom_y/=1.05;
+        }
+
+
+        x+=mom_x;
+        y+=mom_y;
+
+
+
+        x-=mom_x*0.01;
+        y-=mom_y*0.01;
+        mom_x-=mom_x*0.01;
+        mom_y-=mom_y*0.01;
+
+     //   std::cout<<"x:"<<x<<" y:"<<y<<std::endl;
+
+        if(sqrt(x*x+y*y)+r >= 10)
+        {
+            mom_x/=1.05;
+            mom_y/=1.05;
+            float s=sqrt(x*x+y*y)*100;
+            mom_x+=-x/s;
+            mom_y+=-y/s;
+            /*float s=sqrt(x*x+y*y)*10;
+            x -= x/s;
+            y -= y/s;*/
+        }
+/*
+        if(pickup=='c' || pickup=='d' || pickup=='e' || pickup=='f') {
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double> diff = end-pickup_get_time;
+            if(diff>pickup_length) {
+                pickup = '0';
+            }
+        }*/
+    }
+
+    void Move() {
         x+=mom_x;
         y+=mom_y;
         if(sqrt(x*x+y*y)+r >= 10)
@@ -163,14 +248,6 @@ public:
             float s=sqrt(x*x+y*y)*10;
             x -= x/s;
             y -= y/s;
-        }
-
-        if(pickup>=10000) {
-            auto end = std::chrono::system_clock::now();
-            std::chrono::duration<double> diff = end-pickup_get_time;
-            if(diff>pickup_length) {
-                pickup = 0;
-            }
         }
     }
 
@@ -200,6 +277,11 @@ public:
 
     float getMax_y() {
         return max_y;
+    }
+
+    void setPosition(float x_, float y_) {
+        x=x_;
+        y=y_;
     }
 };
 

@@ -157,10 +157,11 @@ tree_updater = new thread(MainClient::Tree_update,this);
 
     vec->push_back(p);
     echo.Push_Bubivector(vec);
-
+Client me;
 
     ///MODELS / MESHES / OBJECTS
 atmos.Bubi_change_atmos("game12");
+
 
     if ( RENDER )
     while (!glfwWindowShouldClose(window))
@@ -215,6 +216,8 @@ atmos.Bubi_change_atmos("game12");
                 mom_x+=0.001;
             }
 
+
+
           /*  if(Players.find(echo.Get_ID())!=Players.end()) {
                 //cout << "Found"<< endl;
 
@@ -257,8 +260,9 @@ atmos.Bubi_change_atmos("game12");
                // if(temp->get_pickup()==Flag::dead) continue;
                 if(temp->get_id()==myid)
                 {
-                    game->Draw_player(temp->get_x(), temp->get_y(), temp->get_r(), 20,255,20);
                     game->update_camera(temp->get_x(), temp->get_y(),3.5+2*temp->get_r());
+                    game->Draw_player(temp->get_x(), temp->get_y(), temp->get_r(), 20,255,20);
+
                 }else
                 {
                 game->Draw_player(temp->get_x(), temp->get_y(), temp->get_r(), 255,20,10);

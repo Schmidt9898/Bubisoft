@@ -1267,7 +1267,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1580321786 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1580344815 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	"Bubisoft_Net.hpp"
@@ -1673,7 +1673,7 @@
 	<thread>
 	<iostream>
 
-1580250724 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+1580344722 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
 	<cmath>
 
 1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h
