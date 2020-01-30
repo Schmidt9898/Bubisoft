@@ -192,7 +192,7 @@ public:
         if(mom_y<-0.02)
             mom_y=-0.02;
 
-            std::cout<<mom_x<<std::endl;
+            //std::cout<<mom_x<<std::endl;
 
 
 
@@ -236,7 +236,7 @@ public:
             y+=-cy/1.1;
             }
             else{
-                std::cout<<"p:"<<s<<std::endl;
+               // std::cout<<"p:"<<s<<std::endl;
             x+=-cx;
             y+=-cy;
             }

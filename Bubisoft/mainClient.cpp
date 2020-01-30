@@ -231,7 +231,8 @@ atmos.Bubi_change_atmos("game12");
             {
             p.flag=Flag::player;
             p.pickup_flag=Flag::replay;
-          //  atmos.Bubi_change_atmos("game12");
+
+            //cout<<"---------------sad";
             }
             p.p_id=myid;
             p.mom_x=mom_x;
@@ -273,6 +274,9 @@ atmos.Bubi_change_atmos("game12");
                    case Flag::doublepoint :
                        game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,255,100);
                     break;
+                    case Flag::killpill :
+                       game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r(),255,20,10);
+                    break;
                    case Flag::dead_pickup:
 
                     break;
@@ -311,6 +315,9 @@ atmos.Bubi_change_atmos("game12");
                     break;
                    case Flag::doublepoint :
                        game->Draw_pickup(temp->get_x(),temp->get_y(),255,255,100);
+                    break;
+                     case Flag::killpill :
+                       game->Draw_pickup(temp->get_x(),temp->get_y(),255,20,10);
                     break;
                    default:
                       // game->Draw_player(temp->get_x(),temp->get_y(),temp->get_r()/2,0,0,0);
@@ -603,7 +610,10 @@ void MainClient::Tree_package(Bubi_package p) {
                     Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
                     break;
                 case Flag::dead :
-
+                    if(p.p_id==myid)
+                         atmos.Bubibip("dead");
+                         else if(p.bringflag==myid)
+                            atmos.Bubibip("nyam");
                     Players.erase(p.p_id);
 ///todo
                     if(p.p_id==echo.Get_ID()) {}//gamebool=false;
@@ -623,6 +633,7 @@ void MainClient::Tree_package(Bubi_package p) {
                     Players.at(p.p_id)->update(p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
                     break;
             }
+
             } else {
                     Player* temp= new Player(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag);
                     Players.insert(pair<uint32_t,Player*>(p.p_id,temp));
@@ -635,6 +646,8 @@ void MainClient::Tree_package(Bubi_package p) {
             pickups.erase(p.p_id);
             if(p.bringflag==(unsigned char)myid)
             atmos.Bubibip("Pickup");
+
+
         } else {
             PickUp *pickup = new PickUp(p.p_id,p.pos_x,p.pos_y,p.p_size,p.pickup_flag,p.point);
             pickups.insert(pair<uint32_t,PickUp*>(p.p_id,pickup));

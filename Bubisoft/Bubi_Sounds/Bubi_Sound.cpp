@@ -199,7 +199,7 @@ void Bubi_Sound::Bubibip(std::string bip)
     it = musics.find(music);
     if (it == musics.end())
         return;
-    Mix_FadeInMusic(it->second,-1,500);
+    Mix_FadeInMusic(it->second,-1,200);
     //Mix_PlayMusic(it->second,-1);
 
 /*

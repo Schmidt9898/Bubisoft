@@ -34,7 +34,8 @@ class MainClient {
 
 
 
-
+bool prekillsound=false;
+bool prechillsound=false;
 
 
 

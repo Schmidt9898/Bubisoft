@@ -1218,7 +1218,7 @@
 	"Bubi_package.h"
 	<atomic>
 
-1580236095 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
+1580390300 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubisoft_net\bubi_package.h
 	<vector>
 	<memory.h>
 	<iostream>
@@ -1253,7 +1253,7 @@
 	<SDL.h>
 	<SDL_net.h>
 
-1580321453 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
+1580392365 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.h
 	<string>
 	<map>
 	"Bubisoft_Net.hpp"
@@ -1267,7 +1267,7 @@
 	<stdint.h>
 	<Bubisoft_Net.hpp>
 
-1580387317 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
+1580394483 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\mainclient.cpp
 	"mainClient.h"
 	<iostream>
 	"Bubisoft_Net.hpp"
@@ -1291,7 +1291,7 @@
 	"global_variables.h"
 	<math.h>
 
-1580236094 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubi_sounds\bubi_sound.cpp
+1580392781 source:d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubi_sounds\bubi_sound.cpp
 	"Bubi_Sound.h"
 
 1580236094 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\bubi_sounds\bubi_sound.h
@@ -1673,7 +1673,7 @@
 	<thread>
 	<iostream>
 
-1580388927 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
+1580393751 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\drawable.h
 	<cmath>
 
 1561870368 d:\programozas\programok_gited\bubisoft\bubisoft\bubisoft\drawable\image\include\sdl2\sdl_image.h
