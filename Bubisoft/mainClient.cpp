@@ -157,7 +157,8 @@ tree_updater = new thread(MainClient::Tree_update,this);
 
     vec->push_back(p);
     echo.Push_Bubivector(vec);
-Client me;
+Client myself;
+myself.setPosition(0,0);
 
     ///MODELS / MESHES / OBJECTS
 atmos.Bubi_change_atmos("game12");
@@ -215,7 +216,36 @@ atmos.Bubi_change_atmos("game12");
                 //global_player_positions[0].x += 1 * cameraSpeed;
                 mom_x+=0.001;
             }
+            myself.update_Move(mom_x,mom_y);
+           myself.Move_one();
 
+            if(Players.find(echo.Get_ID())!=Players.end())
+            {
+            Player* me=Players.find(echo.Get_ID())->second;
+          if(myself.x!=me->x || myself.y!=me->y)
+                {
+                //cout<<"x:"<<myself.x-me->x<<" y:"<<myself.y-me->y<<endl;
+                myself.correctPosition(me->x,me->y);
+            }
+            if(me->get_pickup()==Flag::dead)
+            {
+            p.flag=Flag::player;
+            p.pickup_flag=Flag::replay;
+          //  atmos.Bubi_change_atmos("game12");
+            }
+            p.p_id=myid;
+            p.mom_x=mom_x;
+            p.mom_y=mom_y;
+            }else{
+            p.flag=Flag::player;
+            p.p_id=myid;
+            p.mom_x=0;
+            p.mom_y=0;
+            }
+            vector<Bubi_package> *vec = new vector<Bubi_package>();
+           // cout<<p.ToString()<<endl;
+            vec->push_back(p);
+            echo.Push_Bubivector(vec);
 
 
           /*  if(Players.find(echo.Get_ID())!=Players.end()) {
@@ -260,8 +290,8 @@ atmos.Bubi_change_atmos("game12");
                // if(temp->get_pickup()==Flag::dead) continue;
                 if(temp->get_id()==myid)
                 {
-                    game->update_camera(temp->get_x(), temp->get_y(),3.5+2*temp->get_r());
-                    game->Draw_player(temp->get_x(), temp->get_y(), temp->get_r(), 20,255,20);
+                    game->update_camera(myself.get_x(), myself.get_y(),3.5+2*temp->get_r());
+                    game->Draw_player(myself.get_x(), myself.get_y(), temp->get_r(), 20,255,20);
 
                 }else
                 {
@@ -302,29 +332,8 @@ atmos.Bubi_change_atmos("game12");
             game->Show();
 
 
-            if(Players.find(echo.Get_ID())!=Players.end())
-            {
-            Player* me=Players.find(echo.Get_ID())->second;
-            if(me->get_pickup()==Flag::dead)
-            {
-            p.flag=Flag::player;
-            p.pickup_flag=Flag::replay;
-          //  atmos.Bubi_change_atmos("game12");
-            }
-            p.p_id=myid;
-            p.mom_x=mom_x;
-            p.mom_y=mom_y;
-            }else{
-            p.flag=Flag::player;
-            p.p_id=myid;
-            p.mom_x=0;
-            p.mom_y=0;
-            }
-            vector<Bubi_package> *vec = new vector<Bubi_package>();
-           // cout<<p.ToString()<<endl;
-            vec->push_back(p);
-            echo.Push_Bubivector(vec);
-            std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(5));
       //  }
       //  game->draw_endScreen(Players.at(echo.Get_ID())->getPoint(), glm::vec3 (0.99f, 0.99f, 0.99f));
       //  game->Show();

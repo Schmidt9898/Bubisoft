@@ -5,9 +5,10 @@ class Drawable
 {
 protected:
     const uint32_t id=-1;
-    float x, y, r;
+
     int32_t p;
 public:
+     float x, y, r;
     Drawable(uint32_t id_,float pos_x,float pos_y,float size,int32_t point):id(id_),x(pos_x),y(pos_y),r(size),p(point) {};
     Drawable(){};
 
@@ -179,43 +180,32 @@ public:
             y -= y/s;*/
         }
     void Move_one() {
-          /*if(mom_x>0.02)
+        mom_x+=nyom_x;
+        mom_y+=nyom_y;
+
+        if(mom_x>0.02)
             mom_x=0.02;
         if(mom_x<-0.02)
             mom_x=-0.02;
         if(mom_y>0.02)
             mom_y=0.02;
         if(mom_y<-0.02)
-            mom_y=-0.02;*/
+            mom_y=-0.02;
+
+            std::cout<<mom_x<<std::endl;
 
 
-
-//std::cout<<"p:"<<x<<" p:"<<y<<std::endl;
-
-
-
-
-        mom_x+=nyom_x;
-        mom_y+=nyom_y;
 
         if(nyom_x==0 && nyom_y==0){
         mom_x/=1.05;
         mom_y/=1.05;
         }
-
-
         x+=mom_x;
         y+=mom_y;
-
-
-
         x-=mom_x*0.01;
         y-=mom_y*0.01;
         mom_x-=mom_x*0.01;
         mom_y-=mom_y*0.01;
-
-     //   std::cout<<"x:"<<x<<" y:"<<y<<std::endl;
-
         if(sqrt(x*x+y*y)+r >= 10)
         {
             mom_x/=1.05;
@@ -223,18 +213,34 @@ public:
             float s=sqrt(x*x+y*y)*100;
             mom_x+=-x/s;
             mom_y+=-y/s;
-            /*float s=sqrt(x*x+y*y)*10;
-            x -= x/s;
-            y -= y/s;*/
+
         }
-/*
-        if(pickup=='c' || pickup=='d' || pickup=='e' || pickup=='f') {
-            auto end = std::chrono::system_clock::now();
-            std::chrono::duration<double> diff = end-pickup_get_time;
-            if(diff>pickup_length) {
-                pickup = '0';
+
+    }
+
+    void correctPosition(float x_, float y_) {
+       float cx=(x-x_),cy=(y-y_);
+       /*if(cx<=0.1 && cy<=0.1)
+       {
+           cx=0;
+           cy=0;
+       }*/
+       float s=sqrt(cx*cx+cy*cy);
+       //if(s<0.05)
+       //std::cout<<"s:"<<s<<std::endl;
+       if(s<0.5){
+            x+=-cx/1.5;
+            y+=-cy/1.5;
+            }else if(s>0.5 && s<2){
+            x+=-cx/1.1;
+            y+=-cy/1.1;
             }
-        }*/
+            else{
+                std::cout<<"p:"<<s<<std::endl;
+            x+=-cx;
+            y+=-cy;
+            }
+
     }
 
     void Move() {
