@@ -1,6 +1,8 @@
 #ifndef DRAWABLE_H_INCLUDED
 #define DRAWABLE_H_INCLUDED
 #include <cmath>
+
+
 class Drawable
 {
 protected:
@@ -71,6 +73,17 @@ class PickUp : public Drawable
 public :
     PickUp(uint32_t id_,float pos_x,float pos_y,float size,unsigned char flag,int32_t point):Drawable(id_,pos_x,pos_y,size,point),type(flag) {};
 
+     bool inside(Drawable* it) ///me inside it
+    {
+        //std::cout << "inside test" << std::endl;
+        if(r>=it->r)
+            return false;
+        else
+            return ((sqrt(  pow(x-it->x,2) +  pow(y-it->y,2) ))<= it->r);
+
+    }
+
+
     void InteractionWith(Drawable& it){};
     void Draw() {};
     std::chrono::system_clock::duration getLength() {
@@ -108,7 +121,8 @@ public :
 
 class Client : public Drawable
 {
-    float mom_x,mom_y;
+    float mom_x=0,mom_y=0;
+    float nyom_x=0,nyom_y=0;
     unsigned char pickup;
     bool ready;
     float max_x=10;
@@ -122,7 +136,7 @@ class Client : public Drawable
 
 public:
     Client(uint32_t id_,float pos_x,float pos_y,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,0.06,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
-
+   // Client():Drawable(){};
     void InteractionWith(Drawable& it) {};
     void Draw() {};
 
@@ -147,16 +161,13 @@ public:
     void set_pickup(unsigned char c) {pickup=c;}
 
     void update_Move(float mom_x_, float mom_y_) {
-        mom_x+=mom_x_;
-        mom_y+=mom_y_;
-        std::cout<<mom_x<<std::endl;
+        nyom_x=mom_x_;
+        nyom_y=mom_y_;
+        //std::cout<<mom_x<<std::endl;
 
 
 
-        if(mom_x_==0 && mom_y_==0){
-        mom_x/=1.05;
-        mom_y/=1.05;
-        }
+
         /*x+=mom_x;
         y+=mom_y;
 
@@ -177,29 +188,28 @@ public:
             y -= y/s;*/
         }
     void Move_one() {
-          /*if(mom_x>0.02)
+        mom_x+=nyom_x;
+        mom_y+=nyom_y;
+        if(mom_x>0.02)
             mom_x=0.02;
         if(mom_x<-0.02)
             mom_x=-0.02;
         if(mom_y>0.02)
             mom_y=0.02;
         if(mom_y<-0.02)
-            mom_y=-0.02;*/
+            mom_y=-0.02;
 
 
-
-
+        if(nyom_x==0 && nyom_y==0){
+        mom_x/=1.05;
+        mom_y/=1.05;
+        }
         x+=mom_x;
         y+=mom_y;
-
-
-
         x-=mom_x*0.01;
         y-=mom_y*0.01;
         mom_x-=mom_x*0.01;
         mom_y-=mom_y*0.01;
-
-
         if(sqrt(x*x+y*y)+r >= 10)
         {
             mom_x/=1.05;
@@ -207,18 +217,34 @@ public:
             float s=sqrt(x*x+y*y)*100;
             mom_x+=-x/s;
             mom_y+=-y/s;
-            /*float s=sqrt(x*x+y*y)*10;
-            x -= x/s;
-            y -= y/s;*/
+
         }
-/*
-        if(pickup=='c' || pickup=='d' || pickup=='e' || pickup=='f') {
-            auto end = std::chrono::system_clock::now();
-            std::chrono::duration<double> diff = end-pickup_get_time;
-            if(diff>pickup_length) {
-                pickup = '0';
+
+    }
+
+    void correctPosition(float x_, float y_) {
+       float cx=(x-x_),cy=(y-y_);
+       /*if(cx<=0.1 && cy<=0.1)
+       {
+           cx=0;
+           cy=0;
+       }*/
+       float s=sqrt(cx*cx+cy*cy);
+       //if(s<0.05)
+       //std::cout<<"s:"<<s<<std::endl;
+       if(s<0.5){
+            x+=-cx/1.5;
+            y+=-cy/1.5;
+            }else if(s>0.5 && s<2){
+            x+=-cx/1.1;
+            y+=-cy/1.1;
             }
-        }*/
+            else{
+                std::cout<<"p:"<<s<<std::endl;
+            x+=-cx;
+            y+=-cy;
+            }
+
     }
 
     void Move() {
@@ -268,5 +294,4 @@ public:
         y=y_;
     }
 };
-
 #endif // DRAWABLE_H_INCLUDED

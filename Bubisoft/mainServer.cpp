@@ -105,10 +105,12 @@ void MainServer::start_game() {
 void MainServer::get_values() {
     //cout << "values" << endl;
     while(true){///TODO ne legyen true
+//this_thread::sleep_for(chrono::milliseconds(10));
     reader = server->Pop_Bubivector();
-    treeM.lock();
+    cout<<reader->size()<<endl;
+treeM.lock();
     for( Bubi_package p : *reader) {
-            //cout << p.ToString() << endl;
+           // cout << p.ToString() << endl;
             if(p.flag==Flag::player && clients.find(p.p_id) == clients.end()) {
                 unsigned char ch =Flag::dead;
                 Client* c = new Client(p.p_id,p.pos_x,p.pos_y,ch,p.mom_x,p.mom_y); ///default start size = 0.06 for players
@@ -131,6 +133,7 @@ void MainServer::get_values() {
                // if(clients.at(p.p_id)->isReady()){
                     //if(p.flag==Flag::notset) {
                         clients.at(p.p_id)->update_Move(p.mom_x, p.mom_y);
+                      //  clients.at(p.p_id)->update_Move(0.001, 0.001);
                         //cout << "Moving" << endl;
                         //  clients.insert(p.p_id,c)
                    // }
@@ -152,6 +155,8 @@ void MainServer::get_values() {
                 }
 
     }
+   // calculate();
+   // send_values();
     treeM.unlock();
     delete reader;
     }
@@ -188,6 +193,10 @@ void MainServer::calculate() {
             continue;
         }
         it->second->Move_one();
+
+         if(it->second->get_r()>0.05) {
+            it->second->set_r(it->second->get_r()-0.000005);
+        }
     }
 
     for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
@@ -231,12 +240,10 @@ void MainServer::calculate() {
         }
         player->update();
     }
-    for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
+   /* for(map<uint32_t,Client*>::iterator it = clients.begin(); it != clients.end(); ++it) {
         //it->second->Move();
-        if(it->second->get_r()>0.05) {
-            it->second->set_r(it->second->get_r()-0.000005);
-        }
-    }
+
+    }*/
 }
 
 void MainServer::send_values() {
