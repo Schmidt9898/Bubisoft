@@ -97,7 +97,8 @@ enum Flag :char
     food='c',
     food1='d',
     immortal='e',
-    doublepoint='f'
+    doublepoint='f',
+    killpill='k'
 };
 
 enum purpose :char

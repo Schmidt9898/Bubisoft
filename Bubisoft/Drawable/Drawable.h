@@ -135,6 +135,7 @@ class Client : public Drawable
     //std::chrono::system_clock::duration pickup_length = std::chrono::system_clock::duration:: ;
 
 public:
+    uint32_t mykillerid=-1;
     Client(uint32_t id_,float pos_x,float pos_y,unsigned char pickup_,float mom_x_, float mom_y_):Drawable(id_,pos_x,pos_y,0.06,0),mom_x(mom_x_),mom_y(mom_y_),pickup(pickup_) {ready=false;}
    // Client():Drawable(){};
     void InteractionWith(Drawable& it) {};
@@ -240,7 +241,7 @@ public:
             y+=-cy/1.1;
             }
             else{
-                std::cout<<"p:"<<s<<std::endl;
+              //  std::cout<<"p:"<<s<<std::endl;
             x+=-cx;
             y+=-cy;
             }

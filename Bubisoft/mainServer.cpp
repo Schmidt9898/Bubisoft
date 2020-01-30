@@ -105,9 +105,9 @@ void MainServer::start_game() {
 void MainServer::get_values() {
     //cout << "values" << endl;
     while(true){///TODO ne legyen true
-//this_thread::sleep_for(chrono::milliseconds(10));
+this_thread::sleep_for(chrono::milliseconds(10));
     reader = server->Pop_Bubivector();
-    cout<<reader->size()<<endl;
+    //cout<<reader->size()<<endl;
 treeM.lock();
     for( Bubi_package p : *reader) {
            // cout << p.ToString() << endl;
@@ -227,13 +227,26 @@ void MainServer::calculate() {
             if(player->get_pickup()==Flag::immortal) continue;
             if(player2->get_pickup()!=Flag::dead){
                 if(player->inside(player2)){
+                        if(player->get_pickup()==Flag::killpill)
+                        {
+
+                            player->set_r(0.1+player->get_r());
+                    //it->second->set_r(0);
+                    player2->set_flag(Flag::dead);
+                    player->addPoint(20);
+                    player->set_pickup(Flag::food);
+
+                        }else{
                     player2->set_r(player->get_r()+player2->get_r());
                     //it->second->set_r(0);
                     player->set_flag(Flag::dead);
+                    player->mykillerid=player2->get_id();
                     player2->addPoint((int32_t)player->get_r()*100);
                     if(player2->get_pickup()==Flag::doublepoint) {
                         player2->addPoint((int32_t)player->get_r()*100);
                     }
+                        }
+
                     break;
                 }
             }
@@ -261,6 +274,7 @@ void MainServer::send_values() {
             bubi.p_id=it->first;
             bubi.point=it->second->getPoint();
             bubi.flag=Flag::player;
+            bubi.bringflag=(unsigned char)it->second->mykillerid;
             //cout << bubi.ToString() << endl;
             ///TODO - bubi feltöltése?
             vec->push_back(bubi);
@@ -515,8 +529,11 @@ while(true){
 
             unsigned char flag;
             int32_t point = 5;
-
             if((rand() % 16)==0){
+            flag=Flag::killpill;
+            point+=2;
+            }
+            else if((rand() % 16)==0){
             flag=Flag::immortal;
             point+=2;
             }
