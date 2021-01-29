@@ -106,7 +106,7 @@ void MainClient::Loop() {
 
         atmos.Unload();
         atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
-        atmos.Volume_atmos(40);
+        atmos.Volume_atmos(0);
         atmos.Volume_bip(128);
           atmos.Volume(volume);
         atmos.Bubi_change_atmos("game1");
