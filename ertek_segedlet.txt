@@ -1,0 +1,26 @@
+alapértelmezett pályaméret: 20*20 (-10;10)
+játékos kezdőmérete: 0.06
+játékos méretcsökkenése lépésenként: 0.0001
+pickup mérete: 0.04
+játékos timeout: 2 másodperc
+pickup termelés: 1s-5s
+pickup pontszám: 5-25
+max játékidő: 15p
+
+flagek:
+    notset=0,   ///általános player csomag
+    player=1,   ///new player
+    pickup=2,   ///pickup típusú csomag
+    name=3,     ///new name
+    ready=4,    ///player készen áll a játékra
+    not_ready=5,///player nem áll készen a játékra
+    dead=6,     ///player meghalt
+    disconn=7,  ///player lecsatlakozott
+    replay=8,   ///player újra játszani akar
+    winner=9,   ///playernek van a legtöbb pontja
+    game_end=10,
+	
+    food=11,
+    food1=12,
+    immortal=13,
+    doublepoint=14

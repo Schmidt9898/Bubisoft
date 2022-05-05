@@ -96,6 +96,25 @@ void Bubi_Server::Accepting_TCP_loop()
 
             clients.push_back(client);
             Readers.push_back(new std::thread(Bubi_Server::Reader_loop,this,client));
+
+
+            ///idküld
+
+            char* buff_to_send = (char*) &clients_id_counter;
+            size_t buff_size=sizeof(clients_id_counter);
+
+
+            int error=SDLNet_TCP_Send(client,buff_to_send,buff_size);
+                if(error<(int)buff_size)///nem megfelelő
+                {
+                    ///TODO ellenörzés
+                    //   throw new Lost_connection_exception(SDLNet_GetError());
+                    std::cout<<"id küldés hiba"<<std::endl;
+                }
+
+            number_of_clients++;
+            clients_id_counter++;
+            ///idvége
             ///notify
             Clients_C.notify_all();
 
@@ -181,7 +200,7 @@ void Bubi_Server::Reader_loop(TCPsocket client)
     {
         delete buff;///maybe
     }
-    clients.remove(client);
+    //clients.remove(client);
 }
 
 
@@ -203,9 +222,26 @@ void Bubi_Server::Sender_loop()
                 int error=SDLNet_TCP_Send(client,buff_to_send,buff_size);
                 if(error<(int)buff_size)///nem megfelelő
                 {
-                    ///TODO hibakezelés
+                    ///TODO ellenörzés
                     //   throw new Lost_connection_exception(SDLNet_GetError());
                     std::cout<<"hiba a server sockettel 2"<<std::endl;
+
+
+                     Clients_M.lock();
+                    clients.remove(client);
+                    number_of_clients--;
+
+                    ///notify
+                    Clients_C.notify_all();
+
+
+                    ///felold
+                    Clients_M.unlock();
+
+
+
+
+
                 }
 
             }
